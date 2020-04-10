@@ -17,6 +17,59 @@ create or replace FUNCTION ASSERT_EQUALS (salida BOOLEAN, salidaEsperada BOOLEAN
 /*                      CABECERAS de paquetes                      */
 /*=================================================================*/
 
+--Tabla Usuarios
+create or replace PACKAGE PRUEBAS_USUARIOS AS
+    PROCEDURE inicializar;
+    PROCEDURE insertar
+        (nombrePrueba VARCHAR2,
+        w_dniUsuario IN Usuarios.dniUsuario%TYPE,
+        w_nombre_usuario IN Usuarios.nombreCompletoUsuario%TYPE,
+        w_nick_usuario IN Usuarios.nickUsuario%TYPE,
+        w_email_usuario IN Usuarios.emailUsuario%TYPE,
+        w_num_usuario IN Usuarios.numTelefonoUsuario%TYPE,
+        w_passUsuario IN Usuarios.passUsuario%TYPE,
+        w_confirmPass IN Usuarios.confirmPassUsuario%TYPE,
+        salidaEsperada BOOLEAN);
+    PROCEDURE actualizar
+        (nombrePrueba VARCHAR2,
+        w_dniUsuario IN Usuarios.dniUsuario%TYPE,
+        w_nombre_usuario IN Usuarios.nombreCompletoUsuario%TYPE,
+        w_nick_usuario IN Usuarios.nickUsuario%TYPE,
+        w_email_usuario IN Usuarios.emailUsuario%TYPE,
+        w_num_usuario IN Usuarios.numTelefonoUsuario%TYPE,
+        w_passUsuario IN Usuarios.passUsuario%TYPE,
+        w_confirmPass IN Usuarios.confirmPassUsuario%TYPE,
+        salidaEsperada BOOLEAN);
+    PROCEDURE eliminar
+        (nombrePrueba VARCHAR2,
+         w_dniUsuario IN Usuarios.dniUsuario%TYPE,
+         salidaEsperada BOOLEAN);
+
+END PRUEBAS_USUARIOS;
+/
+
+--Tabla Seguimientos
+
+create or replace PACKAGE PRUEBAS_SEGUIMIENTOS AS
+    PROCEDURE inicializar;
+    PROCEDURE insertar
+        (nombrePrueba VARCHAR2,
+        w_dniUsuario IN Seguimientos.dniUsuario%TYPE,
+        w_dniJugador IN Seguimientos.dniJugador%TYPE,
+        w_opinion IN Seguimientos.opinion%TYPE,
+        salidaEsperada BOOLEAN);
+    PROCEDURE actualizar
+        (nombrePrueba VARCHAR2,
+        w_oid_seg IN Seguimientos.OID_SEG%TYPE,
+        w_opinion IN Seguimientos.opinion%TYPE,
+        salidaEsperada BOOLEAN);
+    PROCEDURE eliminar
+        (nombrePrueba VARCHAR2,
+        w_oid_seg IN Seguimientos.OID_SEG%TYPE,
+        salidaEsperada BOOLEAN);
+
+END PRUEBAS_SEGUIMIENTOS;
+/
 --Tabla Videojuegos
 
 create or replace PACKAGE PRUEBAS_VIDEOJUEGOS AS
@@ -374,6 +427,274 @@ END PRUEBAS_PARTIDOS;
 /*                        CUERPOS de paquetes                      */
 /*=================================================================*/
 
+--Tabla Usuarios
+create or replace PACKAGE BODY PRUEBAS_USUARIOS AS
+    /* INICIALIZACIÓN */
+    PROCEDURE inicializar AS
+    BEGIN
+        /*Borrar contenido de la tabla*/
+        DELETE FROM usuarios;
+    END inicializar;
+    /* INSERCIÓN */
+    PROCEDURE insertar (nombrePrueba VARCHAR2,
+        w_dniUsuario IN Usuarios.dniUsuario%TYPE,
+        w_nombre_usuario IN Usuarios.nombreCompletoUsuario%TYPE,
+        w_nick_usuario IN Usuarios.nickUsuario%TYPE,
+        w_email_usuario IN Usuarios.emailUsuario%TYPE,
+        w_num_usuario IN Usuarios.numTelefonoUsuario%TYPE,
+        w_passUsuario IN Usuarios.passUsuario%TYPE,
+        w_confirmPass IN Usuarios.confirmPassUsuario%TYPE,
+        salidaEsperada BOOLEAN) AS 
+        salida BOOLEAN := true;
+        usuario usuarios%ROWTYPE;
+        
+    BEGIN
+        /* Insertar Usuario */
+       insertar_usuarios(w_dniUsuario,w_nombre_usuario,w_nick_usuario,w_email_usuario,w_num_usuario,
+       w_passUsuario,w_confirmPass);
+        
+        IF(usuario.dniUsuario<>w_dniUsuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.nombreCompletoUsuario<>w_nombre_usuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.nickUsuario<>w_nick_usuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.emailUsuario<>w_email_usuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.numTelefonoUsuario<>w_num_usuario)THEN
+            salida := false;
+        END IF;
+        IF(usuario.passUsuario<>w_passUsuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.confirmPassUsuario<>w_confirmPass)THEN
+            salida := false;
+        END IF;
+        
+        COMMIT WORK;
+        EXCEPTION
+        WHEN OTHERS THEN
+            dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(salida, salidaEsperada));
+            ROLLBACK;
+        
+        /* Mostrar resultado de la prueba */
+        dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(false, salidaEsperada));
+        
+        
+    END insertar;
+            
+    /* ACTUALIZACIÓN */      
+            
+     PROCEDURE actualizar ( 
+        nombrePrueba VARCHAR2,
+        w_dniUsuario IN Usuarios.dniUsuario%TYPE,
+        w_nombre_usuario IN Usuarios.nombreCompletoUsuario%TYPE,
+        w_nick_usuario IN Usuarios.nickUsuario%TYPE,
+        w_email_usuario IN Usuarios.emailUsuario%TYPE,
+        w_num_usuario IN Usuarios.numTelefonoUsuario%TYPE,
+        w_passUsuario IN Usuarios.passUsuario%TYPE,
+        w_confirmPass IN Usuarios.confirmPassUsuario%TYPE,
+        salidaEsperada BOOLEAN) AS 
+        salida BOOLEAN := true;
+        usuario usuarios%ROWTYPE;
+    
+    BEGIN
+        /* Actualizar usuario */
+        UPDATE usuarios SET nombreCompletoUsuario = w_dniUsuario, nickUsuario = w_nick_usuario, emailUsuario = w_email_usuario,
+        numTelefonoUsuario = w_num_usuario, passUsuario = w_passUsuario, confirmPassUsuario = w_confirmPass
+        WHERE dniUsuario = w_dniUsuario;
+        
+          IF(usuario.dniUsuario<>w_dniUsuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.nombreCompletoUsuario<>w_nombre_usuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.nickUsuario<>w_nick_usuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.emailUsuario<>w_email_usuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.numTelefonoUsuario<>w_num_usuario)THEN
+            salida := false;
+        END IF;
+        IF(usuario.passUsuario<>w_passUsuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.confirmPassUsuario<>w_confirmPass)THEN
+            salida := false;
+        END IF;
+        
+        COMMIT WORK;
+        
+        /* Mostrar resultado de la prueba */
+        dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(salida, salidaEsperada));
+        
+        EXCEPTION
+        WHEN OTHERS THEN
+            dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(false, salidaEsperada));
+            ROLLBACK;
+    END actualizar;
+    
+    PROCEDURE eliminar (nombrePrueba VARCHAR2,
+        w_dniUsuario IN Usuarios.dniUsuario%TYPE,
+        salidaEsperada BOOLEAN) AS 
+        salida BOOLEAN := true;
+        n_usuarios INTEGER;
+        
+    BEGIN
+        /* Eliminar usuario */
+        DELETE FROM usuarios where dniUsuario = w_dniUsuario;
+        
+        /* Verificar que el usuario no se encuentra en la BD */
+        select count(*) into n_usuarios from usuarios where dniUsuario = w_dniUsuario;
+        IF(n_usuarios <> 0) THEN
+            salida := false;
+        END IF;
+        COMMIT WORK;
+        
+        /* Mostrar resultado de la prueba */
+        dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(salida, salidaEsperada));
+        
+        EXCEPTION
+        WHEN OTHERS THEN
+            dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(false, salidaEsperada));
+            ROLLBACK;
+        
+    END eliminar;
+
+END;    
+           
+/
+
+--Tabla Seguimientos
+
+create or replace PACKAGE BODY PRUEBAS_SEGUIMIENTOS AS
+    /* INICIALIZACIÓN */
+    PROCEDURE inicializar AS
+    BEGIN
+        /*Borrar contenido de la tabla*/
+        DELETE FROM seguimientos;
+    END inicializar;
+
+    /* INSERCIÓN */
+    PROCEDURE insertar (nombrePrueba VARCHAR2,
+        w_dniUsuario IN Seguimientos.dniUsuario%TYPE,
+        w_dniJugador IN Seguimientos.dniJugador%TYPE,
+        w_opinion IN Seguimientos.opinion%TYPE,
+        salidaEsperada BOOLEAN) AS 
+        salida BOOLEAN := true;
+        seguimiento seguimientos%ROWTYPE;
+        w_oid_seg NUMBER;
+   
+   BEGIN
+        /* Insertar seguimiento */
+       insertar_seguimientos(w_dniUsuario, w_dniJugador, w_opinion);
+        
+        /* Seleccionar seguimiento y comprobar que los datos se han insertado correctamente */
+        w_oid_seg := sec_oid_seg.currval;
+        select * into seguimiento FROM seguimientos WHERE seguimientos.oid_seg = w_oid_seg;
+        
+        IF(seguimiento.dniUsuario<>w_dniUsuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(seguimiento.dniJugador<>w_dniJugador)THEN
+            salida := false;
+        END IF;
+        
+        IF(seguimiento.opinion<>w_opinion)THEN
+            salida := false;
+        END IF;
+        
+        COMMIT WORK;
+        EXCEPTION
+        WHEN OTHERS THEN
+            dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(salida, salidaEsperada));
+            ROLLBACK;
+        
+        /* Mostrar resultado de la prueba */
+        dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(false, salidaEsperada));
+        
+        
+    END insertar;
+            
+    /* ACTUALIZACIÓN */      
+            
+     PROCEDURE actualizar (nombrePrueba VARCHAR2,
+        w_oid_seg IN Seguimientos.OID_SEG%TYPE,
+        w_opinion IN Seguimientos.opinion%TYPE,
+        salidaEsperada BOOLEAN) AS 
+        salida BOOLEAN := true;
+        seguimiento seguimientos%ROWTYPE;
+    
+    BEGIN
+        /* Actualizar seguimiento */
+        UPDATE seguimientos SET opinion = w_opinion
+        WHERE oid_seg = w_oid_seg;
+        
+        /* Seleccionar seguimiento y comprobar que los campos se actualizaron correctamente */
+        select * into seguimiento from seguimientos where oid_seg = w_oid_seg;
+        IF(seguimiento.opinion<>w_opinion)THEN
+            salida := false;
+        END IF;
+        
+        COMMIT WORK;
+        
+        /* Mostrar resultado de la prueba */
+        dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(salida, salidaEsperada));
+        
+        EXCEPTION
+        WHEN OTHERS THEN
+            dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(false, salidaEsperada));
+            ROLLBACK;
+    END actualizar;
+    
+    PROCEDURE eliminar (nombrePrueba VARCHAR2,
+        w_oid_seg IN Seguimientos.OID_SEG%TYPE,
+        salidaEsperada BOOLEAN) AS 
+        salida BOOLEAN := true;
+        n_seguimientos INTEGER;
+        
+    BEGIN
+        /* Eliminar seguimiento */
+        DELETE FROM seguimientos where oid_seg = w_oid_seg;
+        
+        /* Verificar que el videojuego no se encuentra en la BD */
+        select count(*) into n_seguimientos from seguimientos where oid_seg = w_oid_seg;
+        IF(n_seguimientos <> 0) THEN
+            salida := false;
+        END IF;
+        COMMIT WORK;
+        
+        /* Mostrar resultado de la prueba */
+        dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(salida, salidaEsperada));
+        
+        EXCEPTION
+        WHEN OTHERS THEN
+            dbms_output.put_line(nombrePrueba || ':' || ASSERT_EQUALS(false, salidaEsperada));
+            ROLLBACK;
+        
+    END eliminar;
+
+END;    
+           
+/
 --Tabla videojuegos
 
 create or replace PACKAGE BODY PRUEBAS_VIDEOJUEGOS AS
