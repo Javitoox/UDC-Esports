@@ -5,6 +5,8 @@ DECLARE
     oid_e INTEGER;
     oid_en INTEGER;
     oid_lp INTEGER;
+    oid_com INTEGER;
+    oid_ad INTEGER;
 BEGIN
 
 /* ======================================================== */
@@ -119,7 +121,7 @@ BEGIN
     pruebas_jugadores.insertar('Insertar jugador', '70945781E','Gustavo dos Santos',100,'472760425',9,'gustavito@gmail.com','14/01/13','gustavo69',0,'Ecuador',3,true);
     pruebas_jugadores.insertar('Insertar jugador', '70045000S','Óscar Baton',400,'432706723',8,'osquitass@gmail.com','20/01/13','ripper',0,'España',3,true);
     pruebas_jugadores.insertar('Insertar jugador', '70945781F','Leo Gago',500,'612760426',1,'leoleos@gmail.com','15/01/13','darknet',0,'Venezuela',4,true);
-    pruebas_jugadores.insertar('Insertar jugador', '870945781G','Sara Domínguez',500,'462760927',2,'saritalag@gmail.com','16/01/13','sweetlol',0,'Bolivia',4,true);  
+    pruebas_jugadores.insertar('Insertar jugador', '87094578G','Sara Domínguez',500,'462760927',2,'saritalag@gmail.com','16/01/13','sweetlol',0,'Bolivia',4,true);  
     pruebas_jugadores.insertar('Insertar jugador', '80945781H','Felipe Robertone',400,'492760428',3,'felipxxx@gmail.com','17/01/13','csilol',0,'Uruguay',5,true);
 
 
@@ -273,7 +275,8 @@ BEGIN
     pruebas_competiciones.insertar('Insertar competiciones','AoE World Tounrment',1100,'21/02/17',180,null,true);
     pruebas_competiciones.insertar('Insertar competiciones','Grefg Fortnite Cup',1000,'02/05/17',220,'1',true);
     pruebas_competiciones.insertar('Insertar competiciones','Fortnite Tour',1000,'02/06/17',220,null,true);
-
+ 
+    oid_com := SEC_OID_COM.currval
 
         /* ======================================================== */
         /*                    INSERCIÓN DE PARTIDOS                 */
@@ -359,6 +362,7 @@ BEGIN
     pruebas_adscripciones.insertar('Insertar adscripción','15/02/17',null,'60905000R',10,true);
     pruebas_adscripciones.insertar('Insertar adscripción','15/02/17',null,'60935000T',10,true);
 
+    oid_ad := SEC_OID_AD.currval
 
         /* ======================================================== */
         /*                 INSERCIÓN DE REDES SOCIALES              */
@@ -685,10 +689,95 @@ BEGIN
     
     oid_lp := SEC_OID_LP.currval;
 
+	/* ======================================================== */
+        /*          ACTUALIZACIÓN Y ELIMINACIÓN DE USUARIOS         */
+        /* ======================================================== */
+
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995A', 'Alzate', 'alz2010', 'alzate@gmail.com', '696742091', 'Alzatillo23', 'Alzatillo23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995B', 'Vega', 'vega2010', 'vega@gmail.com', '696742092', 'Veguita23', 'Veguita23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995C', 'Fali', 'fali2010', 'fali@gmail.com', '696742093', 'Fali23', 'Fali23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995D', 'Pombo', 'pombo2010', 'pombo@gmail.com', '696742094', 'Pombo23', 'Pombo23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995E', 'Choco', 'choco2010', 'choco@gmail.com', '696742096', 'Choco23', 'Choco23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995F', 'Puig', 'puig2010', 'puig@gmail.com', '696742097', 'Puig23', 'Puig23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995G', 'Rose', 'rose2010', 'rose@gmail.com', '696742098', 'Rose23', 'Rose23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995H', 'Ben', 'ben2010', 'ben@gmail.com', '696742099', 'Ben23', 'Ben23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995I', 'Harry', 'harry2010', 'harry@gmail.com', '696742011', 'Harry23', 'Harry23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995J', 'Kane', 'kane2010', 'kane@gmail.com', '696742021', 'Kane23', 'Kane23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995K', 'Maguire', 'maguire2010', 'maguire@gmail.com', '696742031', 'Maguire23', 'Maguire23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995L', 'Joelinton', 'joelinton2010', 'joelinton@gmail.com', '616742098', 'Joelinton23', 'Joelinton23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995M', 'Ayew', 'ayew2010', 'ayew@gmail.com', '626742099', 'Ayew23', 'Ayew23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995N', 'Allan', 'allan2010', 'allan@gmail.com', '636742011', 'Allan23', 'Allan23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995O', 'Milik', 'milik2010', 'milik@gmail.com', '646742021', 'Milik23', 'Milik23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995P', 'Noble', 'noble2010', 'noble@gmail.com', '656742031', 'Noble23', 'Noble23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995Q', 'Michail', 'michail2010', 'michail@gmail.com', '666742031', 'Michail23', 'Michail23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995R', 'Fornals', 'fornals2010', 'fornals@gmail.com', '676742031', 'Fornals23', 'Fornals23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995S', 'Sissoko', 'sissoko2010', 'sissoko@gmail.com', '686742031', 'Sissoko23', 'Sissoko23', true);
+    pruebas_usuarios.actualizar('Actualizar usuario', '29584995T', 'Ten-Hag', 'ten2010', 'tenhag@gmail.com', '696742031', 'Tenhag23', 'Tenhag23', true);
+
+
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995A', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995B', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995C', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995D', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995E', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995F', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995G', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995H', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995I', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995J', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995L', true);
+    pruebas_usuarios.eliminar('Eliminar usuario', '29584995M', true);
 
 
 
+        /* ======================================================== */
+        /*        ACTUALIZACIÓN Y ELIMINACIÓN DE SEGUIMIENTOS       */
+        /* ======================================================== */
     
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 1, 'Good Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 2, 'Awesome Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 3, 'Nice Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 4, 'Incredible Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 5, 'Big Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 6, 'Intelligent Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 7, 'Smart Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 8, 'Peaky Player'); 
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 9, 'Handsome Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 10, 'Beautiful Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 11, 'Freaking Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 12, 'Best Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 13, 'OMG');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 14, 'Tall Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 15, 'Small Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 16, 'Tiny Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 17, 'Amazing Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 18, 'Marvelous Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 19, 'Tactical Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 20, 'Heavy Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 21, 'Fast Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 22, 'Poweful Player');
+    pruebas_seguimientos.actualizar('Actualizar seguimiento', 23, 'Young Player');
+
+
+
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 1);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 2);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 3);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 4);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 5);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 6);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 7);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 8);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 9);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 10);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 11);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 12);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 13);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 14);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 15);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 16);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 17);
+    pruebas_seguimientos.eliminar('Eliminar seguimiento', 18);
 
   
 
