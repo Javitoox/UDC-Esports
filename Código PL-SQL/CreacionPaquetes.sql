@@ -2405,10 +2405,7 @@ package body PRUEBAS_LINEASDEPEDIDOS as
 
     DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(salida,salidaEsperada));
 
-    exception
-    when others then
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(false,salidaEsperada));
-    rollback;
+   
 
     END insertar;
     
