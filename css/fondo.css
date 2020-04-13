@@ -1,0 +1,29 @@
+*{
+	box-sizing:border-box;
+}
+body{
+	background-color:#4AA1FF;
+}
+#logo{
+	opacity:30%;
+	position:fixed;
+	height:50%;
+	width:100%;
+	top:25%;
+}
+
+@media only screen and (min-width: 600px) {
+	#logo{
+		width:70%;
+		left:15%;
+	}
+}
+
+@media only screen and (min-width: 800px) {
+	#logo{
+		top:0;
+		height:100%;
+		width:50%;
+		left:25%;
+	}
+}
