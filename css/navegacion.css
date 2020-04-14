@@ -1,3 +1,57 @@
-body {
-
+*{
+	box-sizing:border-box;
 }
+
+body {
+    margin: 0;
+}
+
+ul {
+	opacity:85%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 30%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+}
+
+li a {
+    display: block;
+    color: #000;
+    text-align:center;
+    text-decoration: none;
+    padding-top:40%;
+    padding-bottom:40%;
+    font-family:Impact, Charcoal, sans-serif;
+    font-size:100%;
+}
+
+li a:hover{
+    color:rgba(0, 15, 255, 0.5);
+}
+
+.caja{
+	height:14%;
+}
+
+#esquina{
+	height:75%;
+	width:75%;
+}
+
+.enl{
+	display: block;
+	width:10%;
+	height:10%;
+	clear:left;
+	margin-bottom:12px;
+}
+
+#enlaces{
+	position:fixed;
+	bottom:0;
+	left:12%;
+}
+
