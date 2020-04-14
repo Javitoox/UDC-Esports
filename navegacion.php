@@ -12,7 +12,7 @@
 	<?php include_once("fondo.php"); ?>
 
 	<ul>
-		<div class="caja"><li><a href="navegacion.php">
+		<div class="caja caja2"><li><a href="navegacion.php">
 			<img id="esquina" src="images/logo.png" alt="logo esquina">
 		</a></li></div>
 		<div class="caja"><li><a href="navegacion.php">Jugadores</a></li></div>
@@ -22,9 +22,9 @@
 		<div class="caja"><li><a href="navegacion.php">Perfil</a></li></div>
 	</ul>
 	<div id="enlaces">
-		<a href="navegacion.php"><img class="enl" src="images/insta.png" alt="logo"></a>
-		<a href="navegacion.php"><img class="enl" src="images/twich.png" alt="logo"></a>
-		<a href="navegacion.php"><img class="enl" src="images/twitter.png" alt="logo"></a>
+		<a href="https://www.instagram.com/udcesports/"><img class="enl" src="images/insta.png" alt="logo"></a>
+		<a href="https://www.twitch.tv/udconstantinaesports/"><img class="enl" src="images/twich.png" alt="logo"></a>
+		<a href="https://twitter.com/udcesports?lang=es"><img class="enl" src="images/twitter.png" alt="logo"></a>
 	</div>
 	
 </body>
