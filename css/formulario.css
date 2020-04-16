@@ -1,0 +1,20 @@
+*{
+	box-sizing:border-box;
+}
+
+#cabecera{
+	position:relative;
+	text-align: center;
+	font-family: "Segoe UI";
+	margin-top:100px;
+	color:white;
+}
+
+#altaUsuario{
+	position:absolute;
+	left:29%;
+}
+
+#boton{
+	text-align: center;
+}

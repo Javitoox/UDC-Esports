@@ -1,0 +1,38 @@
+*{
+	box-sizing:border-box;
+}
+body{
+	background-color:#B9D8EA;
+}
+h1{
+	font-family: "Segoe UI";
+	text-align:center;
+	font-size:300%;
+	color:#0D3D5A;
+	
+}
+#pikachu{
+	width:80%;
+	height:35%;
+	right:10%;
+}
+#frase{
+	text-align:center;
+	font-family: "Segoe UI";
+	top:10%;
+	color:#0D3D5A;
+}
+#error{
+	text-align:center;
+	font-family: "Segoe UI";
+	top:10%;
+	color:#0D3D5A;
+}
+@media only screen and (min-width: 800px) {
+#pikachu{
+	width:40%;
+	height:35%;
+	right:10%;
+}
+
+}
