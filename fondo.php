@@ -10,7 +10,7 @@
 </head>
 <body>
 	
-	<img class="col-5 col-tab-8" src="images/logo.png" alt="logo">
+	<img class="rej-5 rej-tab-8" src="images/logo.png" alt="logo">
 	
 </body>
 </html>

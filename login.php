@@ -27,20 +27,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Error</title>
+<title>Login</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width; initial-scale=1.0">
   <link rel="shortcut icon" href="images/logo.png">
   <link rel="apple-touch-icon" href="images/logo.png">
-  <link rel="stylesheet" type="text/css" href="css/login.css" />
-  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="css/formulario.css">
+  <link rel="stylesheet" type="text/css" href="css/error_form.css">
 </head>
 
 <body>
-
-
-
-<main>
+	<?php include_once("fondo.php"); ?>
+	
+	<h2>INICIAR SESIÓN</h2>
 
 	<?php if (isset($login)) {
 		echo "<div class=\"error\">";
@@ -49,20 +48,26 @@
 	}	
 	?>
 	
+	<div class="col-10 col-tab-10">
 	<form action="login.php" method="post">
 		<div>
-		<input placeholder="Usuario:" type="text" name="nickUsuario" id="nickUsuario" />
+		<input class="campo" placeholder="Usuario" type="text" name="nickUsuario" id="nickUsuario" />
 		</div>	
 		<div>
-		<input  placeholder="Contraseña: " type="password" name="passUsuario" id="passUsuario" />
+		<input class="campo"  placeholder="Contraseña" type="password" name="passUsuario" id="passUsuario" />
 		</div>
-		
-		<input type="submit" name="submit" value="submit" />
+		<div id="boton">
+		<input type="submit" value="Iniciar Sesión" />
+		</div>
 	</form>
-		
-	<p>¿No estás registrado? <a href="registro.php">¡Registrate!</a></p>
-</main>
-
+	
+	<div id="pie">
+	<a href="registro.php">Regístrate</a>
+	<a href="https://twitter.com/udcesports?lang=es">Twitter</a>
+	<a href="https://www.instagram.com/udcesports/">Instagram</a>
+	<a href="https://www.twitch.tv/udconstantinaesports/">Twitch</a>
+	</div>
+	</div>
 
 </body>
 </html>

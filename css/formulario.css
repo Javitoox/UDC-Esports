@@ -2,17 +2,58 @@
 	box-sizing:border-box;
 }
 
-#cabecera{
-	position:relative;
-	text-align: center;
+[class*="col-"] {
+	float: left;
+	width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+	.col-tab-1 {width: 10%;}
+	.col-tab-2 {width: 20%;}
+	.col-tab-3 {width: 30%;}
+	.col-tab-4 {width: 40%;}
+	.col-tab-5 {width: 50%;}
+	.col-tab-6 {width: 60%;}
+	.col-tab-7 {width: 70%;}
+	.col-tab-8 {width: 80%;}
+	.col-tab-9 {width: 90%;}
+	.col-tab-10{width:100%;}	
+}
+
+@media only screen and (min-width: 800px) {
+	.col-1 {width: 10%;}
+	.col-2 {width: 20%;}
+	.col-3 {width: 30%;}
+	.col-4 {width: 40%;}
+	.col-5 {width: 50%;}
+	.col-6 {width: 60%;}
+	.col-7 {width: 70%;}
+	.col-8 {width: 80%;}
+	.col-9 {width: 90%;}
+	.col-10{width: 100%;}	
+}
+
+h2{
+	margin-top:130px;
+	text-align:center;
 	font-family: "Segoe UI";
-	margin-top:100px;
 	color:white;
 }
 
-#altaUsuario{
-	position:absolute;
-	left:29%;
+div form{
+	text-align:center;
+	font-size:130%;
+}
+
+#pie{
+	margin-top:3%;
+	text-align:center;
+	font-family: "Segoe UI";
+}
+
+.campo{
+	height:25px;
+	width:210px;
 }
 
 #boton{

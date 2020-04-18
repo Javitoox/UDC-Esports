@@ -29,9 +29,12 @@
 	<link rel="shortcut icon" href="images/logo.png">
 	<link rel="apple-touch-icon" href="images/logo.png">
 	<link rel="stylesheet" type="text/css" href="css/formulario.css">
+	<link rel="stylesheet" type="text/css" href="css/error_form.css">
 </head>
 <body>
 	<?php include_once("fondo.php"); ?>
+	
+	<h2>REGÍSTRATE</h2>
 	
 	<?php 
 		if (isset($errores) && count($errores)>0) { 
@@ -42,36 +45,36 @@
   		}
 	?>
 	
-	<h1 id="cabecera">REGÍSTRATE</h1>
-	
-	<form id="altaUsuario" method="get" action="validacion_alta_usuario.php" novalidate>
+	<div class="col-10 col-tab-10">
+	<form method="get" action="validacion.php" novalidate>
 		
 		<div>
-			<input name="dniUsuario" type="text" placeholder="DNI/NIF" value="<?php echo $formulario['dniUsuario'];?>" required>
+			<input class="campo" name="dniUsuario" type="text" placeholder="DNI/NIF" value="<?php echo $formulario['dniUsuario'];?>" required>
 		</div>
 		<div>
-			<input name="nombreCompletoUsuario" type="text" placeholder="Nombre Completo" maxlength="80" value="<?php echo $formulario['nombreCompletoUsuario'];?>" required/>
+			<input class="campo" name="nombreCompletoUsuario" type="text" placeholder="Nombre Completo" maxlength="80" value="<?php echo $formulario['nombreCompletoUsuario'];?>" required/>
 		</div>
 		<div>
-			<input name="nickUsuario" type="text" placeholder="Usuario" maxlength="40" value="<?php echo $formulario['nickUsuario'];?>" required/>
+			<input class="campo" name="nickUsuario" type="text" placeholder="Usuario" maxlength="40" value="<?php echo $formulario['nickUsuario'];?>" required/>
 		</div>
 		<div>
-			<input name="emailUsuario" type="emailUsuario" placeholder="Email" value="<?php echo $formulario['emailUsuario'];?>" required/>
+			<input class="campo" name="emailUsuario" type="emailUsuario" placeholder="Email" value="<?php echo $formulario['emailUsuario'];?>" required/>
 		</div>
 		<div>
-			<input name="numTelefonoUsuario" type="tel" placeholder="Teléfono" value="<?php echo $formulario['numTelefonoUsuario'];?>" required/>
+			<input class="campo" name="numTelefonoUsuario" type="tel" placeholder="Teléfono" value="<?php echo $formulario['numTelefonoUsuario'];?>" required/>
 		</div>
 		<div>
-			<input name="passUsuario" type="password" placeholder="Contraseña" value="<?php echo $formulario["passUsuario"];?>" required/>
+			<input class="campo" name="passUsuario" type="password" placeholder="Contraseña" value="<?php echo $formulario["passUsuario"];?>" required/>
 		</div>
 		<div>
-			<input name="confirmPassUsuario" type="password" placeholder="Confirmar contraseña" value="<?php echo $formulario["confirmPassUsuario"];?>" required/>
+			<input class="campo" name="confirmPassUsuario" type="password" placeholder="Confirmar contraseña" value="<?php echo $formulario["confirmPassUsuario"];?>" required/>
 		</div>
 		<div id="boton">
 		    <input type="submit" value="Regístrate"/>
 		</div>
 		
 	</form>
+	</div>
 	
 </body>
 </html>
