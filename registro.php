@@ -10,7 +10,6 @@
 		$formulario['numTelefonoUsuario'] = "";
 		$formulario['passUsuario'] = "";
 		$formulario['confirmPassUsuario'] = "";
-		$formulario['seguimientos']=array();
 	
 		$_SESSION['formulario'] = $formulario;
 	}else{
