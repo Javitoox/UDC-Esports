@@ -178,6 +178,13 @@ identificador integer
 ---------------------------------------------------------------------
 -----------------------ATRIBUTOS NO NULOS----------------------------
 ---------------------------------------------------------------------
+--Usuarios
+alter table Usuarios modify (nombreCompletoUsuario not null);
+alter table Usuarios modify (nickUsuario not null);
+alter table Usuarios modify (emailUsuario not null);
+alter table Usuarios modify (numTelefonoUsuario not null);
+alter table Usuarios modify (passUsuario not null);
+alter table Usuarios modify (confirmPassUsuario not null);
 
 --Videojuegos
 alter table Videojuegos modify (nombreVideojuego not null);
@@ -194,6 +201,11 @@ alter table Jugadores modify (nombreVirtualJugador not null);
 alter table Jugadores modify (numRegalos not null);
 alter table Jugadores modify (nacionalidadJugador not null);
 alter table Jugadores modify (OID_V not null);
+
+--Seguimientos
+alter table Seguimientos modify (dniUsuario not null);
+alter table Seguimientos modify (dniJugador not null);
+alter table Seguimientos modify (opinion not null);
 
 --Entrenadores
 alter table Entrenadores modify (nombreEntrenador not null);
@@ -312,7 +324,10 @@ alter table LineasDePedidos add constraint PK_LineasDePedidos primary key (OID_L
 ---------------------------------------------------------------------
 ------------------------CLAVES ALTERNATIVAS--------------------------
 ---------------------------------------------------------------------
-
+--Usuarios
+alter table Usuarios add constraint AK_Usuarios_nick unique (nickUsuario);
+alter table Usuarios add constraint AK_Usuarios_email unique (emailUsuario);
+alter table Usuarios add constraint AK_Usuarios_telefono unique (numTelefonoUsuario);
 --Videojuegos
 alter table Videojuegos add constraint AK_Videojuegos_nombre unique (nombreVideojuego);
 --Jugadores
@@ -381,9 +396,6 @@ references Pedidos on delete cascade;
 --------------------------RESTRICCIONES------------------------------
 ---------------------------------------------------------------------
 
---Usuarios
-alter table Usuarios add constraint Email_Usuarios check (regexp_like
-(emailUsuario, '.*@.*\..+'));
 --Videojuegos
 alter table Videojuegos add constraint TipoIntroduccion check (introduccion in('Encuesta', 'PropioDelClub'));
 --Jugadores

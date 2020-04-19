@@ -54,8 +54,31 @@ div form{
 .campo{
 	height:25px;
 	width:210px;
+	border: 1px ridge blue;
+    border-radius: 15px;
+    -webkit-appearance: none;
 }
 
 #boton{
 	text-align: center;
+}
+
+#boton input{
+	text-decoration: none;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: helvetica;
+    font-size: 15px;
+    font-style: italic;
+    color: white;
+    background-color: blue;
+    border-radius: 15px;
+    border: 1px double white;
+}
+
+#boton input:hover{
+	color:blue;
+	background-color:white;
+	border: 1px double blue;
 }

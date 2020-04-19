@@ -1,39 +1,33 @@
 <?php
 
- function alta_usuario($conexion,$dniUsuario,$nombreCompletoUsuario,$nickUsuario,$emailUsuario,$numTelefonoUsuario,$passUsuario,$confirmPassUsuario) {
-
-	
-		$resultado=true;
-		$columnas=consultarUsuario($conexion,$dniUsuario);		
-		if (!$columnas){
-			try {
-				$stmt = $conexion->prepare("CALL INSERTAR_USUARIOS(:dniUsuario,:nombreCompletoUsuario,:nickUsuario,:emailUsuario,:numTelefonoUsuario,:passUsuario,:confirmPassUsuario)");
-				$stmt->bindParam(':dniUsuario',$dniUsuario);
-				$stmt->bindParam(':nombreCompletoUsuario',$nombreCompletoUsuario);
-				$stmt->bindParam(':nickUsuario',$nickUsuario);
-				$stmt->bindParam(':emailUsuario',$emailUsuario);
-				$stmt->bindParam(':numTelefonoUsuario',$numTelefonoUsuario);
-				$stmt->bindParam(':passUsuario',$passUsuario);
-				$stmt->bindParam(':confirmPassUsuario',$confirmPassUsuario);
-				$stmt->execute();
-			}catch(PDOException $e ) {
-				echo "El usuario no puede ser añadido." . $e->GetMessage();
-			}
-		} else{
-			$resultado=false;
-
-		}	
-			
-	$fila = null;
-	$usuarios=null;
+ function alta_usuario($conexion,$nuevoUsuario) {
+	$resultado=true;
+    try {
+		$stmt = $conexion->prepare("CALL INSERTAR_USUARIOS(:dniUsuario,:nombreCompletoUsuario,:nickUsuario,:emailUsuario,:numTelefonoUsuario,:passUsuario,:confirmPassUsuario)");
+		$stmt->bindParam(':dniUsuario',$nuevoUsuario['dniUsuario']);
+		$stmt->bindParam(':nombreCompletoUsuario',$nuevoUsuario['nombreCompletoUsuario']);
+		$stmt->bindParam(':nickUsuario',$nuevoUsuario['nickUsuario']);
+		$stmt->bindParam(':emailUsuario',$nuevoUsuario['emailUsuario']);
+		$stmt->bindParam(':numTelefonoUsuario',$nuevoUsuario['numTelefonoUsuario']);
+		$stmt->bindParam(':passUsuario',$nuevoUsuario['passUsuario']);
+		$stmt->bindParam(':confirmPassUsuario',$nuevoUsuario['confirmPassUsuario']);
+		$stmt->execute();
+	}catch(PDOException $e ) {
+		$_SESSION['excepcion'] = "El usuario ya existe en la base de datos.".$e->GetMessage();
+		$resultado=false;
+	}
 	return $resultado;
 }
 
-function consultarUsuario($conexion,$dniUsuario) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE dniUsuario=:dniUsuario ";
+function consultarUsuario($conexion,$nickUsuario,$passUsuario) {
+ 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE nickUsuario=:nickUsuario AND 
+ 	passUsuario=:passUsuario";
 	$stmt = $conexion->prepare($consulta);
-	$stmt->bindParam(':dniUsuario',$dniUsuario);
+	$stmt->bindParam(':nickUsuario',$nickUsuario);
+	$stmt->bindParam(':passUsuario',$passUsuario);
 	$stmt->execute();
 	return $stmt->fetchColumn();
 	
 }
+
+?>

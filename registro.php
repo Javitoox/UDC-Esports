@@ -1,6 +1,7 @@
 <?php
 	session_start();
 
+    //En el caso de que no exista sesión asignamos valores por defecto
 	if (!isset($_SESSION['formulario'])) {
 		$formulario['dniUsuario'] = "";
 		$formulario['nombreCompletoUsuario'] = "";
@@ -9,15 +10,17 @@
 		$formulario['numTelefonoUsuario'] = "";
 		$formulario['passUsuario'] = "";
 		$formulario['confirmPassUsuario'] = "";
+		$formulario['seguimientos']=array();
 	
 		$_SESSION['formulario'] = $formulario;
+	}else{
+		$formulario = $_SESSION['formulario'];
 	}
 	
-	else
-		$formulario = $_SESSION['formulario'];
-			
-	if (isset($_SESSION['errores']))
+	//Comprobamos si han llegado errores de validación		
+	if (isset($_SESSION['errores'])){
 		$errores = $_SESSION['errores'];
+	}
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +40,8 @@
 	<h2>REGÍSTRATE</h2>
 	
 	<?php 
-		if (isset($errores) && count($errores)>0) { 
+		if (isset($errores) && count($errores)>0) {
+			//Mostramos los errores en el caso de que los haya 
 	    	echo "<div id=\"div_errores\" class=\"error\">";
 			echo "<h4> Errores en el formulario:</h4>";
     		foreach($errores as $error) echo $error; 

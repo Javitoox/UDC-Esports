@@ -4,7 +4,7 @@
   	include_once("gestionBD.php");
  	include_once("gestionarUsuarios.php");
 	
-
+    //Comprobamos si el usuario le ha dado ha Inciar Sesión
 	if (isset($_POST['submit'])){
 		$nickUsuario= $_POST['nickUsuario'];
 		$passUsuario = $_POST['passUsuario'];
@@ -12,12 +12,15 @@
 		$conexion = crearConexionBD();
 		$num_usuarios = consultarUsuario($conexion,$nickUsuario,$passUsuario);
 		cerrarConexionBD($conexion);	
-	
-		if ($num_usuarios == 0)
-			$login = "error";	
+	    
+		//Si la variable es mayor que cero significa que no se ha encontrado el usuario
+		if (!$num_usuarios){
+			$login = "error";
+		}
 		else {
 			$_SESSION['login'] = $nickUsuario;
-			Header("Location: index.php");
+			//Próximamente enviaremos el usuario a la pantalla de inicio
+			Header("Location: fondo.php");
 		}	
 	}
 
@@ -40,8 +43,9 @@
 	<?php include_once("fondo.php"); ?>
 	
 	<h2>INICIAR SESIÓN</h2>
-
+     
 	<?php if (isset($login)) {
+		//Mostramos los errores en el caso de que los haya
 		echo "<div class=\"error\">";
 		echo "Error en la contraseña o no existe el usuario.";
 		echo "</div>";
@@ -57,7 +61,7 @@
 		<input class="campo"  placeholder="Contraseña" type="password" name="passUsuario" id="passUsuario" />
 		</div>
 		<div id="boton">
-		<input type="submit" value="Iniciar Sesión" />
+		<input name="submit" type="submit" value="Iniciar Sesión" />
 		</div>
 	</form>
 	
@@ -71,4 +75,3 @@
 
 </body>
 </html>
-
