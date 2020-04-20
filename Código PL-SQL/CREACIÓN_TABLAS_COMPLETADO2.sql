@@ -205,7 +205,6 @@ alter table Jugadores modify (OID_V not null);
 --Seguimientos
 alter table Seguimientos modify (dniUsuario not null);
 alter table Seguimientos modify (dniJugador not null);
-alter table Seguimientos modify (opinion not null);
 
 --Entrenadores
 alter table Entrenadores modify (nombreEntrenador not null);

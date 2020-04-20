@@ -13,7 +13,7 @@
 		$num_usuarios = consultarUsuario($conexion,$nickUsuario,$passUsuario);
 		cerrarConexionBD($conexion);	
 	    
-		//Si la variable es mayor que cero significa que no se ha encontrado el usuario
+		//Si la variable es cero significa que no se ha encontrado el usuario
 		if (!$num_usuarios){
 			$login = "error";
 		}

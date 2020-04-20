@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	
+	require_once("gestionBD.php");
+	require_once("gestionJugadores.php");
 
     //En el caso de que no exista sesión asignamos valores por defecto
 	if (!isset($_SESSION['formulario'])) {
@@ -10,6 +13,7 @@
 		$formulario['numTelefonoUsuario'] = "";
 		$formulario['passUsuario'] = "";
 		$formulario['confirmPassUsuario'] = "";
+		$formulario['seguimientos']=array();
 	
 		$_SESSION['formulario'] = $formulario;
 	}else{
@@ -50,7 +54,6 @@
 	
 	<div class="col-10 col-tab-10">
 	<form method="get" action="validacion.php" novalidate>
-		
 		<div>
 			<input class="campo" name="dniUsuario" type="text" placeholder="DNI/NIF" value="<?php echo $formulario['dniUsuario'];?>" required>
 		</div>
@@ -72,6 +75,25 @@
 		<div>
 			<input class="campo" name="confirmPassUsuario" type="password" placeholder="Confirmar contraseña" value="<?php echo $formulario["confirmPassUsuario"];?>" required/>
 		</div>
+		<div><label id="seg" for="seguimientos">¿Tienes algún jugador favorito?¡Te recomendamos estos!</label><br/>
+				<select multiple name="seguimientos[]" id="seguimientos" required>
+					<?php
+					$conexion = crearConexionBD();  
+					//Obtenemos a los mejores jugadores del club según los partidos ganados y los mostramor para elegir
+						$jugadores = listarMejoresJugadores($conexion);
+
+				  		foreach($jugadores as $jugador) {
+				  			if(in_array($jugador['DNIJUGADOR'], $formulario['seguimientos'])){ 
+								echo "<option value='".$jugador["DNIJUGADOR"]."' label='".$jugador["NOMBREVIRTUALJUGADOR"]."' selected/>";
+							}else{
+								echo "<option value='".$jugador["DNIJUGADOR"]."' label='".$jugador["NOMBREVIRTUALJUGADOR"]."'/>";
+							}
+						}
+					cerrarConexionBD($conexion);
+					?>
+				</select>
+		</div>
+		
 		<div id="boton">
 		    <input type="submit" value="Regístrate"/>
 		</div>
