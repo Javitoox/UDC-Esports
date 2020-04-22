@@ -12,7 +12,7 @@
 		$nuevoUsuario["nickUsuario"] = $_REQUEST["nickUsuario"];
 		$nuevoUsuario["emailUsuario"] = $_REQUEST["emailUsuario"];
 		$nuevoUsuario["emailUsuario"] = $_REQUEST["emailUsuario"];
-		$nuevoUsuario["fechaNacimientoUsuario"] = $_REQUEST["fechaNaicimientoUsuario"];
+		$nuevoUsuario["fechaNacimientoUsuario"] = $_REQUEST["fechaNacimientoUsuario"];
 		$nuevoUsuario["passUsuario"] = $_REQUEST["passUsuario"];
 		$nuevoUsuario["confirmPassUsuario"] = $_REQUEST["confirmPassUsuario"];
 		
