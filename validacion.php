@@ -11,7 +11,8 @@
 		$nuevoUsuario["nombreCompletoUsuario"] = $_REQUEST["nombreCompletoUsuario"];
 		$nuevoUsuario["nickUsuario"] = $_REQUEST["nickUsuario"];
 		$nuevoUsuario["emailUsuario"] = $_REQUEST["emailUsuario"];
-		$nuevoUsuario["numTelefonoUsuario"] = $_REQUEST["numTelefonoUsuario"];
+		$nuevoUsuario["emailUsuario"] = $_REQUEST["emailUsuario"];
+		$nuevoUsuario["fechaNacimientoUsuario"] = $_REQUEST["fechaNaicimientoUsuario"];
 		$nuevoUsuario["passUsuario"] = $_REQUEST["passUsuario"];
 		$nuevoUsuario["confirmPassUsuario"] = $_REQUEST["confirmPassUsuario"];
 		

@@ -2,12 +2,13 @@
 
  function alta_usuario($conexion,$nuevoUsuario) {
     try {
-		$stmt = $conexion->prepare("CALL INSERTAR_USUARIOS(:dniUsuario,:nombreCompletoUsuario,:nickUsuario,:emailUsuario,:numTelefonoUsuario,:passUsuario,:confirmPassUsuario)");
+		$stmt = $conexion->prepare("CALL INSERTAR_USUARIOS(:dniUsuario,:nombreCompletoUsuario,:nickUsuario,:emailUsuario,:fechaNacimientoUsuario,:numTelefonoUsuario,:passUsuario,:confirmPassUsuario)");
 		$stmt->bindParam(':dniUsuario',$nuevoUsuario['dniUsuario']);
 		$stmt->bindParam(':nombreCompletoUsuario',$nuevoUsuario['nombreCompletoUsuario']);
 		$stmt->bindParam(':nickUsuario',$nuevoUsuario['nickUsuario']);
 		$stmt->bindParam(':emailUsuario',$nuevoUsuario['emailUsuario']);
-		$stmt->bindParam(':numTelefonoUsuario',$nuevoUsuario['numTelefonoUsuario']);
+		$stmt->bindParam(':emailUsuario',$nuevoUsuario['emailUsuario']);
+		$stmt->bindParam(':fechaNacimientoUsuario',$nuevoUsuario['fechaNacimientoUsuario']);
 		$stmt->bindParam(':passUsuario',$nuevoUsuario['passUsuario']);
 		$stmt->bindParam(':confirmPassUsuario',$nuevoUsuario['confirmPassUsuario']);
 		$stmt->execute();

@@ -10,6 +10,7 @@
 		$formulario['nombreCompletoUsuario'] = "";
 		$formulario['nickUsuario'] = "";
 		$formulario['emailUsuario'] = "";
+		$formulario['fechaNacimientoUsuario'] = "";
 		$formulario['numTelefonoUsuario'] = "";
 		$formulario['passUsuario'] = "";
 		$formulario['confirmPassUsuario'] = "";
@@ -65,6 +66,9 @@
 		</div>
 		<div>
 			<input class="campo" name="emailUsuario" type="emailUsuario" placeholder="Email" value="<?php echo $formulario['emailUsuario'];?>" required/>
+		</div>
+		<div>
+			<input class="campo" name="fechaNacimientoUsuario" type="date" placeholder="Fecha de nacimiento" value="<?php echo $formulario['fechaNacimientoUsuario'];?>" required/>
 		</div>
 		<div>
 			<input class="campo" name="numTelefonoUsuario" type="tel" placeholder="Teléfono" value="<?php echo $formulario['numTelefonoUsuario'];?>" required/>

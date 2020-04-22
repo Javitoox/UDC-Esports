@@ -45,6 +45,5 @@
 	<div id="error" class='excepcion'>	
 		 <?php echo "Información relativa al problema:$excepcion"; ?>
 	</div>
-
 </body>
 </html>

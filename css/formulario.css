@@ -3,7 +3,6 @@
 }
 
 [class*="col-"] {
-	float: left;
 	width: 100%;
 }
 
