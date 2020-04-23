@@ -11,8 +11,8 @@
 		$nuevoUsuario["nombreCompletoUsuario"] = $_REQUEST["nombreCompletoUsuario"];
 		$nuevoUsuario["nickUsuario"] = $_REQUEST["nickUsuario"];
 		$nuevoUsuario["emailUsuario"] = $_REQUEST["emailUsuario"];
-		$nuevoUsuario["emailUsuario"] = $_REQUEST["emailUsuario"];
-		$nuevoUsuario["fechaNacimientoUsuario"] = $_REQUEST["fechaNacimientoUsuario"];
+		$nuevoUsuario["fechaNacimientoUsuario"] = getFechaFormateada($_REQUEST["fechaNacimientoUsuario"]);
+		$nuevoUsuario["numTelefonoUsuario"] = $_REQUEST["numTelefonoUsuario"];
 		$nuevoUsuario["passUsuario"] = $_REQUEST["passUsuario"];
 		$nuevoUsuario["confirmPassUsuario"] = $_REQUEST["confirmPassUsuario"];
 		
@@ -36,7 +36,7 @@
 		$_SESSION["errores"] = $errores;
 		Header('Location: registro.php');
 	} else
-		//Si todo ha ido bien iremos a acciob.php donde se hará la inserción del nuevo usuario
+		//Si todo ha ido bien iremos a accion.php donde se hará la inserción del nuevo usuario
 		Header('Location: accion.php');
 
 // Validación en servidor del formulario de alta de usuario
@@ -90,6 +90,11 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	
 		
 	return $errores;
+}
+
+function getFechaFormateada($fecha){ 
+	$fechaNacimiento = date('dd/mm/YYYY', strtotime($fecha));	
+	return $fechaNacimiento;
 }
 
 //Comprueba si los jugadores elegidos por el usuario están en la base de datos
