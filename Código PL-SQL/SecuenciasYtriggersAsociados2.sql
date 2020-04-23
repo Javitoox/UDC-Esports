@@ -311,14 +311,15 @@ create or replace PROCEDURE insertar_usuarios
 w_nombreCompletoUsuario IN Usuarios.nombreCompletoUsuario%TYPE,
 w_nickUsuario IN Usuarios.nickUsuario%TYPE,
 w_emailUsuario IN Usuarios.emailUsuario%TYPE,
+w_fechaNacimientoUsuario IN Usuarios.fechaNacimientoUsuario%TYPE,
 w_numTelefonoUsuario IN Usuarios.numTelefonoUsuario%TYPE,
 w_passUsuario IN Usuarios.passUsuario%TYPE,
 w_confirmPassUsuario IN Usuarios.confirmPassUsuario%TYPE)
 IS  
 BEGIN
-INSERT INTO Usuarios (dniUsuario,nombreCompletoUsuario,nickUsuario,emailUsuario,numTelefonoUsuario,
+INSERT INTO Usuarios (dniUsuario,nombreCompletoUsuario,nickUsuario,emailUsuario,fechaNacimientoUsuario,numTelefonoUsuario,
 passUsuario,confirmPassUsuario) 
-VALUES (w_dniUsuario,w_nombreCompletoUsuario,w_nickUsuario,w_emailUsuario,w_numTelefonoUsuario,
+VALUES (w_dniUsuario,w_nombreCompletoUsuario,w_nickUsuario,w_emailUsuario,to_date(w_fechaNacimientoUsuario,'dd/mm/YYYY'),w_numTelefonoUsuario,
 w_passUsuario,w_confirmPassUsuario);
 END;
 /

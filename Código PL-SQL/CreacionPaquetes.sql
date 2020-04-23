@@ -26,6 +26,7 @@ create or replace PACKAGE PRUEBAS_USUARIOS AS
         w_nombre_usuario IN Usuarios.nombreCompletoUsuario%TYPE,
         w_nick_usuario IN Usuarios.nickUsuario%TYPE,
         w_email_usuario IN Usuarios.emailUsuario%TYPE,
+        w_fechaNacimientoUsuario IN Usuarios.fechaNacimientoUsuario%TYPE,
         w_num_usuario IN Usuarios.numTelefonoUsuario%TYPE,
         w_passUsuario IN Usuarios.passUsuario%TYPE,
         w_confirmPass IN Usuarios.confirmPassUsuario%TYPE,
@@ -441,6 +442,7 @@ create or replace PACKAGE BODY PRUEBAS_USUARIOS AS
         w_nombre_usuario IN Usuarios.nombreCompletoUsuario%TYPE,
         w_nick_usuario IN Usuarios.nickUsuario%TYPE,
         w_email_usuario IN Usuarios.emailUsuario%TYPE,
+        w_fechaNacimientoUsuario IN Usuarios.fechaNacimientoUsuario%TYPE,
         w_num_usuario IN Usuarios.numTelefonoUsuario%TYPE,
         w_passUsuario IN Usuarios.passUsuario%TYPE,
         w_confirmPass IN Usuarios.confirmPassUsuario%TYPE,
@@ -450,7 +452,7 @@ create or replace PACKAGE BODY PRUEBAS_USUARIOS AS
         
     BEGIN
         /* Insertar Usuario */
-       insertar_usuarios(w_dniUsuario,w_nombre_usuario,w_nick_usuario,w_email_usuario,w_num_usuario,
+       insertar_usuarios(w_dniUsuario,w_nombre_usuario,w_nick_usuario,w_email_usuario,w_fechaNacimientoUsuario,w_num_usuario,
        w_passUsuario,w_confirmPass);
         
         IF(usuario.dniUsuario<>w_dniUsuario)THEN
@@ -466,6 +468,10 @@ create or replace PACKAGE BODY PRUEBAS_USUARIOS AS
         END IF;
         
         IF(usuario.emailUsuario<>w_email_usuario)THEN
+            salida := false;
+        END IF;
+        
+        IF(usuario.fechaNacimientoUsuario<>w_fechaNacimientoUsuario)THEN
             salida := false;
         END IF;
         

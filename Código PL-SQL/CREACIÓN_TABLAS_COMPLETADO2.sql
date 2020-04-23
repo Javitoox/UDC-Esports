@@ -28,6 +28,7 @@ create table Usuarios
 nombreCompletoUsuario varchar2(75),
 nickUsuario varchar2(50),
 emailUsuario varchar2(75),
+fechaNacimientoUsuario date,
 numTelefonoUsuario varchar2(15),
 passUsuario varchar2(75),
 confirmPassUsuario varchar2(75)
@@ -182,6 +183,7 @@ identificador integer
 alter table Usuarios modify (nombreCompletoUsuario not null);
 alter table Usuarios modify (nickUsuario not null);
 alter table Usuarios modify (emailUsuario not null);
+alter table Usuarios modify (fechaNacimientoUsuario not null);
 alter table Usuarios modify (numTelefonoUsuario not null);
 alter table Usuarios modify (passUsuario not null);
 alter table Usuarios modify (confirmPassUsuario not null);
