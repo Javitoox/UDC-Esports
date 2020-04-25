@@ -13,7 +13,7 @@ function crearConexionBD()
 	}catch(PDOException $e){
 		//Reenviamos el mensajes a excepcion.php en el caso de que se produzca una excepción
 		$_SESSION['excepcion'] = $e->GetMessage();
-		header("Location: excepcion.php");
+		header("Location:excepcion.php");
 	}
 }
 

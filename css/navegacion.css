@@ -6,7 +6,7 @@ body {margin:0;font-family:Arial}
 
 .topnav {
   overflow: hidden;
-  background-color: #f1f1f1;;
+  background-color: #f1f1f1;
 }
 
 #imglogo{
@@ -28,7 +28,7 @@ body {margin:0;font-family:Arial}
 .topnav a {
   float: left;
   display: block;
-  color: #000;;
+  color: #000;
   text-align: center;
   padding: 7px 30px;
   text-decoration: none;
