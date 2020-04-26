@@ -3,10 +3,13 @@
 }
 body {margin:0;font-family:Arial}
 
-
 .topnav {
   overflow: hidden;
   background-color: #f1f1f1;
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  left: 0%;
 }
 
 #imglogo{
@@ -50,8 +53,7 @@ body {margin:0;font-family:Arial}
   font-size: 17px;    
   border: none;
   outline: none;
-  color: 000;
-  padding: 7px 60px;
+  padding: 7px 30px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
@@ -59,17 +61,15 @@ body {margin:0;font-family:Arial}
 /*Para indicar que el contenido de "nuestras redes" esta oculto por defecto y demás*/
 .dropdown-content {
   display: none;
-  position: absolute;
+  position: fixed;
   background-color: #89adfc;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 70px 8px 16px 10px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
 .dropdown-content a {
   float: none;
   color: black;
-  padding: 10px 10px;
   text-decoration: none;
   display: block;
   text-align: left;
@@ -79,6 +79,7 @@ body {margin:0;font-family:Arial}
 .topnav a:hover, .dropdown:hover .dropbtn {
   background-color: rgb(39, 164, 202);
   color: white;
+  
 }
 
 .dropdown-content a:hover {
@@ -89,9 +90,11 @@ body {margin:0;font-family:Arial}
 /*Para que aparezca el desplegable de nuestras redes al pasar por encima*/
 .dropdown:hover .dropdown-content {
   display: block;
+  
 }
 
-/*Cuando la pantalla sea menor de 600px, desaparecen todos los links menos el primero.
+
+/*Cuando la pantalla sea menor de 800px, desaparecen todos los links menos el primero.
 En este caso, es el logo*/
 @media screen and (max-width: 800px) {
   .topnav a:not(:first-child), .dropdown .dropbtn {
@@ -104,11 +107,11 @@ En este caso, es el logo*/
 }
 /*Lo de responsive se activa cuando se pulsa el icono del menu. Para móviles*/
 @media screen and (max-width: 800px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {position: fixed;}
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
-	top: 0;
+	  top: 0;
   }
   .topnav.responsive a {
     float: none;
@@ -116,7 +119,10 @@ En este caso, es el logo*/
     text-align: left;
   }
   .topnav.responsive .dropdown {float: none;}
-  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown-content {
+    position: fixed;
+    min-width: 100%;
+  }
   .topnav.responsive .dropdown .dropbtn {
     display: block;
     width: 100%;
