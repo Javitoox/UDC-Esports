@@ -45,42 +45,42 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	
 	//Validación NIF
 	if($nuevoUsuario["dniUsuario"]=="") 
-		$errores[] = "<p>El NIF no puede estar vacío.</p>";
+		$errores[] = "<p><strong>El NIF no puede estar vacío.</strong></p>";
 	else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["dniUsuario"])){
-		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["dniUsuario"]. ".</p>";
+		$errores[] = "<p><strong>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["dniUsuario"]. ".</strong></p>";
 	}
 	//Validación Nombre			
 	if($nuevoUsuario["nombreCompletoUsuario"]=="") 
-		$errores[] = "<p>El nombre no puede estar vacío.</p>";
+		$errores[] = "<p><strong>El nombre no puede estar vacío.</strong></p>";
 	
 	//Validación Nick			
 	if($nuevoUsuario["nickUsuario"]=="") 
-		$errores[] = "<p>El nick no puede estar vacío.</p>";	
+		$errores[] = "<p><strong>El nick no puede estar vacío.</strong></p>";	
 	
 	//Validación Email
 	if($nuevoUsuario["emailUsuario"]==""){ 
-		$errores[] = "<p>El email no puede estar vacío.</p>";
+		$errores[] = "<p><strong>El email no puede estar vacío.</strong></p>";
 	}else if(!filter_var($nuevoUsuario["emailUsuario"], FILTER_VALIDATE_EMAIL)){
-		$errores[] = "<p>El email es incorrecto: " . $nuevoUsuario["emailUsuario"]. ".</p>";
+		$errores[] = "<p><strong>El email es incorrecto: " . $nuevoUsuario["emailUsuario"]. ".</strong></p>";
 	}
 		
 	//Validación Número Telefónico
 	if($nuevoUsuario["numTelefonoUsuario"]==""){ 
-		$errores[] = "<p>El número telefónico no puede estar vacío.</p>";
+		$errores[] = "<p><strong>El número de teléfono no puede estar vacío.</strong></p>";
 	}else if(!preg_match('/^[0-9]{9}+$/', $nuevoUsuario["numTelefonoUsuario"])){
-		$errores[] = "<p>El número telefónico es incorrecto: " . $nuevoUsuario["numTelefonoUsuario"]. ".</p>";
+		$errores[] = "<p><strong>El número de teléfono es incorrecto: " . $nuevoUsuario["numTelefonoUsuario"]. ".</strong></p>";
 	}
 		
 	//Validación Contraseña
 	if(!isset($nuevoUsuario["passUsuario"]) || strlen($nuevoUsuario["passUsuario"]) < 8){
-		$errores [] = "<p>Contraseña no válida: debe tener al menos 8 caracteres.</p>";
+		$errores [] = "<p><strong>Contraseña no válida: debe tener al menos 8 caracteres.</strong></p>";
 	}else if(!preg_match("/[a-z]+/", $nuevoUsuario["passUsuario"]) || 
 		!preg_match("/[A-Z]+/", $nuevoUsuario["passUsuario"]) || !preg_match("/[0-9]+/", $nuevoUsuario["passUsuario"])){
-		$errores[] = "<p>Contraseña no válida: debe contener letras mayúsculas y minúsculas y dígitos.</p>";
+		$errores[] = "<p><strong>Contraseña no válida: debe contener letras mayúsculas y minúsculas y dígitos.</strong></p>";
 	
 	//Validación Confirmación contraseña
 	}else if($nuevoUsuario["passUsuario"] != $nuevoUsuario["confirmPassUsuario"]){
-		$errores[] = "<p>La confirmación de contraseña no coincide con la contraseña.</p>";
+		$errores[] = "<p><strong>La confirmación de contraseña no coincide con la contraseña.</strong></p>";
 	}
 	
 	//Validación mejores jugadores
@@ -107,7 +107,7 @@ function validarJugadores($conexion, $jugadores){
 	}
 	
 	if(count(array_intersect($jugadores_db, $jugadores)) < count($jugadores)){
-		$error = $error ."<p>Los jugadores no son válidos</p>";
+		$error = $error ."<p><strong>Los jugadores no son válidos</strong></p>";
 	}
 	
 	return $error;

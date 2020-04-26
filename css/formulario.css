@@ -33,15 +33,15 @@
 }
 
 h2{
-	margin-top:130px;
+	margin-top:110px;
 	text-align:center;
-	font-family: "Segoe UI";
-	color:white;
+	font-family: 'Segoe UI';
+	color:blue;
 }
 
 div form{
 	text-align:center;
-	font-size:130%;
+	font-size:170%;
 }
 
 #pie{
@@ -51,7 +51,7 @@ div form{
 }
 
 .campo{
-	height:25px;
+	height:35px;
 	width:210px;
 	border: 1px ridge blue;
     border-radius: 15px;
@@ -78,16 +78,17 @@ div form{
 
 #boton input:hover{
 	color:blue;
-	background-color:white;
+	background-color:rgb(145, 182, 238);
 	border: 1px double blue;
 }
 
 #seg{
-	color:white;
-	font-family: "Segoe UI";
+	color:rgb(0, 0, 0);
+	font-family: 'Trebuchet MS';
 	font-size: 15px;
 }
 
 #seguimientos{
-	color: blue;
+	color: rgb(0, 0, 0);
+	font-size: 13px;
 }

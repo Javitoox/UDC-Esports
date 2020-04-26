@@ -79,7 +79,7 @@
 		<div>
 			<input class="campo" name="confirmPassUsuario" type="password" placeholder="Confirmar contraseña" value="<?php echo $formulario["confirmPassUsuario"];?>" required/>
 		</div>
-		<div><label id="seg" for="seguimientos">¿Tienes algún jugador favorito?¡Te recomendamos estos!</label><br/>
+		<div><label id="seg" for="seguimientos"><strong>¿Tienes algún jugador favorito?¡Te recomendamos estos!</strong></label><br/>
 				<select multiple name="seguimientos[]" id="seguimientos" required>
 					<?php
 					$conexion = crearConexionBD();  

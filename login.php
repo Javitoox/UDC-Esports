@@ -55,10 +55,10 @@
 	<div class="col-10 col-tab-10">
 	<form action="login.php" method="post">
 		<div>
-		<input class="campo" placeholder="Usuario" type="text" name="nickUsuario" id="nickUsuario" />
+		<input class="campo" placeholder="Usuario" type="text" name="nickUsuario" id="nickUsuario"/>
 		</div>	
 		<div>
-		<input class="campo"  placeholder="Contraseña" type="password" name="passUsuario" id="passUsuario" />
+		<input class="campo"  placeholder="Contraseña" type="password" name="passUsuario" id="passUsuario"/>
 		</div>
 		<div id="boton">
 		<input name="submit" type="submit" value="Iniciar Sesión" />
