@@ -39,9 +39,9 @@
 		//Si todo ha ido bien iremos a accion.php donde se hará la inserción del nuevo usuario
 		Header('Location: accion.php');
 
-// Validación en servidor del formulario de alta de usuario
-function validarDatosUsuario($conexion, $nuevoUsuario){
-	$errores=array();
+	// Validación en servidor del formulario de alta de usuario
+	function validarDatosUsuario($conexion, $nuevoUsuario){
+		$errores=array();
 	
 	//Validación NIF
 	if($nuevoUsuario["dniUsuario"]=="") 
@@ -63,7 +63,17 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	}else if(!filter_var($nuevoUsuario["emailUsuario"], FILTER_VALIDATE_EMAIL)){
 		$errores[] = "<p><strong>El email es incorrecto: " . $nuevoUsuario["emailUsuario"]. ".</strong></p>";
 	}
-		
+	
+	//Validación Fecha Nacimiento
+	if($nuevoUsuario["fechaNacimientoUsuario"]==""){ 
+		$errores[] = "<p><strong>La fecha de nacimiento no puede ser vacía.</strong></p>";
+	}	
+	
+	//Que no sea vacía
+	//Que solo se rellene uno de los campos de día/mes/año
+	//Que sea una fecha posterior al día actual
+
+
 	//Validación Número Telefónico
 	if($nuevoUsuario["numTelefonoUsuario"]==""){ 
 		$errores[] = "<p><strong>El número de teléfono no puede estar vacío.</strong></p>";
@@ -86,31 +96,28 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	//Validación mejores jugadores
 	$error = validarJugadores($conexion, $nuevoUsuario["seguimientos"]);
 	if($error!="")
-		$errores[] = $error;
-	
-		
+		$errores[] = $error;	
 	return $errores;
-}
-
-function getFechaFormateada($fecha){ 
-	$fechaNacimiento = date('dd/mm/YYYY', strtotime($fecha));	
-	return $fechaNacimiento;
-}
-
-//Comprueba si los jugadores elegidos por el usuario están en la base de datos
-function validarJugadores($conexion, $jugadores){
-	$error="";
-	$jugadores_db = array(); 
-	$db = listarMejoresJugadores($conexion);
-	foreach ($db as $jugador_db){
-		$jugadores_db[] = $jugador_db["DNIJUGADOR"];
 	}
-	
-	if(count(array_intersect($jugadores_db, $jugadores)) < count($jugadores)){
-		$error = $error ."<p><strong>Los jugadores no son válidos</strong></p>";
+
+	function getFechaFormateada($fecha){ 
+		$fechaNacimientoUsuario = date('d/m/Y', strtotime($fecha));	
+		return $fechaNacimientoUsuario;
 	}
+
+	//Comprueba si los jugadores elegidos por el usuario están en la base de datos
+	function validarJugadores($conexion, $jugadores){
+		$error="";
+		$jugadores_db = array(); 
+		$db = listarMejoresJugadores($conexion);
+		foreach ($db as $jugador_db){
+			$jugadores_db[] = $jugador_db["DNIJUGADOR"];
+		}
 	
-	return $error;
-}
+		if(count(array_intersect($jugadores_db, $jugadores)) < count($jugadores)){
+			$error = $error ."<p><strong>Los jugadores no son válidos</strong></p>";
+		}
+		return $error;
+	}
 
 ?>

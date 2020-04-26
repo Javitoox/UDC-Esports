@@ -319,7 +319,7 @@ IS
 BEGIN
 INSERT INTO Usuarios (dniUsuario,nombreCompletoUsuario,nickUsuario,emailUsuario,fechaNacimientoUsuario,numTelefonoUsuario,
 passUsuario,confirmPassUsuario) 
-VALUES (w_dniUsuario,w_nombreCompletoUsuario,w_nickUsuario,w_emailUsuario,to_date(w_fechaNacimientoUsuario,'dd/mm/YYYY'),w_numTelefonoUsuario,
+VALUES (w_dniUsuario,w_nombreCompletoUsuario,w_nickUsuario,w_emailUsuario,to_date(w_fechaNacimientoUsuario,'dd-mm-YYYY'),w_numTelefonoUsuario,
 w_passUsuario,w_confirmPassUsuario);
 END;
 /

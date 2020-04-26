@@ -1,7 +1,10 @@
 <?php
 
  function alta_usuario($conexion,$nuevoUsuario) {
- 	$fechaNacimientoUsuario = date('dd/mm/YYYY', strtotime($usuario["fechaNacimientoUsuario"]));
+/*$fechaNueva = str_replace('/', '-', strtotime($nuevoUsuario["fechaNacimientoUsuario"]));
+	 $fechaNacimientoUsuario = date('d-m-Y', $fechaNueva);*/
+	  
+ 	$fechaNacimientoUsuario = date('d/m/Y', strtotime($nuevoUsuario["fechaNacimientoUsuario"]));
     try {
 		$stmt = $conexion->prepare("CALL INSERTAR_USUARIOS(:dniUsuario,:nombreCompletoUsuario,:nickUsuario,:emailUsuario,:fechaNacimientoUsuario,:numTelefonoUsuario,:passUsuario,:confirmPassUsuario)");
 		$stmt->bindParam(':dniUsuario',$nuevoUsuario['dniUsuario']);
