@@ -1,17 +1,15 @@
 <?php
 
- function alta_usuario($conexion,$nuevoUsuario) {
-/*$fechaNueva = str_replace('/', '-', strtotime($nuevoUsuario["fechaNacimientoUsuario"]));
-	 $fechaNacimientoUsuario = date('d-m-Y', $fechaNueva);*/
-	  
- 	$fechaNacimientoUsuario = date('d/m/Y', strtotime($nuevoUsuario["fechaNacimientoUsuario"]));
+ function alta_usuario($conexion,$nuevoUsuario) { 
+	$fechaNacimiento = date('d/m/Y', strtotime($nuevoUsuario["fechaNacimientoUsuario"]));
+	 
     try {
 		$stmt = $conexion->prepare("CALL INSERTAR_USUARIOS(:dniUsuario,:nombreCompletoUsuario,:nickUsuario,:emailUsuario,:fechaNacimientoUsuario,:numTelefonoUsuario,:passUsuario,:confirmPassUsuario)");
 		$stmt->bindParam(':dniUsuario',$nuevoUsuario['dniUsuario']);
 		$stmt->bindParam(':nombreCompletoUsuario',$nuevoUsuario['nombreCompletoUsuario']);
 		$stmt->bindParam(':nickUsuario',$nuevoUsuario['nickUsuario']);
 		$stmt->bindParam(':emailUsuario',$nuevoUsuario['emailUsuario']);
-		$stmt->bindParam(':fechaNacimientoUsuario',$fechaNacimientoUsuario);
+		$stmt->bindParam(':fechaNacimientoUsuario',$fechaNacimiento);
 		$stmt->bindParam(':numTelefonoUsuario',$nuevoUsuario['numTelefonoUsuario']);
 		$stmt->bindParam(':passUsuario',$nuevoUsuario['passUsuario']);
 		$stmt->bindParam(':confirmPassUsuario',$nuevoUsuario['confirmPassUsuario']);

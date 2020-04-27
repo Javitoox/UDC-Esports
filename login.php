@@ -23,8 +23,6 @@
 			Header("Location: fondo.php");
 		}	
 	}
-
-
 ?>
 
 <!DOCTYPE html>

@@ -11,7 +11,7 @@
 		$nuevoUsuario["nombreCompletoUsuario"] = $_REQUEST["nombreCompletoUsuario"];
 		$nuevoUsuario["nickUsuario"] = $_REQUEST["nickUsuario"];
 		$nuevoUsuario["emailUsuario"] = $_REQUEST["emailUsuario"];
-		$nuevoUsuario["fechaNacimientoUsuario"] = getFechaFormateada($_REQUEST["fechaNacimientoUsuario"]);
+		$nuevoUsuario["fechaNacimientoUsuario"] = $_REQUEST["fechaNacimientoUsuario"];
 		$nuevoUsuario["numTelefonoUsuario"] = $_REQUEST["numTelefonoUsuario"];
 		$nuevoUsuario["passUsuario"] = $_REQUEST["passUsuario"];
 		$nuevoUsuario["confirmPassUsuario"] = $_REQUEST["confirmPassUsuario"];
@@ -65,14 +65,14 @@
 	}
 	
 	//Validación Fecha Nacimiento
+	$fechaNacimiento = date('d/m/Y', strtotime($nuevoUsuario["fechaNacimientoUsuario"]));
+	$fechaActual =  date('d/m/Y', time());
+
 	if($nuevoUsuario["fechaNacimientoUsuario"]==""){ 
 		$errores[] = "<p><strong>La fecha de nacimiento no puede ser vacía.</strong></p>";
+	}else if($fechaNacimiento > $fechaActual){
+		$errores[] = "<p><strong>La fecha de nacimiento " . $fechaNacimiento. " no puede ser posterior a la fecha actual ". $fechaActual . "</strong></p>";
 	}	
-	
-	//Que no sea vacía
-	//Que solo se rellene uno de los campos de día/mes/año
-	//Que sea una fecha posterior al día actual
-
 
 	//Validación Número Telefónico
 	if($nuevoUsuario["numTelefonoUsuario"]==""){ 
