@@ -22,6 +22,5 @@
 			$_SESSION['excepcion'] = $e->GetMessage();
 			header("Location: excepcion.php");
 		}
-	
     }
 ?>

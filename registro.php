@@ -83,7 +83,7 @@
 					//Obtenemos a los mejores jugadores del club según los partidos ganados y los mostramor para elegir
 						$jugadores = listarMejoresJugadores($conexion);
 
-				  		foreach($jugadores as $jugador) {
+				  		foreach($jugadores as $jugador) {  
 				  			if(in_array($jugador['DNIJUGADOR'], $formulario['seguimientos'])){ 
 								echo "<option value='".$jugador["DNIJUGADOR"]."' label='".$jugador["NOMBREVIRTUALJUGADOR"]."' selected/>";
 							}else{

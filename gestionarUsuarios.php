@@ -21,6 +21,7 @@
 	}
  }
  
+ //Pasarle un array de un solo elemento (el dni de un jugador)
  function asignar_seguimientos_usuario($conexion,$dniUsuario,$seguimientos){
  	try{
  		$stmt=$conexion->prepare("CALL INSERTAR_SEGUIMIENTOS(:dniUsuario,:dniJugador,NULL)");
