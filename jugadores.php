@@ -2,6 +2,7 @@
     session_start();
     require_once("gestionBD.php");
     require_once("gestionJugadores.php");
+    require_once("consultasSql.php");
 ?>
 
 <!DOCTYPE html>
@@ -20,47 +21,6 @@
     <?php include_once("fondo.php"); ?>
     <?php include_once("navegacion.php"); ?>
 
-    <?php
-    function obtenVideojuegos($conexion){
-        try{
-            $consulta= "SELECT * from videojuegos";
-            $stmt = $conexion->query($consulta);
-            return $stmt;
-        }catch(PDOException $e) {
-            $_SESSION['excepcion'] = $e->GetMessage();
-            header("Location: excepcion.php");
-        }
-    }
-    ?>
-    <?php
-    function obtenJugador($conexion){
-        try{
-            $consulta = "SELECT * from jugadores";
-            $stmt = $conexion->query($consulta);
-            return $stmt;
-        }catch(PDOException $e){
-            $_SESSION['excepcion'] = $e->GetMessage();
-            header("Location: excepcion.php");
-        }   
-    }
-    ?>   
-    
-    <?php
-    function obtenNumVictorias($conexion, $oid_v){
-        try{
-            $consulta = "SELECT oid_v, count(distinct nombrecompeticion) as cuenta from competiciones natural join 
-            partidos natural join videojuegos where oid_v=:oid_v and ganada='1' group by oid_v";
-            $stmt = $conexion->prepare($consulta);
-		    $stmt->bindParam(':oid_v',$oid_v);
-            $stmt->execute();
-		    return $stmt->fetch();
-        }catch(PDOException $e){
-            $_SESSION['excepcion'] = $e->GetMessage();
-            header("Location: excepcion.php");
-        } 
-    }
-    ?>
-
     <h4>JUGADORES POR VIDEOJUEGO</h4>
     
     <?php
@@ -68,6 +28,7 @@
     $conexion = crearConexionBD(); 
     $videojuegos = obtenVideojuegos($conexion);
 
+    //Dni del usuario
     foreach($videojuegos as $videojuego) {
         $nombre_videojuego = $videojuego["NOMBREVIDEOJUEGO"];
 
@@ -107,7 +68,8 @@
                 </p>
                 
 
-                <form id = "botones" action="controlador_jugador.php">
+                <form method= "get" id = "botones" action="controlador_jugador.php">
+                    
                     <button id="añadir" name="añadir" type="submit" class="añadir_jugador" 
                     value=<?php $dniJugador ?>>
                     <img height = 25px src="images/mas.png" class="añadir_jugador"></button>
