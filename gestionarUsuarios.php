@@ -21,10 +21,10 @@
 	}
  }
  
- //Pasarle un array de un solo elemento (el dni de un jugador)
  function asignar_seguimientos_usuario($conexion,$dniUsuario,$seguimientos){
  	try{
- 		$stmt=$conexion->prepare("CALL INSERTAR_SEGUIMIENTOS(:dniUsuario,:dniJugador,NULL)");
+		$stmt=$conexion->prepare("CALL INSERTAR_SEGUIMIENTOS(:dniUsuario,:dniJugador,NULL)");
+		//Hacemos un foreach porque un usuario puede tener más de un seguimiento.
  		foreach($seguimientos as $dniJugador){
  			$stmt->bindParam(':dniUsuario',$dniUsuario);
  			$stmt->bindParam(':dniJugador',$dniJugador);
@@ -35,10 +35,8 @@
  		$_SESSION['excepcion'] = "Error al asignar los seguimientos del usuario.".$e->GetMessage();
 		return false;
  	}
- 	
  }
  
-
  function consultarUsuario($conexion,$nickUsuario,$passUsuario) {
 	try{
 	 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE nickUsuario=:nickUsuario AND 
@@ -52,6 +50,32 @@
 		$_SESSION['excepcion'] = $e->GetMessage();
 		header("Location: excepcion.php");
     }
+ }
+
+ function eliminarSeguimiento($conexion, $oid_seg){
+	try{
+		$consulta = "DELETE from seguimientos where oid_seg =: oid_seg";
+		$stmt=$conexion->prepare($consulta);
+		$stmt->bindParam(':oid_seg',$oid_seg);
+		$stmt->execute();
+		return true;
+ 	}catch(PDOException $e){
+ 		$_SESSION['excepcion'] = "Error al eliminar el seguimiento del usuario.".$e->GetMessage();
+		return false;
+ 	}
+ }
+ function creaSeguimiento($conexion,$dniUsuario,$dniJugador){
+	try{
+		$consulta = "CALL INSERTAR_SEGUIMIENTOS(:dniUsuario,:dniJugador,NULL)";
+		$stmt=$conexion->prepare($consulta);
+		$stmt->bindParam(':dniUsuario',$dniUsuario);
+		$stmt->bindParam(':dniJugador',$dniJugador);
+		$stmt->execute();
+		return true;
+ 	}catch(PDOException $e){
+ 		$_SESSION['excepcion'] = "Error al eliminar el seguimiento del usuario.".$e->GetMessage();
+		return false;
+ 	}
  }
 
 ?>

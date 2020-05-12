@@ -163,7 +163,6 @@ BEGIN
     pruebas_seguimientos.actualizar('Actualizar seguimiento', 23, 'Young Player', true);
 
 
-
     pruebas_seguimientos.eliminar('Eliminar seguimiento', 1, true);
     pruebas_seguimientos.eliminar('Eliminar seguimiento', 2, true);
     pruebas_seguimientos.eliminar('Eliminar seguimiento', 3, true);

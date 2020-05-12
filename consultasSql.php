@@ -57,5 +57,45 @@
         }  
     }
 
+    function obtenDniUsuario($conexion, $nickUsuario){
+        try{
+            $consulta = "SELECT dniusuario from usuarios where nickusuario =: nickUsuario";
+            $stmt = $conexion->prepare($consulta);
+		    $stmt->bindParam(':nickusuario',$nickUsuario);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }  
+    }
+
+    function existeSeguimiento($conexion, $dniusuario, $dnijugador){
+        try{
+            $consulta = "SELECT * from seguimientos where dniusuario =: dniusuario and dnijugador =: dnijugador";
+            $stmt = $conexion->prepare($consulta);
+            $stmt->bindParam(':dniusuario',$dniusuario);
+            $stmt->bindParam(':dnijugador',$dnijugador);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }  
+    }
+
+    function obtenOID_SEG($conexion, $dniusuario, $dnijugador){
+        try{
+            $consulta = "SELECT distinct oid_seg from seguimientos where dnijugador =:dnijugador  and dniusuario=: dniusuario";
+            $stmt = $conexion->prepare($consulta);
+            $stmt->bindParam(':dniusuario',$dniusuario);
+            $stmt->bindParam(':dnijugador',$dnijugador);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }  
+    }
 
 ?>

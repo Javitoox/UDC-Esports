@@ -1,8 +1,17 @@
 <?php
+
     session_start();
     require_once("gestionBD.php");
     require_once("gestionJugadores.php");
+    require_once("gestionarUsuarios.php");
     require_once("consultasSql.php");
+
+    if(isset($_SESSION['login'])){
+        $nickUsuario = $_SESSION['login'];
+    }else{
+        Header("Location: login.php");
+    }   
+ 
 ?>
 
 <!DOCTYPE html>
@@ -26,15 +35,16 @@
     <?php
 
     $conexion = crearConexionBD(); 
+    $dniUsuario = obtenDniUsuario($conexion, $nickUsuario);
     $videojuegos = obtenVideojuegos($conexion);
-
-    //Dni del usuario
+    $dniUser = $dniUsuario["DNIUSUARIO"];
+    
     foreach($videojuegos as $videojuego) {
         $nombre_videojuego = $videojuego["NOMBREVIDEOJUEGO"];
 
         ?>
-        <center><buttom class="videojuego" type="button">
-        <?php echo "$nombre_videojuego" ?></buttom><br>
+        <center><p class="videojuego" type="button">
+        <?php echo "$nombre_videojuego"?></p>
         <?php
         $victoria = obtenNumVictorias($conexion, $videojuego["OID_V"]);
         if($victoria["CUENTA"] > 0){
@@ -42,9 +52,9 @@
         }else{
             echo "No hay victorias";
         }    
-            ?>
-            </center>
-            <?php
+        ?>
+        </center>
+        <?php
         $jugadores = obtenJugador($conexion);
         ?>
         <center>
@@ -58,25 +68,42 @@
                 $nombreV = $videojuego["NOMBREVIDEOJUEGO"];
 
                 ?>
-                <p class = "jugador">
+                <div class = "jugador">
+                    <form method= "get" id = "botones" action="controlador_jugadores.php">
+                        <?php  
+                        $seguimiento = existeSeguimiento($conexion, $dniUser, $dniJugador);
+                        $oid_seg = obtenOID_SEG($conexion, $dniUser, $dniJugador);
+                        $OID_SEG = $oid_seg["OID_SEG"];
+                        
+                        // 2 campos hidden (dnijugador, dniusuario)
+                        ?>
+                        <input id="dnijugador" name ="dnijugador" type="hidden" value="<?php echo $dniJugador?>">
+					    <input id="dniuser" name ="dniuser" type="hidden" value="<?php echo $dniUser?>">
+                        
+                        <?php
+                        if($OID_SEG == 0){
+                            ?>
+                            <button id="añadir" name="añadir" type="submit" class="añadir_jugador">
+                            <img height = 25px src="images/mas.png" class="añadir_jugador"></button>
+                            <?php
+                        }else{
+                            ?>
+                            <!-- 1 campos hidden (oid_seg)-->
+                            <input id="oid_seg" name ="oid_seg" type="hidden" value="<?php echo $OID_SEG?>">
+                            <button id="eliminar" name="eliminar" type="submit" class="eliminar_jugador">
+                            <img height = 25px src="images/menos.png" class="eliminar_jugador"></button>
+                            <?php
+                        }
+                        ?>
+                    </form>
                     <?php
                     echo "<br><br><br>" , $nombreVirtual, "<br>", $nacionalidad, "<br>" , "Años de experiencia: ", $añosExperiencia, "<br><br>";
                     ?>
                     <img height = 20px src="images/insta.png" alt="Instagram">
                     <img height = 20px src="images/twitter.png" alt="Twitter">
                     <img height = 20px src="images/twich.png" alt="Twitter">
-                </p>
-                
-
-                <form method= "get" id = "botones" action="controlador_jugador.php">
-                    
-                    <button id="añadir" name="añadir" type="submit" class="añadir_jugador" 
-                    value=<?php $dniJugador ?>>
-                    <img height = 25px src="images/mas.png" class="añadir_jugador"></button>
-                    
-                    <button id="añadir" name="eliminar" type="submit" class="eliminar_jugador">
-                    <img height = 25px src="images/menos.png" class="eliminar_jugador"></button>
-                </form>
+                </div>
+   
                 <?php
             }   
         }
