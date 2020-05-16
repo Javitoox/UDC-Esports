@@ -98,4 +98,44 @@
         }  
     }
 
+    function tieneSeguimiento($conexion, $dnijugador){
+        try{
+            $consulta = "SELECT nombrevirtualjugador, opinion, dniusuario from jugadores natural join seguimientos where dnijugador=:dnijugador";
+            $stmt = $conexion->prepare($consulta);
+            $stmt->bindParam(':dnijugador',$dnijugador);
+            $stmt->execute();
+		    return $stmt;
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }  
+    }
+    
+    function obtenNombreUsuario($conexion, $dniusuario){
+        try{
+            $consulta = "SELECT nombrecompletousuario from usuarios where dniusuario =: dniusuario";
+            $stmt = $conexion->prepare($consulta);
+            $stmt->bindParam('dniusuario', $dniusuario);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }
+    }
+
+    function obtenOID_V_Mejores($conexion, $nombrevirtualjugador){
+        try{
+            $consulta = "SELECT oid_v from jugadores where nombrevirtualjugador=:nombrevirtualjugador";
+            $stmt = $conexion->prepare($consulta);
+            $stmt->bindParam('nombrevirtualjugador', $nombrevirtualjugador);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }
+    }
+
 ?>
+

@@ -8,17 +8,22 @@
     
     //comprobar si es nulo el oid_seg
 
-    if(isset($_REQUEST['oid_seg']) == null ){ //Cuando se ha pulsado añadir
-        //Pasarle un array de un solo elemento (el dni de un jugador)
+    if(isset($_REQUEST['oid_seg']) == null){ //Cuando se ha pulsado añadir
         $dniUser = $_REQUEST['dniuser'];
         $dniJugador = $_REQUEST['dnijugador'];
         $newSeguimiento = creaSeguimiento($conexion,$dniUser,$dniJugador);
-        header("Location: jugadores.php");
+        Header("Location: jugadores.php");
 
-    }else{  //Cuando se ha pulsado eliminar 
+    }else{  //Cuando se ha pulsado eliminar
+        //Comprobar si el usuario tiene opinion o no
+        //Si tiene
+       
+        //Si no tiene
         $oid_seg = $_REQUEST['oid_seg'];
         $removeSeguimiento = eliminarSeguimiento($conexion, $oid_seg);
         Header("Location: jugadores.php");
     }
     cerrarConexionBD($conexion);
+
+    //modificar el else. La opinión del seguimiento se debe mantener.
 ?>

@@ -11,16 +11,13 @@
     }else{
         Header("Location: login.php");
     }   
- 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Login</title>
+<title>Jugadores</title>
 	<?php include_once("headComun.php"); ?>
-  	<link rel="stylesheet" type="text/css" href="css/formulario.css">
-    <link rel="stylesheet" type="text/css" href="css/error_form.css">
     <link rel="stylesheet" type="text/css" href="css/jugadores.css">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     
@@ -48,25 +45,40 @@
         <?php
         $victoria = obtenNumVictorias($conexion, $videojuego["OID_V"]);
         if($victoria["CUENTA"] > 0){
-            echo "Número de victorias: ", $victoria["CUENTA"];
+            echo "<p>" . "Número de victorias: " . $victoria["CUENTA"] . "</p>";
         }else{
-            echo "No hay victorias";
+            echo "<p>" . "El equipo no presenta victorias" . "</p>";
         }    
         ?>
         </center>
         <?php
         $jugadores = obtenJugador($conexion);
+        $mejoresJugadores = listarMejoresJugadores($conexion);
+        
         ?>
         <center>
         <?php
         foreach($jugadores as $jugador) {
+
             if($jugador["OID_V"] == $videojuego["OID_V"]){
                 $nombreVirtual = $jugador["NOMBREVIRTUALJUGADOR"];
                 $nacionalidad = $jugador["NACIONALIDADJUGADOR"];
                 $añosExperiencia = $jugador["NUMAÑOSEXPERIENCIAJUGADOR"];
                 $dniJugador = $jugador["DNIJUGADOR"];
                 $nombreV = $videojuego["NOMBREVIDEOJUEGO"];
-
+                
+                //Para el mejor jugador de cada videojuego. Falta poner la imagen donde corresponda.
+                //Están separados ya por videojuego.
+                /*
+                foreach($mejoresJugadores as $mejor){
+                    $mejores = $mejor["NOMBREVIRTUALJUGADOR"];
+                    $oidMejores = obtenOID_V_Mejores($conexion, $mejores);
+                    if($oidMejores["OID_V"] == $videojuego["OID_V"]){
+                        echo $mejores ." ";
+                    }   
+                }
+                */
+                
                 ?>
                 <div class = "jugador">
                     <form method= "get" id = "botones" action="controlador_jugadores.php">
@@ -97,11 +109,13 @@
                         ?>
                     </form>
                     <?php
-                    echo "<br><br><br>" , $nombreVirtual, "<br>", $nacionalidad, "<br>" , "Años de experiencia: ", $añosExperiencia, "<br><br>";
+                     
+                    echo "<br><br><br>" . $nombreVirtual . "<br>". $nacionalidad. "<br>" . "Años de experiencia: ". $añosExperiencia. "<br><br>";
+                    
                     ?>
-                    <img height = 20px src="images/insta.png" alt="Instagram">
-                    <img height = 20px src="images/twitter.png" alt="Twitter">
-                    <img height = 20px src="images/twich.png" alt="Twitter">
+                    <img height = 20px src="images/insta.png" onclick = "location.href='https://www.instagram.com/udcesports/'"  alt="Instagram">
+                    <img height = 20px src="images/twitter.png" onclick = "location.href='https://www.twitch.tv/udconstantinaesports/'" alt="Twitter">
+                    <img height = 20px src="images/twich.png" onclick = "location.href='https://twitter.com/udcesports?lang=es'" alt="Twitter">
                 </div>
    
                 <?php

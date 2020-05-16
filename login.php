@@ -4,7 +4,7 @@
   	include_once("gestionBD.php");
  	include_once("gestionarUsuarios.php");
 	
-    //Comprobamos si el usuario le ha dado a Inciar Sesión
+    //Comprobamos si el usuario le ha dado ha Inciar Sesión
 	if (isset($_POST['submit'])){
 		$nickUsuario= $_POST['nickUsuario'];
 		$passUsuario = $_POST['passUsuario'];

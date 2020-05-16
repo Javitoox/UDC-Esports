@@ -14,9 +14,9 @@
 		<a href="navegacion.php"><img id="imglogo" src="images/logo.png" alt="Logo"></a>
 		<br><a href="jugadores.php">Jugadores</a>
 		<a href="navegacion.php">Resultados</a>
-		<a href="navegacion.php">Mis Seguimientos</a>
+		<a href="misSeguimientos.php">Mis Seguimientos</a>
 		<a href="navegacion.php">Sobre Nosotros</a>
-		<a href="navegacion.php">Perfil</a>
+		<a href="perfil.php">Perfil</a>
 
 		<div class="dropdown">
 		  <button class="dropbtn">Nuestras Redes 

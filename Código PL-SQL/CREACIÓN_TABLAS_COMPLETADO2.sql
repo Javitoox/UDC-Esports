@@ -60,7 +60,7 @@ create table Seguimientos
 (OID_SEG integer,
 dniUsuario varchar2(30),
 dniJugador varchar2(30),
-opinion clob
+opinion varchar2(1000)
 );
 ---------------------------------------------------------------------
 create table Entrenadores

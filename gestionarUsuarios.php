@@ -64,6 +64,7 @@
 		return false;
  	}
  }
+ 
  function creaSeguimiento($conexion,$dniUsuario,$dniJugador){
 	try{
 		$consulta = "CALL INSERTAR_SEGUIMIENTOS(:dniUsuario,:dniJugador,NULL)";
@@ -73,9 +74,24 @@
 		$stmt->execute();
 		return true;
  	}catch(PDOException $e){
- 		$_SESSION['excepcion'] = "Error al eliminar el seguimiento del usuario.".$e->GetMessage();
+ 		$_SESSION['excepcion'] = "Error al crear el seguimiento.".$e->GetMessage();
 		return false;
  	}
  }
-
+ function añadeOpinion($conexion, $dniusuario, $dnijugador, $opinion){
+	try{
+		$consulta = "CALL INSERTAR_SEGUIMIENTOS(:dniusuario,:dnijugador,:opinion)";
+		$stmt=$conexion->prepare($consulta);
+		$stmt->bindParam(':dniusuario',$dniusuario);
+		$stmt->bindParam(':dnijugador',$dnijugador);
+		$stmt->bindParam(':opinion', $opinion);
+		$stmt->execute();
+		return true;
+ 	}catch(PDOException $e){
+ 		$_SESSION['excepcion'] = "Error al añadir la opinión.".$e->GetMessage();
+		return false;
+ 	}
+ }
+ 
 ?>
+

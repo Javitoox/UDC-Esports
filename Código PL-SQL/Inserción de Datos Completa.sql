@@ -69,7 +69,7 @@ BEGIN
     pruebas_jugadores.insertar('Insertar jugador', '20945781F','Felipe Gago',500,'433760426',1,'fegag@gmail.com','15/01/13','fegag',0,'Venezuela',3,true);
     pruebas_jugadores.insertar('Insertar jugador', '20945781G','Nicolás Domínguez',500,'432790427',2,'nicoldom@gmail.com','16/01/13','nicoldom',0,'Bolivia',3,true);
     
-    pruebas_jugadores.insertar('Insertar jugador', '2945781H','Luca Robertone',400,'132760428',3,'lucorber@gmail.com','17/01/13','lucober',0,'Uruguay',2,true);
+    pruebas_jugadores.insertar('Insertar jugador', '29457812H','Luca Robertone',400,'132760428',3,'lucorber@gmail.com','17/01/13','lucober',0,'Uruguay',2,true);
     pruebas_jugadores.insertar('Insertar jugador', '20945781I','Pablo Galdamós',300,'432260429',4,'pagal@gmail.com','18/01/13','pagal',0,'Ecuador',2,true);
     pruebas_jugadores.insertar('Insertar jugador', '20945781J','Luciano Orellano',200,'432760323',5,'luciore@gmail.com','19/01/13','luciore',0,'España',2,true);
     pruebas_jugadores.insertar('Insertar jugador', '20945781K','Ángel Barreal',700,'402160423',6,'angba@gmail.com','20/01/13','angba',0,'Portugal',2,true);
@@ -265,16 +265,16 @@ BEGIN
 
     pruebas_competiciones.insertar('Insertar competiciones','Fortnite World Cup',1000,'25/01/16',200,null,true);
     pruebas_competiciones.insertar('Insertar competiciones', 'OverChristmas',1500,'22/12/16',100,'1',true);
-    pruebas_competiciones.insertar('Insertar competiciones','PokemonGoSpain',1200,'20/01/16',90,null,true);
-    pruebas_competiciones.insertar('Insertar competiciones','GoW World Tour',1000,'30/06/16',170,null,true);
+    pruebas_competiciones.insertar('Insertar competiciones','PokemonGoSpain',1200,'20/01/16',90,1,true);
+    pruebas_competiciones.insertar('Insertar competiciones','GoW World Tour',1000,'30/06/16',170,1,true);
     pruebas_competiciones.insertar('Insertar competiciones', 'Tetris 64',1300,'12/11/16',200,'1',true);
-    pruebas_competiciones.insertar('Insertar competiciones','Creed Cup',1400,'02/03/16',300,'1',true);
+    pruebas_competiciones.insertar('Insertar competiciones','Creed Cup',1400,'02/03/16',300,null,true);
     pruebas_competiciones.insertar('Insertar competiciones','Zelda Rupias Cup',1570,'24/04/17',150,null,true);
     pruebas_competiciones.insertar('Insertar competiciones', 'Mario Bros Cup2',1590,'13/05/17',160,'1',true);
     pruebas_competiciones.insertar('Insertar competiciones','RE Cup',2500,'11/01/17',170,'1',true);
-    pruebas_competiciones.insertar('Insertar competiciones','AoE World Tounrment',1100,'21/02/17',180,null,true);
+    pruebas_competiciones.insertar('Insertar competiciones','AoE World Tounrment',1100,'21/02/17',180,1,true);
     pruebas_competiciones.insertar('Insertar competiciones','Grefg Fortnite Cup',1000,'02/05/17',220,'1',true);
-    pruebas_competiciones.insertar('Insertar competiciones','Fortnite Tour',1000,'02/06/17',220,null,true);
+    pruebas_competiciones.insertar('Insertar competiciones','Fortnite Tour',1000,'02/06/17',220,1,true);
  
     oid_com := SEC_OID_COM.currval;
 
@@ -298,8 +298,15 @@ BEGIN
     pruebas_partidos.insertar('Insertar partidos',1,1,14,'Parque Wesling','04/06/19 15:13:30,30','Televisado',true);
     pruebas_partidos.insertar('Insertar partidos',7,7,15,'La Cartuja','02/06/19 15:13:30,30','Televisado',true);
     pruebas_partidos.insertar('Insertar partidos',7,7,16,'La Cartuja','04/06/19 15:13:30,30','Televisado',true);
+    pruebas_partidos.insertar('Insertar partidos',4,4,17,'Plaza España','04/06/19 15:13:30,30','Televisado',true);
+    pruebas_partidos.insertar('Insertar partidos',2,3,18,'Plaza España','04/06/19 15:13:30,30','Televisado',true);
+    pruebas_partidos.insertar('Insertar partidos',3,2,19,'Plaza España','04/06/19 15:13:30,30','Televisado',true);
+    pruebas_partidos.insertar('Insertar partidos',10,9,20,'Parque de los Principes','05/05/19 15:13:30,30','Televisado',true);
+    
+    /*Este partido no se inserta I don't know why
+    pruebas_partidos.insertar('Insertar partidos',7,8,21,'El Retiro','12/08/19 15:13:30,30','Radio',true);*/
 
-  
+
 
         /* ======================================================== */
         /*                  INSERCIÓN DE ADSCRIPCIONES              */
@@ -308,59 +315,61 @@ BEGIN
 
     pruebas_adscripciones.insertar('Insertar adscripción','24/01/16','26/01/16','10945781A',1,true);
     pruebas_adscripciones.insertar('Insertar adscripción','24/01/16',null,'10945781B',1,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','24/01/16',null,'10945781C',1,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','24/01/16',null,'10945781D',1,true);
+    /*pruebas_adscripciones.insertar('Insertar adscripción','24/01/16',null,'10945781C',1,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','24/01/16',null,'10945781D',1,true);*/
     
     pruebas_adscripciones.insertar('Insertar adscripción','01/05/17',null,'10945781A',11,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','01/05/17',null,'10945781B',11,true);
+    /*pruebas_adscripciones.insertar('Insertar adscripción','01/05/17',null,'10945781B',11,true);
     pruebas_adscripciones.insertar('Insertar adscripción','01/05/17',null,'10945781C',11,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','01/05/17',null,'10945781D',11,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','01/05/17',null,'10945781D',11,true);*/
     
     pruebas_adscripciones.insertar('Insertar adscripción','24/11/16',null,'10945781E',2,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','24/11/16',null,'10045000S',2,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','24/11/16',null,'20945781F',2,true);
+    /*pruebas_adscripciones.insertar('Insertar adscripción','24/11/16',null,'10045000S',2,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','24/11/16',null,'20945781F',2,true);*/
     pruebas_adscripciones.insertar('Insertar adscripción','24/11/16',null,'20945781G',2,true);
     
     
-    pruebas_adscripciones.insertar('Insertar adscripción','10/01/16','12/01/16','2945781H',3,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','10/01/16','12/01/16','29457812H',3,true);
     pruebas_adscripciones.insertar('Insertar adscripción','14/01/16',null,'20945781I',3,true);
     pruebas_adscripciones.insertar('Insertar adscripción','14/01/16',null,'20945781J',3,true);
     pruebas_adscripciones.insertar('Insertar adscripción','14/01/16',null,'20945781K',3,true);
    
-    pruebas_adscripciones.insertar('Insertar adscripción','30/05/16',null,'20945781L',4,true);
+    /*pruebas_adscripciones.insertar('Insertar adscripción','30/05/16',null,'20945781L',4,true);
     pruebas_adscripciones.insertar('Insertar adscripción','30/05/16',null,'20945781M',4,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','30/05/16','02/06/16','30945781N',4,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','30/05/16','02/06/16','30945781N',4,true);*/
     pruebas_adscripciones.insertar('Insertar adscripción','30/05/16',null,'30925000O',4,true);
     
     pruebas_adscripciones.insertar('Insertar adscripción','10/11/16',null,'30915000P',5,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','10/11/16',null,'30940000Q',5,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','10/11/16',null,'30905000R',5,true);
+    /*pruebas_adscripciones.insertar('Insertar adscripción','10/11/16',null,'30940000Q',5,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','10/11/16',null,'30905000R',5,true);*/
     pruebas_adscripciones.insertar('Insertar adscripción','10/11/16',null,'40935000T',5,true);
        
     pruebas_adscripciones.insertar('Insertar adscripción','02/02/16',null,'40945781A',6,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','02/02/16',null,'40945781B',6,true);
+    /*pruebas_adscripciones.insertar('Insertar adscripción','02/02/16',null,'40945781B',6,true);
     pruebas_adscripciones.insertar('Insertar adscripción','02/02/16',null,'40945781C',6,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','02/02/16',null,'40945781D',6,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','02/02/16',null,'40945781D',6,true);*/
     
-    pruebas_adscripciones.insertar('Insertar adscripción','24/04/17',null,'40945781E',7,true);
+   /*pruebas_adscripciones.insertar('Insertar adscripción','24/04/17',null,'40945781E',7,true);
     pruebas_adscripciones.insertar('Insertar adscripción','24/04/17',null,'50045000S',7,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','24/04/17',null,'50945781F',7,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','24/04/17',null,'50945781F',7,true);*/
     pruebas_adscripciones.insertar('Insertar adscripción','24/04/17',null,'50945781G',7,true);
     
     pruebas_adscripciones.insertar('Insertar adscripción','10/05/17',null,'50945781H',8,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','10/05/17',null,'50945781I',8,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','10/05/17',null,'50945781J',8,true);
+    /*pruebas_adscripciones.insertar('Insertar adscripción','10/05/17',null,'50945781I',8,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','10/05/17',null,'50945781J',8,true);*/
     pruebas_adscripciones.insertar('Insertar adscripción','10/05/17',null,'60945781K',8,true);
     
-    pruebas_adscripciones.insertar('Insertar adscripción','10/01/17',null,'60945781L',9,true);
+    /*pruebas_adscripciones.insertar('Insertar adscripción','10/01/17',null,'60945781L',9,true);
     pruebas_adscripciones.insertar('Insertar adscripción','10/01/17',null,'60945781M',9,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','10/01/17',null,'60945781N',9,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','10/01/17',null,'60945781N',9,true);*/
     pruebas_adscripciones.insertar('Insertar adscripción','10/01/17',null,'60925000O',9,true);
     
-    pruebas_adscripciones.insertar('Insertar adscripción','15/02/17',null,'60915000P',10,true);
+    /*pruebas_adscripciones.insertar('Insertar adscripción','15/02/17',null,'60915000P',10,true);
     pruebas_adscripciones.insertar('Insertar adscripción','15/02/17',null,'60940000Q',10,true);
-    pruebas_adscripciones.insertar('Insertar adscripción','15/02/17',null,'60905000R',10,true);
+    pruebas_adscripciones.insertar('Insertar adscripción','15/02/17',null,'60905000R',10,true);*/
     pruebas_adscripciones.insertar('Insertar adscripción','15/02/17',null,'60935000T',10,true);
+    
+    pruebas_adscripciones.insertar('Insertar adscripción','16/02/17',null,'60945781A',9,true);
 
     oid_ad := SEC_OID_AD.currval;
 

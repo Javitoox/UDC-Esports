@@ -93,10 +93,7 @@ BEGIN
     /* ======================================================== */
     /*          ACTUALIZACIÓN Y ELIMINACIÓN DE USUARIOS         */
     /* ======================================================== */
-    
-    --No tiene sentido actualizar y eliminar cosas que no se han insertado.
-    --Maribel
-    
+     
     pruebas_usuarios.actualizar('Actualizar usuario', '29584995A', 'Alzate', 'alz2010', 'alzate@gmail.com', '696742091', 'Alzatillo23', 'Alzatillo23', true);
     pruebas_usuarios.actualizar('Actualizar usuario', '29584995B', 'Vega', 'vega2010', 'vega@gmail.com', '696742092', 'Veguita23', 'Veguita23', true);
     pruebas_usuarios.actualizar('Actualizar usuario', '29584995C', 'Fali', 'fali2010', 'fali@gmail.com', '696742093', 'Fali23', 'Fali23', true);
