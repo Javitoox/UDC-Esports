@@ -252,6 +252,8 @@ BEGIN
 
     pruebas_estadisticas.insertar('Insertar estadistica','1',70,3, true);
     pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
+    
+    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
 
     oid_e := SEC_OID_E.currval;
 
@@ -302,9 +304,8 @@ BEGIN
     pruebas_partidos.insertar('Insertar partidos',2,3,18,'Plaza España','04/06/19 15:13:30,30','Televisado',true);
     pruebas_partidos.insertar('Insertar partidos',3,2,19,'Plaza España','04/06/19 15:13:30,30','Televisado',true);
     pruebas_partidos.insertar('Insertar partidos',10,9,20,'Parque de los Principes','05/05/19 15:13:30,30','Televisado',true);
+    pruebas_partidos.insertar('Insertar partidos',7,8,21,'El Retiro','12/08/19 15:13:30,30','Radio',true);
     
-    /*Este partido no se inserta I don't know why
-    pruebas_partidos.insertar('Insertar partidos',7,8,21,'El Retiro','12/08/19 15:13:30,30','Radio',true);*/
 
 
 

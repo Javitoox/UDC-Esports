@@ -11,15 +11,15 @@
 
 	<div class="topnav" id="myTopnav">
 		
-		<a href="navegacion.php"><img id="imglogo" src="images/logo.png" alt="Logo"></a>
-		<br><a href="navegacion_ADMIN.php">Jugadores</a>
+		<a href="index.php"><img id="imglogo" src="images/logo.png" alt="Logo"></a>
+		<br><a href="jugadores.php">Jugadores</a>
 		<a href="navegacion_ADMIN.php">Resultados</a>
 		<a href="navegacion_ADMIN.php">Mis Seguimientos</a>
         <a href="navegacion_ADMIN.php">Sobre Nosotros</a>
         <a href="gestion.php">Gestión</a>
         <a href="navegacion_ADMIN.php">Encuestas</a>
         <a href="navegacion_ADMIN.php">Información</a>
-		<a href="navegacion_ADMIN.php">Perfil</a>
+		<a href="perfil_ADMIN.php">Perfil</a>
 
 		<div class="dropdown">
 		  <button class="dropbtn">Nuestras Redes 

@@ -20,7 +20,7 @@
 		else {
 			$_SESSION['login'] = $nickUsuario;
 			//Próximamente enviaremos el usuario a la pantalla de inicio
-			Header("Location: navegacion.php");
+			Header("Location: index.php");
 		}	
 	}
 ?>

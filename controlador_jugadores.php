@@ -15,10 +15,6 @@
         Header("Location: jugadores.php");
 
     }else{  //Cuando se ha pulsado eliminar
-        //Comprobar si el usuario tiene opinion o no
-        //Si tiene
-       
-        //Si no tiene
         $oid_seg = $_REQUEST['oid_seg'];
         $removeSeguimiento = eliminarSeguimiento($conexion, $oid_seg);
         Header("Location: jugadores.php");

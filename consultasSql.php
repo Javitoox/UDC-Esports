@@ -137,5 +137,69 @@
         }
     }
 
+    function eliminaEntrenador($conexion, $dnientrenador){
+		try{
+            $consulta = "DELETE from entrenadores where dnientrenador =: dnientrenador";
+			$stmt = $conexion->prepare($consulta);
+			$stmt->bindParam(':dnientrenador',$dnientrenador);
+			$stmt->execute();
+            return true;
+		}catch(PDOException $e){
+			$_SESSION['excepcion'] = "Error al borrar al entrenador.".$e->GetMessage();
+			return false;
+		}
+    }
+
+    function eliminaOjeador($conexion, $dniojeador){
+		try{
+            $consulta = "DELETE from ojeadores where dniojeador =: dniojeador";
+			$stmt = $conexion->prepare($consulta);
+			$stmt->bindParam(':dniojeador',$dniojeador);
+			$stmt->execute();
+            return true;
+		}catch(PDOException $e){
+			$_SESSION['excepcion'] = "Error al borrar al ojeador.".$e->GetMessage();
+			return false;
+		}
+    }
+
+    function obtenJugadorPorDni($conexion, $dnijugador){
+        try{
+            $consulta = "SELECT * from jugadores where dnijugador=:dnijugador";
+            $stmt = $conexion->prepare($consulta);
+            $stmt->bindParam('dnijugador', $dnijugador);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }
+    }
+
+    function obtenEntrenadorPorDni($conexion, $dnientrenador){
+        try{
+            $consulta = "SELECT * from entrenadores where dnientrenador=:dnientrenador";
+            $stmt = $conexion->prepare($consulta);
+            $stmt->bindParam('dnientrenador', $dnientrenador);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }
+    }
+    
+    function obtenOjeadorPorDni($conexion, $dniojeador){
+        try{
+            $consulta = "SELECT * from ojeadores where dniojeador=:dniojeador";
+            $stmt = $conexion->prepare($consulta);
+            $stmt->bindParam('dniojeador', $dniojeador);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }
+    }
 ?>
 

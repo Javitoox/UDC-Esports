@@ -11,7 +11,7 @@
 
 	<div class="topnav" id="myTopnav">
 		
-		<a href="navegacion.php"><img id="imglogo" src="images/logo.png" alt="Logo"></a>
+		<a href="index.php"><img id="imglogo" src="images/logo.png" alt="Logo"></a>
 		<br><a href="jugadores.php">Jugadores</a>
 		<a href="navegacion.php">Resultados</a>
 		<a href="misSeguimientos.php">Mis Seguimientos</a>

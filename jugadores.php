@@ -52,33 +52,36 @@
         ?>
         </center>
         <?php
+        
         $jugadores = obtenJugador($conexion);
         $mejoresJugadores = listarMejoresJugadores($conexion);
+        $jugadoresYMejores = "";
         
         ?>
         <center>
         <?php
         foreach($jugadores as $jugador) {
-
             if($jugador["OID_V"] == $videojuego["OID_V"]){
                 $nombreVirtual = $jugador["NOMBREVIRTUALJUGADOR"];
                 $nacionalidad = $jugador["NACIONALIDADJUGADOR"];
                 $añosExperiencia = $jugador["NUMAÑOSEXPERIENCIAJUGADOR"];
                 $dniJugador = $jugador["DNIJUGADOR"];
                 $nombreV = $videojuego["NOMBREVIDEOJUEGO"];
+                //(*)
+                $jugadoresYMejores .= $jugador["NOMBREVIRTUALJUGADOR"];
                 
+                //(*)
                 //Para el mejor jugador de cada videojuego. Falta poner la imagen donde corresponda.
                 //Están separados ya por videojuego.
-                /*
+                //La idea es que si aparece el nombre 2 veces pues poner la copa.
                 foreach($mejoresJugadores as $mejor){
                     $mejores = $mejor["NOMBREVIRTUALJUGADOR"];
                     $oidMejores = obtenOID_V_Mejores($conexion, $mejores);
                     if($oidMejores["OID_V"] == $videojuego["OID_V"]){
-                        echo $mejores ." ";
+                        $jugadoresYMejores .= $mejores;
                     }   
                 }
-                */
-                
+
                 ?>
                 <div class = "jugador">
                     <form method= "get" id = "botones" action="controlador_jugadores.php">
@@ -109,7 +112,7 @@
                         ?>
                     </form>
                     <?php
-                     
+                
                     echo "<br><br><br>" . $nombreVirtual . "<br>". $nacionalidad. "<br>" . "Años de experiencia: ". $añosExperiencia. "<br><br>";
                     
                     ?>
@@ -121,6 +124,9 @@
                 <?php
             }   
         }
+        //(*)
+        ?> <br> <?php echo $jugadoresYMejores;
+        
         ?>
         </center>
         <?php

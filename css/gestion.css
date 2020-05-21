@@ -3,16 +3,32 @@
 }
 
 th{
-   
     font-size: 25px;
     font-family: 'Indie Flower', cursive;
+    
+}
+
+.comun > div{
+    display: flex;
+    flex-direction: row;
+}
+
+.search{
+    background-color: rgb(240, 241, 247);
+    border: solid 2px black;
+    border-radius: 18px 18px 18px 18px;
+    -moz-border-radius: 18px 18px 18px 18px;
+    -webkit-border-radius: 18px 18px 18px 18px;
+    text-align: center;
+    height:30px;
+    width:300px;    
 }
 
 #myTable{
     color:rgb(0, 0, 0);
     display: inline-block;
-    border: solid  rgb(0, 0, 0) 2px;
-    background-color: rgb(248, 225, 176);
+    border: solid  rgb(65, 63, 63) 2px;
+    background-color: rgb(255, 242, 215);
     width:400px;
     text-align: center;
     margin-left: 45px;
@@ -22,8 +38,8 @@ th{
 #myTable2{
     color:rgb(0, 0, 0);
     display: inline-block;
-    border: solid  rgb(0, 0, 0) 2px;
-    background-color: rgb(124, 156, 243);
+    border: solid  rgb(65, 63, 63) 2px;
+    background-color: rgb(190, 204, 243);
     width:400px;
     text-align: center;
     margin-left: 20px;
@@ -33,17 +49,13 @@ th{
 #myTable3{
     color:rgb(0, 0, 0);
     display: inline-block;
-    border: solid  rgb(0, 0, 0) 2px;
-    background-color: rgb(255, 210, 113);
+    border: solid  rgb(65, 63, 63) 2px;
+    background-color: rgb(243, 217, 162);
     width:400px;
     text-align: center;
     margin-left: 30px;
     margin-top: 20px;
     position: -ms-page;   
-}
-.comun > div{
-    display: flex;
-    flex-direction: row;
 }
 
 .search{
@@ -55,4 +67,39 @@ th{
     text-align: center;
     height:30px;
     width:300px;    
+}
+
+div .formulario{
+    background: rgb(255, 255, 255);
+    text-align: 18px;
+    padding: 33px;
+    border: solid  rgb(65, 63, 63) 2px;
+    border-radius: 20px;
+    position: absolute;
+    font-family: 'Amiri', serif;
+    font-size: 18px;
+    width: 500px;
+    margin-left: auto; 
+    margin-right:auto;
+    margin-top: 0px;
+    display: none;
+}
+form input{
+    margin-top: 15px;
+}
+.boton{
+    border-radius: 3px;
+    padding: 5px 10px;
+    border-color: rgb(0, 0, 0);
+    background-color: rgb(161, 218, 233);
+    font-weight: bold;
+    border-radius: 10px;
+
+}
+.boton:hover{
+    background-color: rgb(144, 209, 240);
+}
+#cerrar{
+    top: 3px;
+    position: absolute;
 }

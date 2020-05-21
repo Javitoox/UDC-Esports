@@ -38,7 +38,7 @@
 		if (alta_usuario($conexion, $nuevoUsuario)){
 			$_SESSION["login"]=$nuevoUsuario["nickUsuario"];
 			//Próximamente enviaremos a la página de inicio
-	        header("Location: index.php");
+	        header("Location: login.php");
 		}else { 
 		header("Location: excepcion.php");
         }
