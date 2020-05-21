@@ -40,7 +40,7 @@
 
         $jugadores = obtenJugador($conexion);
         foreach($jugadores as $jugador){
-            if($nombre = $jugador["NOMBREJUGADOR"]){
+            if($nombre == $jugador["NOMBREJUGADOR"]){
                 ?>
                 <!-- div para mostrar los errores -->
                 <!-- action = validacion de datos -->
@@ -99,7 +99,7 @@
 
         $entrenadores = obtenEntrenadores($conexion);
         foreach($entrenadores as $entrenador){
-            if($nombre = $entrenador["NOMBREENTRENADOR"]){
+            if($nombre == $entrenador["NOMBREENTRENADOR"]){
                 ?>
                 <div class="col-10 col-tab-10">
                 <form action="accion_editaMiembros.php" method="POST">
@@ -145,7 +145,7 @@
 
         $ojeadores = obtenOjeadores($conexion);
         foreach($ojeadores as $ojeador){
-            if($nombre = $ojeador['NOMBREOJEADOR']){
+            if($nombre == $ojeador['NOMBREOJEADOR']){
                 ?>
                 <div class="col-10 col-tab-10">
                 <form action="accion_editaMiembros.php" method="POST">
