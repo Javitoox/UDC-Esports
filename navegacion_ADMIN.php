@@ -22,6 +22,7 @@
         <a href="navegacion_ADMIN.php">Encuestas</a>
         <a href="navegacion_ADMIN.php">Información</a>
 		<a href="perfil_ADMIN.php">Perfil</a>
+		<a href="desconexion.php">Desconectar</a>
 
 		<div class="dropdown">
 		  <button class="dropbtn">Nuestras Redes 

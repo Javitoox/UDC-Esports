@@ -1,14 +1,8 @@
 div.error{
-	border : 2px solid  rgb(0, 0, 0);
 	padding :0;
 	margin:5px;
 	text-align:center;
 }
 div.error p {
-	color : rgb(250, 0, 0);	
-	
-}
-div.error h4 {
-	color : rgb(0, 0, 0);	
-	text-align:center;
+	color : rgb(250, 0, 0);
 }

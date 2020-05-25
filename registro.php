@@ -34,26 +34,27 @@
 	<?php include_once("headComun.php"); ?>
 	<link rel="stylesheet" type="text/css" href="css/formulario.css">
 	<link rel="stylesheet" type="text/css" href="css/error_form.css">
+	<script src="js/alta_usuario_control_jq.js" type="text/javascript"></script>
+	<script src="js/alta_usuario.js" type="text/javascript"></script>
 </head>
 <body>
 	<?php include_once("fondo.php"); ?>
 	
 	<h2>REGÍSTRATE</h2>
 	
-	<?php 
+	<div id="div_errores" class="error">
+		<?php
 		if (isset($errores) && count($errores)>0) {
 			//Mostramos los errores en el caso de que los haya 
-	    	echo "<div id=\"div_errores\" class=\"error\">";
-			echo "<h4> Errores en el formulario:</h4>";
     		foreach($errores as $error) echo $error; 
-    		echo "</div>";
   		}
-	?>
+	    ?>
+	</div>
 	
 	<div class="col-10 col-tab-10">
-	<form method="get" action="validacion.php" novalidate>
+	<form method="get" action="validacion.php" id="registro_formulario" novalidate="">
 		<div>
-			<input class="campo" name="dniUsuario" type="text" placeholder="DNI/NIF" value="<?php echo $formulario['dniUsuario'];?>" required>
+			<input oninput="nifValidation()" class="campo" name="dniUsuario" id="dniUsuario" type="text" placeholder="DNI/NIF" value="<?php echo $formulario['dniUsuario'];?>" required>
 		</div>
 		<div>
 			<input class="campo" name="nombreCompletoUsuario" type="text" placeholder="Nombre Completo" maxlength="80" value="<?php echo $formulario['nombreCompletoUsuario'];?>" required/>
@@ -77,7 +78,7 @@
 			<input class="campo" name="confirmPassUsuario" type="password" placeholder="Confirmar contraseña" value="<?php echo $formulario["confirmPassUsuario"];?>" required/>
 		</div>
 		<div><label id="seg" for="seguimientos"><strong>¿Tienes algún jugador favorito?¡Te recomendamos estos!</strong></label><br/>
-				<select multiple name="seguimientos[]" id="seguimientos" required>
+				<select multiple name="seguimientos[]" id="seguimientos">
 					<?php
 					$conexion = crearConexionBD();  
 					//Obtenemos a los mejores jugadores del club según los partidos ganados y los mostramor para elegir

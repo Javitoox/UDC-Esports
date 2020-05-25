@@ -65,14 +65,14 @@
 	}
 	
 	//Validación Fecha Nacimiento
-	$fechaNacimiento = date('d/m/Y', strtotime($nuevoUsuario["fechaNacimientoUsuario"]));
-	$fechaActual =  date('d/m/Y', time());
+	$fechaNacimiento = getFechaFormateada($nuevoUsuario["fechaNacimientoUsuario"]);
+	$fechaActual =  date('d/m/Y');
 
 	if($nuevoUsuario["fechaNacimientoUsuario"]==""){ 
-		$errores[] = "<p><strong>La fecha de nacimiento no puede ser vacía.</strong></p>";
+		$errores[] = "<p><strong>La fecha de nacimiento no puede estar vacía.</strong></p>";
 	}else if($fechaNacimiento > $fechaActual){
 		$errores[] = "<p><strong>La fecha de nacimiento " . $fechaNacimiento. " no puede ser posterior a la fecha actual ". $fechaActual . "</strong></p>";
-	}	
+	}
 
 	//Validación Número Telefónico
 	if($nuevoUsuario["numTelefonoUsuario"]==""){ 
