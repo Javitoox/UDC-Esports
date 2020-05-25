@@ -2,6 +2,8 @@
     session_start();
     require_once("gestionBD.php");
     require_once("consultasSql.php");
+    require_once("gestionMiembros.php");
+
 
     if(isset($_SESSION['login'])){
         $nickUsuario = $_SESSION['login'];

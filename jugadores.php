@@ -2,7 +2,7 @@
 
     session_start();
     require_once("gestionBD.php");
-    require_once("gestionJugadores.php");
+    require_once("gestionMiembros.php");
     require_once("gestionarUsuarios.php");
     require_once("consultasSql.php");
 
@@ -84,7 +84,7 @@
 
                 ?>
                 <div class = "jugador">
-                    <form method= "get" id = "botones" action="controlador_jugadores.php">
+                    <form method= "get" id = "botones" action="controlador_seguimiento.php">
                         <?php  
                         $seguimiento = existeSeguimiento($conexion, $dniUser, $dniJugador);
                         $oid_seg = obtenOID_SEG($conexion, $dniUser, $dniJugador);
@@ -130,8 +130,6 @@
         ?>
         </center>
         <?php
-
-
     }
     cerrarConexionBD($conexion);
     ?>

@@ -2,9 +2,8 @@
 
     session_start();
     require_once("gestionBD.php");
-    require_once("gestionJugadores.php");
+    require_once("gestionMiembros.php");
     require_once("gestionarUsuarios.php");
-    require_once("consultasSql.php");
 
     if(isset($_SESSION['login'])){
         $nickUsuario = $_SESSION['login'];
@@ -64,7 +63,7 @@
                 <center>
                 <div class="comun">
                     <!--Botón para eliminar de tus seguimientos -->
-                    <form method= "get" action="controlador_jugadores.php">
+                    <form method= "get" action="controlador_seguimiento.php">
                         <input id="oid_seg" name ="oid_seg" type="hidden" value="<?php echo $OID_SEG?>">
                         <button id="eliminar" name="eliminar" type="submit" class="eliminar_jugador">
                         <img height = 20px src="images/menos.png" class="eliminar_jugador"></button>

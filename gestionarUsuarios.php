@@ -92,6 +92,17 @@
 		return false;
  	}
  }
- 
+ function obtenNombreUsuario($conexion, $dniusuario){
+	try{
+		$consulta = "SELECT nombrecompletousuario from usuarios where dniusuario =: dniusuario";
+		$stmt = $conexion->prepare($consulta);
+		$stmt->bindParam('dniusuario', $dniusuario);
+		$stmt->execute();
+		return $stmt->fetch();
+	}catch(PDOException $e){
+		$_SESSION['excepcion'] = $e->GetMessage();
+		header("Location: excepcion.php");
+	}
+}
 ?>
 

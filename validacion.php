@@ -3,7 +3,7 @@
 
 	require_once("gestionBD.php");
 	require_once("gestionarUsuarios.php");
-	require_once("gestionJugadores.php");
+	require_once("gestionMiembros.php");
 
     //Comprobamos que para llegar aquí antes se ha tenido que pasar por el registro
 	if (isset($_SESSION["formulario"])) {

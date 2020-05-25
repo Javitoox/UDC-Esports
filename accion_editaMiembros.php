@@ -1,7 +1,6 @@
 <?php
     require_once('gestionBD.php');
-    require_once('gestionJugadores.php');
-    require_once('consultasSql.php');
+    require_once('gestionMiembros.php');
 
     $conexion = crearConexionBD();
 

@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once("gestionBD.php");
-    require_once("gestionJugadores.php");
+    require_once("gestionMiembros.php");
     $conexion = crearConexionBD();
 
     //validaciones de los campos

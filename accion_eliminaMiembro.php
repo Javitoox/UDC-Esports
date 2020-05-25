@@ -1,8 +1,7 @@
 <?php
     //Se llega a esta vista cuando se ha pulsado el botón de eliminar
     require_once("gestionBD.php");
-    require_once("gestionJugadores.php");
-    require_once("consultasSql.php");
+    require_once("gestionMiembros.php");
 
     session_start();
     $conexion = crearConexionBD();
