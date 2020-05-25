@@ -93,7 +93,20 @@ BEGIN
     /* ======================================================== */
     /*          ACTUALIZACIÓN Y ELIMINACIÓN DE USUARIOS         */
     /* ======================================================== */
-     
+    pruebas_usuarios.insertar('Insertar usuario');
+    
+    
+    nombrePrueba VARCHAR2,
+        w_dniUsuario IN Usuarios.dniUsuario%TYPE,
+        w_nombre_usuario IN Usuarios.nombreCompletoUsuario%TYPE,
+        w_nick_usuario IN Usuarios.nickUsuario%TYPE,
+        w_email_usuario IN Usuarios.emailUsuario%TYPE,
+        w_fechaNacimientoUsuario IN Usuarios.fechaNacimientoUsuario%TYPE,
+        w_num_usuario IN Usuarios.numTelefonoUsuario%TYPE,
+        w_passUsuario IN Usuarios.passUsuario%TYPE,
+        w_confirmPass IN Usuarios.confirmPassUsuario%TYPE,
+        salidaEsperada BOOLEAN
+    /*
     pruebas_usuarios.actualizar('Actualizar usuario', '29584995A', 'Alzate', 'alz2010', 'alzate@gmail.com', '696742091', 'Alzatillo23', 'Alzatillo23', true);
     pruebas_usuarios.actualizar('Actualizar usuario', '29584995B', 'Vega', 'vega2010', 'vega@gmail.com', '696742092', 'Veguita23', 'Veguita23', true);
     pruebas_usuarios.actualizar('Actualizar usuario', '29584995C', 'Fali', 'fali2010', 'fali@gmail.com', '696742093', 'Fali23', 'Fali23', true);
@@ -128,13 +141,13 @@ BEGIN
     pruebas_usuarios.eliminar('Eliminar usuario', '29584995J', true);
     pruebas_usuarios.eliminar('Eliminar usuario', '29584995L', true);
     pruebas_usuarios.eliminar('Eliminar usuario', '29584995M', true);
-
+    */
 
 
     /* ======================================================== */
     /*        ACTUALIZACIÓN Y ELIMINACIÓN DE SEGUIMIENTOS       */
     /* ======================================================== */
-    
+    /*
     pruebas_seguimientos.actualizar('Actualizar seguimiento', 1, 'Good Player', true);
     pruebas_seguimientos.actualizar('Actualizar seguimiento', 2, 'Awesome Player', true);
     pruebas_seguimientos.actualizar('Actualizar seguimiento', 3, 'Nice Player', true);
@@ -178,5 +191,5 @@ BEGIN
     pruebas_seguimientos.eliminar('Eliminar seguimiento', 16, true);
     pruebas_seguimientos.eliminar('Eliminar seguimiento', 17, true);
     pruebas_seguimientos.eliminar('Eliminar seguimiento', 18, true);
-
+    */
 END;

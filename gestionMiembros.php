@@ -323,4 +323,51 @@
             header("Location: excepcion.php");
         }  
     }
+    function insertaEntrenador($conexion,$oid_videojuego, $dniEntrenador, $nombre, $numTelefono, $correo, $nacionalidad, 
+    $salario, $numExperiencia){
+		try{
+			$consulta = "CALL INSERTAR_ENTRENADORES(:dnientrenador,:nombreentrenador,:salarioentrenador,:numtelefonoentrenador,:numañosexperienciaentrenador,:correoelectronicoentrenador,
+			:nacionalidadentrenador,:oid_v)";
+			$stmt=$conexion->prepare($consulta);
+			$stmt->bindParam(':oid_v',$oid_videojuego);
+			$stmt->bindParam(':dnientrenador',$dniEntrenador);
+			$stmt->bindParam(':nombreentrenador', $nombre);
+			$stmt->bindParam(':salarioentrenador', $salario);
+			$stmt->bindParam(':numtelefonoentrenador', $numTelefono);
+			$stmt->bindParam(':correoelectronicoentrenador', $correo);
+			$stmt->bindParam(':nacionalidadentrenador', $nacionalidad);
+			$stmt->bindParam(':numañosexperienciaentrenador', $numExperiencia);
+
+			$stmt->execute();
+			return true;
+		 }catch(PDOException $e){
+			 $_SESSION['excepcion'] = "Error al añadir el entrenador.".$e->GetMessage();
+			return false;
+		 }
+    }
+    function insertaOjeador($conexion,$oid_videojuego, $dniOjeador, $nombre, $numTelefono, $correo, 
+    $nacionalidad, $salario, $numExperiencia){
+        try{
+			$consulta = "CALL INSERTAR_OJEADORES(:dniojeador,:nombreojeador,:salarioojeador,:numtelefonoojeador,:numañosexperienciaojeador,:correoelectronicoojeador,
+			:nacionalidadojeador,:oid_v)";
+			$stmt=$conexion->prepare($consulta);
+			$stmt->bindParam(':oid_v',$oid_videojuego);
+			$stmt->bindParam(':dniojeador',$dniOjeador);
+			$stmt->bindParam(':nombreojeador', $nombre);
+			$stmt->bindParam(':salarioojeador', $salario);
+			$stmt->bindParam(':numtelefonoojeador', $numTelefono);
+			$stmt->bindParam(':correoelectronicoojeador', $correo);
+			$stmt->bindParam(':nacionalidadojeador', $nacionalidad);
+			$stmt->bindParam(':numañosexperienciaojeador', $numExperiencia);
+
+			$stmt->execute();
+			return true;
+		 }catch(PDOException $e){
+			 $_SESSION['excepcion'] = "Error al añadir el ojeador.".$e->GetMessage();
+			return false;
+		 }
+
+
+
+    }
 ?>

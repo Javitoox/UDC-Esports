@@ -27,7 +27,7 @@
 <body>
     <?php include_once("fondo.php"); ?>
     <?php include_once("navegacion_ADMIN.php"); ?>
-   
+
     <div class="comun">
         <?php $conexion = crearConexionBD();
         $jugadores = obtenJugador($conexion);
@@ -35,10 +35,6 @@
         $ojeadores = obtenOjeadores($conexion);?>
         
         <div class="tabla1">
-
-            <table id="myTable">
-            <tr>
-            <th style="width:60%;">Jugadores
             <!-- formulario -->
             <div class="formulario" id="creaJugador">
             <form method="post" action="accion_insertaMiembro.php">
@@ -67,7 +63,7 @@
                 <div><label for="salario">Salario actual:<em></em></label>
                 <input id="salario" placeholder="Salario" name="salario" type="text" required>
                 </div>
-                <div><label for="numExperiencia">Nº años de experiencia:<em></em></label>
+                <div><label for="numExperiencia">Años de experiencia:<em></em></label>
                 <input id="numExperiencia" placeholder="Nº Años de Experiencia" name="numExperiencia" type="text" required>
                 </div>
                 <div><label for="numRegalos">Nº de regalos:<em></em></label>
@@ -77,32 +73,35 @@
                 <div><label for="videojuego">Videojuego:<em></em></label>
                 <input list="videojuegos" name="nombreVid" id="nombreVid" required/>
 				<datalist id="videojuegos">
-                    <?php $videojuegos = obtenVideojuegos($conexion);
+                    <?php 
+                    $videojuegos = obtenVideojuegos($conexion);
                     foreach($videojuegos as $videojuego){
                         $nombreVideojuego = $videojuego["NOMBREVIDEOJUEGO"];
                         $oidV = $videojuego["OID_V"];
-                        ?><input id="oidV" name= "oidV" type="hidden"value="<?php echo $oidV;?>">
-                        <option id="nombreVid" name= "nombreVid" value="<?php echo $nombreVideojuego;?>">
-
-                        </option><?php
+                        ?><input id="oidVJugador" name= "oidVJugador" type="hidden"value="<?php echo $oidV;?>">
+                        <option id="nombreVid" name= "nombreVid" value="<?php echo $nombreVideojuego;?>"></option><?php
                     }
                     ?>
 				</datalist>
                 </div>
-                <center><input class="boton" id="boton" name="boton" type="submit" value="Añadir Jugador" /></center><br/>
+                <input class="boton" id="boton" name="boton" type="submit" value="Añadir Jugador"/><br/>
             </form>
-
-
-            <div id="cerrar"><a href="javascript:cierraFormulario()"><img height = 30px src="images/cerrar.png" alt=""></a></div>
+            <div id="cerrar"><a href="javascript:cierraFormularioYAbreTabla()"><img height = 30px src="images/cerrar.png" alt=""></a></div>
             </div>
-           
+
+            <div id="divVacio"></div>
+
+            <table id="myTable">
+            <tr>
+            <th style="width:60%;">Jugadores
+            
             <input type="text" class = "search" id="myInputJug" onkeyup="buscaJugador()" placeholder="Busca un jugador" title="Type in a name">
                
             </th>
             <th style="width:60%;"></th>
             <th style="width:60%;">
             <button id="creaJugador" name="añadir" type="submit" class="añadir_jugador">
-            <a href="javascript:abreFormulario()">
+            <a href="javascript:abreFormularioYCierraTabla()">
             <img id="añade" height = 25px src="images/mas.png" class="añadir_jugador">
             </a></button></th>
         
@@ -134,12 +133,9 @@
             ?>
         </div>
         <div class="tabla2">
-        <table id="myTable2">
-            <tr>
-            <th style="width:60%;">Entrenadores
             <!--formulario -->
             <div class="formulario" id ="creaEntrenador">
-                <form method="post" action="">
+                <form method="post" action="accion_insertaMiembro.php">
                 Insertar un ENTRENADOR
                 <div><label for="dniEntrenador">DNI Entrenador:<em></em></label>
                 <input id="dniEntrenador" name="dniEntrenador" placeholder="DNI Entrenador" type="text" required>
@@ -159,10 +155,9 @@
                 <div><label for="salarioEnt">Salario actual:<em></em></label>
                 <input id="salarioEnt" placeholder="Salario" name="salarioEnt" type="text" required>
                 </div>
-                <div><label for="numExperienciaEnt">Nº años de experiencia:<em></em></label>
+                <div><label for="numExperienciaEnt">Años de experiencia:<em></em></label>
                 <input id="numExperienciaEnt" placeholder="Nº Años de Experiencia" name="numExperienciaEnt" type="text" required>
                 </div>
-            
                 <!--Videojuego (oid_v y el nombre) -->
                 <div><label for="videojuego">Videojuego:<em></em></label>
                 <input list="videojuegos" name="nombreVid" id="nombreVid" required/>
@@ -171,26 +166,29 @@
                     foreach($videojuegos as $videojuego){
                         $nombreVideojuego = $videojuego["NOMBREVIDEOJUEGO"];
                         $oidV = $videojuego["OID_V"];
-                        ?><input id="oidV" name= "oidV" type="hidden"value="<?php echo $oidV;?>">
-                        <option id="nombreVid" name= "nombreVid" value="<?php echo $nombreVideojuego;?>">
-
-                        </option><?php
+                        ?><input id="oidVEntrenador" name= "oidVEntrenador" type="hidden"value="<?php echo $oidV;?>">
+                        <option id="nombreVid" name= "nombreVid" value="<?php echo $nombreVideojuego;?>"></option><?php
                     }
                     ?>
 				</datalist>
                 </div>
-                <center><input class="boton" id="boton" name="boton" type="submit" value="Añadir Entrenador" /></center><br/>
+                <input class="boton" id="boton" name="boton" type="submit" value="Añadir Entrenador" /><br/>
                 </form>
 
-                <div id="cerrarEntrenador"><a href="javascript:cierraFormularioEntrenador()"><img height = 30px src="images/cerrar.png" alt=""></a></div>
+                <div id="cerrarEntrenador"><a href="javascript:cierraFormularioEntrenadorYAbreTabla()"><img height = 30px src="images/cerrar.png" alt=""></a></div>
             </div>
+            <div id="divVacio2"></div>
+
+        <table id="myTable2">
+            <tr>
+            <th style="width:60%;">Entrenadores
            
             <input type="text" class = "search" id="myInputEnt" onkeyup="buscaEntrenador()" placeholder="Busca un entrenador" title="Type in a name">
             </th>
             <th style="width:60%;"></th>
             <th style="width:60%;">
             <button id="creaEntrenador" name="añadir" type="submit" class="añadir_entrenador">
-            <a href="javascript:abreFormularioEntrenador()">
+            <a href="javascript:abreFormularioEntrenadorYCierraTabla()">
             <img id="añade" height = 25px src="images/mas.png" class="añadir_entrenador">
             </a></button>
             </th>
@@ -226,21 +224,63 @@
         </div>
         &nbsp;&nbsp;
         <div class="tabla3">
+            <!-- formulario -->
+            <div class="formulario" id="creaOjeador">
+            <form method="post" action="accion_insertaMiembro.php">
+            Insertar un OJEADOR
+                <div><label for="dniOjeador">DNI Ojeador:<em></em></label>
+                <input id="dniOjeador" name="dniOjeador" placeholder="DNI Ojeador" type="text" required>
+                </div>
+                <div><label for="nombreOjeador">Nombre completo:<em></em></label>
+                <input id="nombreOjeador" placeholder="Nombre Completo" name="nombreOjeador" type="text" required>
+                </div>
+                <div><label for="numTelefonoOj">Número de teléfono:<em></em></label>
+                <input id="numTelefonoOj" placeholder="Numero de Teléfono" name="numTelefonoOj" type="text" required>
+                </div>
+                <div><label for="correoElectronicoOj">Correo electrónico:<em></em></label>
+                <input id="correoElectronicoOj" placeholder="Correo Electrónico" name="correoElectronicoOj" type="text" required>
+                </div>
+                <div><label for="nacionalidadOj">Nacionalidad:<em></em></label>
+                <input id="nacionalidadOj" placeholder="Nacionalidad" name="nacionalidadOj" type="text" required>
+                </div>
+                <div><label for="salarioOj">Salario actual:<em></em></label>
+                <input id="salarioOj" placeholder="Salario" name="salarioOj" type="text" required>
+                </div>
+                <div><label for="numExperienciaOj">Años de experiencia:<em></em></label>
+                <input id="numExperienciaOj" placeholder="Nº Años de Experiencia" name="numExperienciaOj" type="text" required>
+                </div>
+                <!--Videojuego (oid_v y el nombre) -->
+                <div><label for="videojuego">Videojuego:<em></em></label>
+                <input list="videojuegos" name="nombreVid" id="nombreVid" required/>
+				<datalist id="videojuegos">
+                    <?php $videojuegos = obtenVideojuegos($conexion);
+                    foreach($videojuegos as $videojuego){
+                        $nombreVideojuego = $videojuego["NOMBREVIDEOJUEGO"];
+                        $oidV = $videojuego["OID_V"];
+                        ?><input id="oidVOjeador" name= "oidVOjeador" type="hidden"value="<?php echo $oidV;?>">
+                        <option id="nombreVid" name= "nombreVid" value="<?php echo $nombreVideojuego;?>"></option><?php
+                    }
+                    ?>
+				</datalist>
+                </div>
+                <input class="boton" id="boton" name="boton" type="submit" value="Añadir Ojeador" /><br/>
+
+
+
+            </form>
+            <div id="cerrarOjeador"><a href="javascript:cierraFormularioOjeadorYAbreTabla()"><img height = 30px src="images/cerrar.png" alt=""></a></div>
+            </div>
+            <div id="divVacio3"></div>
+
         <table id="myTable3">
             <tr>
             <th style="width:60%;">Ojeadores
-            <!-- formulario -->
-            <div class="formulario" id="creaOjeador">
-            <form action=""></form>
-            <div id="cerrarOjeador"><a href="javascript:cierraFormularioOjeador()"><img height = 30px src="images/cerrar.png" alt=""></a></div>
-            </div>
-           
             <input type="text" class = "search" id="myInputOj" onkeyup="buscaOjeador()" placeholder="Busca un ojeador" title="Type in a name"><br>
             </th>
             <th style="width:60%;"></th>
             <th style="width:60%;">
             <button id="creaOjeador" name="añadir" type="submit" class="añadir_ojeador">
-            <a href="javascript:abreFormularioOjeador()">
+            <a href="javascript:abreFormularioOjeadorYCierraTabla()">
             <img id="añade" height = 25px src="images/mas.png" class="añadir_ojeador">
             </a></button></th>
         
