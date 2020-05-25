@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Inicio</title>
+	<title>Inicio</title>
 	<?php include_once("headComun.php"); ?>
 	<link rel="stylesheet" type="text/css" href="css/navegacion.css">
+	<script type="text/javascript" src="js/codigoJS.js"></script>
 </head>
 	
 <body>
@@ -33,21 +34,5 @@
 		<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 	  </div>
 	  <br><br><br><br>
-
-	  <script>
-	
-		/*Lo que hace es agregar o no la clase "responsive". Se activará si se hace clic en 
-		el icono del menú (topnav) que, estará disponible para móviles.*/ 
-
-	  function myFunction() {
-		var x = document.getElementById("myTopnav");
-		if (x.className === "topnav") {
-		  x.className += " responsive";
-		} else {
-		  x.className = "topnav";
-		}
-	  }
-	  </script>
-
 </body>
 </html>
