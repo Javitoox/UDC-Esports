@@ -1,0 +1,295 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+[class*="col-"] {
+	width: 100%;
+	
+}
+
+#nComplField{
+	z-index:-1;
+	margin-left: auto;
+    position: relative;
+    left: 7%;
+    font-size: 90%;
+    top: 10px;
+}
+#userField{
+    z-index:-1;
+	top: 42px;
+    position: relative;
+    font-size: 90%;
+    left: 7%;
+
+}
+#mailField{
+	z-index:-1;
+	top: 74px;
+    position: relative;
+    font-size: 90%;
+    left: 7%;
+
+}
+#dniField{
+	z-index:-1;
+	top: 112px;
+    position: relative;
+    font-size: 90%;
+    left: 7%;
+
+	
+}
+#tlfField{
+	z-index:-1;
+	top: 150px;
+    position: relative;
+    font-size: 90%;
+    left: 7%;
+}
+
+#passField{
+	z-index:-1;
+	top: 190px;
+    font-size: 90%;
+    left: 7%;
+    position: relative;
+	
+}
+
+#passCField{
+	z-index:-1;
+	top: 230px;
+    position: relative;
+    font-size: 90%;
+    left: 7%;
+
+}
+#CpassField{
+	z-index:-1;
+	top: 266px;
+    position: relative;
+    font-size: 90%;
+    left: 7%;
+
+}
+
+#nComplValue{
+	z-index:-1;
+	top: -205px;
+    position: relative;
+    font-size: 170%;
+    left: 6%;
+}
+#userValue{
+	z-index:-1;
+	top: -198px;
+    position: relative;
+    font-size: 170%;
+    left: 6%;
+}
+#mailValue{
+	z-index:-1;
+	top: -187px;
+    position: relative;
+    font-size: 150%;
+    left: 6%;
+}
+#dniValue{
+	z-index:-1;
+	top: -176px;
+    position: relative;
+    font-size: 170%;
+    left: 6%;
+}
+#tlfValue{
+	z-index:-1;
+	top: -164px;
+    position: relative;
+    font-size: 170%;
+    left: 6%;
+}
+#passValue{
+	z-index:-1;
+	top: -151px;
+    position: relative;
+    font-size: 170%;
+    left: 6%;
+}
+
+.sessionCloser:hover{
+	background: #0096f7;
+}
+
+.changePass{
+    position: relative;
+    background: #00b7f8;
+    border-bottom: 5px solid #0045a6;
+    border-radius: 12px;
+    box-shadow: 6px 6px 6px #999;
+    color: black;
+    cursor: pointer;
+    font-family: 'Raleway', Arial, Helvetica;
+    font-size: 120%;
+    height: 5%;
+    text-align: center;
+    width: 50%;
+    right: -27.8%;
+    top: -76px;
+}
+.changePass:hover{
+	background: #0096f7;
+}
+
+.exampleImage{
+	display: inline-block;
+	position:relative;
+	right:7%;
+    top:20%;
+}
+
+
+.newPass{
+    position: relative;
+    top: -131px;
+    width: 70%;
+    left: 7%;
+}
+
+.newConfirmPass{
+    position: relative;
+    top: -87px;
+    left: 7%;
+    width: 70%;
+}	
+
+@media only screen and (min-width: 812px) {
+	.col-1 {width: 10%;}
+	.col-2 {width: 20%;}
+	.col-3 {width: 30%;}
+	.col-4 {width: 40%;}
+	.col-5 {width: 50%;}
+	.col-6 {width: 60%;}
+	.col-7 {width: 70%;}
+	.col-8 {width: 80%;}
+	.col-9 {width: 90%;}
+	.col-10{width: 100%;}
+	
+#nComplField{
+    font-family: 'Roboto', sans-serif;
+    left: 7%;
+    font-size: 170%;
+    top: 10px;
+}
+#userField{
+	font-family: 'Roboto', sans-serif;
+    left: 7%;
+    font-size: 170%;
+    top: 10px;
+
+}
+#mailField{
+	font-family: 'Roboto', sans-serif;
+    left: 7%;
+    font-size: 170%;
+    top: 10px;
+
+}
+#dniField{
+	font-family: 'Roboto', sans-serif;
+    left: 7%;
+    font-size: 170%;
+    top: 10px;
+
+	
+}
+#tlfField{
+    font-family: 'Roboto', sans-serif;
+    left: 7%;
+    font-size: 170%;
+    top: 10px;
+
+}
+
+#passField{
+	font-family: 'Roboto', sans-serif;
+    left: 7%;
+    font-size: 170%;
+    top: 10px;
+	
+}
+
+#passCField{
+	font-family: 'Roboto', sans-serif;
+    left: 7%;
+    font-size: 170%;
+    top: 10px;
+
+}
+#CpassField{
+    font-family: 'Roboto', sans-serif;
+    left: 7%;
+    font-size: 170%;
+    top: 10px;
+
+}
+
+#nComplValue{
+    font-family: 'Roboto', sans-serif;
+    left: 150%;
+    font-size: 170%;
+    top: -430px;
+}
+#userValue{
+	font-family: 'Roboto', sans-serif;
+    left: 150%;
+    font-size: 170%;
+    top: -437px;
+}
+#mailValue{
+	font-family: 'Roboto', sans-serif;
+    left: 150%;
+    font-size: 170%;
+    top: -440px;
+}
+
+.changePass{
+    font-family: 'Roboto', sans-serif;
+    left: 7%;
+    font-size: 90%;
+    top: -367px;
+    height: 40px;
+}
+.newPass{
+    top: -444px;
+    width: 70%;
+    left: 150%;
+}
+.newConfirmPass {
+    top: -401px;
+    left: 150%;
+    width: 70%;
+}
+#dniValue{
+    top: -438px;
+    font-size: 170%;
+    left: 150%;
+}
+#tlfValue{
+	font-family: 'Roboto', sans-serif;
+    top: -439px;
+    font-size: 170%;
+    left: 150%;
+}
+#passValue{
+	font-family: 'Roboto', sans-serif;
+    left: 150%;
+    font-size: 170%;
+    top: -443px;
+}
+
+
+}
