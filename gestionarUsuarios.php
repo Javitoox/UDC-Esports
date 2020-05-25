@@ -104,5 +104,68 @@
 		header("Location: excepcion.php");
 	}
 }
+function obtenEmailUsuario($conexion, $nickUsuario){
+        try{
+            $consulta = "SELECT emailUsuario from usuarios where nickusuario =: nickUsuario";
+            $stmt = $conexion->prepare($consulta);
+		    $stmt->bindParam(':nickusuario',$nickUsuario);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }  
+    }
+function obtenNumeroUsuario($conexion, $nickUsuario){
+        try{
+            $consulta = "SELECT numTelefonoUsuario from usuarios where nickusuario =: nickUsuario";
+            $stmt = $conexion->prepare($consulta);
+		    $stmt->bindParam(':nickusuario',$nickUsuario);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }  
+    }
+function obtenNombreUsuario($conexion, $nickUsuario){
+        try{
+            $consulta = "SELECT nombreCompletoUsuario from usuarios where nickusuario =: nickUsuario";
+            $stmt = $conexion->prepare($consulta);
+		    $stmt->bindParam(':nickusuario',$nickUsuario);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }  
+    }
+	
+function obtenPassUsuario($conexion, $nickUsuario){
+        try{
+            $consulta = "SELECT passUsuario from usuarios where nickusuario =: nickUsuario";
+            $stmt = $conexion->prepare($consulta);
+		    $stmt->bindParam(':nickusuario',$nickUsuario);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }  
+    }
+	
+function changePass($conexion, $userDni, $newPass){
+      	 	try{
+       	 	    $consulta = "UPDATE USUARIOS SET PASSUSUARIO =: newpass WHERE DNIUSUARIO =: dni";
+			    $stmt = $conexion->prepare($consulta);
+			    $stmt->bindParam(':dni',$userDni);
+				$stmt->bindParam(':newpass',$newPass);
+				$stmt->execute();
+				return true;
+     	   }catch(PDOException $e){
+     	       $_SESSION['excepcion'] = $e->GetMessage();
+			   return false;
+     	   }  
+    }
 ?>
 
