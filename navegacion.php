@@ -18,6 +18,7 @@
 		<a href="misSeguimientos.php">Mis Seguimientos</a>
 		<a href="navegacion.php">Sobre Nosotros</a>
 		<a href="perfil.php">Perfil</a>
+		<a href="desconexion.php">Desconectar</a>
 
 		<div class="dropdown">
 		  <button class="dropbtn">Nuestras Redes 

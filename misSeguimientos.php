@@ -45,12 +45,12 @@
                 if(array_key_exists($seg[0], $opinionesJug)){
                     //Para el resto de usuarios que ya han opinado sobre un jugador
                     if($seg[1] != ""){
-                        $opinionesJug[$seg[0]] .= $nombreUsuario[0] . ": " . $seg[1] . "<br>";
+                        $opinionesJug[$seg[0]] .=  "<b>" . $nombreUsuario[0] . "</b>" . ": " . $seg[1] . "<br>";
                     }
                 }else{
                     //Para el usuario
                     if($seg[1] != ""){
-                        $opinionesJug[$seg[0]] = $nombreUsuario[0] . ": " . $seg[1] . "<br>";
+                        $opinionesJug[$seg[0]] = "<b>" . $nombreUsuario[0] . "</b>" . ": " . $seg[1] . "<br>";
                     }else{
                         $opinionesJug[$seg[0]] = "";
                     }

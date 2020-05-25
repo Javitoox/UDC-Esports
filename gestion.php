@@ -265,8 +265,6 @@
                 </div>
                 <input class="boton" id="boton" name="boton" type="submit" value="Añadir Ojeador" /><br/>
 
-
-
             </form>
             <div id="cerrarOjeador"><a href="javascript:cierraFormularioOjeadorYAbreTabla()"><img height = 30px src="images/cerrar.png" alt=""></a></div>
             </div>
