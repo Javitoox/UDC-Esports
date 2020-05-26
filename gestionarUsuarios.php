@@ -157,7 +157,18 @@ function obtenPassUsuario($conexion, $nickUsuario){
             header("Location: excepcion.php");
         }  
     }
-	
+function obtenDniUsuarioR($conexion, $nickUsuario){
+        try{
+            $consulta = "SELECT dniUsuario from usuarios where nickusuario =: nickUsuario";
+            $stmt = $conexion->prepare($consulta);
+		    $stmt->bindParam(':nickusuario',$nickUsuario);
+            $stmt->execute();
+		    return $stmt->fetch();
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+            header("Location: excepcion.php");
+        }  
+    }	
 function changePass($conexion, $userDni, $newPass){
       	 	try{
        	 	    $consulta = "UPDATE USUARIOS SET PASSUSUARIO =: newpass WHERE DNIUSUARIO =: dni";
