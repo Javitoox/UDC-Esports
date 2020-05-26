@@ -171,5 +171,39 @@ function changePass($conexion, $userDni, $newPass){
 			   return false;
      	   }  
     }
+function changeProfile($conexion,$nombre,$nick,$mail,$numt,$dni){
+      	 	try{
+       	 	    $consultaNombre = "UPDATE USUARIOS SET NOMBRECOMPLETOUSUARIO = :nombre WHERE DNIUSUARIO = :dni";
+				$stmt = $conexion->prepare($consultaNombre);
+				$stmt->bindParam(':dni',$dni);
+				$stmt->bindParam(':nombre',$nombre);
+				$stmt->execute();
+				
+				$consultaNick = "UPDATE USUARIOS SET NICKUSUARIO = :nick WHERE DNIUSUARIO = :dni";
+				$stmtN = $conexion->prepare($consultaNick);
+				$stmtN->bindParam(':dni',$dni);
+				$stmtN->bindParam(':nick',$nick);
+				$stmtN->execute();
+				
+				
+				$consultaMail = "UPDATE USUARIOS SET EMAILUSUARIO = :mail WHERE DNIUSUARIO = :dni";
+				$stmtM = $conexion->prepare($consultaMail);
+				$stmtM->bindParam(':dni',$dni);
+				$stmtM->bindParam(':mail',$mail);
+				$stmtM->execute();
+				
+				$consultaTel = "UPDATE USUARIOS SET NUMTELEFONOUSUARIO = :num WHERE DNIUSUARIO = :dni";
+				$stmtT = $conexion->prepare($consultaTel);
+				$stmtT->bindParam(':dni',$dni);
+				$stmtT->bindParam(':num',$numt);
+				$stmtT->execute();
+
+				
+				return true;
+     	   }catch(PDOException $e){
+     	       $_SESSION['excepcion'] = $e->GetMessage();
+			   return false;
+     	   }  
+    }
 ?>
 
