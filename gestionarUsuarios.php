@@ -106,7 +106,20 @@ function obtenEmailUsuario($conexion, $nickUsuario){
             $_SESSION['excepcion'] = $e->GetMessage();
             header("Location: excepcion.php");
         }  
-    }
+	}
+function obtenNombreUsuarioPorDNI($conexion, $dniusuario){
+		try{
+			$consulta = "SELECT nombrecompletousuario from usuarios where dniusuario =: dniusuario";
+			$stmt = $conexion->prepare($consulta);
+			$stmt->bindParam('dniusuario', $dniusuario);
+			$stmt->execute();
+			return $stmt->fetch();
+		}catch(PDOException $e){
+			$_SESSION['excepcion'] = $e->GetMessage();
+			header("Location: excepcion.php");
+		}
+}	
+
 function obtenNumeroUsuario($conexion, $nickUsuario){
         try{
             $consulta = "SELECT numTelefonoUsuario from usuarios where nickusuario =: nickUsuario";
@@ -121,7 +134,7 @@ function obtenNumeroUsuario($conexion, $nickUsuario){
     }
 function obtenNombreUsuario($conexion, $nickUsuario){
         try{
-            $consulta = "SELECT nombreCompletoUsuario from usuarios where nickusuario =: nickUsuario";
+            $consulta = "SELECT nombreCompletoUsuario from usuarios where nickusuario =: nickusuario";
             $stmt = $conexion->prepare($consulta);
 		    $stmt->bindParam(':nickusuario',$nickUsuario);
             $stmt->execute();

@@ -18,7 +18,6 @@
 <title>Mis Seguimientos</title>
     <?php include_once("headComun.php"); ?>
     <link rel="stylesheet" type="text/css" href="css/misSeguimientos.css">
-
 </head>
 
 <body>
@@ -41,7 +40,7 @@
             $seguimiento = tieneSeguimiento($conexion, $dniJugador);
             $opinionesJug = array(); //diccionario
             foreach($seguimiento as $seg){
-                $nombreUsuario = obtenNombreUsuario($conexion, $seg[2]);
+                $nombreUsuario = obtenNombreUsuarioPorDNI($conexion, $seg[2]);
                 if(array_key_exists($seg[0], $opinionesJug)){
                     //Para el resto de usuarios que ya han opinado sobre un jugador
                     if($seg[1] != ""){

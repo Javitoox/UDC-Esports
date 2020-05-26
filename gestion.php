@@ -4,13 +4,12 @@
     require_once("consultasSql.php");
     require_once("gestionMiembros.php");
 
-
+    
     if(isset($_SESSION['login'])){
         $nickUsuario = $_SESSION['login'];
     }else{
         Header("Location: login.php");
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +88,7 @@
             <div id="cerrar"><a href="javascript:cierraFormularioYAbreTabla()"><img height = 30px src="images/cerrar.png" alt=""></a></div>
             </div>
 
-            <div id="divVacio"></div>
+            <table id=tablaAparece></table>
 
             <table id="myTable">
             <tr>
@@ -100,7 +99,7 @@
             </th>
             <th style="width:60%;"></th>
             <th style="width:60%;">
-            <button id="creaJugador" name="añadir" type="submit" class="añadir_jugador">
+            <button id="creaJ" name="añadir" type="submit" class="añadir_jugador">
             <a href="javascript:abreFormularioYCierraTabla()">
             <img id="añade" height = 25px src="images/mas.png" class="añadir_jugador">
             </a></button></th>
@@ -134,7 +133,7 @@
         </div>
         <div class="tabla2">
             <!--formulario -->
-            <div class="formulario" id ="creaEntrenador">
+            <div class="formulario2" id ="creaEntrenador">
                 <form method="post" action="accion_insertaMiembro.php">
                 Insertar un ENTRENADOR
                 <div><label for="dniEntrenador">DNI Entrenador:<em></em></label>
@@ -177,8 +176,7 @@
 
                 <div id="cerrarEntrenador"><a href="javascript:cierraFormularioEntrenadorYAbreTabla()"><img height = 30px src="images/cerrar.png" alt=""></a></div>
             </div>
-            <div id="divVacio2"></div>
-
+        <table id=tablaAparece2></table>     
         <table id="myTable2">
             <tr>
             <th style="width:60%;">Entrenadores
@@ -187,7 +185,7 @@
             </th>
             <th style="width:60%;"></th>
             <th style="width:60%;">
-            <button id="creaEntrenador" name="añadir" type="submit" class="añadir_entrenador">
+            <button id="creaEnt" name="añadir" type="submit" class="añadir_entrenador">
             <a href="javascript:abreFormularioEntrenadorYCierraTabla()">
             <img id="añade" height = 25px src="images/mas.png" class="añadir_entrenador">
             </a></button>
@@ -225,7 +223,7 @@
         &nbsp;&nbsp;
         <div class="tabla3">
             <!-- formulario -->
-            <div class="formulario" id="creaOjeador">
+            <div class="formulario3" id="creaOjeador">
             <form method="post" action="accion_insertaMiembro.php">
             Insertar un OJEADOR
                 <div><label for="dniOjeador">DNI Ojeador:<em></em></label>
@@ -268,8 +266,7 @@
             </form>
             <div id="cerrarOjeador"><a href="javascript:cierraFormularioOjeadorYAbreTabla()"><img height = 30px src="images/cerrar.png" alt=""></a></div>
             </div>
-            <div id="divVacio3"></div>
-
+        <table id=tablaAparece3></table>     
         <table id="myTable3">
             <tr>
             <th style="width:60%;">Ojeadores
@@ -277,7 +274,7 @@
             </th>
             <th style="width:60%;"></th>
             <th style="width:60%;">
-            <button id="creaOjeador" name="añadir" type="submit" class="añadir_ojeador">
+            <button id="creaOj" name="añadir" type="submit" class="añadir_ojeador">
             <a href="javascript:abreFormularioOjeadorYCierraTabla()">
             <img id="añade" height = 25px src="images/mas.png" class="añadir_ojeador">
             </a></button></th>
@@ -302,11 +299,14 @@
                     $dniOjeador = $ojeador["DNIOJEADOR"];
                     ?>
                     <input id="dniojeador" name ="dniojeador" type="hidden" value="<?php echo $dniOjeador?>">
-                    <td><button id="eliminar" name="eliminar"><img height = 25px src="images/eliminar.jpg"></button></td>
+                    <td><button id="eliminar" name="eliminar"><img height = 25px src="images/eliminar.jpg"></button></td>                        
                 </form>
                 </tr>
                 <?php
+                
             }
+            
+            
             ?>
         </div>
     </div>

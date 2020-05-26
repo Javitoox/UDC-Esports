@@ -66,38 +66,51 @@ function buscaOjeador() {
         }       
     }
 }
+
 function abreFormularioYCierraTabla(){
-    document.getElementById("creaJugador").style.display="block";
-    document.getElementById("myTable").style.display="none";
-    document.getElementById("divVacio").style.display="block";
+        document.getElementById("tablaAparece").style.display="block";
+        document.getElementById("creaJugador").style.display="block";
+        document.getElementById("myTable").style.display="none";
+        document.getElementById("creaEnt").style.display="none";
+        document.getElementById("creaOj").style.display="none";
 }
+
 function cierraFormularioYAbreTabla(){
     document.getElementById("creaJugador").style.display="none";
     document.getElementById("myTable").style.display="block";
-    document.getElementById("divVacio").style.display="none";
-
+    document.getElementById("tablaAparece").style.display="none";
+    document.getElementById("creaEnt").style.display="block";
+    document.getElementById("creaOj").style.display="block";
 }
 function abreFormularioEntrenadorYCierraTabla(){
     document.getElementById("creaEntrenador").style.display="block";
     document.getElementById("myTable2").style.display="none";
-    document.getElementById("divVacio2").style.display="block";
+    document.getElementById("tablaAparece2").style.display="block";
+    document.getElementById("creaJ").style.display="none";
+    document.getElementById("creaOj").style.display="none";
 
 }
 function cierraFormularioEntrenadorYAbreTabla(){
     document.getElementById("creaEntrenador").style.display="none";
     document.getElementById("myTable2").style.display="block";
-    document.getElementById("divVacio2").style.display="none";
+    document.getElementById("tablaAparece2").style.display="none";
+    document.getElementById("creaJ").style.display="block";
+    document.getElementById("creaOj").style.display="block";
 
 }
 function abreFormularioOjeadorYCierraTabla(){
     document.getElementById("creaOjeador").style.display="block";
     document.getElementById("myTable3").style.display="none";
-    document.getElementById("divVacio3").style.display="block";
+    document.getElementById("tablaAparece3").style.display="block";
+    document.getElementById("creaJ").style.display="none";
+    document.getElementById("creaEnt").style.display="none";
 
 }
 function cierraFormularioOjeadorYAbreTabla(){
     document.getElementById("creaOjeador").style.display="none";
     document.getElementById("myTable3").style.display="block";
-    document.getElementById("divVacio3").style.display="none";
+    document.getElementById("tablaAparece3").style.display="none";
+    document.getElementById("creaJ").style.display="block";
+    document.getElementById("creaEnt").style.display="block";
 
 }
