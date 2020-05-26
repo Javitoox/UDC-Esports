@@ -171,6 +171,20 @@ function changePass($conexion, $userDni, $newPass){
 			   return false;
      	   }  
     }
+
+function changeCPass($conexion, $userDni,$pass){
+      	 	try{
+       	 	    $consulta = "UPDATE USUARIOS SET CONFIRMPASSUSUARIO = :pass WHERE DNIUSUARIO = :dni";
+				$stmt = $conexion->prepare($consulta);
+				$stmt->bindParam(':dni',$userDni);
+				$stmt->bindParam(':pass',$pass);
+				$stmt->execute();
+				return true;
+     	   }catch(PDOException $e){
+     	       $_SESSION['excepcion'] = $e->GetMessage();
+			   return false;
+     	   }  
+    }
 function changeProfile($conexion,$nombre,$nick,$mail,$numt,$dni){
       	 	try{
        	 	    $consultaNombre = "UPDATE USUARIOS SET NOMBRECOMPLETOUSUARIO = :nombre WHERE DNIUSUARIO = :dni";
