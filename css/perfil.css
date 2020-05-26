@@ -9,9 +9,13 @@
 	width: 100%;
 	
 }
+.form{
+	position: relative;
+	top:45%;
+}
 
 #nComplField{
-	z-index:-1;
+	z-index:0;
 	margin-left: auto;
     position: relative;
     left: 7%;
@@ -19,7 +23,7 @@
     top: 10px;
 }
 #userField{
-    z-index:-1;
+    z-index:0;
 	top: 42px;
     position: relative;
     font-size: 90%;
@@ -27,7 +31,7 @@
 
 }
 #mailField{
-	z-index:-1;
+	z-index:0;
 	top: 74px;
     position: relative;
     font-size: 90%;
@@ -35,7 +39,7 @@
 
 }
 #dniField{
-	z-index:-1;
+	z-index:0;
 	top: 112px;
     position: relative;
     font-size: 90%;
@@ -44,7 +48,7 @@
 	
 }
 #tlfField{
-	z-index:-1;
+	z-index:0;
 	top: 150px;
     position: relative;
     font-size: 90%;
@@ -52,7 +56,7 @@
 }
 
 #passField{
-	z-index:-1;
+	z-index:0;
 	top: 190px;
     font-size: 90%;
     left: 7%;
@@ -61,7 +65,7 @@
 }
 
 #passCField{
-	z-index:-1;
+	z-index:0;
 	top: 230px;
     position: relative;
     font-size: 90%;
@@ -69,7 +73,7 @@
 
 }
 #CpassField{
-	z-index:-1;
+	z-index:0;
 	top: 266px;
     position: relative;
     font-size: 90%;
@@ -77,50 +81,71 @@
 
 }
 
-#nComplValue{
-	z-index:-1;
-	top: -205px;
+#nombre{
+	z-index: 0;
+	top: -195px;
     position: relative;
     font-size: 170%;
     left: 6%;
 }
-#userValue{
-	z-index:-1;
-	top: -198px;
+#nick{
+	z-index: 0;
+	top: -175px;
     position: relative;
     font-size: 170%;
     left: 6%;
 }
-#mailValue{
-	z-index:-1;
-	top: -187px;
+#mail{
+	z-index: 0;
+    top: -152px;
     position: relative;
     font-size: 150%;
     left: 6%;
+    height: 41px;
+    width: 345px;
 }
-#dniValue{
-	z-index:-1;
-	top: -176px;
+#dni{
+	z-index: -1;
+    top: -126px;
     position: relative;
     font-size: 170%;
     left: 6%;
 }
-#tlfValue{
-	z-index:-1;
-	top: -164px;
+#num{
+	z-index: 0;
+    top: -98px;
     position: relative;
     font-size: 170%;
     left: 6%;
 }
-#passValue{
-	z-index:-1;
-	top: -151px;
+#pass{
+	z-index: -1;
+    top: -68px;
     position: relative;
     font-size: 170%;
     left: 6%;
 }
 
 .sessionCloser:hover{
+	background: #0096f7;
+}
+.changeProfile{
+	position: relative;
+    background: #00b7f8;
+    border-bottom: 5px solid #0045a6;
+    border-radius: 12px;
+    box-shadow: 6px 6px 6px #999;
+    color: black;
+    cursor: pointer;
+    font-family: 'Raleway', Arial, Helvetica;
+    font-size: 120%;
+    height: 5%;
+    text-align: center;
+    width: 50%;
+    right: -27.8%;
+    top: 96px;
+}
+.changeProfile:hover{
 	background: #0096f7;
 }
 
@@ -138,7 +163,7 @@
     text-align: center;
     width: 50%;
     right: -27.8%;
-    top: -76px;
+    top: 68px;
 }
 .changePass:hover{
 	background: #0096f7;
@@ -154,16 +179,16 @@
 
 .newPass{
     position: relative;
-    top: -131px;
-    width: 70%;
+    top: -49px;
+    width: 91%;
     left: 7%;
 }
 
 .newConfirmPass{
     position: relative;
-    top: -87px;
+    top: -9px;
     left: 7%;
-    width: 70%;
+    width: 91%;
 }	
 
 @media only screen and (min-width: 812px) {
@@ -237,59 +262,76 @@
 
 }
 
-#nComplValue{
-    font-family: 'Roboto', sans-serif;
-    left: 150%;
+#nombre{
+	top: -435px;
+    position: relative;
     font-size: 170%;
-    top: -430px;
+    left: 100%;
 }
-#userValue{
-	font-family: 'Roboto', sans-serif;
-    left: 150%;
+#nick{
+    top: -417px;
+    position: relative;
     font-size: 170%;
-    top: -437px;
+    left: 100%;
 }
-#mailValue{
-	font-family: 'Roboto', sans-serif;
-    left: 150%;
+#mail{
+    top: -400px;
+    position: relative;
+    font-size: 150%;
+    left: 100%;
+}
+#dni{  
+	 
+    top: -383px;
+    position: relative;
     font-size: 170%;
-    top: -440px;
+    left: 100%;
+}
+#num{
+    top: -365px;
+    position: relative;
+    font-size: 170%;
+    left: 100%;
+}
+#pass{
+    
+    top: -344px;
+    position: relative;
+    font-size: 170%;
+    left: 100%;
 }
 
 .changePass{
-    font-family: 'Roboto', sans-serif;
-    left: 7%;
+    left: 26%;
     font-size: 90%;
-    top: -367px;
+    top: -263px;
     height: 40px;
+    width: 209px;
 }
 .newPass{
-    top: -444px;
-    width: 70%;
-    left: 150%;
+    top: -345px;
+    width: 29%;
+    left: 45%;
 }
+
 .newConfirmPass {
-    top: -401px;
-    left: 150%;
-    width: 70%;
+    top: -311px;
+    left: 45%;
+    width: 29%;
 }
-#dniValue{
-    top: -438px;
-    font-size: 170%;
-    left: 150%;
+
+.changeProfile{
+    height: 37px;
+    width: 209px;
+    right: 28.2%;
+    top: -182px;
+    left: -23%;
+    font-size: 90%;
 }
-#tlfValue{
-	font-family: 'Roboto', sans-serif;
-    top: -439px;
-    font-size: 170%;
-    left: 150%;
-}
-#passValue{
-	font-family: 'Roboto', sans-serif;
-    left: 150%;
-    font-size: 170%;
-    top: -443px;
+
+.form{
+	left:15%;	
 }
 
 
-}
+
