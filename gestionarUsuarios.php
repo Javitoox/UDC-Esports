@@ -16,7 +16,9 @@
 		$stmt->execute();
 		return asignar_seguimientos_usuario($conexion,$nuevoUsuario['dniUsuario'],$nuevoUsuario['seguimientos']);
 	}catch(PDOException $e ) {
-		$_SESSION['excepcion'] = "El usuario ya existe en la base de datos.".$e->GetMessage();
+		$errores=array();
+		$errores[]="<p><strong>El usuario ya existe en la aplicación.</strong></p>";
+		$_SESSION['errores'] =$errores;
 		return false;
 	}
  }

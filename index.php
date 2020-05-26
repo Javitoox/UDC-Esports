@@ -3,11 +3,9 @@
     session_start();
     require_once("gestionBD.php");
 
-    if(isset($_SESSION['login'])){
-        $nickUsuario = $_SESSION['login'];
-    }else{
+    if(!isset($_SESSION['login'])){
         header("Location: login.php");
-    }   
+    }
     
 ?>
 <!DOCTYPE html>

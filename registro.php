@@ -24,6 +24,7 @@
 	//Comprobamos si han llegado errores de validación		
 	if (isset($_SESSION['errores'])){
 		$errores = $_SESSION['errores'];
+		unset($_SESSION["errores"]);
 	}
 ?>
 
@@ -34,7 +35,6 @@
 	<?php include_once("headComun.php"); ?>
 	<link rel="stylesheet" type="text/css" href="css/formulario.css">
 	<link rel="stylesheet" type="text/css" href="css/error_form.css">
-	<script src="js/alta_usuario_control_jq.js" type="text/javascript"></script>
 	<script src="js/alta_usuario.js" type="text/javascript"></script>
 </head>
 <body>
@@ -52,30 +52,30 @@
 	</div>
 	
 	<div class="col-10 col-tab-10">
-	<form method="get" action="validacion.php" id="registro_formulario" novalidate="">
+	<form method="get" action="validacion.php" id="registro_formulario">
 		<div>
 			<input oninput="nifValidation()" class="campo" name="dniUsuario" id="dniUsuario" type="text" placeholder="DNI/NIF" value="<?php echo $formulario['dniUsuario'];?>" required>
 		</div>
 		<div>
-			<input class="campo" name="nombreCompletoUsuario" type="text" placeholder="Nombre Completo" maxlength="80" value="<?php echo $formulario['nombreCompletoUsuario'];?>" required/>
+			<input oninput="nameValidation()" class="campo" name="nombreCompletoUsuario" id="nombreCompletoUsuario" type="text" placeholder="Nombre Completo" maxlength="80" value="<?php echo $formulario['nombreCompletoUsuario'];?>" required/>
 		</div>
 		<div>
-			<input class="campo" name="nickUsuario" type="text" placeholder="Usuario" maxlength="40" value="<?php echo $formulario['nickUsuario'];?>" required/>
+			<input oninput="nickValidation()" class="campo" name="nickUsuario" id="nickUsuario" type="text" placeholder="Usuario" maxlength="40" value="<?php echo $formulario['nickUsuario'];?>" required/>
 		</div>
 		<div>
-			<input class="campo" name="emailUsuario" type="emailUsuario" placeholder="Email" value="<?php echo $formulario['emailUsuario'];?>" required/>
+			<input oninput="emailValidation()" class="campo" name="emailUsuario" id="emailUsuario" type="email" placeholder="Email" value="<?php echo $formulario['emailUsuario'];?>" required/>
 		</div>
 		<div>
-			<input class="campo" name="fechaNacimientoUsuario" type="date" placeholder="Fecha de nacimiento" value="<?php echo $formulario['fechaNacimientoUsuario'];?>" required/>
+			<input oninput="dateValidation()" class="campo" name="fechaNacimientoUsuario" id="fechaNacimientoUsuario" type="date" placeholder="Fecha de nacimiento" value="<?php echo $formulario['fechaNacimientoUsuario'];?>" required/>
 		</div>
 		<div>
-			<input class="campo" name="numTelefonoUsuario" type="tel" placeholder="Teléfono" value="<?php echo $formulario['numTelefonoUsuario'];?>" required/>
+			<input oninput="phoneValidation()" class="campo" name="numTelefonoUsuario" id="numTelefonoUsuario" type="tel" placeholder="Teléfono" value="<?php echo $formulario['numTelefonoUsuario'];?>" required/>
 		</div>
 		<div>
-			<input class="campo" name="passUsuario" type="password" placeholder="Contraseña" value="<?php echo $formulario["passUsuario"];?>" required/>
+			<input oninput="passwordValidation()" class="campo" name="passUsuario" id="passUsuario" type="password" placeholder="Contraseña" value="<?php echo $formulario["passUsuario"];?>" required/>
 		</div>
 		<div>
-			<input class="campo" name="confirmPassUsuario" type="password" placeholder="Confirmar contraseña" value="<?php echo $formulario["confirmPassUsuario"];?>" required/>
+			<input oninput="retypeValidation()" class="campo" name="confirmPassUsuario" id="confirmPassUsuario" type="password" placeholder="Confirmar contraseña" value="<?php echo $formulario["confirmPassUsuario"];?>" required/>
 		</div>
 		<div><label id="seg" for="seguimientos"><strong>¿Tienes algún jugador favorito?¡Te recomendamos estos!</strong></label><br/>
 				<select multiple name="seguimientos[]" id="seguimientos">

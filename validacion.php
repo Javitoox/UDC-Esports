@@ -66,7 +66,7 @@
 	
 	//Validación Fecha Nacimiento
 	$fechaNacimiento = getFechaFormateada($nuevoUsuario["fechaNacimientoUsuario"]);
-	$fechaActual =  date('d/m/Y');
+	$fechaActual =  getFechaFormateada('now');
 
 	if($nuevoUsuario["fechaNacimientoUsuario"]==""){ 
 		$errores[] = "<p><strong>La fecha de nacimiento no puede estar vacía.</strong></p>";
@@ -101,7 +101,7 @@
 	}
 
 	function getFechaFormateada($fecha){ 
-		$fechaNacimientoUsuario = date('d/m/Y', strtotime($fecha));	
+		$fechaNacimientoUsuario = date('Y/m/d', strtotime($fecha));	
 		return $fechaNacimientoUsuario;
 	}
 

@@ -42,7 +42,7 @@
 	<?php if (isset($login)) {
 		//Mostramos los errores en el caso de que los haya
 		echo "<div class=\"error\">";
-		echo "Error en la contraseña o no existe el usuario.";
+		echo "<p><strong>Error en la contraseña o no existe el usuario.</strong></p>";
 		echo "</div>";
 	}	
 	?>
