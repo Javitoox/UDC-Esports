@@ -99,6 +99,7 @@ BEGIN
     pruebas_usuarios.insertar('Insertar usuario','29584995D','Roberto Gutirrez', 'roberttGz','roberttGz@gmail.com', '20/05/2000','887723464','Pollito22', 'Pollito22', true);
     pruebas_usuarios.insertar('Insertar usuario','29584995E','Pepe Lopez', 'ppkma0','ppkma0@gmail.com', '20/05/2000','887723465','Pollito22', 'Pollito22', true);
     pruebas_usuarios.insertar('Insertar usuario','29584995F','Fernando Hidalgo', 'tufer_23','tufer_23@gmail.com', '20/05/2000','887723466','Pollito22', 'Pollito22', true);
+    pruebas_usuarios.insertar('Insertar usuario','xxxxxxxxx','ADMIN', 'ADMIN','udconstantina@gmail.com', '01/01/2000','000000000','ADMIN_JHSIJhdskhu65dhUHD76Ahusuhads6', 'ADMIN_JHSIJhdskhu65dhUHD76Ahusuhads6', true);
 
     pruebas_seguimientos.insertar('Insertar seguimiento','29584995A','10945781A', 'El mejor jugador del mundo', true);
     pruebas_seguimientos.insertar('Insertar seguimiento','29584995A','10945781B', 'Buen partido el de ayer', true);

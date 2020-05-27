@@ -16,13 +16,16 @@
 <title>Perfil_ADMIN</title>
     <?php include_once("headComun.php"); ?>
     <link rel="stylesheet" type="text/css" href="css/perfil_ADMIN.css">
-    
 </head>
 
 <body>
-    <?php include_once("fondo.php"); ?>
-    <?php include_once("navegacion_ADMIN.php"); ?>
-   
+    <?php 
+    if(isset($_SESSION['ADMIN'])){
+    	include_once("navegacion_ADMIN.php"); 
+    }else{
+    	include_once("navegacion.php");
+    }
+    ?>
     <?php
     $conexion = crearConexionBD();
     if(isset($_POST['dnijugador'])){

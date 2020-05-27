@@ -1,5 +1,5 @@
 <?php
-    //Próximamente controlaremos la sesión del usuario para ir a la pantalla de inicio o login
+    //Controlamos la sesión del usuario para ir a la pantalla de inicio o login
     session_start();
     require_once("gestionBD.php");
 
@@ -19,8 +19,13 @@
 </head>
 
 <body>
-    <?php include_once("fondo.php"); ?>
-    <?php include_once("navegacion.php"); ?>
+    <?php 
+    if(isset($_SESSION['ADMIN'])){
+    	include_once("navegacion_ADMIN.php"); 
+    }else{
+    	include_once("navegacion.php");
+    }
+    ?>
     
 <div class="patrocinadores">
     <p>

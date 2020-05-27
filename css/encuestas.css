@@ -1,0 +1,78 @@
+*{
+	box-sizing:border-box;
+	font-family: 'Indie Flower', cursive;
+
+}
+h4{
+    font-size: 25px;
+    margin: 10px 0 13px 0px;    
+
+}
+#enlaces{
+	margin: 9px 0px 12px 0px;
+}
+
+.comun > div{
+    display: flex;
+    flex-direction: row;
+}
+
+.search{
+    background-color: rgb(240, 241, 247);
+    border: solid 2px black;
+    border-radius: 18px 18px 18px 18px;
+    -moz-border-radius: 18px 18px 18px 18px;
+    -webkit-border-radius: 18px 18px 18px 18px;
+    text-align: center;
+    height:30px;
+    width:300px;    
+}
+
+#myTable{
+    color:rgb(0, 0, 0);
+    display: inline-block;
+    border: solid  rgb(65, 63, 63) 2px;
+    background-color: rgb(255, 242, 215);
+    width:400px;
+    text-align: center;
+    margin-left: 45px;
+    margin-top: 20px;
+    position: -ms-page;
+    padding: 25px 0px 25px 0px;
+}
+#myTable2{
+    color:rgb(0, 0, 0);
+    display: inline-block;
+    border: solid  rgb(65, 63, 63) 2px;
+    background-color: rgb(190, 204, 243);
+    width:400px;
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 20px;
+    position: -ms-page;
+    padding: 25px 0px 25px 0px; 
+}
+#myTable3{
+    color:rgb(0, 0, 0);
+    display: inline-block;
+    border: solid  rgb(65, 63, 63) 2px;
+    background-color: rgb(243, 217, 162);
+    width:400px;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 20px;
+    position: -ms-page;
+    padding: 25px 0px 25px 0px;   
+}
+input[type=date]{
+	color: #539eb7;
+    border-radius: 6px;
+    width: 34%;
+    margin: 0 0 7px 0px;
+}
+input[type=submit]{
+	color: #4c99b3;
+    border-radius: 6px;
+    margin: 0 0px 7px 4px;
+}
+

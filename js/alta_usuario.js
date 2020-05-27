@@ -10,15 +10,15 @@ function validateForm() {
 		var noValidation = document.getElementById("registro_formulario").novalidate;
 		if (!noValidation){
 			var valid1=nifValidation();
-		    var valid2=nameValidation();
-		    var valid3=nickValidation();
-		    var valid4=emailValidation();
-		    var valid5=dateValidation();
-		    var valid6=phoneValidation();
-		    var valid7=passwordValidation();
-		    var valid8=retypeValidation();
-			return ((valid1.length==0) && (valid2.length==0) && (valid3.length==0) && (valid4.length==0)
-			&& (valid5.length==0) && (valid6.length==0) && (valid7.length==0) && (valid8.length==0));
+			var valid2=nameValidation();
+			var valid3=nickValidation();
+			var valid4=emailValidation();
+			var valid5=dateValidation();
+			var valid6=phoneValidation();
+			var valid7=passwordValidation();
+			var valid8=retypeValidation();
+			return (valid1.length==0) && (valid2.length==0) && (valid3.length==0) && (valid4.length==0) && 
+			(valid5.length==0) && (valid6.length==0) && (valid7.length==0) && (valid8.length==0);
 		}
 		else 
 			return true;		
@@ -31,14 +31,20 @@ function nifValidation(){
 	if(nif==""){
 		errores+="<p><strong>El NIF no puede estar vacío.</strong></p>";
 	}else if(!expreg.test(nif)){
-		errores+="<p><strong>El NIF debe contener 8 números y una letra mayúscula: "+nif+"..</strong></p>";
+		errores+="<p><strong>El NIF debe contener 8 números y una letra mayúscula: "+nif+".</strong></p>";
 	}
 	if(errores!=""){
 		document.getElementById("dniUsuario").removeAttribute("style");
-		document.getElementById("div_errores").innerHTML="<div id='val_nif'>"+errores+"</div>";
+		if($('#val_nif').length){
+			document.getElementById("val_nif").innerHTML=errores;
+		}else{
+			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_nif'>"+errores+"</div>";
+		}
 	}else{
 		document.getElementById("dniUsuario").setAttribute("style","background-color: #33FF63;");
-		document.getElementById("val_nif").innerHTML="";
+		if($('#val_nif').length){
+			document.getElementById("val_nif").innerHTML="";
+		}
 	}
 	return errores;
 }
@@ -51,10 +57,16 @@ function nameValidation(){
 	}
 	if(errores!=""){
 		document.getElementById("nombreCompletoUsuario").removeAttribute("style");
-		document.getElementById("div_errores").innerHTML="<div id='val_name'>"+errores+"</div>";
+		if($('#val_name').length){
+			document.getElementById("val_name").innerHTML=errores;
+		}else{
+			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_name'>"+errores+"</div>";
+		}
 	}else{
 		document.getElementById("nombreCompletoUsuario").setAttribute("style","background-color: #33FF63;");
-		document.getElementById("val_name").innerHTML="";
+		if($('#val_name').length){
+			document.getElementById("val_name").innerHTML="";	
+		}
 	}
 	return errores;
 }
@@ -67,10 +79,16 @@ function nickValidation(){
 	}
 	if(errores!=""){
 		document.getElementById("nickUsuario").removeAttribute("style");
-		document.getElementById("div_errores").innerHTML="<div id='val_nick'>"+errores+"</div>";
+		if($('#val_nick').length){
+			document.getElementById("val_nick").innerHTML=errores;
+		}else{
+			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_nick'>"+errores+"</div>";
+		}
 	}else{
 		document.getElementById("nickUsuario").setAttribute("style","background-color: #33FF63;");
-		document.getElementById("val_nick").innerHTML="";
+		if($('#val_nick').length){
+			document.getElementById("val_nick").innerHTML="";
+		}
 	}
 	return errores;
 }
@@ -86,10 +104,16 @@ function emailValidation(){
 	}
 	if(errores!=""){
 		document.getElementById("emailUsuario").removeAttribute("style");
-		document.getElementById("div_errores").innerHTML="<div id='val_email'>"+errores+"</div>";
+		if($('#val_email').length){
+			document.getElementById("val_email").innerHTML=errores;
+		}else{
+			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_email'>"+errores+"</div>";	
+		}
 	}else{
 		document.getElementById("emailUsuario").setAttribute("style","background-color: #33FF63;");
-		document.getElementById("val_email").innerHTML="";
+		if($('#val_email').length){
+			document.getElementById("val_email").innerHTML="";
+		}
 	}
 	return errores;
 }
@@ -107,10 +131,16 @@ function dateValidation(){
 	}
 	if(errores!=""){
 		document.getElementById("fechaNacimientoUsuario").removeAttribute("style");
-		document.getElementById("div_errores").innerHTML="<div id='val_fecha'>"+errores+"</div>";
+		if($('#val_fecha').length){
+			document.getElementById("val_fecha").innerHTML=errores;
+		}else{
+			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_fecha'>"+errores+"</div>";
+		}
 	}else{
 		document.getElementById("fechaNacimientoUsuario").setAttribute("style","background-color: #33FF63;");
-		document.getElementById("val_fecha").innerHTML="";
+		if($('#val_fecha').length){
+			document.getElementById("val_fecha").innerHTML="";
+		}
 	}
 	return errores;
 }
@@ -118,7 +148,7 @@ function dateValidation(){
 function phoneValidation(){
 	var errores="";
 	var tel=document.getElementById("numTelefonoUsuario").value;
-	var expreg=/^[0-9]{9}+$/;
+	var expreg=/^[0-9]{9}$/;
 	if(tel==""){
 		errores+="<p><strong>El número de teléfono no puede estar vacío.</strong></p>";
 	}else if(!expreg.test(tel)){
@@ -127,10 +157,16 @@ function phoneValidation(){
 	
 	if(errores!=""){
 		document.getElementById("numTelefonoUsuario").removeAttribute("style");
-		document.getElementById("div_errores").innerHTML="<div id='val_tele'>"+errores+"</div>";
+		if($('#val_tele').length){
+			document.getElementById("val_tele").innerHTML=errores;
+		}else{
+			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_tele'>"+errores+"</div>";
+		}
 	}else{
 		document.getElementById("numTelefonoUsuario").setAttribute("style","background-color: #33FF63;");
-		document.getElementById("val_tele").innerHTML="";
+		if($('#val_tele').length){
+			document.getElementById("val_tele").innerHTML="";
+		}
 	}
 	return errores;
 }
@@ -149,10 +185,16 @@ function passwordValidation(){
 	
 	if(errores!=""){
 		document.getElementById("passUsuario").removeAttribute("style");
-		document.getElementById("div_errores").innerHTML="<div id='val_pass'>"+errores+"</div>";
+		if($('#val_pass').length){
+			document.getElementById("val_pass").innerHTML=errores;
+		}else{
+			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_pass'>"+errores+"</div>";	
+		}
 	}else{
 		document.getElementById("passUsuario").setAttribute("style","background-color: #33FF63;");
-		document.getElementById("val_pass").innerHTML="";
+		if($('#val_pass').length){
+			document.getElementById("val_pass").innerHTML="";
+		}
 	}
 	return errores;
 }
@@ -167,10 +209,16 @@ function retypeValidation(){
 	
 	if(errores!=""){
 		document.getElementById("confirmPassUsuario").removeAttribute("style");
-		document.getElementById("div_errores").innerHTML="<div id='val_confirmpass'>"+errores+"</div>";
+		if($('#val_confirmpass').length){
+			document.getElementById("val_confirmpass").innerHTML=errores;
+		}else{
+			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_confirmpass'>"+errores+"</div>";	
+		}
 	}else{
 		document.getElementById("confirmPassUsuario").setAttribute("style","background-color: #33FF63;");
-		document.getElementById("val_confirmpass").innerHTML="";
+		if($('#val_confirmpass').length){
+			document.getElementById("val_confirmpass").innerHTML="";
+		}
 	}
 	return errores;
 }

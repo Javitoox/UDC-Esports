@@ -17,15 +17,18 @@
 <head>
     <title>Gestion</title>
     <?php include_once("headComun.php"); ?>
-    <link rel="stylesheet" type="text/css" href="css/gestion.css">  
-    <script type="text/javascript" src="jquery-3.5.1.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="css/gestion.css">
     <script type="text/javascript" src="js/codigoJS.js"></script>
- 
 </head>
 
 <body>
-    <?php include_once("fondo.php"); ?>
-    <?php include_once("navegacion_ADMIN.php"); ?>
+    <?php 
+    if(isset($_SESSION['ADMIN'])){
+    	include_once("navegacion_ADMIN.php"); 
+    }else{
+    	include_once("navegacion.php");
+    }
+    ?>
 
     <div class="comun">
         <?php $conexion = crearConexionBD();

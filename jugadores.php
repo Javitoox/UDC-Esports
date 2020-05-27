@@ -1,5 +1,4 @@
 <?php
-
     session_start();
     require_once("gestionBD.php");
     require_once("gestionMiembros.php");
@@ -20,12 +19,18 @@
 	<?php include_once("headComun.php"); ?>
     <link rel="stylesheet" type="text/css" href="css/jugadores.css">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="js/eventos_jugadores.js" type="text/javascript"></script>
 </head>
 
 <body>
-    <?php include_once("fondo.php"); ?>
-    <?php include_once("navegacion.php"); ?>
+    <?php 
+    if(isset($_SESSION['ADMIN'])){
+    	include_once("navegacion_ADMIN.php"); 
+    }else{
+    	include_once("navegacion.php");
+    }
+    ?>
 
     <h4>JUGADORES POR VIDEOJUEGO</h4>
     
@@ -35,20 +40,26 @@
     $dniUsuario = obtenDniUsuario($conexion, $nickUsuario);
     $videojuegos = obtenVideojuegos($conexion);
     $dniUser = $dniUsuario["DNIUSUARIO"];
+	
+	 ?>
+	 <input id="dniu_oculto" type="hidden" value="<?php $dniUser; ?>"/>
+	 <input id="videoj_oculto" type="hidden" value="<?php $videojuegos; ?>"/>
+	 <?php
     
     foreach($videojuegos as $videojuego) {
         $nombre_videojuego = $videojuego["NOMBREVIDEOJUEGO"];
 
         ?>
-        <center><p class="videojuego" type="button">
+        <center><p class="videojuego" type="button" id="botonVideojuego">
         <?php echo "$nombre_videojuego"?></p>
         <?php
+        //control jquery para el muestreo de los jugadores
         $victoria = obtenNumVictorias($conexion, $videojuego["OID_V"]);
         if($victoria["CUENTA"] > 0){
             echo "<p>" . "Número de victorias: " . $victoria["CUENTA"] . "</p>";
         }else{
             echo "<p>" . "El equipo no presenta victorias" . "</p>";
-        }    
+        }   
         ?>
         </center>
         <?php
@@ -67,20 +78,6 @@
                 $añosExperiencia = $jugador["NUMAÑOSEXPERIENCIAJUGADOR"];
                 $dniJugador = $jugador["DNIJUGADOR"];
                 $nombreV = $videojuego["NOMBREVIDEOJUEGO"];
-                //(*)
-                $jugadoresYMejores .= $jugador["NOMBREVIRTUALJUGADOR"];
-                
-                //(*)
-                //Para el mejor jugador de cada videojuego. Falta poner la imagen donde corresponda.
-                //Están separados ya por videojuego.
-                //La idea es que si aparece el nombre 2 veces pues poner la copa.
-                foreach($mejoresJugadores as $mejor){
-                    $mejores = $mejor["NOMBREVIRTUALJUGADOR"];
-                    $oidMejores = obtenOID_V_Mejores($conexion, $mejores);
-                    if($oidMejores["OID_V"] == $videojuego["OID_V"]){
-                        $jugadoresYMejores .= $mejores;
-                    }   
-                }
 
                 ?>
                 <div class = "jugador">
@@ -124,9 +121,6 @@
                 <?php
             }   
         }
-        //(*)
-        ?> <br> <?php echo $jugadoresYMejores;
-        
         ?>
         </center>
         <?php

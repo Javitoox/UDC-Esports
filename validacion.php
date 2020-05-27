@@ -77,7 +77,7 @@
 	//Validación Número Telefónico
 	if($nuevoUsuario["numTelefonoUsuario"]==""){ 
 		$errores[] = "<p><strong>El número de teléfono no puede estar vacío.</strong></p>";
-	}else if(!preg_match('/^[0-9]{9}+$/', $nuevoUsuario["numTelefonoUsuario"])){
+	}else if(!preg_match('/^[0-9]{9}$/', $nuevoUsuario["numTelefonoUsuario"])){
 		$errores[] = "<p><strong>El número de teléfono es incorrecto: " . $nuevoUsuario["numTelefonoUsuario"]. ".</strong></p>";
 	}
 		

@@ -19,7 +19,11 @@
 		}
 		else {
 			$_SESSION['login'] = $nickUsuario;
-			//Próximamente enviaremos el usuario a la pantalla de inicio
+			//Controlamos el inicio de sesión del administrador
+			if($passUsuario=="ADMIN_JHSIJhdskhu65dhUHD76Ahusuhads6"){
+				$_SESSION['ADMIN']="1";
+			}
+			//A continuación enviaremos el usuario a la pantalla de inicio
 			Header("Location: index.php");
 		}	
 	}

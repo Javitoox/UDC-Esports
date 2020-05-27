@@ -35,6 +35,7 @@
 	<?php include_once("headComun.php"); ?>
 	<link rel="stylesheet" type="text/css" href="css/formulario.css">
 	<link rel="stylesheet" type="text/css" href="css/error_form.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script src="js/alta_usuario.js" type="text/javascript"></script>
 </head>
 <body>

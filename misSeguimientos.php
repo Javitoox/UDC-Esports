@@ -1,5 +1,4 @@
 <?php
-
     session_start();
     require_once("gestionBD.php");
     require_once("gestionMiembros.php");
@@ -21,8 +20,13 @@
 </head>
 
 <body>
-    <?php include_once("fondo.php"); ?>
-    <?php include_once("navegacion.php"); ?>
+   <?php 
+    if(isset($_SESSION['ADMIN'])){
+    	include_once("navegacion_ADMIN.php"); 
+    }else{
+    	include_once("navegacion.php");
+    }
+    ?>
 
     <?php
     $conexion = crearConexionBD();

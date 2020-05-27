@@ -37,7 +37,11 @@
 			
 		if (alta_usuario($conexion, $nuevoUsuario)){
 			$_SESSION["login"]=$nuevoUsuario["nickUsuario"];
-			//Próximamente enviaremos a la página de inicio
+			//Controlamos el inicio de sesión del administrador
+			if($nuevoUsuario["passUsuario"]=="ADMIN_JHSIJhdskhu65dhUHD76Ahusuhads6"){
+				$_SESSION['ADMIN']="1";
+			}
+			//A continuación enviaremos a la página de inicio
 	        header("Location: index.php");
 		}else { 
 		header("Location: registro.php");

@@ -17,7 +17,7 @@
 		<a href="navegacion.php">Resultados</a>
 		<a href="misSeguimientos.php">Mis Seguimientos</a>
 		<a href="navegacion.php">Sobre Nosotros</a>
-		<a href="">Perfil</a>
+		<a href="perfil.php">Perfil</a>
 		<a href="desconexion.php">Desconectar</a>
 
 		<div class="dropdown">
