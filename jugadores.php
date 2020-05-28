@@ -2,7 +2,6 @@
     session_start();
     require_once("gestionBD.php");
     require_once("gestionMiembros.php");
-    require_once("gestionarUsuarios.php");
     require_once("consultasSql.php");
 
     if(isset($_SESSION['login'])){
@@ -40,20 +39,21 @@
     $dniUsuario = obtenDniUsuario($conexion, $nickUsuario);
     $videojuegos = obtenVideojuegos($conexion);
     $dniUser = $dniUsuario["DNIUSUARIO"];
-	
-	 ?>
-	 <input id="dniu_oculto" type="hidden" value="<?php $dniUser; ?>"/>
-	 <input id="videoj_oculto" type="hidden" value="<?php $videojuegos; ?>"/>
-	 <?php
-    
+     ?>
+     <input id="oid_oculto" type="hidden" />
+     <input id="nombre_oculto" type="hidden" />
+     <input id="dni_oculto" type="hidden" />
+     <?php
     foreach($videojuegos as $videojuego) {
         $nombre_videojuego = $videojuego["NOMBREVIDEOJUEGO"];
 
         ?>
-        <center><p class="videojuego" type="button" id="botonVideojuego">
-        <?php echo "$nombre_videojuego"?></p>
+        <center><p class="videojuego" type="button" id="boton-<?php echo $videojuego["OID_V"];?>" 
+        	onmouseover="cargarDatos('<?php echo $videojuego["OID_V"];?>',
+        	'<?php echo $nombre_videojuego;?>','<?php echo $dniUser;?>')">
+        <?php echo $nombre_videojuego;?></p>
+        <input id="comprueba-<?php echo $videojuego["OID_V"];?>" type="hidden"/>
         <?php
-        //control jquery para el muestreo de los jugadores
         $victoria = obtenNumVictorias($conexion, $videojuego["OID_V"]);
         if($victoria["CUENTA"] > 0){
             echo "<p>" . "Número de victorias: " . $victoria["CUENTA"] . "</p>";
@@ -62,66 +62,9 @@
         }   
         ?>
         </center>
-        <?php
-        
-        $jugadores = obtenJugador($conexion);
-        $mejoresJugadores = listarMejoresJugadores($conexion);
-        $jugadoresYMejores = "";
-        
-        ?>
         <center>
-        <?php
-        foreach($jugadores as $jugador) {
-            if($jugador["OID_V"] == $videojuego["OID_V"]){
-                $nombreVirtual = $jugador["NOMBREVIRTUALJUGADOR"];
-                $nacionalidad = $jugador["NACIONALIDADJUGADOR"];
-                $añosExperiencia = $jugador["NUMAÑOSEXPERIENCIAJUGADOR"];
-                $dniJugador = $jugador["DNIJUGADOR"];
-                $nombreV = $videojuego["NOMBREVIDEOJUEGO"];
-
-                ?>
-                <div class = "jugador">
-                    <form method= "get" id = "botones" action="controlador_seguimiento.php">
-                        <?php  
-                        $seguimiento = existeSeguimiento($conexion, $dniUser, $dniJugador);
-                        $oid_seg = obtenOID_SEG($conexion, $dniUser, $dniJugador);
-                        $OID_SEG = $oid_seg["OID_SEG"];
-                        
-                        // 2 campos hidden (dnijugador, dniusuario)
-                        ?>
-                        <input id="dnijugador" name ="dnijugador" type="hidden" value="<?php echo $dniJugador?>">
-					    <input id="dniuser" name ="dniuser" type="hidden" value="<?php echo $dniUser?>">
-                        
-                        <?php
-                        if($OID_SEG == 0){
-                            ?>
-                            <button id="añadir" name="añadir" type="submit" class="añadir_jugador">
-                            <img height = 25px src="images/mas.png" class="añadir_jugador"></button>
-                            <?php
-                        }else{
-                            ?>
-                            <!-- 1 campos hidden (oid_seg)-->
-                            <input id="oid_seg" name ="oid_seg" type="hidden" value="<?php echo $OID_SEG?>">
-                            <button id="eliminar" name="eliminar" type="submit" class="eliminar_jugador">
-                            <img height = 25px src="images/menos.png" class="eliminar_jugador"></button>
-                            <?php
-                        }
-                        ?>
-                    </form>
-                    <?php
-                
-                    echo "<br><br><br>" . $nombreVirtual . "<br>". $nacionalidad. "<br>" . "Años de experiencia: ". $añosExperiencia. "<br><br>";
-                    
-                    ?>
-                    <img height = 20px src="images/insta.png" onclick = "location.href='https://www.instagram.com/udcesports/'"  alt="Instagram">
-                    <img height = 20px src="images/twitter.png" onclick = "location.href='https://www.twitch.tv/udconstantinaesports/'" alt="Twitter">
-                    <img height = 20px src="images/twich.png" onclick = "location.href='https://twitter.com/udcesports?lang=es'" alt="Twitter">
-                </div>
-   
-                <?php
-            }   
-        }
-        ?>
+        	<div id="id-<?php echo $videojuego["OID_V"];?>"></div>
+        	<!-- Control con jquery y ayax para la carga de los jugadores -->
         </center>
         <?php
     }
