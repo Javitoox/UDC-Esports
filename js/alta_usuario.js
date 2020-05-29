@@ -8,6 +8,12 @@ $(document).ready(function(){
 	$("#login_formulario").on("submit", function() {
 				return validateForm2();
 			});
+	$("#formularioPerfil").on("submitPerfil", function() {
+				return validateForm3();
+			});
+	$("#cambiarPassPerfil").on("submitPass", function() {
+				return validateForm4();
+			});
 	
 });
 function validateForm1() {
@@ -33,6 +39,29 @@ function validateForm2() {
 		if (!noValidation){
 			var valid1=nickValidation();
 			var valid2=passwordValidation();
+			return (valid1.length==0) && (valid2.length==0);
+		}
+		else 
+			return true;		
+}
+function validateForm3() {
+		var noValidation = document.getElementById("formularioPerfil").novalidate;
+		if (!noValidation){
+			var valid1=nameValidation();
+			var valid2=nickValidation();
+			var valid3=emailValidation();
+			var valid4=phoneValidation();
+
+			return (valid1.length==0) && (valid2.length==0) && (valid3.length==0) && (valid4.length==0);
+		}
+		else 
+			return true;		
+}
+function validateForm4() {
+		var noValidation = document.getElementById("cambiarPassPerfil").novalidate;
+		if (!noValidation){
+			var valid1=passwordValidation();
+			var valid2=retypeValidation();
 			return (valid1.length==0) && (valid2.length==0);
 		}
 		else 
