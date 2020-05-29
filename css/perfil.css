@@ -81,21 +81,21 @@
 
 }
 
-#nombre{
+#nombreCompletoUsuario{
 	z-index: 0;
 	top: -195px;
     position: relative;
     font-size: 170%;
     left: 6%;
 }
-#nick{
+#nickUsuario{
 	z-index: 0;
 	top: -175px;
     position: relative;
     font-size: 170%;
     left: 6%;
 }
-#mail{
+#emailUsuario{
 	z-index: 0;
     top: -152px;
     position: relative;
@@ -111,7 +111,7 @@
     font-size: 170%;
     left: 6%;
 }
-#num{
+#numTelefonoUsuario{
 	z-index: 0;
     top: -98px;
     position: relative;
@@ -177,14 +177,14 @@
 }
 
 
-.newPass{
+.passUsuario{
     position: relative;
     top: -49px;
     width: 91%;
     left: 7%;
 }
 
-.newConfirmPass{
+.confirmPassUsuario{
     position: relative;
     top: -9px;
     left: 7%;
@@ -262,19 +262,19 @@
 
 }
 
-#nombre{
+#nombreCompletoUsuario{
 	top: -435px;
     position: relative;
     font-size: 170%;
     left: 100%;
 }
-#nick{
+#nickUsuario{
     top: -417px;
     position: relative;
     font-size: 170%;
     left: 100%;
 }
-#mail{
+#emailUsuario{
     top: -400px;
     position: relative;
     font-size: 150%;
@@ -287,7 +287,7 @@
     font-size: 170%;
     left: 100%;
 }
-#num{
+#numTelefonoUsuario{
     top: -365px;
     position: relative;
     font-size: 170%;
@@ -308,13 +308,13 @@
     height: 40px;
     width: 209px;
 }
-.newPass{
+.passUsuario{
     top: -345px;
     width: 29%;
     left: 45%;
 }
 
-.newConfirmPass {
+.confirmPassUsuario {
     top: -311px;
     left: 45%;
     width: 29%;
@@ -332,6 +332,4 @@
 .form{
 	left:15%;	
 }
-
-
 
