@@ -8,7 +8,7 @@
         $nickUsuario = $_SESSION['login'];
     }else{
         Header("Location: login.php");
-    }   
+    }
 ?>
 
 <!DOCTYPE html>

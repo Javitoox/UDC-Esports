@@ -73,7 +73,7 @@
 			<input oninput="phoneValidation()" class="campo" name="numTelefonoUsuario" id="numTelefonoUsuario" type="tel" placeholder="Teléfono" value="<?php echo $formulario['numTelefonoUsuario'];?>" required/>
 		</div>
 		<div>
-			<input oninput="passwordValidation()" class="campo" name="passUsuario" id="passUsuario" type="password" placeholder="Contraseña" value="<?php echo $formulario["passUsuario"];?>" required/>
+			<input oninput="passwordValidation()" onkeyup="passwordColor()" class="campo" name="passUsuario" id="passUsuario" type="password" placeholder="Contraseña" value="<?php echo $formulario["passUsuario"];?>" required/>
 		</div>
 		<div>
 			<input oninput="retypeValidation()" class="campo" name="confirmPassUsuario" id="confirmPassUsuario" type="password" placeholder="Confirmar contraseña" value="<?php echo $formulario["confirmPassUsuario"];?>" required/>

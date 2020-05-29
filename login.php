@@ -36,6 +36,8 @@
 	<?php include_once("headComun.php"); ?>
   	<link rel="stylesheet" type="text/css" href="css/formulario.css">
   	<link rel="stylesheet" type="text/css" href="css/error_form.css">
+  	<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<script src="js/alta_usuario.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -43,21 +45,21 @@
 	
 	<h2>INICIAR SESIÓN</h2>
      
-	<?php if (isset($login)) {
+	<div id="div_errores" class="error">
+		<?php
+		if (isset($login)) {
 		//Mostramos los errores en el caso de que los haya
-		echo "<div class=\"error\">";
 		echo "<p><strong>Error en la contraseña o no existe el usuario.</strong></p>";
-		echo "</div>";
-	}	
-	?>
+	    }?>
+	</div>
 	
 	<div class="col-10 col-tab-10">
-	<form action="login.php" method="post">
+	<form action="login.php" method="post" id="login_formulario">
 		<div>
-		<input class="campo" placeholder="Usuario" type="text" name="nickUsuario" id="nickUsuario"/>
+		<input class="campo" placeholder="Usuario" maxlength="40" type="text" oninput="nickValidation()" name="nickUsuario" id="nickUsuario" value="<?php echo isset($nickUsuario)?$nickUsuario:'';?>" required/>
 		</div>	
 		<div>
-		<input class="campo"  placeholder="Contraseña" type="password" name="passUsuario" id="passUsuario"/>
+		<input class="campo"  placeholder="Contraseña" type="password" oninput="passwordValidation()" name="passUsuario" id="passUsuario" value="<?php echo isset($passUsuario)?$nickUsuario:'';?>" required/>
 		</div>
 		<div id="boton">
 		<input name="submit" type="submit" value="Iniciar Sesión" />

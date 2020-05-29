@@ -2,11 +2,15 @@
 $(document).ready(function(){
 	
 	$("#registro_formulario").on("submit", function() {
-				return validateForm();
+				return validateForm1();
+			});
+	
+	$("#login_formulario").on("submit", function() {
+				return validateForm2();
 			});
 	
 });
-function validateForm() {
+function validateForm1() {
 		var noValidation = document.getElementById("registro_formulario").novalidate;
 		if (!noValidation){
 			var valid1=nifValidation();
@@ -19,6 +23,17 @@ function validateForm() {
 			var valid8=retypeValidation();
 			return (valid1.length==0) && (valid2.length==0) && (valid3.length==0) && (valid4.length==0) && 
 			(valid5.length==0) && (valid6.length==0) && (valid7.length==0) && (valid8.length==0);
+		}
+		else 
+			return true;		
+}
+
+function validateForm2() {
+		var noValidation = document.getElementById("login_formulario").novalidate;
+		if (!noValidation){
+			var valid1=nickValidation();
+			var valid2=passwordValidation();
+			return (valid1.length==0) && (valid2.length==0);
 		}
 		else 
 			return true;		
@@ -41,7 +56,7 @@ function nifValidation(){
 			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_nif'>"+errores+"</div>";
 		}
 	}else{
-		document.getElementById("dniUsuario").setAttribute("style","background-color: #33FF63;");
+		document.getElementById("dniUsuario").setAttribute("style","background-color: #9CF0BF;");
 		if($('#val_nif').length){
 			document.getElementById("val_nif").innerHTML="";
 		}
@@ -63,7 +78,7 @@ function nameValidation(){
 			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_name'>"+errores+"</div>";
 		}
 	}else{
-		document.getElementById("nombreCompletoUsuario").setAttribute("style","background-color: #33FF63;");
+		document.getElementById("nombreCompletoUsuario").setAttribute("style","background-color: #9CF0BF;");
 		if($('#val_name').length){
 			document.getElementById("val_name").innerHTML="";	
 		}
@@ -85,7 +100,7 @@ function nickValidation(){
 			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_nick'>"+errores+"</div>";
 		}
 	}else{
-		document.getElementById("nickUsuario").setAttribute("style","background-color: #33FF63;");
+		document.getElementById("nickUsuario").setAttribute("style","background-color: #9CF0BF;");
 		if($('#val_nick').length){
 			document.getElementById("val_nick").innerHTML="";
 		}
@@ -110,7 +125,7 @@ function emailValidation(){
 			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_email'>"+errores+"</div>";	
 		}
 	}else{
-		document.getElementById("emailUsuario").setAttribute("style","background-color: #33FF63;");
+		document.getElementById("emailUsuario").setAttribute("style","background-color: #9CF0BF;");
 		if($('#val_email').length){
 			document.getElementById("val_email").innerHTML="";
 		}
@@ -137,7 +152,7 @@ function dateValidation(){
 			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_fecha'>"+errores+"</div>";
 		}
 	}else{
-		document.getElementById("fechaNacimientoUsuario").setAttribute("style","background-color: #33FF63;");
+		document.getElementById("fechaNacimientoUsuario").setAttribute("style","background-color: #9CF0BF;");
 		if($('#val_fecha').length){
 			document.getElementById("val_fecha").innerHTML="";
 		}
@@ -163,7 +178,7 @@ function phoneValidation(){
 			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_tele'>"+errores+"</div>";
 		}
 	}else{
-		document.getElementById("numTelefonoUsuario").setAttribute("style","background-color: #33FF63;");
+		document.getElementById("numTelefonoUsuario").setAttribute("style","background-color: #9CF0BF;");
 		if($('#val_tele').length){
 			document.getElementById("val_tele").innerHTML="";
 		}
@@ -191,7 +206,7 @@ function passwordValidation(){
 			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_pass'>"+errores+"</div>";	
 		}
 	}else{
-		document.getElementById("passUsuario").setAttribute("style","background-color: #33FF63;");
+		document.getElementById("passUsuario").setAttribute("style","background-color: #9CF0BF;");
 		if($('#val_pass').length){
 			document.getElementById("val_pass").innerHTML="";
 		}
@@ -215,10 +230,40 @@ function retypeValidation(){
 			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_confirmpass'>"+errores+"</div>";	
 		}
 	}else{
-		document.getElementById("confirmPassUsuario").setAttribute("style","background-color: #33FF63;");
+		document.getElementById("confirmPassUsuario").setAttribute("style","background-color: #9CF0BF;");
 		if($('#val_confirmpass').length){
 			document.getElementById("val_confirmpass").innerHTML="";
 		}
 	}
 	return errores;
 }
+
+function passwordStrength(password){
+	var letters = {};
+	var length = password.length;
+	for(x = 0, length; x < length; x++) {
+		var l = password.charAt(x);
+		letters[l] = (isNaN(letters[l])? 1 : letters[l] + 1);
+	}
+	return Object.keys(letters).length / length;
+}
+
+function passwordColor(){
+	var passField = document.getElementById("passUsuario");
+	var strength = passwordStrength(passField.value);
+	
+	if(!isNaN(strength)){
+		$("#passUsuario").css("background-color","red");
+		if(passwordValidation()!=""){
+			$("#passUsuario").css("background-color","red");
+		}else if(strength > 0.7){
+			$("#passUsuario").css("background-color","green");
+		}else if(strength > 0.4){
+			$("#passUsuario").css("background-color","yellow");
+		}
+	}else{
+		$("#passUsuario").css("background-color","lightyellow");
+	}
+	
+}
+
