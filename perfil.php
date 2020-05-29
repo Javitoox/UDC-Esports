@@ -25,32 +25,32 @@
 	
 	
 	if(isset($_POST["submitPerfil"]) && !empty($_POST["submitPerfil"])) {
-		$nombre=$_POST["nombre"];
-		$nick=$_POST["nick"];
-		$mail=$_POST["mail"];
+		$nombre=$_POST["nombreCompletoUsuario"];
+		$nick=$_POST["nickUsuario"];
+		$mail=$_POST["emailUsuario"];
 		$dni=$_POST["dni"];
-		$num=$_POST["num"];	
+		$num=$_POST["numTelefonoUsuario"];	
 			
-	if($nombre==""){
-		echo "<br><br><br><br><font color='red'><strong>El nombre de usuario no puede estar vacío.</strong></font>";
-	}else if($nick==""){
-		echo "<br><br><br><br><font color='red'><strong>El nick del usuario no puede estar vacío.</strong></font>";	
-	}else if($mail==""){ 
-		echo "<br><br><br><br><font color='red'><strong>El email del usuario no puede estar vacío.</strong></font>";	
-	}else if(!filter_var($mail, FILTER_VALIDATE_EMAIL)){
-		echo "<br><br><br><br><font color='red'><strong>El email no posee el formato adecuado.</strong></font>";
-	}else if($num==""){ 
-		echo "<br><br><br><br><font color='red'><strong>El numero telefonico del usuario no puede estar vacío.</strong></font>";	
-	}else if(!preg_match('/^[0-9]{9}+$/', $num)){
-		echo "<br><br><br><br><font color='red'><strong>El numero telefonico es incorrecto.</strong></font>";
-	}else{
-		changeProfile($conexion,$nombre,$nick,$mail,$num,$dni);
-		header("Location: login.php");
+		if($nombre==""){
+			echo "<br><br><br><br><font color='red'><strong>El nombre de usuario no puede estar vacío.</strong></font>";
+		}else if($nick==""){
+			echo "<br><br><br><br><font color='red'><strong>El nick del usuario no puede estar vacío.</strong></font>";	
+		}else if($mail==""){ 
+			echo "<br><br><br><br><font color='red'><strong>El email del usuario no puede estar vacío.</strong></font>";	
+		}else if(!filter_var($mail, FILTER_VALIDATE_EMAIL)){
+			echo "<br><br><br><br><font color='red'><strong>El email no posee el formato adecuado.</strong></font>";
+		}else if($num==""){ 
+			echo "<br><br><br><br><font color='red'><strong>El numero telefonico del usuario no puede estar vacío.</strong></font>";	
+		}else if(!preg_match('/^[0-9]{9}+$/', $num)){
+			echo "<br><br><br><br><font color='red'><strong>El numero telefonico es incorrecto.</strong></font>";
+		}else{
+			changeProfile($conexion,$nombre,$nick,$mail,$num,$dni);
+			header("Location: login.php");                                //HAY QUE COMPROBAR SI EL USUARIO YA EXISTE by:Daniel 30-5-20
 	}
 	}
-	if(isset($_POST["submit"]) && !empty($_POST["submit"])) {
-		$pass = $_POST["Npass"];
-		$Cpass = $_POST["CNpass"];
+	if(isset($_POST["submit"]) && !empty($_POST["submit"])) {         //NOSE PK ESTO NO SE EJECUTA by:Daniel 30-5-20
+		$pass = $_POST["passUsuario"];
+		$Cpass = $_POST["confirmPassUsuario"];
 		
 		if(!isset($pass) || strlen($pass) < 8){
 			echo "<br><br><br><br><font color='red'><strong>Contraseña no válida: debe tener al menos 8 caracteres.</strong></font>";
@@ -74,8 +74,11 @@
     <?php include_once("headComun.php"); ?>
     <link rel="stylesheet" type="text/css" href="css/error_form.css">
     <link rel="stylesheet" type="text/css" href="css/perfil.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<script src="js/alta_usuario.js" type="text/javascript"></script>
 </head>
 
+	
 <body>
     <?php 
     if(isset($_SESSION['ADMIN'])){
@@ -84,6 +87,14 @@
     	include_once("navegacion.php");
     }
     ?>
+    
+    <div id="div_errores" class="error">
+		<?php
+		if (isset($errores) && count($errores)>0) {
+    		foreach($errores as $error) echo $error; 
+  		}
+	    ?>
+	</div>
     
     <div class="col-3">
    	 			 <h2 id="nComplField">Nombre Completo:</h2>
@@ -96,21 +107,33 @@
    				 <h2 id="CpassField">Confirmar contraseña:</h2>
     </div>
     <div>
-    	<form action="perfil.php" method="POST" class="form col-3">
-			<input   type="text" id="nombre" name="nombre" value="<?php echo $nameUser?>"><br>
-			<input  type="text" id="nick" name="nick" value="<?php echo $nickUsuario?>"><br>
-			<input  type="text" id="mail" name="mail" value="<?php echo $mailUser?>"><br>
-			<input  type="text" id="dni" name="dni" value="<?php echo $dniUser?>" ><br>
-			<input   type="text" id="num" name="num" value="<?php echo $numUser?>"><br>
-			<input  type="text" id="pass" name="pass" value="<?php echo $passUser?>" ><br>
-			<input  class="changeProfile" type="submit" name="submitPerfil" value="Modificar Perfil">
+    	<form action="perfil.php" id="formularioPerfil" method="POST" class="form col-3">
+    		<div>
+				<input   oninput="nameValidation()" type="text" id="nombreCompletoUsuario" name="nombreCompletoUsuario" value="<?php echo $nameUser?>" ><br>
+			</div>
+			<div>
+				<input   oninput="nickValidation()" type="text" id="nickUsuario" name="nickUsuario" value="<?php echo $nickUsuario?>" ><br>
+			</div>
+			<div>
+				<input   oninput="emailValidation()" type="text" id="emailUsuario" name="emailUsuario" value="<?php echo $mailUser?>" ><br>
+			</div>
+			<div>
+				<input  type="text" id="dni" name="dni" value="<?php echo $dniUser?>" ><br>
+			</div>
+			<div>
+				<input   oninput="phoneValidation()" type="text" id="numTelefonoUsuario" name="numTelefonoUsuario" value="<?php echo $numUser?>" ><br>
+			</div>
+			<div>
+				<input  type="text" id="pass" name="pass" value="<?php echo $passUser?>" ><br>
+			</div>
+				<input  class="changeProfile" type="submit" name="submitPerfil" value="Modificar Perfil">
     </div>
     
 	<div >
-		<form action="perfil.php" method="POST" class="col-3">
-  			<input class="newPass" type="password" id="Npass" name="Npass" value=""><br>
-  			<input class="newConfirmPass" type="password" id="CNpass" name="CNpass" value=""><br>
-  			<input class="changePass" type="submit" name="submit" value="Cambiar Contraseña">
+		<form action="perfil.php" id="cambiarPassPerfil" method="POST" class="col-3">
+  			<input oninput="passwordValidation()" onkeyup="passwordColor()" class="passUsuario" type="password" id="passUsuario" name="passUsuario" value=""><br>
+  			<input oninput="retypeValidation()" class="confirmPassUsuario" type="password" id="confirmPassUsuario" name="confirmPassUsuario" value=""><br>
+  			<input class="changePass" type="submit" name="submitPass" value="Cambiar Contraseña">
 		</form> 
 	</div>
 
