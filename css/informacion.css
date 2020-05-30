@@ -3,8 +3,6 @@
 	font-family: 'Indie Flower', cursive;
 
 }
-
-
 [class*="col-"] {
 	float: left;
 	width: 100%;
@@ -24,7 +22,7 @@
 	.col-tab-10{width:100%;}	
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px) {
 	.col-tab-reduce {width: 1%;}
 	.col-1 {width: 10%;}
 	.col-mitad {width: 14.28%;}
@@ -68,14 +66,11 @@ h4{
     color: rgb(0, 0, 0);
     border: solid rgb(65, 63, 63) 2px;
     background-color: rgb(255, 242, 215);
-    width: 400px;
-    top: 30px;
-    right: 19px;
-    height: 368px;
+    width: 381px;
+    right: 20px;
     text-align: center;
-    margin-left: 53px;
-    margin-right: 15px;
-    margin-top: 20px;
+    margin-left: 69px;
+    margin-top: 30px;
     position: relative;
     padding: 25px 0px 25px 0px;
 }
@@ -84,13 +79,12 @@ h4{
     border: solid rgb(65, 63, 63) 2px;
     background-color: rgb(190, 204, 243);
     width: 381px;
-    height: 366px;
-    top: 31px;
     left: 5px;
     text-align: center;
-    margin-left: 18px;
-    margin-right: 34px;
+    margin-left: 20px;
+    margin-right: 32px;
     margin-top: 20px;
+    height: 296px;
     position: relative;
     padding: 25px 0px 25px 0px; 
 }
@@ -99,14 +93,13 @@ h4{
     border: solid rgb(65, 63, 63) 2px;
     background-color: rgb(243, 217, 162);
     width: 381px;
-    height: 366px;
-    top: 31px;
     right: 5px;
     text-align: center;
     margin-left: 30px;
     margin-top: 20px;
     position: relative;
-    padding: 25px 0px 25px 0px;   
+    padding: 25px 0px 25px 0px;
+    height: 295.3px;  
 }
 input[type=date]{
 	color: #539eb7;
@@ -119,8 +112,10 @@ input[type=submit]{
     border-radius: 6px;
     margin: 0 0px 7px 4px;
 }
-.enlaces1{
-    margin: 13px 0px 10px 0px;
-	
+#scroll{
+	overflow-y: scroll;
+	height: 119px;
 }
-
+#v{
+	padding:0 0 35px 0;
+}

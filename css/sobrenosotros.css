@@ -3,8 +3,6 @@
 	font-family: 'Indie Flower', cursive;
 
 }
-
-
 [class*="col-"] {
 	float: left;
 	width: 100%;
@@ -67,60 +65,67 @@ h4{
 .myTable{
     color: rgb(0, 0, 0);
     border: solid rgb(65, 63, 63) 2px;
+    right: 19px;
     background-color: rgb(255, 242, 215);
     width: 400px;
-    top: 30px;
-    right: 19px;
-    height: 368px;
     text-align: center;
-    margin-left: 53px;
-    margin-right: 15px;
-    margin-top: 20px;
+    margin-left: 45px;
+    margin-top: 30px;
     position: relative;
     padding: 25px 0px 25px 0px;
+    height: 427px;
 }
 .myTable2{
     color: rgb(0, 0, 0);
     border: solid rgb(65, 63, 63) 2px;
     background-color: rgb(190, 204, 243);
-    width: 381px;
-    height: 366px;
-    top: 31px;
-    left: 5px;
+    width: 400px;
+    right: 17px;
     text-align: center;
-    margin-left: 18px;
-    margin-right: 34px;
-    margin-top: 20px;
+    margin-left: 43px;
+    margin-top: 30px;
+    margin-right: 3px;
     position: relative;
-    padding: 25px 0px 25px 0px; 
+    padding: 25px 0px 25px 0px;
+    height: 427px;
 }
 .myTable3{
     color: rgb(0, 0, 0);
     border: solid rgb(65, 63, 63) 2px;
     background-color: rgb(243, 217, 162);
     width: 381px;
-    height: 366px;
-    top: 31px;
-    right: 5px;
+    right: 28px;
     text-align: center;
-    margin-left: 30px;
-    margin-top: 20px;
+    margin-left: 54px;
+    margin-top: 30px;
     position: relative;
-    padding: 25px 0px 25px 0px;   
+    padding: 25px 0px 25px 0px;
+    height: 427px;  
 }
-input[type=date]{
-	color: #539eb7;
-    border-radius: 6px;
-    width: 34%;
-    margin: 0 0 7px 0px;
-}
+
 input[type=submit]{
 	color: #4c99b3;
     border-radius: 6px;
     margin: 0 0px 7px 4px;
 }
-.enlaces1{
-    margin: 13px 0px 10px 0px;
+input[type=text]{
+	border-radius: 6px;
+    width: 30%;
+    margin: 0 0px 9px 0px;
 	
+}
+input[type=email]{
+	border-radius: 6px;
+    width: 30%;
+	
+}
+textarea{
+	border-radius: 6px;
+    width: 78%;
+    margin: 14px 0px 0 10px;
+
+}
+.enlaces{
+	padding:14px 0 0 0;
 }
 
