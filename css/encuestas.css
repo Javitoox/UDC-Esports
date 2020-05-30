@@ -48,22 +48,6 @@ h4{
 	margin: 9px 0px 12px 0px;
 }
 
-.comun > div{
-    display: flex;
-    flex-direction: row;
-}
-
-.search{
-    background-color: rgb(240, 241, 247);
-    border: solid 2px black;
-    border-radius: 18px 18px 18px 18px;
-    -moz-border-radius: 18px 18px 18px 18px;
-    -webkit-border-radius: 18px 18px 18px 18px;
-    text-align: center;
-    height:30px;
-    width:300px;    
-}
-
 .myTable{
     color: rgb(0, 0, 0);
     border: solid rgb(65, 63, 63) 2px;

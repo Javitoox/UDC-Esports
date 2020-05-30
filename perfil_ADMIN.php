@@ -50,6 +50,8 @@
                 <div class="col-10 col-tab-10">
                 <form action="accion_editaMiembros.php" method="POST">
                     <center><p>Perfil del JUGADOR</p></center>
+                    <input name="tipo" value="actualizar" type="hidden">
+
                     <!--un campo hidden que sea el dni-->
                     <input id="dniJugador" name="dniJugador" type="hidden" value="<?php echo $dnijugador;?>">
                     <div><label for="nombre">Nombre completo:<em></em></label>

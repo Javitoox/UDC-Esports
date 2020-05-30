@@ -2,7 +2,9 @@
     session_start();
     require_once("gestionBD.php");
     require_once("consultasSql.php");
-    require_once("gestionMiembros.php");
+    require_once("gestionJugadores.php");
+	    require_once("gestionMiembros.php");
+	
 
     if(isset($_SESSION['login'])){
         $nickUsuario = $_SESSION['login'];
@@ -66,11 +68,10 @@
     <link rel="stylesheet" type="text/css" href="css/gestion.css">
    	<link rel="stylesheet" type="text/css" href="css/formulario.css">
 	<link rel="stylesheet" type="text/css" href="css/error_form.css">
-	
     <script type="text/javascript" src="js/codigoJS.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/error_form.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-    <script src="js/gestion.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/gestion.js"></script>
+
 
 
 </head>
@@ -102,52 +103,55 @@
         
         
 	
-        <div class="tabla1">
+<div class="tabla1">
             <!-- formulario -->
             <div class="formulario" id="creaJugador">
-            <form method="get" action="validacion_jugadores.php">
+            <form method="get" action="validacion_jugadores.php" id="jugadores_formulario">
                 Insertar un JUGADOR
+                <div>
+                <input name="tipo" value="insertar" type="hidden">
+                </div>
                 <div><label for="dniJugador">DNI Jugador:<em></em></label>
-                <input id="dniJugador" name="dniJugador" placeholder="DNI Jugador" value="<?php echo $formulario['dniJugador'];?>" type="text" required>
+                <input oninput="nifValidationJ()" id="dniJugador" name="dniJugador" placeholder="DNI Jugador" value="<?php echo $formulario['dniJugador'];?>" type="text" required>
                 </div>
                 <div><label for="nombre">Nombre completo:<em></em></label>
-                <input id="nombre" placeholder="Nombre Completo" name="nombre" maxlength="50" type="text" value="<?php echo $formulario['nombre'];?>" required >
+                <input oninput="nameValidationJ()" id="nombre" placeholder="Nombre Completo" name="nombre" maxlength="50" type="text" value="<?php echo $formulario['nombre'];?>" required >
                 </div>
                 <div><label for="nombreVirtual">Nombre virtual:<em></em></label>
-                <input id="nombreVirtual" placeholder="Nombre Virtual" maxlength="20" name="nombreVirtual" type="text" value="<?php echo $formulario['nombreVirtual'];?>"required>
+                <input oninput="nickValidationJ()" id="nombreVirtual" placeholder="Nombre Virtual" maxlength="20" name="nombreVirtual" type="text" value="<?php echo $formulario['nombreVirtual'];?>"required>
                 </div>
                 <div><label for="numTelefono">Número de teléfono:<em></em></label>
-                <input id="numTelefono" placeholder="Numero de Teléfono" name="numTelefono" maxlength="15" type="text"value="<?php echo $formulario['numTelefono'];?>"required>
+                <input oninput="phoneValidationJ()" id="numTelefono" placeholder="Numero de Teléfono" name="numTelefono" maxlength="15" type="text"value="<?php echo $formulario['numTelefono'];?>"required>
                 </div>
                 <div><label for="correoElectronico">Correo electrónico:<em></em></label>
-                <input id="correoElectronico" placeholder="Correo Electrónico" name="correoElectronico" maxlength="50" type="text"value="<?php echo $formulario['correoElectronico'];?>" required>
+                <input oninput="emailValidationJ()" id="correoElectronico" placeholder="Correo Electrónico" name="correoElectronico" maxlength="50" type="text"value="<?php echo $formulario['correoElectronico'];?>" required>
                 </div>
                 <div><label for="nacionalidad">Nacionalidad:<em></em></label>
-                <input id="nacionalidad" placeholder="Nacionalidad" name="nacionalidad" type="text" maxlength="15" value="<?php echo $formulario['nacionalidad'];?>"required>
+                <input oninput="nacionalidadValidationJ()" id="nacionalidad" placeholder="Nacionalidad" name="nacionalidad" type="text" maxlength="15" value="<?php echo $formulario['nacionalidad'];?>"required>
                 </div>
                 <div><label for="fentrada">Fecha entrada:<em></em></label>
-                <input id="fentrada" placeholder="Fecha Entrada" name="fentrada" type="date" value="<?php echo $formulario['fentrada'];?>"required>
+                <input id="fentrada" oninput="fentradaValidationJ()" placeholder="Fecha Entrada" name="fentrada" type="date" value="<?php echo $formulario['fentrada'];?>"required>
                 </div>
                 <div><label for="salario">Salario actual:<em></em></label>
-                <input id="salario" placeholder="Salario" name="salario" maxlength="10"type="text" >
+                <input id="salario" oninput="salarioValidationJ()" placeholder="Salario" name="salario" maxlength="10"type="text" >
                 </div>
                 <div><label for="numExperiencia">Años de experiencia:<em></em></label>
-                <input id="numExperiencia" placeholder="Nº Años de Experiencia" maxlength="38" name="numExperiencia" type="text" value="<?php echo $formulario['numExperiencia'];?>"required>
+                <input id="numExperiencia" oninput="numExperienciaValidationJ()" placeholder="Nº Años de Experiencia" maxlength="38" name="numExperiencia" type="text" value="<?php echo $formulario['numExperiencia'];?>"required>
                 </div>
                 <!--Videojuego (oid_v y el nombre) -->
                 <div><label for="nombreVid">Videojuego:<em></em></label>
-                <input list="videojuegos" name="nombreVid" id="nombreVid" placeholder="Seleccione un videojuego" value="<?php if ($formulario['nombreVid'] != "") echo $formulario['nombreVid'];?>" required/>
-				<datalist id="videojuegos">
-                    <?php 
-                    $videojuegos = obtenVideojuegos($conexion);
-                    foreach($videojuegos as $videojuego){
-                        $nombreVideojuego = $videojuego["NOMBREVIDEOJUEGO"];
-                        $oidV = $videojuego["OID_V"];
-                        ?><input id="oidVJugador" name= "oidVJugador" type="hidden"value="<?php echo $oidV;?>">
-                        <option id="nombreVid" name= "nombreVid" value="<?php echo $nombreVideojuego;?>"></option><?php
-                    }
-                    ?>
-				</datalist>
+                <select name="nombreVid" id="nombreVid" required>
+       		
+       				<?php $videojuegos = obtenVideojuegos($conexion);
+       					foreach($videojuegos as $videojuego){
+    		    			
+							echo "<option  value='".$videojuego["NOMBREVIDEOJUEGO"]."' label='".$videojuego["NOMBREVIDEOJUEGO"]."'/>";
+    			
+				
+    					}
+    		
+    		?>
+				</select>
                 </div>
                 <input class="boton" id="boton" name="boton" type="submit" value="Añadir Jugador"/><br/>
             </form>
@@ -233,7 +237,7 @@
 							echo "<option  value='".$videojuego["NOMBREVIDEOJUEGO"]."' label='".$videojuego["NOMBREVIDEOJUEGO"]."'/>";
     			
 				
-    						}
+    					}
     		
     		?>
 				</select>

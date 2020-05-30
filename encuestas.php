@@ -48,20 +48,21 @@
 <html lang="es">
 <head>
 <title>Encuestas</title>
-    <?php include_once("headComun.php"); ?>
-    <link rel="stylesheet" type="text/css" href="css/encuestas.css">
+    <link rel="stylesheet" type="text/css" href="css/encuestas.css">  
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>  
 </head>
 
 <body>
-    <?php 
+	<?php include_once("fondo.php"); 
+	
     if(isset($_SESSION['ADMIN'])){
     	include_once("navegacion_ADMIN.php"); 
     }else{
     	include_once("navegacion.php");
     }
+    
     ?>
-	
-   	<div id="myTable">
+   	<div class="col-3 col-tab-3 myTable">
    		<h4>Jugadores sin encuestas</h4>
    		
    		<form method="get" action="encuestas.php" novalidate>
@@ -123,7 +124,7 @@
 	?>
 
 						<nav>
-		<div id="enlaces">
+		<div class="enlaces1">
 			<?php
 				for( $pagina = 1; $pagina <= $total_paginas; $pagina++ ) 
 					if ( $pagina == $pagina_seleccionada) { 	?>
@@ -147,7 +148,7 @@
 			
 						
 		
-   	<div id="myTable2">
+   	<div class="col-3 col-tab-3 myTable2">
    		<h4>Entrenadores sin encuestas</h4>
    		
    		<form method="get" action="encuestas.php" novalidate>
@@ -229,7 +230,7 @@
 	</nav>
 						</div>
 
-<div id="myTable3">
+<div class="col-3 col-tab-3 myTable3">
    		<h4>Miembros con encuestas</h4>
 <form method="get" action="encuestas.php" novalidate>
 		<div>
@@ -243,7 +244,7 @@
 	<?php
 		
 		if (!isset($_GET['nombre2'])){
-			$nombre2 = "12-1-2000";
+			$nombre2 = "12-1-2020";
 			
 		}else{
 			$nombre2 = $_GET['nombre2'];
@@ -252,6 +253,7 @@
 			
 			
 		}
+		
 	$newDate2 = date("d/m/Y", strtotime($nombre2));
 	if(isset($_SESSION["nombre2"])){
 		
