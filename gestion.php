@@ -3,10 +3,10 @@
     require_once("gestionBD.php");
     require_once("consultasSql.php");
     require_once("gestionJugadores.php");
-	    require_once("gestionMiembros.php");
+	require_once("gestionMiembros.php");
 	
 
-    if(isset($_SESSION['login'])){
+    if(isset($_SESSION['login']) && $_SESSION['ADMIN']){
         $nickUsuario = $_SESSION['login'];
     }else{
         Header("Location: login.php");
@@ -22,6 +22,7 @@
 		$formulario['salario'] = "";
         $formulario['numExperiencia'] = "";
         $formulario['nombreVid'] = "";
+        $formulario['numRegalos'] = "";
 		$_SESSION['formulario'] = $formulario;
 	}else{
 		$formulario = $_SESSION['formulario'];
@@ -52,7 +53,36 @@
     }else{
         $formularioOj = $_SESSION['formularioOj'];
     }
+	if (isset($_SESSION["paginacion"])) 
+	$paginacion = $_SESSION["paginacion"]; 
+	$pagina_seleccionada = isset($_GET["PAG_NUM"])? (int)$_GET["PAG_NUM"]:(isset($paginacion)? (int)$paginacion["PAG_NUM"]: 1);
+	$pag_tam = isset($_GET["PAG_TAM"])? (int)$_GET["PAG_TAM"]:(isset($paginacion)? (int)$paginacion["PAG_TAM"]: 10);
+	if ($pagina_seleccionada < 1) $pagina_seleccionada = 1;
+	if ($pag_tam < 1) $pag_tam = 10;
+		
+	// Antes de seguir, borramos las variables de sección para no confundirnos más adelante
+	unset($_SESSION["paginacion"]);
 	
+	if (isset($_SESSION["paginacions"])) 
+	$paginacions = $_SESSION["paginacions"]; 
+	$pagina_seleccionadas = isset($_GET["PAG_NUMS"])? (int)$_GET["PAG_NUMS"]:(isset($paginacions)? (int)$paginacions["PAG_NUMS"]: 1);
+	$pag_tams = isset($_GET["PAG_TAMS"])? (int)$_GET["PAG_TAMS"]:(isset($paginacions)? (int)$paginacions["PAG_TAMS"]: 10);
+	if ($pagina_seleccionadas < 1) $pagina_seleccionadas = 1;
+	if ($pag_tams < 1) $pag_tams = 10;
+		
+	// Antes de seguir, borramos las variables de sección para no confundirnos más adelante
+	unset($_SESSION["paginacions"]);
+	
+	if (isset($_SESSION["paginacionss"])) 
+	$paginacionss = $_SESSION["paginacionss"]; 
+	$pagina_seleccionadass = isset($_GET["PAG_NUMSS"])? (int)$_GET["PAG_NUMSS"]:(isset($paginacionss)? (int)$paginacionss["PAG_NUMSS"]: 1);
+	$pag_tamss = isset($_GET["PAG_TAMSS"])? (int)$_GET["PAG_TAMSS"]:(isset($paginacionss)? (int)$paginacionss["PAG_TAMSS"]: 10);
+	if ($pagina_seleccionadass < 1) $pagina_seleccionadass = 1;
+	if ($pag_tamss < 1) $pag_tamss = 10;
+		
+	// Antes de seguir, borramos las variables de sección para no confundirnos más adelante
+    unset($_SESSION["paginacionss"]);
+    
 	//Comprobamos si han llegado errores de validación		
 	if (isset($_SESSION['errores'])){
 		$errores = $_SESSION['errores'];
@@ -71,8 +101,6 @@
     <script type="text/javascript" src="js/codigoJS.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/gestion.js"></script>
-
-
 
 </head>
 
@@ -97,8 +125,6 @@
 
     <div class="comun">
         <?php $conexion = crearConexionBD();
-        $jugadores = obtenJugador($conexion);
-        $entrenadores = obtenEntrenadores($conexion);
         $ojeadores = obtenOjeadores($conexion);?>
         
         
@@ -141,15 +167,10 @@
                 <!--Videojuego (oid_v y el nombre) -->
                 <div><label for="nombreVid">Videojuego:<em></em></label>
                 <select name="nombreVid" id="nombreVid" required>
-       		
        				<?php $videojuegos = obtenVideojuegos($conexion);
-       					foreach($videojuegos as $videojuego){
-    		    			
+       					foreach($videojuegos as $videojuego){		
 							echo "<option  value='".$videojuego["NOMBREVIDEOJUEGO"]."' label='".$videojuego["NOMBREVIDEOJUEGO"]."'/>";
-    			
-				
     					}
-    		
     		?>
 				</select>
                 </div>
@@ -162,11 +183,28 @@
 
             <table id="myTable">
             <tr>
-            <th style="width:60%;">Jugadores
-            
+            <th style="width:60%;">
+            	Jugadores
+
             <input type="text" class = "search" id="myInputJug" onkeyup="buscaJugador()" placeholder="Busca un jugador" title="Type in a name">
                
             </th>
+            <?php
+		$query ="SELECT * from jugadores"; 
+	
+		$total_registros = total_consulta($conexion,$query);
+		$total_paginas = (int) ($total_registros / $pag_tam);
+		if ($total_registros % $pag_tam > 0) $total_paginas++; 
+		if ($pagina_seleccionada > $total_paginas) $pagina_seleccionada = $total_paginas;
+	
+	// Generamos los valores de sesión para página e intervalo para volver a ella después de una operación
+		$paginacion["PAG_NUM"] = $pagina_seleccionada;
+		$paginacion["PAG_TAM"] = $pag_tam;
+		$_SESSION["paginacion"] = $paginacion;
+		
+		
+		$filas = consulta_paginada($conexion,$query,$pagina_seleccionada,$pag_tam);
+		  ?>
             <th style="width:60%;"></th>
             <th style="width:60%;">
             <button id="creaJ" name="añadir" type="submit" class="añadir_jugador">
@@ -176,14 +214,18 @@
         
             </tr>
             <?php
-            foreach($jugadores as $jugador){
-                ?>
+           
+		
+		foreach($filas as $fila) {	//jugadores as jugador	
+	?>
                 <tr>
                 <?php
-                ?><td><?php echo $jugador["NOMBREJUGADOR"] ?></td>
+                ?><td><?php echo $fila["NOMBREJUGADOR"];
+				   ?></td>
+				   
                 <form  method= "post" action="perfil_ADMIN.php">
                     <?php 
-                    $dniJugador = $jugador["DNIJUGADOR"];
+                    $dniJugador = $fila["DNIJUGADOR"];
                     ?>
                     <input id="dnijugador" name ="dnijugador" type="hidden" value="<?php echo $dniJugador?>">
                     <td><button id="editar" name="editar"><img height = 25px src="images/editar.png"></button></td>
@@ -191,7 +233,7 @@
                 </form>
                 <form  method= "get" action="accion_eliminaMiembro.php">
                     <?php 
-                    $dniJugador = $jugador["DNIJUGADOR"];
+                    $dniJugador = $fila["DNIJUGADOR"];
                     ?>
                     <input id="dnijugador" name ="dnijugador" type="hidden" value="<?php echo $dniJugador?>">
                     <td><button id="eliminar" name="eliminar"><img height = 25px src="images/eliminar.jpg"></button></td>
@@ -200,6 +242,32 @@
                 <?php
             }
             ?>
+            <th>
+            	<nav>
+		<div class="enlaces1">
+			<?php
+				
+				for( $pagina = 1; $pagina <= $total_paginas; $pagina++ ) 
+					if ( $pagina == $pagina_seleccionada) { 	?>
+						<span class="current"><?php echo $pagina; ?></span>
+			<?php }	else { ?>			
+						<a href="gestion.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+			<?php } ?>			
+		</div>
+		
+		<form method="get" action="gestion.php" id="f">
+			<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
+			Mostrando 
+			<input id="PAG_TAM" name="PAG_TAM" type="number" 
+				min="1" max="<?php echo $total_registros;?>" 
+				value="<?php echo $pag_tam?>" autofocus="autofocus" /> 
+			entradas de <?php echo $total_registros?>
+			<input type="submit" value="Cambiar">
+		</form>
+	</nav>
+            </th>
+            
+
         </div>
         <div class="tabla2">
             <!--formulario -->
@@ -252,6 +320,27 @@
         <table id="myTable2">
             <tr>
             <th style="width:60%;">Entrenadores
+            	<?php 
+            	
+        $query2="SELECT * from entrenadores";    	
+            	
+        $total_registross = total_consulta($conexion,$query2);
+		
+		$total_paginass = (int) ($total_registross / $pag_tams);
+		
+		
+		
+		if ($total_registross % $pag_tams > 0) $total_paginass++; 
+		if ($pagina_seleccionadas > $total_paginass) $pagina_seleccionada = $total_paginass;
+	
+	// Generamos los valores de sesión para página e intervalo para volver a ella después de una operación
+		$paginacions["PAG_NUMS"] = $pagina_seleccionadas;
+		$paginacions["PAG_TAMS"] = $pag_tams;
+		$_SESSION["paginacions"] = $paginacions;
+		
+		$filass = consulta_paginada($conexion,$query2,$pagina_seleccionadas,$pag_tams);
+            	
+            	?>
            
             <input type="text" class = "search" id="myInputEnt" onkeyup="buscaEntrenador()" placeholder="Busca un entrenador" title="Type in a name">
             </th>
@@ -265,14 +354,17 @@
         
             </tr>
             <?php
-            foreach($entrenadores as $entrenador){
-                ?>
+           
+		
+		foreach($filass as $fila) {
+			
+	?>
                 <tr>
                 <?php
-                ?><td><?php echo $entrenador["NOMBREENTRENADOR"] ?></td>
+                ?><td><?php echo $fila["NOMBREENTRENADOR"] ?></td>
                 <form  method= "post" action="perfil_ADMIN.php">
                     <?php 
-                    $dniEntrenador = $entrenador["DNIENTRENADOR"];
+                    $dniEntrenador = $fila["DNIENTRENADOR"];
                     ?>
                     <input id="dnientrenador" name ="dnientrenador" type="hidden" value="<?php echo $dniEntrenador?>">
                     <td><button id="editar" name="editar"><img height = 25px src="images/editar.png"></button></td>
@@ -280,7 +372,7 @@
                 </form>
                 <form  method= "get" action="accion_eliminaMiembro.php">
                     <?php 
-                    $dniEntrenador = $entrenador["DNIENTRENADOR"];
+                    $dniEntrenador = $fila["DNIENTRENADOR"];
                     ?>
                     <input id="dnientrenador" name ="dnientrenador" type="hidden" value="<?php echo $dniEntrenador?>">
                     <td><button id="eliminar" name="eliminar"><img height = 25px src="images/eliminar.jpg"></button></td>
@@ -290,6 +382,30 @@
                 <?php
             }
             ?>
+            
+            <th>
+            
+            	<div class="enlaces1">
+			<?php
+				for( $paginas = 1; $paginas <= $total_paginass; $paginas++ ) 
+					if ( $paginas == $pagina_seleccionadas) { 	?>
+						<span class="current"><?php echo $paginas; ?></span>
+			<?php }	else { ?>			
+						<a href="gestion.php?PAG_NUMS=<?php echo $paginas; ?>&PAG_TAMS=<?php echo $pag_tams; ?>"><?php echo $paginas; ?></a>
+			<?php } ?>			
+		</div>
+		
+		<form method="get" action="gestion.php" id="f">
+			<input id="PAG_NUMS" name="PAG_NUMS" type="hidden" value="<?php echo $pagina_seleccionadas?>"/>
+			Mostrando 
+			<input id="PAG_TAMS" name="PAG_TAMS" type="number" 
+				min="1" max="<?php echo $total_registross;?>" 
+				value="<?php echo $pag_tams?>" autofocus="autofocus" /> 
+			entradas de <?php echo $total_registross?>
+			<input type="submit" value="Cambiar">
+		</form>
+	</nav>
+            </th>
 
         </div>
         &nbsp;&nbsp;
@@ -346,6 +462,29 @@
         <table id="myTable3">
             <tr>
             <th style="width:60%;">Ojeadores
+            	<?php 
+            	$query3="SELECT * from ojeadores";
+		
+	
+						
+						
+		
+		$total_registrosss = total_consulta($conexion,$query3);
+		
+		$total_paginasss = (int) ($total_registrosss / $pag_tamss);
+		
+		
+		
+		if ($total_registrosss % $pag_tamss > 0) $total_paginasss++; 
+		if ($pagina_seleccionadass > $total_paginasss) $pagina_seleccionadas = $total_paginasss;
+	
+	// Generamos los valores de sesión para página e intervalo para volver a ella después de una operación
+		$paginacionss["PAG_NUMSS"] = $pagina_seleccionadass;
+		$paginacionss["PAG_TAMSS"] = $pag_tamss;
+		$_SESSION["paginacionss"] = $paginacionss;
+		$filasss = consulta_paginada($conexion,$query3,$pagina_seleccionadass,$pag_tamss);
+            	
+            	?>
             <input type="text" class = "search" id="myInputOj" onkeyup="buscaOjeador()" placeholder="Busca un ojeador" title="Type in a name"><br>
             </th>
             <th style="width:60%;"></th>
@@ -357,14 +496,15 @@
         
             </tr>
             <?php
-            foreach($ojeadores as $ojeador){
+            foreach($filasss as $fila) {
+
                 ?>
                 <tr>
                 <?php
-                ?><td><?php echo $ojeador["NOMBREOJEADOR"] ?></td>
+                ?><td><?php echo $fila["NOMBREOJEADOR"] ?></td>
                 <form  method= "post" action="perfil_ADMIN.php">
                     <?php 
-                    $dniOjeador = $ojeador["DNIOJEADOR"];
+                    $dniOjeador = $fila["DNIOJEADOR"];
                     ?>
                     <input id="dniojeador" name ="dniojeador" type="hidden" value="<?php echo $dniOjeador?>">
                     <td><button id="editar" name="editar"><img height = 25px src="images/editar.png"></button></td>
@@ -372,7 +512,7 @@
                 </form>
                 <form  method= "get" action="accion_eliminaMiembro.php">
                     <?php 
-                    $dniOjeador = $ojeador["DNIOJEADOR"];
+                    $dniOjeador = $fila["DNIOJEADOR"];
                     ?>
                     <input id="dniojeador" name ="dniojeador" type="hidden" value="<?php echo $dniOjeador?>">
                     <td><button id="eliminar" name="eliminar"><img height = 25px src="images/eliminar.jpg"></button></td>                        
@@ -384,6 +524,30 @@
             
             
             ?>
+            <th>
+            	<nav>
+			<div class="enlaces1">
+			<?php
+				for( $paginass = 1; $paginass <= $total_paginasss; $paginass++ ) 
+					if ( $paginass == $pagina_seleccionadass) { 	?>
+						<span class="current"><?php echo $paginass; ?></span>
+			<?php }	else { ?>			
+						<a href="gestion.php?PAG_NUMSS=<?php echo $paginass; ?>&PAG_TAMSS=<?php echo $pag_tamss; ?>"><?php echo $paginass; ?></a>
+			<?php } ?>			
+		</div>
+		
+		<form method="get" action="gestion.php" id="f">
+			<input id="PAG_NUMSS" name="PAG_NUMSS" type="hidden" value="<?php echo $pagina_seleccionadass?>"/>
+			Mostrando 
+			<input id="PAG_TAMSS" name="PAG_TAMSS" type="number" 
+				min="1" max="<?php echo $total_registrosss;?>" 
+				value="<?php echo $pag_tamss?>" autofocus="autofocus" /> 
+			entradas de <?php echo $total_registrosss?>
+			<input type="submit" value="Cambiar">
+		</form>
+	</nav>
+            	
+            </th>
         </div>
     </div>
 </body>

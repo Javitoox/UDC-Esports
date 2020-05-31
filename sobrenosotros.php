@@ -69,13 +69,20 @@
     
     <div class="col-3 col-tab-3 myTable">
    		<h4>¿Quiénes somos?</h4>
-   		<p>Hola</p>
-   		   		<p>Hola</p>
+   		<p>U.D. Constantina eSports busca fomentar la creación de contenido audiovisual, 
+               innovación y la exploración de un sector joven además de estar en continuo movimiento 
+               explorando nuevos territorios de competición y nuevos segmentos de la misma llegando a 
+               los públicos más jóvenes además de los adultos con el objetivo de crear un nuevo modelo 
+               de entretenimiento y ocio único buscando conseguir la felicidad y el afecto de nuestros 
+               seguidores y fans además de ser una de las entidades deportivas de referencia en el sector. 
+             
+               U.D. Constantina eSports quiere ser algo más que una entidad deportiva o de ocio, busca ser 
+               una familia Fiel y con una Unidad de Bloque firme y fuerte consolidando así una comunidad propia 
+               en la que los valores como el respeto, la comprensión e igualdad vayan por delante siendo referente 
+               además por su compromiso con la sociedad. 
+        </p>
 
-   		
-   	
-
-</div>
+    </div>
 
 	
 <div class="col-3 col-tab-3 myTable2">
@@ -83,11 +90,11 @@
 
 	<form method="get">
             <label>Asunto:</label>
-            <input type="text" size="55" name="asunto" value="" required   placeholder="Asunto" ></br>
+            <input type="text" size="55" name="asunto" value="" required  placeholder="Asunto" ></br>
             <label>De:</label>
-            <input type="text" size="25" name="nombre" value="" required style="" placeholder="Tu Nombre">
-            <input type="email" size="25" name="emisor" required style="" placeholder="Email remitente" value=""></br>
-            <textarea name="cuerpo" style="" placeholder="Contenido del mensaje" cols="57" rows="10"></textarea></br>
+            <input type="text" size="25" name="nombre" value="" required placeholder="Tu Nombre">
+            <input type="email" size="25" name="emisor" required  placeholder="Email remitente" value=""></br>
+            <textarea name="cuerpo" placeholder="Contenido del mensaje" cols="57" rows="10"></textarea></br>
             <input type="submit" name="enviar" value="Enviar correo">
     </form>
 </div>

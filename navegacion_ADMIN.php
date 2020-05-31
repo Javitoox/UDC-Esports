@@ -17,10 +17,10 @@
 		<br><a href="jugadores.php">Jugadores</a>
 		<a href="navegacion_ADMIN.php">Resultados</a>
 		<a href="misSeguimientos.php">Mis Seguimientos</a>
-        <a href="navegacion_ADMIN.php">Sobre Nosotros</a>
+        <a href="sobrenosotros.php">Sobre Nosotros</a>
         <a href="gestion.php">Gestión</a>
         <a href="encuestas.php">Encuestas</a>
-        <a href="navegacion_ADMIN.php">Información</a>
+        <a href="informacion.php">Información</a>
 		<a href="perfil_ADMIN.php">Perfil</a>
 		<a href="desconexion.php">Desconectar</a>
 

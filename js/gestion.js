@@ -1,7 +1,5 @@
 $(document).ready(function(){
-	
-
-	
+		
     $("#jugadores_formulario").on("boton", function() {
                 return validateForm4();
             });
@@ -26,7 +24,9 @@ $(document).ready(function(){
 	$("#fecha2").on("submit", function() {
 				return validateForm10();
 			});
-	
+	$(".comenta").on("submit", function() {
+		return validateForm11();
+	});
 	
 });
 
@@ -58,9 +58,8 @@ function validateForm5() {
 			var valid4=emailValidationE();
 			var valid6=phoneValidationE();
 			var valid7=experValidationE();
-			var valid8= salarioValidationE();
-			var valid9= nacionalidadValidationE();
-
+			var valid8=salarioValidationE();
+			var valid9=nacionalidadValidationE();
 
 			return (valid1.length==0) && (valid2.length==0) && (valid4.length==0) && 
 			 (valid6.length==0)&&(valid7.length==0)&&(valid8.length==0)&&(valid9.length==0);
@@ -78,9 +77,8 @@ function validateForm6() {
 			var valid4=emailValidationO();
 			var valid6=phoneValidationO();
 			var valid7=experValidationO();
-			var valid8= salarioValidationO();
-			var valid9= nacionalidadValidationO();
-
+			var valid8=salarioValidationO();
+			var valid9=nacionalidadValidationO();
 
 			return (valid1.length==0) && (valid2.length==0) && (valid4.length==0) && 
 			 (valid6.length==0)&&(valid7.length==0)&&(valid8.length==0)&&(valid9.length==0);
@@ -93,9 +91,6 @@ function validateForm7() {
 		
 		if (!noValidation){
 			var valid1=dateValidation();
-			
-
-
 			return (valid1.length==0) ;
 		}
 		else 
@@ -106,9 +101,6 @@ function validateForm8() {
 		
 		if (!noValidation){
 			var valid1=dateValidation1();
-			
-
-
 			return (valid1.length==0) ;
 		}
 		else 
@@ -116,12 +108,8 @@ function validateForm8() {
 }
 function validateForm9() {
 		var noValidation = document.getElementById("fecha1").novalidate;
-		
 		if (!noValidation){
 			var valid1=dateValidation11();
-			
-
-
 			return (valid1.length==0) ;
 		}
 		else 
@@ -129,18 +117,45 @@ function validateForm9() {
 }
 function validateForm10() {
 		var noValidation = document.getElementById("fecha2").novalidate;
-		
 		if (!noValidation){
 			var valid1=dateValidation2();
-			
-
-
 			return (valid1.length==0) ;
 		}
 		else 
 			return true;		
 }
-
+function validateForm11() {
+	var noValidation = document.getElementsByClassName("comenta").novalidate;
+	if (!noValidation){
+		var valid1=comentaValidation();
+		return (valid1.length==0) ;
+	}
+	else return true;		
+}
+function comentaValidation(){
+	var errores="";
+	var com=document.getElementsByClassName("comenta").value;
+	var expreg=/^[^$%&|<>#()¬·{}~;ºª]*$/;
+	if(com==""){
+		errores+="<p><strong>La opninion no puede estar vacía.</strong></p>";
+	}else if(!expreg.test(com)){
+		errores+="<p><strong>La opinion no debe contener caracteres especiales: "+com+".</strong></p>";
+	}
+	if(errores!=""){
+		document.getElementsByClassName("comenta").removeAttribute("style");
+		if($('#val_car').length){
+			document.getElementById("val_car").innerHTML=errores;
+		}else{
+			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_car'>"+errores+"</div>";
+		}
+	}else{
+		document.getElementsByClassName("comenta").setAttribute("style","background-color: #9CF0BF;");
+		if($('#val_car').length){
+			document.getElementById("val_car").innerHTML="";
+		}
+	}
+	return errores;
+}
 function nifValidationJ(){
 	var errores="";
 	var nif=document.getElementById("dniJugador").value;
@@ -618,7 +633,7 @@ function experValidationE(){
 function salarioValidationE(){
 	var errores="";
 	var sal=document.getElementById("salarioEnt").value;
-	var expreg=/^[0-9]+.[0-9]{2}$/;
+	var expreg=/^\d{0,10}([.]\d{0,2})?$/;
 	if(sal==""){
 		errores+="<p><strong>El salario no puede estar vacío.</strong></p>";
 	}else if(!expreg.test(sal)){
@@ -713,7 +728,6 @@ function nifValidationO(){
 	}
 	return errores;
 }
-
 function nameValidationO(){
 	var errores="";
 	var name=document.getElementById("nombreOjeador").value;
@@ -735,8 +749,6 @@ function nameValidationO(){
 	}
 	return errores;
 }
-
-
 function emailValidationO(){
 	var errores="";
 	var email=document.getElementById("correoElectronicoOj").value;
@@ -817,7 +829,7 @@ function experValidationO(){
 function salarioValidationO(){
 	var errores="";
 	var sal=document.getElementById("salarioOj").value;
-	var expreg=/^[0-9]+.[0-9]{2}$/;
+	var expreg=/^\d{0,10}([.]\d{0,2})?$/;
 	if(sal==""){
 		errores+="<p><strong>El salario no puede estar vacío.</strong></p>";
 	}else if(!expreg.test(sal)){

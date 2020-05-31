@@ -3,6 +3,8 @@
 	
 	require_once("gestionBD.php");
 	require_once("gestionMiembros.php");
+	require_once("gestionJugadores.php");
+
 
     //En el caso de que no exista sesión asignamos valores por defecto
 	if (!isset($_SESSION['formulario'])) {

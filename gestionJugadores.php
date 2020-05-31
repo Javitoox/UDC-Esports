@@ -23,7 +23,16 @@
 			header("Location: excepcion.php");
 		}
 	}
-
+	function obtenJugador($conexion){
+        try{
+            $consulta = "SELECT * from jugadores";
+            $stmt = $conexion->query($consulta);
+            return $stmt;
+        }catch(PDOException $e){
+            $_SESSION['excepcion'] = $e->GetMessage();
+			header("Location: excepcion.php");
+		}   
+	}
 	function eliminaJugador($conexion, $dnijugador){
 		try{
             $consulta = "DELETE from jugadores where dnijugador =: dnijugador";
@@ -56,10 +65,9 @@
 			$stmt->bindParam(':numregalos',$nuevoNumRegalos);
 			$stmt->bindParam(':numañosexperienciajugador',$nuevoNumExperiencia);
 			$stmt->execute();
-            return true;
 		}catch(PDOException $e){
 			$_SESSION['excepcion'] = "Error al actualizar los datos del jugador.".$e->GetMessage();
-			return false;
+			header("Location:excepcion.php");
 		}
 	}
 
@@ -109,100 +117,44 @@
 		}
 	}
 
+	function insertaJugador($conexion,$oidV, $dniJugador, $nombre, $nombreVirtual, $salario, $numTelefono, 
+	$correoElectronico, $nacionalidad, $fechaEntrada, $numRegalos, $numExperiencia){
+		try{
+			$consulta = "CALL INSERTAR_JUGADORES(:dnijugador,:nombrejugador,:salariojugador,:numtelefonojugador,:numañosexperienciajugador,:correoelectronicojugador,
+			:fechaentrada,:nombrevirtualjugador,:numregalos,:nacionalidadjugador,:oid_v)";
+			$stmt=$conexion->prepare($consulta);
+			$stmt->bindParam(':oid_v',$oidV);
+			$stmt->bindParam(':dnijugador',$dniJugador);
+			$stmt->bindParam(':nombrejugador', $nombre);
+			$stmt->bindParam(':nombrevirtualjugador', $nombreVirtual);
+			$stmt->bindParam(':salariojugador', $salario);
+			$stmt->bindParam(':numtelefonojugador', $numTelefono);
+			$stmt->bindParam(':correoelectronicojugador', $correoElectronico);
+			$stmt->bindParam(':nacionalidadjugador', $nacionalidad);
+			$stmt->bindParam(':fechaentrada', $fechaEntrada);
+			$stmt->bindParam(':numregalos', $numRegalos);
+			$stmt->bindParam(':numañosexperienciajugador', $numExperiencia);
+
+			$stmt->execute();
+			return true;
+		 }catch(PDOException $e){
+			 $_SESSION['excepcion'] = "Error al añadir el jugador.".$e->GetMessage();
+			return false;
+		 }
+	}
 	function consultarJugador($conexion,$nombreVirtual) {
         try{
-            $consulta = "SELECT COUNT() as CUENTA FROM jugadores WHERE
-            nombrevirtualjugador=:nombrevirtualjugador UNION ALL
-            SELECT COUNT() FROM usuarios WHERE nickusuario=:nombrevirtualjugador";
-
+            $consulta = "SELECT COUNT(*) as CUENTA FROM jugadores WHERE
+            nombrevirtualjugador=:nombrevirtualjugador";
+			
             $stmt = $conexion->prepare($consulta);
             $stmt->bindParam(':nombrevirtualjugador',$nombreVirtual);
             $stmt->execute();
-            return $stmt->fetchAll();
+            return $stmt->fetch();
         }catch(PDOException $e) {
             $_SESSION['excepcion'] = $e->GetMessage();
             header("Location: excepcion.php");
         }
     }
-    function insertaJugador($conexion,$oidV, $dniJugador, $nombre, $nombreVirtual, $salario, $numTelefono, 
-    $correoElectronico, $nacionalidad, $fechaEntrada, $numRegalos, $numExperiencia){
-        try{
-            $consulta = "CALL INSERTAR_JUGADORES(:dnijugador,:nombrejugador,:salariojugador,:numtelefonojugador,:numañosexperienciajugador,:correoelectronicojugador,
-            :fechaentrada,:nombrevirtualjugador,:numregalos,:nacionalidadjugador,:oid_v)";
-            $stmt=$conexion->prepare($consulta);
-            $stmt->bindParam(':oid_v',$oidV);
-            $stmt->bindParam(':dnijugador',$dniJugador);
-            $stmt->bindParam(':nombrejugador', $nombre);
-            $stmt->bindParam(':nombrevirtualjugador', $nombreVirtual);
-            $stmt->bindParam(':salariojugador', $salario);
-            $stmt->bindParam(':numtelefonojugador', $numTelefono);
-            $stmt->bindParam(':correoelectronicojugador', $correoElectronico);
-            $stmt->bindParam(':nacionalidadjugador', $nacionalidad);
-            $stmt->bindParam(':fechaentrada', $fechaEntrada);
-            $stmt->bindParam(':numregalos', $numRegalos);
-            $stmt->bindParam(':numañosexperienciajugador', $numExperiencia);
-
-            $stmt->execute();
-            return true;
-         }catch(PDOException $e){
-             $_SESSION['excepcion'] = "Error al añadir el jugador.".$e->GetMessage();
-            return false;
-         }
-    }
-function insertaEntrenador($conexion,$oid_videojuego, $dniEntrenador, $nombre, $numTelefono, $correo, $nacionalidad, 
-    $salario, $numExperiencia){
-        try{
-            $consulta = "CALL INSERTAR_ENTRENADORES(:dnientrenador,:nombreentrenador,:salarioentrenador,:numtelefonoentrenador,:numañosexperienciaentrenador,:correoelectronicoentrenador,
-            :nacionalidadentrenador,:oid_v)";
-            $stmt=$conexion->prepare($consulta);
-            $stmt->bindParam(':oid_v',$oid_videojuego);
-            $stmt->bindParam(':dnientrenador',$dniEntrenador);
-            $stmt->bindParam(':nombreentrenador', $nombre);
-            $stmt->bindParam(':salarioentrenador', $salario);
-            $stmt->bindParam(':numtelefonoentrenador', $numTelefono);
-            $stmt->bindParam(':correoelectronicoentrenador', $correo);
-            $stmt->bindParam(':nacionalidadentrenador', $nacionalidad);
-            $stmt->bindParam(':numañosexperienciaentrenador', $numExperiencia);
-
-            $stmt->execute();
-            return true;
-         }catch(PDOException $e){
-             $_SESSION['excepcion'] = "Error al añadir el entrenador.".$e->GetMessage();
-            return false;
-         }
-    }
-function insertaOjeador($conexion,$oid_videojuego, $dniOjeador, $nombre, $numTelefono, $correo, 
-    $nacionalidad, $salario, $numExperiencia){
-        try{
-            $consulta = "CALL INSERTAR_OJEADORES(:dniojeador,:nombreojeador,:salarioojeador,:numtelefonoojeador,:numañosexperienciaojeador,:correoelectronicoojeador,
-            :nacionalidadojeador,:oid_v)";
-            $stmt=$conexion->prepare($consulta);
-            $stmt->bindParam(':oid_v',$oid_videojuego);
-            $stmt->bindParam(':dniojeador',$dniOjeador);
-            $stmt->bindParam(':nombreojeador', $nombre);
-            $stmt->bindParam(':salarioojeador', $salario);
-            $stmt->bindParam(':numtelefonoojeador', $numTelefono);
-            $stmt->bindParam(':correoelectronicoojeador', $correo);
-            $stmt->bindParam(':nacionalidadojeador', $nacionalidad);
-            $stmt->bindParam(':numañosexperienciaojeador', $numExperiencia);
-
-            $stmt->execute();
-            return true;
-         }catch(PDOException $e){
-             $_SESSION['excepcion'] = "Error al añadir el ojeador.".$e->GetMessage();
-            return false;
-         }
-    }
-function obtenOID_V($conexion, $nombreVideojuego){
-        try{
-            $consulta = "SELECT distinct oid_v from videojuegos where nombrevideojuego=:nombrevideojuego";
-            $stmt = $conexion->prepare($consulta);
-            $stmt->bindParam(':nombrevideojuego',$nombreVideojuego);
-            $stmt->execute();
-            return $stmt->fetch();
-        }catch(PDOException $e){
-            $_SESSION['excepcion'] = $e->GetMessage();
-            header("Location: excepcion.php");
-        }
-    }
+	
 ?>

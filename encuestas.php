@@ -3,7 +3,7 @@
     require_once("gestionBD.php");
     require_once("consultasSql.php");
 
-    if(isset($_SESSION['login'])){
+    if(isset($_SESSION['login']) && isset($_SESSION['ADMIN'])){
         $nickUsuario = $_SESSION['login'];
     }else{
         Header("Location: login.php");
@@ -41,27 +41,25 @@
 	
 	$conexion = crearConexionBD();
    
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <title>Encuestas</title>
-    <link rel="stylesheet" type="text/css" href="css/encuestas.css">  
-    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>  
+    <?php include_once("headComun.php"); ?>
+    <link rel="stylesheet" type="text/css" href="css/encuestas.css">
 </head>
 
 <body>
-	<?php include_once("fondo.php"); 
-	
+    <?php 
     if(isset($_SESSION['ADMIN'])){
     	include_once("navegacion_ADMIN.php"); 
     }else{
     	include_once("navegacion.php");
     }
-    
     ?>
+
    	<div class="col-3 col-tab-3 myTable">
    		<h4>Jugadores sin encuestas</h4>
    		

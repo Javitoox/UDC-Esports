@@ -1,9 +1,8 @@
 <?php
     session_start();
     require_once("gestionBD.php");
-    require_once("gestionJugadores.php");
-	require_once("gestionMiembros.php");
-	
+    require_once("gestionMiembros.php");
+    require_once("consultasSql.php");
 
     if(isset($_SESSION["formularioEnt"])){
         $nuevoEntrenador = $_SESSION["formularioEnt"];

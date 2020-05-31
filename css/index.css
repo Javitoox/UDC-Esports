@@ -47,8 +47,8 @@
     text-align: center;
     margin-left: 45px;
     margin-top: 42px;
+    margin-bottom: 120px;
     position: relative;
-    font-family: 'Indie Flower', cursive;
 }
 h4{
     font-size: 25px;
@@ -83,13 +83,15 @@ tr{
     font-family: 'Indie Flower', cursive;
 	
 }
-.patrocinadores{
-	position: relative;
-    background-color: rgb(157, 143, 189);
-    text-align: center;
-    opacity: 60%;
-    padding: 20px;
-    top: 38px;
+.patrocinadores p{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background-color: rgb(157, 143, 189);
+	text-align: center;
+    opacity: 75%;
+	padding: 0px;
+	font-size: 0;	
 }
 .table{
 	padding:0px 0px 34px 18px;

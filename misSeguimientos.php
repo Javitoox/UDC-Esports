@@ -2,13 +2,18 @@
     session_start();
     require_once("gestionBD.php");
     require_once("gestionMiembros.php");
+    require_once("gestionJugadores.php");
     require_once("gestionarUsuarios.php");
 
     if(isset($_SESSION['login'])){
         $nickUsuario = $_SESSION['login'];
     }else{
         Header("Location: login.php");
-    }   
+    } 
+    if (isset($_SESSION['errores'])){
+        $errores = $_SESSION['errores'];
+        unset($_SESSION["errores"]);
+    }  
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +22,11 @@
 <title>Mis Seguimientos</title>
     <?php include_once("headComun.php"); ?>
     <link rel="stylesheet" type="text/css" href="css/misSeguimientos.css">
+    <link rel="stylesheet" type="text/css" href="css/error_form.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/gestion.js"></script>
+    <script src="js/utiles.js" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -27,6 +37,14 @@
     	include_once("navegacion.php");
     }
     ?>
+    <div id="div_errores" class="error">
+        <?php
+        if (isset($errores) && count($errores)>0) {
+            //Mostramos los errores en el caso de que los haya 
+            foreach($errores as $error) echo $error; 
+          }
+        ?>
+    </div>
 
     <?php
     $conexion = crearConexionBD();
@@ -59,15 +77,14 @@
                     }
                 }
             }
-            $oid_seg = obtenOID_SEG($conexion, $dniUser, $dniJugador);
-            $OID_SEG = $oid_seg["OID_SEG"];
             foreach($opinionesJug as $jugador=>$opinion){ //jugador es la clave
                 ?>
                 <center>
                 <div class="comun">
                     <!--Botón para eliminar de tus seguimientos -->
-                    <form method= "get" action="controlador_seguimiento.php">
-                        <input id="oid_seg" name ="oid_seg" type="hidden" value="<?php echo $OID_SEG?>">
+                    <form method= "post" action="controlador_seguimiento.php">
+                        <input name ="dnius" type="hidden" value="<?php echo $dniUser?>">
+                        <input name ="dniju" type="hidden" value="<?php echo $dniJugador?>">
                         <button id="eliminar" name="eliminar" type="submit" class="eliminar_jugador">
                         <img height = 20px src="images/menos.png" class="eliminar_jugador"></button>
                     </form>
@@ -91,12 +108,13 @@
                         echo  $opinion;
                         ?>
                     </div>
-                   
+                   <span id="contador_palabras-<?php echo $dniJugador?>"></span>
                     <!--Input para escribir opinion -->
                     <form method="post" id = "opinion" action="controlador_opinion.php">
                         <input id="dniusuario" name ="dniusuario" type="hidden" value="<?php echo $dniUser?>">
                         <input id="dnijugador" name ="dnijugador" type="hidden" value="<?php echo $dniJugador?>">
-                        <textarea id= "comenta" name="comenta" cols="30" rows="10" minlength= "2" maxlength="1000" placeholder="Añade tu opinión sobre este jugador..."></textarea>
+                        <textarea oninput="comentaValidation()" id= "comenta-<?php echo $dniJugador?>" onkeyup="updateCount('<?php echo $dniJugador;?>')" 
+                        name="comenta" class="comenta" cols="30" rows="10" minlength= "2" maxlength="1000" placeholder="Añade tu opinión sobre este jugador..."></textarea>
                         <button id="opina" name="comentar" type="submit" class="comentar_jugador">
                         <img height = 25px src="images/enviar.png" class="enviar_comentario"></button><br>
                     </form>

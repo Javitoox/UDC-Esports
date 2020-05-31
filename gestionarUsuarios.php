@@ -54,16 +54,16 @@
     }
  }
 
- function eliminarSeguimiento($conexion, $oid_seg){
+ function eliminarSeguimiento($conexion, $dniUser, $dniJugador){
 	try{
-		$consulta = "DELETE from seguimientos where oid_seg =: oid_seg";
+		$consulta = "DELETE from seguimientos where dniusuario = :dniUser and dnijugador = :dniJugador and opinion is null";
 		$stmt=$conexion->prepare($consulta);
-		$stmt->bindParam(':oid_seg',$oid_seg);
+		$stmt->bindParam(':dniUser',$dniUser);
+		$stmt->bindParam(':dniJugador',$dniJugador);
 		$stmt->execute();
-		return true;
  	}catch(PDOException $e){
  		$_SESSION['excepcion'] = "Error al eliminar el seguimiento del usuario.".$e->GetMessage();
-		return false;
+		header("Location:excepcion.php");
  	}
  }
  
@@ -74,13 +74,12 @@
 		$stmt->bindParam(':dniUsuario',$dniUsuario);
 		$stmt->bindParam(':dniJugador',$dniJugador);
 		$stmt->execute();
-		return true;
  	}catch(PDOException $e){
  		$_SESSION['excepcion'] = "Error al crear el seguimiento.".$e->GetMessage();
-		return false;
- 	}
+		header("Location:excepcion.php");
+	}
  }
- function añadeOpinion($conexion, $dniusuario, $dnijugador, $opinion){
+ function ayadeOpinion($conexion, $dniusuario, $dnijugador, $opinion){
 	try{
 		$consulta = "CALL INSERTAR_SEGUIMIENTOS(:dniusuario,:dnijugador,:opinion)";
 		$stmt=$conexion->prepare($consulta);
@@ -88,11 +87,10 @@
 		$stmt->bindParam(':dnijugador',$dnijugador);
 		$stmt->bindParam(':opinion', $opinion);
 		$stmt->execute();
-		return true;
  	}catch(PDOException $e){
  		$_SESSION['excepcion'] = "Error al añadir la opinión.".$e->GetMessage();
-		return false;
- 	}
+		header("Location:excepcion.php");
+	}
  }
  
 function obtenEmailUsuario($conexion, $nickUsuario){

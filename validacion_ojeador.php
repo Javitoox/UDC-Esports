@@ -29,9 +29,14 @@
 		$_SESSION["errores"] = $errores;
 		Header('Location: gestion.php');
 	} else{
-    //Si todo ha ido bien iremos a accion_insertaMiembro.php donde se hará la inserción del nuevo jugador
-        
-        Header('Location: accion_insertaOjeador.php');
+        $tipo = $_REQUEST['tipo'];
+        if($tipo == "insertar"){
+            //Si todo ha ido bien iremos a accion_insertaMiembro.php donde se hará la inserción del nuevo ojeador
+            Header('Location: accion_insertaOjeador.php');
+        }else{
+            //Si todo ha ido bien iremos a accion_editaMiembro.php donde se hará la actualizacion del ojeador
+            Header('Location: accion_editaOjeador.php');
+        }
     }
 		
 	// Validación en servidor del formulario de insertar jugadores

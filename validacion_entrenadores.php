@@ -29,8 +29,14 @@
 		$_SESSION["errores"] = $errores;
 		Header('Location: gestion.php');
 	} else{
-    //Si todo ha ido bien iremos a accion_insertaMiembro.php donde se hará la inserción del nuevo jugador
-		Header('Location: accion_insertaEntrenador.php');
+        $tipo = $_REQUEST['tipo'];
+        if($tipo == "insertar"){
+            //Si todo ha ido bien iremos a accion_insertaMiembro.php donde se hará la inserción del nuevo entrenador
+            Header('Location: accion_insertaEntrenador.php');
+        }else{
+            //Si todo ha ido bien iremos a accion_editaMiembro.php donde se hará la actualizacion del entrenador
+            Header('Location: accion_editaEntrenador.php');
+        }
     }
 		
 	// Validación en servidor del formulario de insertar jugadores

@@ -1,8 +1,8 @@
 <?php
     session_start();
     require_once("gestionBD.php");
-    require_once("gestionJugadores.php");
-	    require_once("gestionMiembros.php");
+    require_once("consultasSql.php");
+	require_once("gestionMiembros.php");
 	
 
     if(isset($_SESSION["formularioOj"])){
@@ -29,8 +29,6 @@
     $obtenOIDV = obtenOID_V($conexion, $nombreVideojuego);
     $oid_videojuego = $obtenOIDV['OID_V'];
 
-    echo $oid_videojuego, $dniOjeador, $nombreOjeador, $numTelefonoOj, $correoElectronicoOj, 
-    $nacionalidadOj, $salarioOj, $numExperienciaOj;
     $insertaOjeador = insertaOjeador($conexion,$oid_videojuego, $dniOjeador, $nombreOjeador, $numTelefonoOj, $correoElectronicoOj, 
     $nacionalidadOj, $salarioOj, $numExperienciaOj);
     header("Location:gestion.php");

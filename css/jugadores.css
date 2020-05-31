@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+.trofeo{
+	height:25px;
+}
 .videojuego {
     background-color: rgb(96, 45, 236); 
     border: 1.3px solid #000;    

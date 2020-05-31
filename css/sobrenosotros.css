@@ -74,6 +74,7 @@ h4{
     position: relative;
     padding: 25px 0px 25px 0px;
     height: 427px;
+    overflow-y: scroll;
 }
 .myTable2{
     color: rgb(0, 0, 0);

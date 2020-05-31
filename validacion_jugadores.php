@@ -5,7 +5,6 @@
     require_once("consultasSql.php");
     require_once("gestionJugadores.php");
 
-
     //Comprobamos que para llegar aquí antes se ha tenido que pasar por el registro de un jugador
     if (isset($_SESSION['formulario'])) {
         $nuevoJugador["dniJugador"] = $_REQUEST["dniJugador"];
@@ -18,11 +17,11 @@
         $nuevoJugador["salario"] = $_REQUEST["salario"];
         $nuevoJugador["numExperiencia"] = $_REQUEST["numExperiencia"];
         $nuevoJugador["nombreVid"] = $_REQUEST["nombreVid"];
+        $nuevoJugador["numRegalos"] = $_REQUEST["numRegalos"];
 
         $_SESSION["formulario"] = $nuevoJugador;
         
     }else Header('Location: gestion.php');
-    
         $conexion = crearConexionBD();                                         
         $errores = validarDatosJugador($conexion, $nuevoJugador);
         cerrarConexionBD($conexion);
@@ -32,15 +31,17 @@
 		$_SESSION["errores"] = $errores;
 		Header('Location: gestion.php');
 	} else{
-    //Si todo ha ido bien iremos a accion_insertaMiembro.php donde se hará la inserción del nuevo jugador
         $tipo = $_REQUEST['tipo'];
         if($tipo == "insertar"){
+            echo $nuevoJugador["dniJugador"];
+            //Si todo ha ido bien iremos a accion_insertaJugador.php donde se hará la inserción del nuevo jugador
             Header('Location: accion_insertaJugador.php');
-        }else{ 
-            Header('Location: accion_editaMiembro.php');
+        }else{
+            echo $nuevoJugador["dniJugador"];
+            //Si todo ha ido bien iremos a accion_editaJugador.php donde se hará la actualizacion del jugador
+            Header('Location: accion_editaJugador.php');
         }
     }
-		
 	// Validación en servidor del formulario de insertar jugadores
 	function validarDatosJugador($conexion, $nuevoJugador){
         $errores=array();
@@ -58,9 +59,8 @@
         //Validación Nick		
         //Comprobar que el jugador no existe en la BD
         $existeJugador = consultarJugador($conexion,$nuevoJugador["nombreVirtual"]);
-        foreach($existeJugador as $cuenta){            
-            if($cuenta["CUENTA"] >= 1) $errores[] = "<p><strong>El nickname ya existen en la base de datos.</strong></p>";
-        }
+        if($existeJugador["CUENTA"] >= 1) $errores[] = "<p><strong>El nickname ya existe en la base de datos.</strong></p>";
+        
         if($nuevoJugador["nombreVirtual"]==""){
             $errores[] = "<p><strong>El nick no puede estar vacío.</strong></p>";
         }
@@ -132,10 +132,7 @@
             $errores[] = "<p><strong>El nº de años de experiencia no puede estar vacío.</strong></p>";
         }else if(!preg_match('/^[0-9]{0,38}$/' , $nuevoJugador["numExperiencia"])){
             $errores[] = "<p><strong>El nº de años de experiencia es incorrecto: " . $nuevoJugador["numExperiencia"]. ".</strong></p>";
-        }
-        //Validacion del videojuego
-        if($nuevoJugador["nombreVid"] != "") $errores[] = "<p><strong>El nombre del videojuego no puede estar vacío.</strong></p>";  
-        
+        }        
         return $errores;    
     }
     function getFechaFormateada($fecha){ 

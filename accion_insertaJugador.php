@@ -2,7 +2,7 @@
     session_start();
     require_once("gestionBD.php");
     require_once("gestionJugadores.php");
-	require_once("consultaSql.php");
+	require_once("consultasSql.php");
 	
 
     if(isset($_SESSION["formulario"])){
@@ -25,7 +25,7 @@
     $correoElectronico = $nuevoJugador['correoElectronico'];
     $nacionalidad = $nuevoJugador['nacionalidad'];
     $fechaEntrada = $nuevoJugador['fentrada'];
-    $numRegalos = 0;
+    $numRegalos = $nuevoJugador['numRegalos'];  //comprobar
     $numExperiencia = $nuevoJugador['numExperiencia'];
     $fechaEntradaParseada = date('d/m/Y', strtotime($fechaEntrada));
     
