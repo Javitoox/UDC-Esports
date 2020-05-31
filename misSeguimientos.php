@@ -26,7 +26,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/gestion.js"></script>
     <script src="js/utiles.js" type="text/javascript"></script>
-
 </head>
 
 <body>
@@ -110,10 +109,10 @@
                     </div>
                    <span id="contador_palabras-<?php echo $dniJugador?>"></span>
                     <!--Input para escribir opinion -->
-                    <form method="post" id = "opinion" action="controlador_opinion.php">
+                    <form method="post" id = "opinion" action="controlador_opinion.php" onsubmit="return validateForm11('<?php echo $dniJugador;?>')">
                         <input id="dniusuario" name ="dniusuario" type="hidden" value="<?php echo $dniUser?>">
                         <input id="dnijugador" name ="dnijugador" type="hidden" value="<?php echo $dniJugador?>">
-                        <textarea oninput="comentaValidation()" id= "comenta-<?php echo $dniJugador?>" onkeyup="updateCount('<?php echo $dniJugador;?>')" 
+                        <textarea oninput="comentaValidation('<?php echo $dniJugador;?>')" id="comenta-<?php echo $dniJugador;?>" onkeyup="updateCount('<?php echo $dniJugador;?>')" 
                         name="comenta" class="comenta" cols="30" rows="10" minlength= "2" maxlength="1000" placeholder="Añade tu opinión sobre este jugador..."></textarea>
                         <button id="opina" name="comentar" type="submit" class="comentar_jugador">
                         <img height = 25px src="images/enviar.png" class="enviar_comentario"></button><br>

@@ -24,10 +24,6 @@ $(document).ready(function(){
 	$("#fecha2").on("submit", function() {
 				return validateForm10();
 			});
-	$(".comenta").on("submit", function() {
-		return validateForm11();
-	});
-	
 });
 
 function validateForm4() {
@@ -124,17 +120,17 @@ function validateForm10() {
 		else 
 			return true;		
 }
-function validateForm11() {
-	var noValidation = document.getElementsByClassName("comenta").novalidate;
+function validateForm11(dniJugador) {
+	var noValidation = document.getElementById("comenta-"+dniJugador).novalidate;
 	if (!noValidation){
-		var valid1=comentaValidation();
+		var valid1=comentaValidation(dniJugador);
 		return (valid1.length==0) ;
 	}
 	else return true;		
 }
-function comentaValidation(){
+function comentaValidation(dniJugador){
 	var errores="";
-	var com=document.getElementsByClassName("comenta").value;
+	var com=document.getElementById("comenta-"+dniJugador).value;
 	var expreg=/^[^$%&|<>#()¬·{}~;ºª]*$/;
 	if(com==""){
 		errores+="<p><strong>La opninion no puede estar vacía.</strong></p>";
@@ -142,14 +138,12 @@ function comentaValidation(){
 		errores+="<p><strong>La opinion no debe contener caracteres especiales: "+com+".</strong></p>";
 	}
 	if(errores!=""){
-		document.getElementsByClassName("comenta").removeAttribute("style");
 		if($('#val_car').length){
 			document.getElementById("val_car").innerHTML=errores;
 		}else{
 			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_car'>"+errores+"</div>";
 		}
 	}else{
-		document.getElementsByClassName("comenta").setAttribute("style","background-color: #9CF0BF;");
 		if($('#val_car').length){
 			document.getElementById("val_car").innerHTML="";
 		}
