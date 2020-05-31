@@ -226,7 +226,7 @@
 			<input type="submit" value="Cambiar">
 		</form>
 	</nav>
-						</div>
+    </div>
 
 <div class="col-3 col-tab-3 myTable3">
    		<h4>Miembros con encuestas</h4>

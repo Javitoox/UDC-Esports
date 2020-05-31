@@ -84,7 +84,6 @@ h4{
     margin-left: 20px;
     margin-right: 32px;
     margin-top: 20px;
-    height: 296px;
     position: relative;
     padding: 25px 0px 25px 0px; 
 }
@@ -98,8 +97,7 @@ h4{
     margin-left: 30px;
     margin-top: 20px;
     position: relative;
-    padding: 25px 0px 25px 0px;
-    height: 295.3px;  
+    padding: 25px 0px 25px 0px;  
 }
 input[type=date]{
 	color: #539eb7;
