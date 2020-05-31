@@ -31,10 +31,10 @@
 	} else{
         $tipo = $_REQUEST['tipo'];
         if($tipo == "insertar"){
-            //Si todo ha ido bien iremos a accion_insertaMiembro.php donde se hará la inserción del nuevo ojeador
+            //Si todo ha ido bien iremos a accion_insertaOjeador.php donde se hará la inserción del nuevo ojeador
             Header('Location: accion_insertaOjeador.php');
         }else{
-            //Si todo ha ido bien iremos a accion_editaMiembro.php donde se hará la actualizacion del ojeador
+            //Si todo ha ido bien iremos a accion_editaOjeador.php donde se hará la actualizacion del ojeador
             Header('Location: accion_editaOjeador.php');
         }
     }

@@ -4,7 +4,6 @@
     require_once("consultasSql.php");
 	require_once("gestionMiembros.php");
 	
-
     if(isset($_SESSION["formularioOj"])){
         $nuevoOjeador = $_SESSION["formularioOj"];
         //Eliminamos las variables que no vamos a necesitar por ahora

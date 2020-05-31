@@ -17,11 +17,12 @@
         $nuevoJugador["salario"] = $_REQUEST["salario"];
         $nuevoJugador["numExperiencia"] = $_REQUEST["numExperiencia"];
         $nuevoJugador["nombreVid"] = $_REQUEST["nombreVid"];
-        $nuevoJugador["numRegalos"] = $_REQUEST["numRegalos"];
-
+        
         $_SESSION["formulario"] = $nuevoJugador;
         
-    }else Header('Location: gestion.php');
+    }else{
+        Header('Location: gestion.php');
+    } 
         $conexion = crearConexionBD();                                         
         $errores = validarDatosJugador($conexion, $nuevoJugador);
         cerrarConexionBD($conexion);
@@ -33,13 +34,11 @@
 	} else{
         $tipo = $_REQUEST['tipo'];
         if($tipo == "insertar"){
-            echo $nuevoJugador["dniJugador"];
             //Si todo ha ido bien iremos a accion_insertaJugador.php donde se hará la inserción del nuevo jugador
             Header('Location: accion_insertaJugador.php');
         }else{
-            echo $nuevoJugador["dniJugador"];
             //Si todo ha ido bien iremos a accion_editaJugador.php donde se hará la actualizacion del jugador
-            Header('Location: accion_editaJugador.php');
+            header('Location: accion_editaJugador.php');
         }
     }
 	// Validación en servidor del formulario de insertar jugadores
@@ -58,11 +57,14 @@
 
         //Validación Nick		
         //Comprobar que el jugador no existe en la BD
-        $existeJugador = consultarJugador($conexion,$nuevoJugador["nombreVirtual"]);
-        if($existeJugador["CUENTA"] >= 1) $errores[] = "<p><strong>El nickname ya existe en la base de datos.</strong></p>";
-        
-        if($nuevoJugador["nombreVirtual"]==""){
-            $errores[] = "<p><strong>El nick no puede estar vacío.</strong></p>";
+        $tipo = $_REQUEST['tipo'];
+        if($tipo == "insertar"){
+            $existeJugador = consultarJugador($conexion,$nuevoJugador["nombreVirtual"]);
+            if($existeJugador["CUENTA"] >= 1) $errores[] = "<p><strong>El nickname ya existe en la base de datos.</strong></p>";
+            
+            if($nuevoJugador["nombreVirtual"]==""){
+                $errores[] = "<p><strong>El nick no puede estar vacío.</strong></p>";
+            }
         }
 
         //Validación Número Telefónico
@@ -139,6 +141,5 @@
         $fechaEntradaJugador = date('Y/m/d', strtotime($fecha));	
 		return $fechaEntradaJugador;
     }
-    
     
 ?>

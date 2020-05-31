@@ -184,8 +184,8 @@
 			$stmt->execute();
 			return true;
 		 }catch(PDOException $e){
-			 $_SESSION['excepcion'] = "Error al añadir el entrenador.".$e->GetMessage();
-			return false;
+			$_SESSION['excepcion'] = "Error al añadir el entrenador.".$e->GetMessage();
+            header("Location: excepcion.php");
 		 }
     }
     function insertaOjeador($conexion,$oid_videojuego, $dniOjeador, $nombre, $numTelefono, $correo, 
@@ -206,8 +206,9 @@
 			$stmt->execute();
 			return true;
 		 }catch(PDOException $e){
-			 $_SESSION['excepcion'] = "Error al añadir el ojeador.".$e->GetMessage();
-			return false;
+			$_SESSION['excepcion'] = "Error al añadir el ojeador.".$e->GetMessage();
+            header("Location: excepcion.php");
+
 		 }
 	}
 	function dniOjeadores($conexion){

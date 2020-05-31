@@ -22,7 +22,6 @@
 		$formulario['salario'] = "";
         $formulario['numExperiencia'] = "";
         $formulario['nombreVid'] = "";
-        $formulario['numRegalos'] = "";
 		$_SESSION['formulario'] = $formulario;
 	}else{
 		$formulario = $_SESSION['formulario'];
@@ -53,6 +52,7 @@
     }else{
         $formularioOj = $_SESSION['formularioOj'];
     }
+
 	if (isset($_SESSION["paginacion"])) 
 	$paginacion = $_SESSION["paginacion"]; 
 	$pagina_seleccionada = isset($_GET["PAG_NUM"])? (int)$_GET["PAG_NUM"]:(isset($paginacion)? (int)$paginacion["PAG_NUM"]: 1);
@@ -164,9 +164,8 @@
                 <div><label for="numExperiencia">Años de experiencia:<em></em></label>
                 <input id="numExperiencia" oninput="numExperienciaValidationJ()" placeholder="Nº Años de Experiencia" maxlength="38" name="numExperiencia" type="text" value="<?php echo $formulario['numExperiencia'];?>"required>
                 </div>
-                <!--Videojuego (oid_v y el nombre) -->
                 <div><label for="nombreVid">Videojuego:<em></em></label>
-                <select name="nombreVid" id="nombreVid" required>
+                <select name="nombreVid" id="nombreVid" value="<?php if ($formulario['nombreVid'] != "") echo $formulario['nombreVid'];?>" required>
        				<?php $videojuegos = obtenVideojuegos($conexion);
        					foreach($videojuegos as $videojuego){		
 							echo "<option  value='".$videojuego["NOMBREVIDEOJUEGO"]."' label='".$videojuego["NOMBREVIDEOJUEGO"]."'/>";
@@ -274,6 +273,9 @@
             <div class="formulario2" id ="creaEntrenador">
                 <form method="post" action="validacion_entrenadores.php" id="crearEntrenador">
                 Insertar un ENTRENADOR
+                <div>
+                <input name="tipo" value="insertar" type="hidden">
+                </div>
                 <div><label for="dniEntrenador">DNI Entrenador:<em></em></label>
                 <input oninput="nifValidationE()" id="dniEntrenador" name="dniEntrenador" placeholder="DNI Entrenador" type="text" maxlength="30" value="<?php echo $formularioEnt['dniEntrenador'];?>" required>
                 </div>
@@ -295,19 +297,14 @@
                 <div><label for="numExperienciaEnt">Años de experiencia:<em></em></label>
                 <input oninput="experValidationE()" id="numExperienciaEnt" placeholder="Nº Años de Experiencia" name="numExperienciaEnt" maxlength="38" type="text" value="<?php echo $formularioEnt['numExperienciaEnt'];?>" required>
                 </div>
-                <!--Videojuego (oid_v y el nombre) -->
                 <div><label for="videojuego">Videojuego:<em></em></label>
-                 <select name="nombreVid" id="nombreVid" required>
+                <select name="nombreVid" id="nombreVid" value="<?php if ($formulario['nombreVid'] != "") echo $formulario['nombreVid'];?>" required>
        		
        				<?php $videojuegos = obtenVideojuegos($conexion);
        					foreach($videojuegos as $videojuego){
-    		    			
 							echo "<option  value='".$videojuego["NOMBREVIDEOJUEGO"]."' label='".$videojuego["NOMBREVIDEOJUEGO"]."'/>";
-    			
-				
     					}
-    		
-    		?>
+    		        ?>
 				</select>
 
                 </div>
@@ -414,46 +411,43 @@
             <div class="formulario3"  id="creaOjeador">
             <form method="get" action="validacion_ojeador.php" id="crearOjeador">
             Insertar un OJEADOR
-                <div><label for="dniOjeador">DNI Ojeador:<em></em></label>
-                <input oninput="nifValidationO()" id="dniOjeador" name="dniOjeador" placeholder="DNI Ojeador" type="text" required>
-                </div>
-                <div><label for="nombreOjeador">Nombre completo:<em></em></label>
-                <input oninput="nameValidationO()" id="nombreOjeador" placeholder="Nombre Completo" name="nombreOjeador" type="text" required>
-                </div>
-                <div><label for="numTelefonoOj">Número de teléfono:<em></em></label>
-                <input oninput="phoneValidationO()" id="numTelefonoOj" placeholder="Numero de Teléfono" name="numTelefonoOj" type="text" required>
-                </div>
-                <div><label for="correoElectronicoOj">Correo electrónico:<em></em></label>
-                <input oninput="emailValidationO()" id="correoElectronicoOj" placeholder="Correo Electrónico" name="correoElectronicoOj" type="text" required>
-                </div>
-                <div><label for="nacionalidadOj">Nacionalidad:<em></em></label>
-                <input oninput="nacionalidadValidationO()" id="nacionalidadOj" placeholder="Nacionalidad" name="nacionalidadOj" type="text" required>
-                </div>
-                <div><label for="salarioOj">Salario actual:<em></em></label>
-                <input oninput="salarioValidationO()" id="salarioOj" placeholder="Salario" name="salarioOj" type="text" required>
-                </div>
-                <div><label for="numExperienciaOj">Años de experiencia:<em></em></label>
-                <input oninput="experValidationO()" id="numExperienciaOj" placeholder="Nº Años de Experiencia" name="numExperienciaOj" type="text" required>
-                </div>
-                <!--Videojuego (oid_v y el nombre) -->
-                <div><label for="videojuego">Videojuego:<em></em></label>
-                 <select name="nombreVid" id="nombreVid" required>
-       		
-       				<?php $videojuegos = obtenVideojuegos($conexion);
-       					foreach($videojuegos as $videojuego){
-    		    			
-							echo "<option  value='".$videojuego["NOMBREVIDEOJUEGO"]."' label='".$videojuego["NOMBREVIDEOJUEGO"]."'/>";
-    			
-				
-    						}
-    		
-    		?>
-				</select>
+            <div>
+            <input name="tipo" value="insertar" type="hidden">
+            </div>
+            <div><label for="dniOjeador">DNI Ojeador:<em></em></label>
+            <input oninput="nifValidationO()" id="dniOjeador" name="dniOjeador" placeholder="DNI Ojeador" type="text" required>
+            </div>
+            <div><label for="nombreOjeador">Nombre completo:<em></em></label>
+            <input oninput="nameValidationO()" id="nombreOjeador" placeholder="Nombre Completo" name="nombreOjeador" type="text" required>
+            </div>
+            <div><label for="numTelefonoOj">Número de teléfono:<em></em></label>
+            <input oninput="phoneValidationO()" id="numTelefonoOj" placeholder="Numero de Teléfono" name="numTelefonoOj" type="text" required>
+            </div>
+            <div><label for="correoElectronicoOj">Correo electrónico:<em></em></label>
+            <input oninput="emailValidationO()" id="correoElectronicoOj" placeholder="Correo Electrónico" name="correoElectronicoOj" type="text" required>
+            </div>
+            <div><label for="nacionalidadOj">Nacionalidad:<em></em></label>
+            <input oninput="nacionalidadValidationO()" id="nacionalidadOj" placeholder="Nacionalidad" name="nacionalidadOj" type="text" required>
+            </div>
+            <div><label for="salarioOj">Salario actual:<em></em></label>
+            <input oninput="salarioValidationO()" id="salarioOj" placeholder="Salario" name="salarioOj" type="text" required>
+            </div>
+            <div><label for="numExperienciaOj">Años de experiencia:<em></em></label>
+            <input oninput="experValidationO()" id="numExperienciaOj" placeholder="Nº Años de Experiencia" name="numExperienciaOj" type="text" required>
+            </div>
+            <!--Videojuego (oid_v y el nombre) -->
+            <div><label for="videojuego">Videojuego:<em></em></label>
+                <select name="nombreVid" id="nombreVid" value="<?php if ($formulario['nombreVid'] != "") echo $formulario['nombreVid'];?>" required>
+                <?php $videojuegos = obtenVideojuegos($conexion);
+                   foreach($videojuegos as $videojuego){
+                    echo "<option  value='".$videojuego["NOMBREVIDEOJUEGO"]."' label='".$videojuego["NOMBREVIDEOJUEGO"]."'/>";
+                }
+                ?>
+                </select>
 
                 </div>
-                
-               
-                <input class="boton" id="boton" name="boton" type="submit" value="Añadir Ojeador" /><br/>
+            
+            <input class="boton" id="boton" name="boton" type="submit" value="Añadir Ojeador" /><br/>
 
             </form>
             <div id="cerrarOjeador"><a href="javascript:cierraFormularioOjeadorYAbreTabla()"><img height = 30px src="images/cerrar.png" alt=""></a></div>

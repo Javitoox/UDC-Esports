@@ -47,11 +47,11 @@
 	}
 	
 	function modificaJugador($conexion, $dniJugador, $nuevoNombre, $nuevoNombreVirtual, $nuevoSalario, 
-	$nuevoNumTelefono, $nuevoCorreoElectronico, $nuevaNacionalidad, $nuevaFechaEntrada, $nuevoNumRegalos, $nuevoNumExperiencia){
+	$nuevoNumTelefono, $nuevoCorreoElectronico, $nuevaNacionalidad, $nuevaFechaEntrada, $nuevoNumExperiencia){
 		try{
             $consulta = "UPDATE jugadores set salariojugador=:salariojugador,nombrejugador=:nombrejugador, numtelefonojugador=:numtelefonojugador, 
 			numañosexperienciajugador=:numañosexperienciajugador,correoelectronicojugador=:correoelectronicojugador,fechaentrada=:fechaentrada, 
-			nombrevirtualjugador=:nombrevirtualjugador,numregalos=:numregalos,nacionalidadjugador=:nacionalidadjugador
+			nombrevirtualjugador=:nombrevirtualjugador,nacionalidadjugador=:nacionalidadjugador
 			where dnijugador=:dnijugador";
 			$stmt = $conexion->prepare($consulta);
 			$stmt->bindParam(':dnijugador',$dniJugador);
@@ -62,9 +62,9 @@
 			$stmt->bindParam(':correoelectronicojugador',$nuevoCorreoElectronico);
 			$stmt->bindParam(':nacionalidadjugador',$nuevaNacionalidad);
 			$stmt->bindParam(':fechaentrada',$nuevaFechaEntrada);
-			$stmt->bindParam(':numregalos',$nuevoNumRegalos);
 			$stmt->bindParam(':numañosexperienciajugador',$nuevoNumExperiencia);
 			$stmt->execute();
+			return true;
 		}catch(PDOException $e){
 			$_SESSION['excepcion'] = "Error al actualizar los datos del jugador.".$e->GetMessage();
 			header("Location:excepcion.php");
@@ -72,11 +72,11 @@
 	}
 
 	function modificaEntrenador($conexion,$dniEntrenador,$nuevoNombre,$nuevoSalario,$nuevoNumTelefono,
-	$nuevoCorreoElectronico,$nuevaNacionalidad,$nuevoNumExperiencia, $oidV){
+	$nuevoCorreoElectronico,$nuevaNacionalidad,$nuevoNumExperiencia){
 		try{
             $consulta = "UPDATE entrenadores set salarioentrenador=:salarioentrenador, nombreentrenador=:nombreentrenador, 
 			numtelefonoentrenador=:numtelefonoentrenador, numañosexperienciaentrenador=:numañosexperienciaentrenador, correoelectronicoentrenador=:correoelectronicoentrenador,
-			nacionalidadentrenador=:nacionalidadentrenador, oid_v=:oid_v where dnientrenador=:dnientrenador";
+			nacionalidadentrenador=:nacionalidadentrenador where dnientrenador=:dnientrenador";
 			$stmt = $conexion->prepare($consulta);
 			$stmt->bindParam(':dnientrenador',$dniEntrenador);
 			$stmt->bindParam(':nombreentrenador',$nuevoNombre);
@@ -84,13 +84,12 @@
 			$stmt->bindParam(':numtelefonoentrenador',$nuevoNumTelefono);
 			$stmt->bindParam(':correoelectronicoentrenador',$nuevoCorreoElectronico);
 			$stmt->bindParam(':nacionalidadentrenador',$nuevaNacionalidad);
-			$stmt->bindParam(':oid_v',$oidV);
 			$stmt->bindParam(':numañosexperienciaentrenador',$nuevoNumExperiencia);
 			$stmt->execute();
             return true;
 		}catch(PDOException $e){
 			$_SESSION['excepcion'] = "Error al actualizar los datos del entrenador.".$e->GetMessage();
-			return false;
+			header("Location:excepcion.php");
 		}
 	}
 	
@@ -113,7 +112,7 @@
             return true;
 		}catch(PDOException $e){
 			$_SESSION['excepcion'] = "Error al actualizar los datos del ojeador.".$e->GetMessage();
-			return false;
+			header("Location:excepcion.php");
 		}
 	}
 
@@ -138,8 +137,8 @@
 			$stmt->execute();
 			return true;
 		 }catch(PDOException $e){
-			 $_SESSION['excepcion'] = "Error al añadir el jugador.".$e->GetMessage();
-			return false;
+			$_SESSION['excepcion'] = "Error al añadir el jugador.".$e->GetMessage();
+			header("Location:excepcion.php");
 		 }
 	}
 	function consultarJugador($conexion,$nombreVirtual) {

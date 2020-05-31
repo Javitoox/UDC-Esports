@@ -21,7 +21,6 @@
 		$formulario['salario'] = "";
         $formulario['numExperiencia'] = "";
         $formulario['nombreVid'] = "";
-        $formulario['numRegalos'] = "";
 		$_SESSION['formulario'] = $formulario;
 	}else{
 		$formulario = $_SESSION['formulario'];
@@ -135,7 +134,7 @@
                     <input oninput="nacionalidadValidationJ()" id="nacionalidad" placeholder="Nacionalidad" name="nacionalidad" type="text" value="<?php echo $nacionalidad;?>">
                     </div>
                     <div><label for="fentrada">Fecha entrada:<em></em></label>
-                    <input oninput="fentradaValidationJ()" id="fentrada" placeholder="Fecha Entrada" name="fentrada" type="date" value="<?php echo $fechaEntrada;?>">
+                    <input oninput="fentradaValidationJ()" id="fentrada" placeholder="Fecha Entrada" name="fentrada" type="text" value="<?php echo $fechaEntrada;?>">
                     </div>
                     <div><label for="numExperiencia">Nº años de experiencia:<em></em></label>
                     <input oninput="numExperienciaValidationJ()" id="numExperiencia" placeholder="Nº Años de Experiencia" name="numExperiencia" type="text" value="<?php echo $numExperiencia;?>">
@@ -144,7 +143,7 @@
                     <input readonly="" id="numRegalos" name="numRegalos" type="text" value="<?php echo $numRegalos;?>">
                     </div>
                     <div><label for="nombreVid">Videojuego:<em></em></label>
-                    <input readonly="" id="nombreVid" name="nombreVid" type="text" value="<?php echo $nombreVideojuego["NOMBREVIDEOJUEGO"];;?>">
+                    <input readonly="" id="nombreVid" name="nombreVid" type="text" value="<?php echo $nombreVideojuego["NOMBREVIDEOJUEGO"];?>">
                     </div>
                     
                     <center><input class="boton" id="boton" name="boton" type="submit" value="Modificar Datos" /></center><br/>
@@ -174,31 +173,31 @@
             if($nombre == $entrenador["NOMBREENTRENADOR"]){
                 ?>
                 <div class="col-tab-10">
-                <form action="validacion_entrenador.php" method="POST" id="crearEntrenador">
+                <form action="validacion_entrenadores.php" method="POST" id="crearEntrenador">
                     <center><p>Perfil del ENTRENADOR</p></center>    
-                    <!--un campo hidden que sea el dni y otro que sea el oid_v-->
+                    <input name="tipo" value="actualizar" type="hidden">
                     <input oninput="nifValidationE()" id="dniEntrenador" name="dniEntrenador" type="hidden" value="<?php echo $dniEntrenador;?>">
                     <input id="oidV" name="oidV" type="hidden" value="<?php echo $oidV;?>">
                     <div><label for="nombre">Nombre Completo:<em></em></label>
-                    <input oninput="nameValidationE()" id="nombreEntrenador" placeholder="Nombre Completo" name="nombre" type="text" value="<?php echo $nombre;?>">
+                    <input oninput="nameValidationE()" id="nombreEntrenador" name="nombreEntrenador" placeholder="Nombre Completo" type="text" value="<?php echo $nombre;?>">
                     </div>
                     <div><label for="salario">Salario:<em></em></label>
-                    <input oninput="salarioValidationE()" id="salarioEnt" placeholder="Salario" name="salario" type="text" value="<?php echo $salario;?>">
+                    <input oninput="salarioValidationE()" id="salarioEnt" placeholder="Salario" name="salarioEnt" type="text" value="<?php echo $salario;?>">
                     </div>
                     <div><label for="numTelefono">Número de Teléfono:<em></em></label>
-                    <input oninput="phoneValidationE()" id="numTelefonoEnt" placeholder="Número de Teléfono" name="numTelefono" type="text" value="<?php echo $numTelefono;?>">
+                    <input oninput="phoneValidationE()" id="numTelefonoEnt" placeholder="Número de Teléfono" name="numTelefonoEnt" type="text" value="<?php echo $numTelefono;?>">
                     </div>
                     <div><label for="correo">Correo Electrónico:<em></em></label>
-                    <input oninput="emailValidationE()" id="correoElectronicoEnt" placeholder="Correo Electrónico" name="correo" type="text" value="<?php echo $correoElectronico;?>">
+                    <input oninput="emailValidationE()" id="correoElectronicoEnt" placeholder="Correo Electrónico" name="correoElectronicoEnt" type="text" value="<?php echo $correoElectronico;?>">
                     </div>
                     <div><label for="nacionalidad">Nacionalidad:<em></em></label>
-                    <input oninput="nacionalidadValidationE()" id="nacionalidadEnt" placeholder="Nacionalidad" name="nacionalidad" type="text" value="<?php echo $nacionalidad;?>">
+                    <input oninput="nacionalidadValidationE()" id="nacionalidadEnt" placeholder="Nacionalidad" name="nacionalidadEnt" type="text" value="<?php echo $nacionalidad;?>">
                     </div>
                     <div><label for="numExperiencia">Nº años de Experiencia:<em></em></label>
-                    <input oninput="experValidationE()" id="numExperienciaEnt" placeholder="Nº de años de Experiencia" name="numExperiencia" type="text" value="<?php echo $numExperiencia;?>">
+                    <input oninput="experValidationE()" id="numExperienciaEnt" placeholder="Nº de años de Experiencia" name="numExperienciaEnt" type="text" value="<?php echo $numExperiencia;?>">
                     </div>
                     <div><label for="nombreVideojuego">Videojuego:<em></em></label>
-                    <input disabled=true id="nombreVideojuego" name="nombreVideojuego" type="text" value="<?php echo $nombreVideojuego["NOMBREVIDEOJUEGO"];;?>">
+                    <input readonly="" id="nombreVid" name="nombreVid" type="text" value="<?php echo $nombreVideojuego["NOMBREVIDEOJUEGO"];?>">
                     </div>
                     <center><input class="boton" id="boton" name="boton" type="submit" value="Modificar Datos" /></center><br/>
                 </form>
@@ -226,29 +225,29 @@
                 ?>
                 <div class="col-10 col-tab-10">
                 <form action="validacion_ojeador.php" method="POST" id="crearOjeador" novalidate="">
-                    <center><p>Perfil del OJEADOR</p></center>    
-                    <!--un campo hidden que sea el dni y otro que sea el oid_v-->
+                <center><p>Perfil del OJEADOR</p></center>    
+                    <input name="tipo" value="actualizar" type="hidden">
                     <input oninput="nifValidationO()" id="dniOjeador" name="dniOjeador" type="hidden" value="<?php echo $dniOjeador;?>">
                     <div><label for="nombre">Nombre Completo:<em></em></label>
-                    <input oninput="nameValidationO()" id="nombreOjeador" placeholder="Nombre Completo" name="nombre" type="text" value="<?php echo $nombre;?>">
+                    <input oninput="nameValidationO()" id="nombreOjeador" placeholder="Nombre Completo" name="nombreOjeador" type="text" value="<?php echo $nombre;?>">
                     </div>
                     <div><label for="salario">Salario:<em></em></label>
-                    <input oninput="salarioValidationO()" id="salarioOj" placeholder="Salario" name="salario" type="text" value="<?php echo $salario;?>">
+                    <input oninput="salarioValidationO()" id="salarioOj" placeholder="Salario" name="salarioOj" type="text" value="<?php echo $salario;?>">
                     </div>
                     <div><label for="numTelefono">Número de Teléfono:<em></em></label>
-                    <input oninput="phoneValidationO()" id="numTelefonoOj" placeholder="Número de Teléfono" name="numTelefono" type="text" value="<?php echo $numTelefono;?>">
+                    <input oninput="phoneValidationO()" id="numTelefonoOj" placeholder="Número de Teléfono" name="numTelefonoOj" type="text" value="<?php echo $numTelefono;?>">
                     </div>
                     <div><label for="correo">Correo Electrónico:<em></em></label>
-                    <input oninput="emailValidationO()" id="correoElectronicoOj" placeholder="Correo Electrónico" name="correo" type="text" value="<?php echo $correoElectronico;?>">
+                    <input oninput="emailValidationO()" id="correoElectronicoOj" placeholder="Correo Electrónico" name="correoElectronicoOj" type="text" value="<?php echo $correoElectronico;?>">
                     </div>
                     <div><label for="nacionalidad">Nacionalidad:<em></em></label>
-                    <input oninput="nacionalidadValidationO()" id="nacionalidadOj" placeholder="Nacionalidad" name="nacionalidad" type="text" value="<?php echo $nacionalidad;?>">
+                    <input oninput="nacionalidadValidationO()" id="nacionalidadOj" placeholder="Nacionalidad" name="nacionalidadOj" type="text" value="<?php echo $nacionalidad;?>">
                     </div>
                     <div><label for="numExperiencia">Nº años de Experiencia:<em></em></label>
-                    <input oninput="experValidationO()" id="numExperienciaOj" placeholder="Nº de años de Experiencia" name="numExperiencia" type="text" value="<?php echo $numExperiencia;?>">
+                    <input oninput="experValidationO()" id="numExperienciaOj" placeholder="Nº de años de Experiencia" name="numExperienciaOj" type="text" value="<?php echo $numExperiencia;?>">
                     </div>
                     <div><label for="nombreVideojuego">Videojuego:<em></em></label>
-                    <input disabled=true id="nombreVideojuego" name="nombreVideojuego" type="text" value="<?php echo $nombreVideojuego["NOMBREVIDEOJUEGO"];;?>">
+                    <input disabled=true id="nombreVid" name="nombreVid" type="text" value="<?php echo $nombreVideojuego["NOMBREVIDEOJUEGO"];;?>">
                     </div>
                     <center><input class="boton" id="boton" name="boton" type="submit" value="Modificar Datos" /></center><br/>
                 </form>

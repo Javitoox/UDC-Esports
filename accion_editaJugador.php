@@ -1,12 +1,13 @@
 <?php
+    session_start();
     require_once('gestionBD.php');
     require_once('gestionMiembros.php');
     require_once('gestionJugadores.php');
 
-    if(isset($_SESSION['formulario'])){
-        $nuevoJugador = $_SESSION['formulario'];
+    if(isset($_SESSION["formulario"])){
+        $nuevoJugador = $_SESSION["formulario"];
         //Eliminamos las variables que no vamos a necesitar por ahora
-		unset($_SESSION['formulario']);
+		unset($_SESSION["formulario"]);
         unset($_SESSION['errores']);
     }else{
         Header("Location:gestion.php");
@@ -20,15 +21,15 @@
     $nuevoCorreoElectronico = $nuevoJugador['correoElectronico'];
     $nuevaNacionalidad = $nuevoJugador['nacionalidad'];
     $nuevaFechaEntrada = $nuevoJugador['fentrada'];
-    $nuevoNumRegalos = $nuevoJugador['numRegalos'];
+    
     $nuevoNumExperiencia = $nuevoJugador['numExperiencia'];
     $dniJugador = $nuevoJugador['dniJugador'];
     
     $nuevosDatos = modificaJugador($conexion, $dniJugador, $nuevoNombre, $nuevoNombreVirtual, $nuevoSalario, 
-    $nuevoNumTelefono, $nuevoCorreoElectronico, $nuevaNacionalidad, $nuevaFechaEntrada, $nuevoNumRegalos, 
+    $nuevoNumTelefono, $nuevoCorreoElectronico, $nuevaNacionalidad, $nuevaFechaEntrada, 
     $nuevoNumExperiencia);
 
-    //header("Location: gestion.php");
+    header("Location: gestion.php");
 
     cerrarConexionBD($conexion);
 ?>

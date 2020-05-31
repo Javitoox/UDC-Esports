@@ -5,39 +5,39 @@
     require_once("consultasSql.php");
     require_once("gestionJugadores.php");
 
-    //Comprobamos que para llegar aquí antes se ha tenido que pasar por el registro de un jugador
-    if (isset($_SESSION['formularioEnt'])) {
-        $nuevoEntrenador['dniEntrenador'] = $_REQUEST["dniEntrenador"];
-		$nuevoEntrenador['nombreEntrenador'] = $_REQUEST["nombreEntrenador"];
-		$nuevoEntrenador['numTelefonoEnt'] = $_REQUEST["numTelefonoEnt"];
-		$nuevoEntrenador['correoElectronicoEnt'] = $_REQUEST["correoElectronicoEnt"];
-		$nuevoEntrenador['nacionalidadEnt'] = $_REQUEST["nacionalidadEnt"];
-		$nuevoEntrenador['salarioEnt'] = $_REQUEST["salarioEnt"];
-        $nuevoEntrenador['numExperienciaEnt'] = $_REQUEST["numExperienciaEnt"];
-        $nuevoEntrenador['nombreVid'] = $_REQUEST["nombreVid"];
-
-        $_SESSION["formularioEnt"] = $nuevoEntrenador;
-        
-    }else Header('Location: gestion.php');
+ //Comprobamos que para llegar aquí antes se ha tenido que pasar por el registro de un jugador
+ if (isset($_SESSION['formularioEnt'])) {
+    $nuevoEntrenador["dniEntrenador"] = $_REQUEST["dniEntrenador"];
+    $nuevoEntrenador["nombreEntrenador"] = $_REQUEST["nombreEntrenador"];
+    $nuevoEntrenador["numTelefonoEnt"] = $_REQUEST["numTelefonoEnt"];
+    $nuevoEntrenador["correoElectronicoEnt"] = $_REQUEST["correoElectronicoEnt"];
+    $nuevoEntrenador["nacionalidadEnt"] = $_REQUEST["nacionalidadEnt"];
+    $nuevoEntrenador["salarioEnt"] = $_REQUEST["salarioEnt"];
+    $nuevoEntrenador["numExperienciaEnt"] = $_REQUEST["numExperienciaEnt"];
+    $nuevoEntrenador["nombreVid"] = $_REQUEST["nombreVid"];
+    $_SESSION["formularioEnt"] = $nuevoEntrenador;
     
-        $conexion = crearConexionBD();                                         
-        $errores = validarDatosEntrenador($conexion, $nuevoEntrenador);
-        cerrarConexionBD($conexion);
+}else{
+    Header('Location: gestion.php');
+} 
+    $conexion = crearConexionBD();                                         
+    $errores = validarDatosEntrenador($conexion, $nuevoEntrenador);
+    cerrarConexionBD($conexion);
 
-    //Comprobamos si hay errores de validación
-	if (count($errores)>0) {
-		$_SESSION["errores"] = $errores;
-		Header('Location: gestion.php');
-	} else{
-        $tipo = $_REQUEST['tipo'];
-        if($tipo == "insertar"){
-            //Si todo ha ido bien iremos a accion_insertaMiembro.php donde se hará la inserción del nuevo entrenador
-            Header('Location: accion_insertaEntrenador.php');
-        }else{
-            //Si todo ha ido bien iremos a accion_editaMiembro.php donde se hará la actualizacion del entrenador
-            Header('Location: accion_editaEntrenador.php');
-        }
+//Comprobamos si hay errores de validación
+if (count($errores)>0) {
+    $_SESSION["errores"] = $errores;
+    //Header('Location: gestion.php');
+} else{
+    $tipo = $_REQUEST['tipo'];
+    if($tipo == "insertar"){
+        //Si todo ha ido bien iremos a accion_insertaEntrenador.php donde se hará la inserción del nuevo entrenador
+        Header('Location: accion_insertaEntrenador.php');
+    }else{
+        //Si todo ha ido bien iremos a accion_insertaEntrenador.php donde se hará la actualizacion del entrenador
+        Header('Location: accion_editaEntrenador.php');
     }
+}
 		
 	// Validación en servidor del formulario de insertar jugadores
 	function validarDatosEntrenador($conexion, $nuevoEntrenador){

@@ -25,12 +25,13 @@
     $correoElectronico = $nuevoJugador['correoElectronico'];
     $nacionalidad = $nuevoJugador['nacionalidad'];
     $fechaEntrada = $nuevoJugador['fentrada'];
-    $numRegalos = $nuevoJugador['numRegalos'];  //comprobar
+    $numRegalos = 0; //al principio siempre va a ser 0
     $numExperiencia = $nuevoJugador['numExperiencia'];
     $fechaEntradaParseada = date('d/m/Y', strtotime($fechaEntrada));
     
     $obtenOIDV = obtenOID_V($conexion, $nombreVideojuego);
     $oid_videojuego = $obtenOIDV['OID_V'];
+    
     $insertaJugador = insertaJugador($conexion,$oid_videojuego, $dniJugador, $nombre, $nombreVirtual, $salario, $numTelefono, 
     $correoElectronico, $nacionalidad, $fechaEntradaParseada, $numRegalos, $numExperiencia);
     
