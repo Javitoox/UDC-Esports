@@ -98,8 +98,8 @@
     <link rel="stylesheet" type="text/css" href="css/gestion.css">
    	<link rel="stylesheet" type="text/css" href="css/formulario.css">
 	<link rel="stylesheet" type="text/css" href="css/error_form.css">
+	 <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/codigoJS.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/gestion.js"></script>
 
 </head>

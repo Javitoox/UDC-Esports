@@ -101,7 +101,7 @@
         
         //Validacion del Salario
         if($nuevoOjeador["salarioOj"]==""){ 
-            $errores[] = "<p><strong>El salario no puede estar vacío.</strong></p>";
+            $errores[] = "<p><strong>El salario no puede estar vacío...</strong></p>";
         }else if(!preg_match('/^\d{0,10}([.]\d{0,2})?$/ ', $nuevoOjeador["salarioOj"])){
             $errores[] = "<p><strong>El salario es incorrecto. Debe de contener 2 decimales como máximo y no puede contener más de 10 cifras.". "</strong></p>";
         }
@@ -111,32 +111,11 @@
             $errores[] = "<p><strong>El nº de años de experiencia no puede estar vacío.</strong></p>";
         }else if(!preg_match('/^[0-9]{0,38}$/' , $nuevoOjeador["numExperienciaOj"])){
             $errores[] = "<p><strong>El nº de años de experiencia es incorrecto: " . $nuevoOjeador["numExperienciaOj"]. ".</strong></p>";
-        }
-        //Validacion del videojuego
-        $error = validarVideojuego($conexion, $nuevoOjeador["nombreVid"]);
-        if($error != "") $errores[] = $error;
-        
-        return $errores;    
+        }   
     }
 
     function getFechaFormateada($fecha){ 
         $fechaEntradaJugador = date('Y/m/d', strtotime($fecha));	
 		return $fechaEntradaJugador;
     }
-    function validarVideojuego($conexion, $videojuego){
-        $videojuegoSelecionado =   array();
-        $videojuegoSelecionado[] = $videojuego;
-        $error = "";
-        $videojuego_db = array();
-        $videojuegos = obtenVideojuegos($conexion);
-        foreach($videojuegos as $vid){
-            $videojuego_db[] = $vid["NOMBREVIDEOJUEGO"];
-        }
-        
-        if(count(array_intersect($videojuego_db, $videojuegoSelecionado)) < count($videojuegoSelecionado)){
-			$error = $error ."<p><strong>El videojuego seleccionado no es válido</strong></p>";
-		}
-        return $error;
-    }
-    
 ?>

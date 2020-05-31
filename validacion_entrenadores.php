@@ -113,10 +113,6 @@
         }else if(!preg_match('/^[0-9]{0,38}$/' , $nuevoEntrenador["numExperienciaEnt"])){
             $errores[] = "<p><strong>El nº de años de experiencia es incorrecto: " . $nuevoEntrenador["numExperienciaEnt"]. ".</strong></p>";
         }
-        //Validacion del videojuego
-        $error = validarVideojuego($conexion, $nuevoEntrenador["nombreVid"]);
-        if($error != "") $errores[] = $error;
-
     
     return $errores;    
     }
@@ -124,21 +120,6 @@
     function getFechaFormateada($fecha){ 
         $fechaEntradaJugador = date('Y/m/d', strtotime($fecha));	
 		return $fechaEntradaJugador;
-    }
-    function validarVideojuego($conexion, $videojuego){
-        $videojuegoSelecionado =   array();
-        $videojuegoSelecionado[] = $videojuego;
-        $error = "";
-        $videojuego_db = array();
-        $videojuegos = obtenVideojuegos($conexion);
-        foreach($videojuegos as $vid){
-            $videojuego_db[] = $vid["NOMBREVIDEOJUEGO"];
-        }
-        
-        if(count(array_intersect($videojuego_db, $videojuegoSelecionado)) < count($videojuegoSelecionado)){
-			$error = $error ."<p><strong>El videojuego seleccionado no es válido</strong></p>";
-		}
-        return $error;
     }
     
 ?>

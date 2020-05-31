@@ -1,6 +1,6 @@
 $(document).ready(function(){
 		
-    $("#jugadores_formulario").on("boton", function() {
+    $("#jugadores_formulario").on("submit", function() {
                 return validateForm4();
             });
 	
@@ -270,12 +270,12 @@ function phoneValidationJ(){
 }
 function salarioValidationJ(){
 	var errores="";
-	var email=document.getElementById("salario").value;
+	var sal=document.getElementById("salario").value;
 	var expreg=/^\d{0,10}([.]\d{0,2})?$/;
-	if(email==""){
-		errores+="<p><strong>El email no puede estar vacío.</strong></p>";
-	}else if(!expreg.test(email)){
-		errores+="<p><strong>El email es incorrecto: " +email+ ".</strong></p>";
+	if(sal==""){
+		errores+="<p><strong>El salario no puede estar vacío.</strong></p>";
+	}else if(!expreg.test(sal)){
+		errores+="<p><strong>El salario es incorrecto: " +sal+ ".</strong></p>";
 	}
 	if(errores!=""){
 		document.getElementById("salario").removeAttribute("style");
@@ -631,7 +631,7 @@ function salarioValidationE(){
 	if(sal==""){
 		errores+="<p><strong>El salario no puede estar vacío.</strong></p>";
 	}else if(!expreg.test(sal)){
-		errores+="<p><strong>El salario es incorrecto: " +email+ ".</strong></p>";
+		errores+="<p><strong>El salario es incorrecto: " +sal+ ".</strong></p>";
 	}
 	if(errores!=""){
 		document.getElementById("salarioEnt").removeAttribute("style");

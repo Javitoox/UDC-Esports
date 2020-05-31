@@ -8,13 +8,7 @@ $(document).ready(function(){
 	$("#login_formulario").on("submit", function() {
 				return validateForm2();
 			});
-	$("#formularioPerfil").on("submitPerfil", function() {
-				return validateForm3();
-			});
-	$("#cambiarPassPerfil").on("submitPass", function() {
-				return validateForm4();
-			});
-	
+			
 });
 function validateForm1() {
 		var noValidation = document.getElementById("registro_formulario").novalidate;

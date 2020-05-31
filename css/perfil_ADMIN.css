@@ -36,6 +36,7 @@ div.error{
 	.col-10{width: 100%;}
 	div.error{
 		text-align:left;
+		position:absolute;
 	}	
 }
 .boton{

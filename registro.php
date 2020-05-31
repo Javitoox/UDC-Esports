@@ -55,7 +55,7 @@
 	</div>
 	
 	<div class="col-10 col-tab-10">
-	<form method="get" action="validacion.php" id="registro_formulario">
+	<form method="get" action="validacion.php" id="registro_formulario" novalidate="">
 		<div>
 			<input oninput="nifValidation()" class="campo" name="dniUsuario" id="dniUsuario" type="text" placeholder="DNI/NIF" value="<?php echo $formulario['dniUsuario'];?>" required>
 		</div>
