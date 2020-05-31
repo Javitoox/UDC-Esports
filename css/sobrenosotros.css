@@ -8,6 +8,49 @@
 	width: 100%;
 }
 
+.myTable{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    right: 19px;
+    left:0%;
+    height: auto;
+    background-color: rgb(255, 242, 215);
+    margin-top: 30px;
+    position: relative;
+    padding: 25px 0px 25px 0px;
+    text-align: center;
+}
+.myTable2{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(190, 204, 243);
+    right: 17px;
+    text-align: center;
+	left:0%;
+    margin-top: 30px;
+    position: relative;
+    padding: 25px 0px 25px 0px;
+    height: auto;
+}
+.myTable3{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(243, 217, 162);
+    right: 28px;
+    text-align: center;
+	left:0%;
+    margin-top: 30px;
+    position: relative;
+    padding: 25px 0px 25px 0px;
+    height: auto;  
+}
+textarea {
+    border-radius: 6px;
+    height: 72px;
+    width: 318px;
+    margin: 14px 0px 0 10px;
+}
+
 @media only screen and (min-width: 600px) {
 	.col-tab-1 {width: 10%;}
 	.col-tab-mitad {width: 14.28%;}
@@ -15,11 +58,56 @@
 	.col-tab-3 {width: 30%;}
 	.col-tab-4 {width: 40%;}
 	.col-tab-5 {width: 50%;}
-	.col-tab-6 {width: 60%;}
+	.col-tab-6 {width: 52%;}
 	.col-tab-7 {width: 70%;}
 	.col-tab-8 {width: 80%;}
 	.col-tab-9 {width: 90%;}
 	.col-tab-10{width:100%;}	
+	
+.myTable{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    right: 19px;
+    background-color: rgb(255, 242, 215);
+    margin-left: 45px;
+    margin-top: 30px;
+    position: relative;
+    padding: 25px 0px 25px 0px;
+    height: auto;
+    text-align: center;
+}
+.myTable2{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(190, 204, 243);
+    right: 17px;
+    text-align: center;
+    margin-left: 43px;
+    margin-top: 30px;
+    margin-right: 3px;
+    position: relative;
+    padding: 25px 0px 25px 0px;
+    height: auto;
+}
+.myTable3{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(243, 217, 162);
+    right: 28px;
+    text-align: center;
+    margin-left: 43px;
+    margin-top: 30px;
+    position: relative;
+    padding: 25px 0px 25px 0px;
+    height: auto;  
+}
+textarea{
+	border-radius: 6px;
+    height: 72px;
+    width: 160px;
+    margin: 14px 0px 0 10px;
+
+}
 }
 
 @media only screen and (min-width: 768px) {
@@ -30,11 +118,57 @@
 	.col-3 {width: 30%;}
 	.col-4 {width: 40%;}
 	.col-5 {width: 50%;}
-	.col-6 {width: 60%;}
+	.col-6 {width: 52%;}
 	.col-7 {width: 70%;}
 	.col-8 {width: 80%;}
 	.col-9 {width: 90%;}
 	.col-10{width: 100%;}	
+.myTable{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    right: 19px;
+    background-color: rgb(255, 242, 215);
+    margin-left: 45px;
+    margin-top: 30px;
+    position: relative;
+    padding: 25px 0px 25px 0px;
+    height: 535px;
+    text-align: center;
+}
+.myTable2{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(190, 204, 243);
+    right: 17px;
+    text-align: center;
+    margin-left: 43px;
+    margin-top: 30px;
+    margin-right: 3px;
+    position: relative;
+    padding: 25px 0px 25px 0px;
+    height: auto;
+}
+.myTable3{
+color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(243, 217, 162);
+    right: 28px;
+    text-align: center;
+    margin-left: 43px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    position: relative;
+    padding: 25px 0px 25px 0px;
+    height: auto;
+   }
+textarea{
+	border-radius: 6px;
+
+    width: 239px;
+    height: 72px;
+    margin: 14px 0px 0 10px;
+
+}
 }
 
 h4{
@@ -44,64 +178,6 @@ h4{
 }
 #enlaces{
 	margin: 9px 0px 12px 0px;
-}
-
-.comun > div{
-    display: flex;
-    flex-direction: row;
-}
-
-.search{
-    background-color: rgb(240, 241, 247);
-    border: solid 2px black;
-    border-radius: 18px 18px 18px 18px;
-    -moz-border-radius: 18px 18px 18px 18px;
-    -webkit-border-radius: 18px 18px 18px 18px;
-    text-align: center;
-    height:30px;
-    width:300px;    
-}
-
-.myTable{
-    color: rgb(0, 0, 0);
-    border: solid rgb(65, 63, 63) 2px;
-    right: 19px;
-    background-color: rgb(255, 242, 215);
-    width: 400px;
-    text-align: center;
-    margin-left: 45px;
-    margin-top: 30px;
-    position: relative;
-    padding: 25px 0px 25px 0px;
-    height: 427px;
-    overflow-y: scroll;
-}
-.myTable2{
-    color: rgb(0, 0, 0);
-    border: solid rgb(65, 63, 63) 2px;
-    background-color: rgb(190, 204, 243);
-    width: 400px;
-    right: 17px;
-    text-align: center;
-    margin-left: 43px;
-    margin-top: 30px;
-    margin-right: 3px;
-    position: relative;
-    padding: 25px 0px 25px 0px;
-    height: 427px;
-}
-.myTable3{
-    color: rgb(0, 0, 0);
-    border: solid rgb(65, 63, 63) 2px;
-    background-color: rgb(243, 217, 162);
-    width: 381px;
-    right: 28px;
-    text-align: center;
-    margin-left: 54px;
-    margin-top: 30px;
-    position: relative;
-    padding: 25px 0px 25px 0px;
-    height: 427px;  
 }
 
 input[type=submit]{
@@ -120,13 +196,14 @@ input[type=email]{
     width: 30%;
 	
 }
-textarea{
-	border-radius: 6px;
-    width: 78%;
-    margin: 14px 0px 0 10px;
-
+.myTable{
+   
+    height: auto;
 }
 .enlaces{
 	padding:14px 0 0 0;
 }
-
+.texto{
+	text-align: justify;
+    padding: 30px 82px 0 94px;
+}

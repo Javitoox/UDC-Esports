@@ -12,22 +12,29 @@ $(document).ready(function(){
 				return validateForm6();
 			});
 			
+	$("#nosotros").on("submit", function() {
+				return validateForm12();
+			});
+
 	$("#fechai").on("submit", function() {
 				return validateForm7();
 			});
+			
 	$("#fecha").on("submit", function() {
 				return validateForm8();
 			});
+			
 	$("#fecha1").on("submit", function() {
 				return validateForm9();
 			});
+			
 	$("#fecha2").on("submit", function() {
 				return validateForm10();
 			});
 });
 
 function validateForm4() {
-	var noValidation = document.getElementById("jugadores_formulario").novalidate;
+	var noValidation = document.getElementById("jugadores_formulario").noValidate;
 	if (!noValidation){
 		var valid1=nifValidationJ();
 		var valid2=nameValidationJ();
@@ -47,7 +54,7 @@ function validateForm4() {
 }
 
 function validateForm5() {
-		var noValidation = document.getElementById("crearEntrenador").novalidate;
+		var noValidation = document.getElementById("crearEntrenador").noValidate;
 		if (!noValidation){
 			var valid1=nifValidationE();
 			var valid2=nameValidationE();
@@ -65,7 +72,7 @@ function validateForm5() {
 }
 
 function validateForm6() {
-		var noValidation = document.getElementById("crearOjeador").novalidate;
+		var noValidation = document.getElementById("crearOjeador").noValidate;
 		
 		if (!noValidation){
 			var valid1=nifValidationO();
@@ -83,7 +90,7 @@ function validateForm6() {
 			return true;		
 }
 function validateForm7() {
-		var noValidation = document.getElementById("fechai").novalidate;
+		var noValidation = document.getElementById("fechai").noValidate;
 		
 		if (!noValidation){
 			var valid1=dateValidation();
@@ -93,7 +100,7 @@ function validateForm7() {
 			return true;		
 }
 function validateForm8() {
-		var noValidation = document.getElementById("fecha").novalidate;
+		var noValidation = document.getElementById("fecha").noValidate;
 		
 		if (!noValidation){
 			var valid1=dateValidation1();
@@ -103,7 +110,7 @@ function validateForm8() {
 			return true;		
 }
 function validateForm9() {
-		var noValidation = document.getElementById("fecha1").novalidate;
+		var noValidation = document.getElementById("fecha1").noValidate;
 		if (!noValidation){
 			var valid1=dateValidation11();
 			return (valid1.length==0) ;
@@ -112,7 +119,7 @@ function validateForm9() {
 			return true;		
 }
 function validateForm10() {
-		var noValidation = document.getElementById("fecha2").novalidate;
+		var noValidation = document.getElementById("fecha2").noValidate;
 		if (!noValidation){
 			var valid1=dateValidation2();
 			return (valid1.length==0) ;
@@ -121,21 +128,54 @@ function validateForm10() {
 			return true;		
 }
 function validateForm11(dniJugador) {
-	var noValidation = document.getElementById("comenta-"+dniJugador).novalidate;
+	var noValidation = document.getElementById("comenta-"+dniJugador).noValidate;
 	if (!noValidation){
 		var valid1=comentaValidation(dniJugador);
 		return (valid1.length==0) ;
 	}
 	else return true;		
 }
+function validateForm12() {
+	var noValidation = document.getElementById("nosotros").noValidate;
+	if (!noValidation){
+		var valid1=emailValidationJ();
+		var valid2=comentaValidation2();
+		var valid3=nameValidationJ();
+		return (valid1.length==0) && (valid2.length==0) && (valid3.length==0);
+	}
+	else return true;		
+}
+
 function comentaValidation(dniJugador){
 	var errores="";
 	var com=document.getElementById("comenta-"+dniJugador).value;
 	var expreg=/^[^$%&|<>#()¬·{}~;ºª]*$/;
 	if(com==""){
-		errores+="<p><strong>La opninion no puede estar vacía.</strong></p>";
+		errores+="<p><strong>La opinion no puede estar vacía.</strong></p>";
 	}else if(!expreg.test(com)){
 		errores+="<p><strong>La opinion no debe contener caracteres especiales: "+com+".</strong></p>";
+	}
+	if(errores!=""){
+		if($('#val_car').length){
+			document.getElementById("val_car").innerHTML=errores;
+		}else{
+			document.getElementById("div_errores").innerHTML=document.getElementById("div_errores").innerHTML+"<div id='val_car'>"+errores+"</div>";
+		}
+	}else{
+		if($('#val_car').length){
+			document.getElementById("val_car").innerHTML="";
+		}
+	}
+	return errores;
+}
+function comentaValidation2(){
+	var errores="";
+	var com=document.getElementById("cuerpo").value;
+	var expreg=/^[^$%&|<>#()¬·{}~;ºª]*$/;
+	if(com==""){
+		errores+="<p><strong>El cuerpo no puede estar vacío.</strong></p>";
+	}else if(!expreg.test(com)){
+		errores+="<p><strong>El cuerpo no debe contener caracteres especiales: "+com+".</strong></p>";
 	}
 	if(errores!=""){
 		if($('#val_car').length){

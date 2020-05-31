@@ -109,6 +109,12 @@
 
 			?>
 		</div>
+		&nbsp
+		&nbsp
+		&nbsp
+		&nbsp
+		&nbsp
+		&nbsp
 	</div>
 		
 	<div class="col-3 col-tab-3 myTable3">
@@ -120,6 +126,12 @@
 			}
 			?>
 	</div>
+		&nbsp
+		&nbsp
+		&nbsp
+		&nbsp
+		&nbsp
+		&nbsp
 	</div>
 	<?
 	cerrarConexionBD($conexion);

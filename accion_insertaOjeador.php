@@ -28,7 +28,7 @@
     $obtenOIDV = obtenOID_V($conexion, $nombreVideojuego);
     $oid_videojuego = $obtenOIDV['OID_V'];
 
-    $insertaOjeador = insertaOjeador($conexion,$oid_videojuego, $dniOjeador, $nombreOjeador, $numTelefonoOj, $correoElectronicoOj, 
+    insertaOjeador($conexion,$oid_videojuego, $dniOjeador, $nombreOjeador, $numTelefonoOj, $correoElectronicoOj, 
     $nacionalidadOj, $salarioOj, $numExperienciaOj);
     header("Location:gestion.php");
 

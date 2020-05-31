@@ -1,12 +1,12 @@
 SET SERVEROUTPUT ON;
 
-DECLARE 
+/*DECLARE 
     oid_v INTEGER;
     oid_e INTEGER;
     oid_en INTEGER;
     oid_lp INTEGER;
-
-BEGIN 
+*/
+/*BEGIN 
     --pruebas_jugadores.insertar('PA-002', '11111111R', 'Carmen García', null, '342534333', null, null, null, null, null, null, 1, false);
     --pruebas_jugadores.insertar('PA-003 (dni repetido)', '80945781H','Felipe Gonzalez',400,'492760429',3,'maldemal@gmail.com','17/01/13','felip234',0,'Uruguay',5,true);
     --pruebas_entrenadores.insertar('PA-002', '29583995Z', 'Caparros', 100, '696111190', 10,'cap@gmail.com','España',1,true);
@@ -93,24 +93,6 @@ BEGIN
     /* ======================================================== */
     /*          ACTUALIZACIÓN Y ELIMINACIÓN DE USUARIOS         */
     /* ======================================================== */
-    pruebas_usuarios.insertar('Insertar usuario','29584995A','Manolo Diaz', 'manolo120','man9uel@gmail.com', '20/05/2000','887723461','Pollito22', 'Pollito22', true);
-    pruebas_usuarios.insertar('Insertar usuario','29584995B','Lola Suarez', 'lola20','lolasVV@gmail.com', '20/05/2000','887723462','Pollito22', 'Pollito22', true);
-    pruebas_usuarios.insertar('Insertar usuario','29584995C','Maria Lara', 'mariaMsV','mariaMsV@gmail.com', '20/05/2000','887723463','Pollito22', 'Pollito22', true);
-    pruebas_usuarios.insertar('Insertar usuario','29584995D','Roberto Gutirrez', 'roberttGz','roberttGz@gmail.com', '20/05/2000','887723464','Pollito22', 'Pollito22', true);
-    pruebas_usuarios.insertar('Insertar usuario','29584995E','Pepe Lopez', 'ppkma0','ppkma0@gmail.com', '20/05/2000','887723465','Pollito22', 'Pollito22', true);
-    pruebas_usuarios.insertar('Insertar usuario','29584995F','Fernando Hidalgo', 'tufer_23','tufer_23@gmail.com', '20/05/2000','887723466','Pollito22', 'Pollito22', true);
-    pruebas_usuarios.insertar('Insertar usuario','xxxxxxxxx','ADMIN', 'ADMIN','udconstantina@gmail.com', '01/01/2000','000000000','ADMIN_JHSIJhdskhu65dhUHD76Ahusuhads6', 'ADMIN_JHSIJhdskhu65dhUHD76Ahusuhads6', true);
-
-    pruebas_seguimientos.insertar('Insertar seguimiento','29584995A','10945781A', 'El mejor jugador del mundo', true);
-    pruebas_seguimientos.insertar('Insertar seguimiento','29584995A','10945781B', 'Buen partido el de ayer', true);
-    pruebas_seguimientos.insertar('Insertar seguimiento','29584995A','10945781C', '-You are the best', true);
-    pruebas_seguimientos.insertar('Insertar seguimiento','29584995C','10945781B', 'omg u r amazing!', true);
-    pruebas_seguimientos.insertar('Insertar seguimiento','29584995A','10945781D', 'toma toma que bien jugado', true);
-    pruebas_seguimientos.insertar('Insertar seguimiento','29584995E','10945781A', 'deberias mejorar no crees?', true);
-    pruebas_seguimientos.insertar('Insertar seguimiento','29584995C','10945781D', 'bua que mal todo', true);
-    pruebas_seguimientos.insertar('Insertar seguimiento','29584995F','10945781B', 'crushcrushcrush te quiero', true);
-    pruebas_seguimientos.insertar('Insertar seguimiento','29584995D','10945781A', 'para mi eres el mejor<3', true);
-    pruebas_seguimientos.insertar('Insertar seguimiento','29584995F','20945781F', 'F pero F F', true);
 
 
     /*
@@ -217,4 +199,4 @@ BEGIN
     pruebas_seguimientos.eliminar('Eliminar seguimiento', 17, true);
     pruebas_seguimientos.eliminar('Eliminar seguimiento', 18, true);
     */
-END;
+/*END;

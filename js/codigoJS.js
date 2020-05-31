@@ -68,11 +68,12 @@ function buscaOjeador() {
 }
 
 function abreFormularioYCierraTabla(){
-        document.getElementById("tablaAparece").style.display="block";
-        document.getElementById("creaJugador").style.display="block";
-        document.getElementById("myTable").style.display="none";
-        document.getElementById("creaEnt").style.display="none";
-        document.getElementById("creaOj").style.display="none";
+    document.getElementById("tablaAparece").style.display="block";
+    document.getElementById("creaJugador").style.display="block";
+    document.getElementById("myTable").style.display="none";
+    document.getElementById("creaEnt").style.display="none";
+    document.getElementById("creaOj").style.display="none";
+   
 }
 
 function cierraFormularioYAbreTabla(){
@@ -81,6 +82,7 @@ function cierraFormularioYAbreTabla(){
     document.getElementById("tablaAparece").style.display="none";
     document.getElementById("creaEnt").style.display="block";
     document.getElementById("creaOj").style.display="block";
+   
 }
 function abreFormularioEntrenadorYCierraTabla(){
     document.getElementById("creaEntrenador").style.display="block";
@@ -88,6 +90,7 @@ function abreFormularioEntrenadorYCierraTabla(){
     document.getElementById("tablaAparece2").style.display="block";
     document.getElementById("creaJ").style.display="none";
     document.getElementById("creaOj").style.display="none";
+    
 
 }
 function cierraFormularioEntrenadorYAbreTabla(){
@@ -96,6 +99,7 @@ function cierraFormularioEntrenadorYAbreTabla(){
     document.getElementById("tablaAparece2").style.display="none";
     document.getElementById("creaJ").style.display="block";
     document.getElementById("creaOj").style.display="block";
+   
 
 }
 function abreFormularioOjeadorYCierraTabla(){
@@ -104,6 +108,7 @@ function abreFormularioOjeadorYCierraTabla(){
     document.getElementById("tablaAparece3").style.display="block";
     document.getElementById("creaJ").style.display="none";
     document.getElementById("creaEnt").style.display="none";
+   
 
 }
 function cierraFormularioOjeadorYAbreTabla(){
@@ -112,5 +117,6 @@ function cierraFormularioOjeadorYAbreTabla(){
     document.getElementById("tablaAparece3").style.display="none";
     document.getElementById("creaJ").style.display="block";
     document.getElementById("creaEnt").style.display="block";
+    
 
 }

@@ -8,10 +8,17 @@ $(document).ready(function(){
 	$("#login_formulario").on("submit", function() {
 				return validateForm2();
 			});
+	$("#formularioPerfil").on("submit", function() {
+				return validateForm3();
+			});
+	
+	$("#cambiarPassPerfil").on("submit", function() {
+				return validateForm4();
+			});
 			
 });
 function validateForm1() {
-		var noValidation = document.getElementById("registro_formulario").novalidate;
+		var noValidation = document.getElementById("registro_formulario").noValidate;
 		if (!noValidation){
 			var valid1=nifValidation();
 			var valid2=nameValidation();
@@ -29,7 +36,7 @@ function validateForm1() {
 }
 
 function validateForm2() {
-		var noValidation = document.getElementById("login_formulario").novalidate;
+		var noValidation = document.getElementById("login_formulario").noValidate;
 		if (!noValidation){
 			var valid1=nickValidation();
 			var valid2=passwordValidation();
@@ -39,7 +46,7 @@ function validateForm2() {
 			return true;		
 }
 function validateForm3() {
-		var noValidation = document.getElementById("formularioPerfil").novalidate;
+		var noValidation = document.getElementById("formularioPerfil").noValidate;
 		if (!noValidation){
 			var valid1=nameValidation();
 			var valid2=nickValidation();
@@ -52,7 +59,7 @@ function validateForm3() {
 			return true;		
 }
 function validateForm4() {
-		var noValidation = document.getElementById("cambiarPassPerfil").novalidate;
+		var noValidation = document.getElementById("cambiarPassPerfil").noValidate;
 		if (!noValidation){
 			var valid1=passwordValidation();
 			var valid2=retypeValidation();
@@ -69,7 +76,7 @@ function nifValidation(){
 	if(nif==""){
 		errores+="<p><strong>El NIF no puede estar vacío.</strong></p>";
 	}else if(!expreg.test(nif)){
-		errores+="<p><strong>El NIF debe contener 8 números y una letra mayúscula: "+nif+".</strong></p>";
+		errores+="<p><strong>El NIF debe contener 8 números y una letra Mayúscula: "+nif+".</strong></p>";
 	}
 	if(errores!=""){
 		document.getElementById("dniUsuario").removeAttribute("style");

@@ -1,336 +1,153 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-* {
-	box-sizing: border-box;
+*{
+	box-sizing:border-box;
+	font-family: 'Indie Flower', cursive;
+
 }
-
 [class*="col-"] {
+	float: left;
 	width: 100%;
-	
 }
-.form{
-	position: relative;
-	top:45%;
-}
-
-#nComplField{
-	z-index:0;
-	margin-left: auto;
-    position: relative;
-    left: 7%;
-    font-size: 90%;
-    top: 10px;
-}
-#userField{
-    z-index:0;
-	top: 42px;
-    position: relative;
-    font-size: 90%;
-    left: 7%;
-
-}
-#mailField{
-	z-index:0;
-	top: 74px;
-    position: relative;
-    font-size: 90%;
-    left: 7%;
-
-}
-#dniField{
-	z-index:0;
-	top: 112px;
-    position: relative;
-    font-size: 90%;
-    left: 7%;
-
-	
-}
-#tlfField{
-	z-index:0;
-	top: 150px;
-    position: relative;
-    font-size: 90%;
-    left: 7%;
-}
-
-#passField{
-	z-index:0;
-	top: 190px;
-    font-size: 90%;
-    left: 7%;
-    position: relative;
-	
-}
-
-#passCField{
-	z-index:0;
-	top: 230px;
-    position: relative;
-    font-size: 90%;
-    left: 7%;
-
-}
-#CpassField{
-	z-index:0;
-	top: 266px;
-    position: relative;
-    font-size: 90%;
-    left: 7%;
-
-}
-
-#nombreCompletoUsuario{
-	z-index: 0;
-	top: -195px;
-    position: relative;
-    font-size: 170%;
-    left: 6%;
-}
-#nickUsuario{
-	z-index: 0;
-	top: -175px;
-    position: relative;
-    font-size: 170%;
-    left: 6%;
-}
-#emailUsuario{
-	z-index: 0;
-    top: -152px;
-    position: relative;
-    font-size: 150%;
-    left: 6%;
-    height: 41px;
-    width: 345px;
-}
-#dni{
-	z-index: -1;
-    top: -126px;
-    position: relative;
-    font-size: 170%;
-    left: 6%;
-}
-#numTelefonoUsuario{
-	z-index: 0;
-    top: -98px;
-    position: relative;
-    font-size: 170%;
-    left: 6%;
-}
-#pass{
-	z-index: -1;
-    top: -68px;
-    position: relative;
-    font-size: 170%;
-    left: 6%;
-}
-
-.sessionCloser:hover{
-	background: #0096f7;
-}
-.changeProfile{
-	position: relative;
-    background: #00b7f8;
-    border-bottom: 5px solid #0045a6;
-    border-radius: 12px;
-    box-shadow: 6px 6px 6px #999;
-    color: black;
-    cursor: pointer;
-    font-family: 'Raleway', Arial, Helvetica;
-    font-size: 120%;
-    height: 5%;
+.myTable{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(233, 206, 236);
+    top: 30px;
+    right: 19px;
+    left:0%;
+    height: auto;
     text-align: center;
-    width: 50%;
-    right: -27.8%;
-    top: 96px;
-}
-.changeProfile:hover{
-	background: #0096f7;
-}
-
-.changePass{
+    margin-top: 20px;
     position: relative;
-    background: #00b7f8;
-    border-bottom: 5px solid #0045a6;
-    border-radius: 12px;
-    box-shadow: 6px 6px 6px #999;
-    color: black;
-    cursor: pointer;
-    font-family: 'Raleway', Arial, Helvetica;
-    font-size: 120%;
-    height: 5%;
+    padding: 25px 0px 25px 0px;
+    border-radius:13px;
+
+}
+.myTable2{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+	background-color: rgb(218, 218, 218);
+    top: 31px;
+    left: 0%;
+    height: auto;
     text-align: center;
-    width: 50%;
-    right: -27.8%;
-    top: 68px;
-}
-.changePass:hover{
-	background: #0096f7;
-}
-
-.exampleImage{
-	display: inline-block;
-	position:relative;
-	right:7%;
-    top:20%;
-}
-
-
-.passUsuario{
+    margin-top: 20px;
     position: relative;
-    top: -49px;
-    width: 91%;
-    left: 7%;
+    padding: 25px 0px 25px 0px; 
+}
+.myTable3{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(170, 228, 212);
+    top: 31px;
+    right: 5px;
+    left: 0%;
+
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    padding: 25px 0px 25px 0px;   
 }
 
-.confirmPassUsuario{
+@media only screen and (min-width: 600px) {
+	.col-tab-1 {width: 10%;}
+	.col-tab-mitad {width: 14.28%;}
+	.col-tab-2 {width: 20%;}
+	.col-tab-3 {width: 23%;}
+	.col-tab-4 {width: 40%;}
+	.col-tab-5 {width: 50%;}
+	.col-tab-6 {width: 60%;}
+	.col-tab-7 {width: 70%;}
+	.col-tab-8 {width: 80%;}
+	.col-tab-9 {width: 90%;}
+	.col-tab-10{width:100%;}
+	
+.myTable{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(233, 206, 236);
+    top: 30px;
+    left: 191px;
+    text-align: center;
     position: relative;
-    top: -9px;
-    left: 7%;
-    width: 91%;
-}	
+    padding: 25px 0px 25px 0px;
+    border-radius: 13px;
+}
 
-@media only screen and (min-width: 812px) {
+}
+
+@media only screen and (min-width: 768px) {
+	.col-tab-reduce {width: 1%;}
 	.col-1 {width: 10%;}
+	.col-mitad {width: 14.28%;}
 	.col-2 {width: 20%;}
-	.col-3 {width: 30%;}
+	.col-3 {width: 25.5%;}
 	.col-4 {width: 40%;}
 	.col-5 {width: 50%;}
 	.col-6 {width: 60%;}
 	.col-7 {width: 70%;}
 	.col-8 {width: 80%;}
 	.col-9 {width: 90%;}
-	.col-10{width: 100%;}
+	.col-10{width: 100%;}	
 	
-#nComplField{
-    font-family: 'Roboto', sans-serif;
-    left: 7%;
-    font-size: 170%;
-    top: 10px;
-}
-#userField{
-	font-family: 'Roboto', sans-serif;
-    left: 7%;
-    font-size: 170%;
-    top: 10px;
-
-}
-#mailField{
-	font-family: 'Roboto', sans-serif;
-    left: 7%;
-    font-size: 170%;
-    top: 10px;
-
-}
-#dniField{
-	font-family: 'Roboto', sans-serif;
-    left: 7%;
-    font-size: 170%;
-    top: 10px;
-
-	
-}
-#tlfField{
-    font-family: 'Roboto', sans-serif;
-    left: 7%;
-    font-size: 170%;
-    top: 10px;
-
-}
-
-#passField{
-	font-family: 'Roboto', sans-serif;
-    left: 7%;
-    font-size: 170%;
-    top: 10px;
-	
-}
-
-#passCField{
-	font-family: 'Roboto', sans-serif;
-    left: 7%;
-    font-size: 170%;
-    top: 10px;
-
-}
-#CpassField{
-    font-family: 'Roboto', sans-serif;
-    left: 7%;
-    font-size: 170%;
-    top: 10px;
-
-}
-
-#nombreCompletoUsuario{
-	top: -435px;
+.myTable{
+    color: rgb(0, 0, 0);
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(233, 206, 236);
+    top: 30px;
+    height: auto;
+    left: 320px;
+    text-align: center;
     position: relative;
-    font-size: 170%;
-    left: 100%;
-}
-#nickUsuario{
-    top: -417px;
-    position: relative;
-    font-size: 170%;
-    left: 100%;
-}
-#emailUsuario{
-    top: -400px;
-    position: relative;
-    font-size: 150%;
-    left: 100%;
-}
-#dni{  
-	 
-    top: -383px;
-    position: relative;
-    font-size: 170%;
-    left: 100%;
-}
-#numTelefonoUsuario{
-    top: -365px;
-    position: relative;
-    font-size: 170%;
-    left: 100%;
-}
-#pass{
-    
-    top: -344px;
-    position: relative;
-    font-size: 170%;
-    left: 100%;
+    padding: 25px 0px 25px 0px;
+    border-radius: 13px;
 }
 
-.changePass{
-    left: 26%;
-    font-size: 90%;
-    top: -263px;
-    height: 40px;
-    width: 209px;
-}
-.passUsuario{
-    top: -345px;
-    width: 29%;
-    left: 45%;
+   .c{
+   	
+   	height:auto;
+   	
+   	
+   }
 }
 
-.confirmPassUsuario {
-    top: -311px;
-    left: 45%;
-    width: 29%;
+h4{
+    font-size: 25px;
+    margin: 10px 0 13px 0px;    
+
+}
+#enlaces{
+	margin: 9px 0px 12px 0px;
 }
 
-.changeProfile{
-    height: 37px;
-    width: 209px;
-    right: 28.2%;
-    top: -182px;
-    left: -23%;
-    font-size: 90%;
+input[type=date]{
+	color: #539eb7;
+    border-radius: 6px;
+    width: 34%;
+    margin: 0 0 7px 0px;
 }
-
-.form{
-	left:15%;	
+input[type=text]{
+	color: #539eb7;
+    border-radius: 6px;
+    width: 34%;
+    margin: 0px 0px 7px 100px;
 }
-
+input[type=password]{
+	color: #539eb7;
+    border-radius: 6px;
+    width: 34%;
+    margin: 0px 0 7px 96px;
+}
+input[type=submit]{
+	color: #4c99b3;
+    border-radius: 6px;
+    margin: 18px 0px 7px 4px;
+}
+#scroll{
+	overflow-y: scroll;
+	height: 119px;
+}
+#v{
+	padding:0 0 35px 0;
 }

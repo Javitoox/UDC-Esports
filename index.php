@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<title>Jugadores</title>
+<title>Inicio</title>
 	<?php include_once("headComun.php"); ?>
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://plugins.flockler.com/embed/17266cdec2e02f5939154bb749af1952/17266d0a7a20050b3316187b9b8d334c" async></script>
@@ -34,16 +34,15 @@
         cerrarConexionBD($conexion);
 	?>
     
-    <div id="flockler-embed-17266d0a7a20050b3316187b9b8d334c" class="col-8 col-tab-8 myTable">
+    <div id="flockler-embed-17266d0a7a20050b3316187b9b8d334c" class="col-10 col-tab-10 myTable">
     </div>
     
-    <div class="col-2 col-tab-2 myTable2">
+    <div class="col-5 col-tab-5 myTable2">
     	<h4>Últimos resultados</h4>
-    	<table class="table">
+    	<center><table class="table">
     		 <tr>
-        <th>EQUIPO</th>
-        <th>LUGAR</th>
-        <th>GANADO</th>
+        <th id="t">EQUIPO</th>
+        <th id="t2">GANADO</th>
         </tr>
     	<?php
     	
@@ -51,22 +50,21 @@
                 if($resultado["GANADO"]==1){
                     echo 
                     "<tr>
-                        <td>".$resultado["NOMBREVIDEOJUEGO"]."</td> 
-                        <td>".$resultado["LUGAR"]."</td> 
-                        <td>Victoria</td>
+                        <td id='t'>".$resultado["NOMBREVIDEOJUEGO"]."</td> 
+                        <td id='t2'>Victoria</td>
                     </tr>";
                     
                 }else{
                     echo 
                     "<tr>
-                        <td>".$resultado["NOMBREVIDEOJUEGO"]."</td> 
-                        <td>".$resultado["LUGAR"]."</td> 
-                        <td>Derrota</td>
+                        <td id='t'>".$resultado["NOMBREVIDEOJUEGO"]."</td> 
+                        <td id='t2'>Derrota</td>
                     </tr>";
                 }   
             }
             ?>
         </table>
+        </center>
     </div>
         
     <div class="col-10 col-tab-10 patrocinadores">

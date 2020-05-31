@@ -1,0 +1,128 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+	display:inline-block
+	box-sizing:border-box;
+	font-family: 'Roboto', sans-serif;
+}
+[class*="col-"] {
+	width: 100%;
+	
+}
+.tittle{
+    position: relative;
+    text-decoration: underline;
+    top: 0px;
+
+}
+.scroll{
+	top: 130px;
+    left: 0%;
+    position: relative;
+    padding: 4px;
+    height: 500px;
+    overflow: auto;
+    background-color: rgb(234, 235, 255);
+    opacity: 85%;
+
+    
+	
+}
+.stadisticData{
+    position: relative;
+    left: 0;
+    top: 139px;
+    background-color:rgb(193, 231,227);
+	opacity:85%;
+	padding: 10px;
+}
+.image{
+	visibility:hidden;
+	
+}
+.formularioCalendario{
+    position: relative;
+    z-index: 1;
+    left: 5%;
+    top: 501px;
+    width: 327px;
+	
+}
+.error{
+	position: relative;
+	top:550px;
+	left:9%;
+
+}
+.mejorJugadorEstadisticas{
+   position: relative;
+    top: -1555px;
+    left: 0%;
+    padding: 25px;
+    background-color: rgb(243, 217, 162);
+    box-shadow: 4px 4px 15px #666;
+    opacity: 85%;
+}
+
+@media only screen and (min-width: 500px) {
+	.col-tab-10 {width: 100%;}
+	
+.mejorJugadorEstadisticas{
+    top: -1450px;
+}
+.error{
+	top:550px;
+	left:9%;
+}
+}
+
+@media only screen and (min-width: 768px) {
+	.col-1 {width: 10%;}
+	.col-2 {width: 20%;}
+	.col-3 {width: 30%;}
+	.col-4 {width: 40%;}
+	.col-5 {width: 50%;}
+	.col-6 {width: 60%;}
+	.col-7 {width: 70%;}
+	.col-8 {width: 80%;}
+	.col-9 {width: 90%;}
+	.col-10{width: 100%;}
+
+
+
+.scroll{
+    top: -79px;
+    left: 5%;
+	
+}
+.stadisticData{
+    left: 7%;
+    top: 0;
+    padding: 10px;
+
+	
+}
+.formularioCalendario{
+    left: 5%;
+    top: 524px;
+    width: 327px;
+	
+}
+.error{
+	top:150px;
+	left:5%;
+
+}
+.mejorJugadorEstadisticas{
+    top: -163px;
+    left: 8%;
+    padding: 25px;
+    
+}
+}
+
+
+
+
+
+

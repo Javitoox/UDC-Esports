@@ -381,8 +381,6 @@ BEGIN
    
     pruebas_redessociales.insertar('Insertar red social','manolitort','03/09/2017',2300,'Reddit','10945781D',null,true);
     pruebas_redessociales.insertar('Insertar red social','manolitotw','03/09/2017',230000,'Twitter','10945781D',null,true);
-    pruebas_redessociales.insertar('Insertar red social','laritaoficial','03/10/2015',72000,'Twitter','870945781G',null,true);
-    pruebas_redessociales.insertar('Insertar red social','laritaa10','15/10/2015',82000,'Instagram','870945781G',null,true);
     pruebas_redessociales.insertar('Insertar red social','toliitofdez','25/10/2015',820000,'Instagram','30905000R',null,true);
     pruebas_redessociales.insertar('Insertar red social','toliitofdezoficial','25/11/2019',820000,'Facebook','30905000R',null,true);
     pruebas_redessociales.insertar('Insertar red social','domenech13','25/11/2016',122200,'Facebook','60945781B',null,true);
@@ -700,6 +698,24 @@ BEGIN
     oid_lp := SEC_OID_LP.currval;
 
 	
+    pruebas_usuarios.insertar('Insertar usuario','29584995A','Manolo Diaz', 'manolo120','man9uel@gmail.com', '20/05/2000','887723461','Pollito22', 'Pollito22', true);
+    pruebas_usuarios.insertar('Insertar usuario','29584995B','Lola Suarez', 'lola20','lolasVV@gmail.com', '20/05/2000','887723462','Pollito22', 'Pollito22', true);
+    pruebas_usuarios.insertar('Insertar usuario','29584995C','Maria Lara', 'mariaMsV','mariaMsV@gmail.com', '20/05/2000','887723463','Pollito22', 'Pollito22', true);
+    pruebas_usuarios.insertar('Insertar usuario','29584995D','Roberto Gutirrez', 'roberttGz','roberttGz@gmail.com', '20/05/2000','887723464','Pollito22', 'Pollito22', true);
+    pruebas_usuarios.insertar('Insertar usuario','29584995E','Pepe Lopez', 'ppkma0','ppkma0@gmail.com', '20/05/2000','887723465','Pollito22', 'Pollito22', true);
+    pruebas_usuarios.insertar('Insertar usuario','29584995F','Fernando Hidalgo', 'tufer_23','tufer_23@gmail.com', '20/05/2000','887723466','Pollito22', 'Pollito22', true);
+    pruebas_usuarios.insertar('Insertar usuario','xxxxxxxxx','ADMIN', 'ADMIN','udconstantina@gmail.com', '01/01/2000','000000000','ADMIN_JHSIJhdskhu65dhUHD76Ahusuhads6', 'ADMIN_JHSIJhdskhu65dhUHD76Ahusuhads6', true);
+
+    pruebas_seguimientos.insertar('Insertar seguimiento','29584995A','10945781A', 'El mejor jugador del mundo', true);
+    pruebas_seguimientos.insertar('Insertar seguimiento','29584995A','10945781B', 'Buen partido el de ayer', true);
+    pruebas_seguimientos.insertar('Insertar seguimiento','29584995A','10945781C', '-You are the best', true);
+    pruebas_seguimientos.insertar('Insertar seguimiento','29584995C','10945781B', 'omg u r amazing!', true);
+    pruebas_seguimientos.insertar('Insertar seguimiento','29584995A','10945781D', 'toma toma que bien jugado', true);
+    pruebas_seguimientos.insertar('Insertar seguimiento','29584995E','10945781A', 'deberias mejorar no crees?', true);
+    pruebas_seguimientos.insertar('Insertar seguimiento','29584995C','10945781D', 'bua que mal todo', true);
+    pruebas_seguimientos.insertar('Insertar seguimiento','29584995F','10945781B', 'crushcrushcrush te quiero', true);
+    pruebas_seguimientos.insertar('Insertar seguimiento','29584995D','10945781A', 'para mi eres el mejor<3', true);
+    pruebas_seguimientos.insertar('Insertar seguimiento','29584995F','20945781F', 'F pero F F', true);
 
   
 

@@ -45,10 +45,10 @@
 			echo "<br><br><br><br><font color='red'><strong>El numero telefonico es incorrecto.</strong></font>";
 		}else{
 			changeProfile($conexion,$nombre,$nick,$mail,$num,$dni);
-			header("Location: login.php");                                //HAY QUE COMPROBAR SI EL USUARIO YA EXISTE by:Daniel 30-5-20
+			header("Location: login.php");                                
 	}
 	}
-	if(isset($_POST["submit"]) && !empty($_POST["submit"])) {         //NOSE PK ESTO NO SE EJECUTA by:Daniel 30-5-20
+	if(isset($_POST["submitPass"]) && isset($_POST["submitPass"])) {         
 		$pass = $_POST["passUsuario"];
 		$Cpass = $_POST["confirmPassUsuario"];
 		
@@ -62,7 +62,6 @@
 			changeCPass($conexion, $dniUser,$pass);
 			changePass($conexion,$dniUser,$pass);
 			header("Location: login.php");
-			
 		}
 	}
 ?>
@@ -88,54 +87,56 @@
     }
     ?>
     
-    <div id="div_errores" class="error">
-		<?php
-		if (isset($errores) && count($errores)>0) {
-    		foreach($errores as $error) echo $error; 
-  		}
-	    ?>
-	</div>
     
-    <div class="col-3">
-   	 			 <h2 id="nComplField">Nombre Completo:</h2>
-   		 		 <h2 id="userField">Usuario:</h2>
-    	 		 <h2 id="mailField">Email:</h2>
-   		 		 <h2 id="dniField">DNI/NIF:</h2>
-  				 <h2 id="tlfField">Teléfono:</h2>
-   				 <h2 id="passField">Contraseña actual:</h2>
-   				 <h2 id="passCField">Nueva Contraseña:</h2>
-   				 <h2 id="CpassField">Confirmar contraseña:</h2>
-    </div>
+    <div id="div_errores" class="error"></div>
+    
+       	    <center>
+
+    <div class="col-5 col-tab-5 myTable">
+    
+   	 			 
+			 
+ 
     <div>
-    	<form action="perfil.php" id="formularioPerfil" method="POST" class="form col-3">
+    	<form action="perfil.php" id="formularioPerfil" method="POST" >
+    	
     		<div>
-				<input   oninput="nameValidation()" type="text" id="nombreCompletoUsuario" name="nombreCompletoUsuario" value="<?php echo $nameUser?>" ><br>
+    			<label>Nombre Completo:</label>
+				<input oninput="nameValidation()" type="text" id="nombreCompletoUsuario" name="nombreCompletoUsuario" value="<?php echo $nameUser?>" ><br>
 			</div>
-			<div>
-				<input   oninput="nickValidation()" type="text" id="nickUsuario" name="nickUsuario" value="<?php echo $nickUsuario?>" ><br>
+			<div><label>Usuario:</label>
+				<input oninput="nickValidation()" type="text" id="nickUsuario" name="nickUsuario" value="<?php echo $nickUsuario?>" ><br>
 			</div>
-			<div>
-				<input   oninput="emailValidation()" type="text" id="emailUsuario" name="emailUsuario" value="<?php echo $mailUser?>" ><br>
+			<div><label>Email:</label>
+				<input oninput="emailValidation()" type="text" id="emailUsuario" name="emailUsuario" value="<?php echo $mailUser?>" ><br>
 			</div>
-			<div>
-				<input  type="text" id="dni" name="dni" value="<?php echo $dniUser?>" ><br>
+			<div><label>DNI/NIF:</label>
+				<input readonly="" type="text" id="dni" name="dni" value="<?php echo $dniUser?>" ><br>
 			</div>
-			<div>
-				<input   oninput="phoneValidation()" type="text" id="numTelefonoUsuario" name="numTelefonoUsuario" value="<?php echo $numUser?>" ><br>
+			<div><label>Numero Teléfono:</label>
+				<input readonly="" oninput="phoneValidation()" type="text" id="numTelefonoUsuario" name="numTelefonoUsuario" value="<?php echo $numUser?>" ><br>
 			</div>
-			<div>
-				<input  type="text" id="pass" name="pass" value="<?php echo $passUser?>" ><br>
+			<div><label>Contraseña Actual:</label>
+				<input type="text" id="pass" name="pass" value="<?php echo $passUser?>" ><br>
 			</div>
-				<input  class="changeProfile" type="submit" name="submitPerfil" value="Modificar Perfil">
+				<input class="changeProfile" type="submit" name="submitPerfil" value="Modificar Perfil">
+				</form>
     </div>
+    	&nbsp
+		&nbsp
+		&nbsp
+		&nbsp
+		&nbsp
+		&nbsp
     
-	<div >
-		<form action="perfil.php" id="cambiarPassPerfil" method="POST" class="col-3">
-  			<input oninput="passwordValidation()" onkeyup="passwordColor()" class="passUsuario" type="password" id="passUsuario" name="passUsuario" value=""><br>
-  			<input oninput="retypeValidation()" class="confirmPassUsuario" type="password" id="confirmPassUsuario" name="confirmPassUsuario" value=""><br>
+
+	
+		<form action="perfil.php" id="cambiarPassPerfil" method="POST">
+  			<label>Nueva Contraseña:</label><input oninput="passwordValidation()" onkeyup="passwordColor()" class="passUsuario" type="password" id="passUsuario" name="passUsuario" value=""><br>
+  			<label>Confirmar Contraseña:</label><input oninput="retypeValidation()" class="confirmPassUsuario" type="password" id="confirmPassUsuario" name="confirmPassUsuario" value=""><br>
   			<input class="changePass" type="submit" name="submitPass" value="Cambiar Contraseña">
 		</form> 
 	</div>
-
-
- <div>
+	</center>
+</body>
+</html>

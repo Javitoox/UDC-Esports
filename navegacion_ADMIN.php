@@ -15,7 +15,7 @@
 		
 		<a href="index.php"><img id="imglogo" src="images/logo.png" alt="Logo"></a>
 		<br><a href="jugadores.php">Jugadores</a>
-		<a href="navegacion_ADMIN.php">Resultados</a>
+		<a href="eleccionEstadisticas.php">Resultados</a>
 		<a href="misSeguimientos.php">Mis Seguimientos</a>
         <a href="sobrenosotros.php">Sobre Nosotros</a>
         <a href="gestion.php">Gestión</a>

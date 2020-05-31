@@ -159,7 +159,7 @@
                 <input id="fentrada" oninput="fentradaValidationJ()" placeholder="Fecha Entrada" name="fentrada" type="date" value="<?php echo $formulario['fentrada'];?>"required>
                 </div>
                 <div><label for="salario">Salario actual:<em></em></label>
-                <input id="salario" oninput="salarioValidationJ()" placeholder="Salario" name="salario" maxlength="10"type="text" >
+                <input id="salario" oninput="salarioValidationJ()" placeholder="Salario" name="salario" maxlength="10" type="text" >
                 </div>
                 <div><label for="numExperiencia">Años de experiencia:<em></em></label>
                 <input id="numExperiencia" oninput="numExperienciaValidationJ()" placeholder="Nº Años de Experiencia" maxlength="38" name="numExperiencia" type="text" value="<?php echo $formulario['numExperiencia'];?>"required>
@@ -415,25 +415,25 @@
             <input name="tipo" value="insertar" type="hidden">
             </div>
             <div><label for="dniOjeador">DNI Ojeador:<em></em></label>
-            <input oninput="nifValidationO()" id="dniOjeador" name="dniOjeador" placeholder="DNI Ojeador" type="text" required>
+            <input oninput="nifValidationO()" id="dniOjeador" name="dniOjeador" placeholder="DNI Ojeador" maxlength="30" type="text" required>
             </div>
             <div><label for="nombreOjeador">Nombre completo:<em></em></label>
-            <input oninput="nameValidationO()" id="nombreOjeador" placeholder="Nombre Completo" name="nombreOjeador" type="text" required>
+            <input oninput="nameValidationO()" id="nombreOjeador" placeholder="Nombre Completo" maxlength="50" name="nombreOjeador" type="text" required>
             </div>
             <div><label for="numTelefonoOj">Número de teléfono:<em></em></label>
-            <input oninput="phoneValidationO()" id="numTelefonoOj" placeholder="Numero de Teléfono" name="numTelefonoOj" type="text" required>
+            <input oninput="phoneValidationO()" id="numTelefonoOj" placeholder="Numero de Teléfono" maxlength="15" name="numTelefonoOj" type="text" required>
             </div>
             <div><label for="correoElectronicoOj">Correo electrónico:<em></em></label>
-            <input oninput="emailValidationO()" id="correoElectronicoOj" placeholder="Correo Electrónico" name="correoElectronicoOj" type="text" required>
+            <input oninput="emailValidationO()" id="correoElectronicoOj" placeholder="Correo Electrónico" name="correoElectronicoOj" maxlength="50" type="text" required>
             </div>
             <div><label for="nacionalidadOj">Nacionalidad:<em></em></label>
-            <input oninput="nacionalidadValidationO()" id="nacionalidadOj" placeholder="Nacionalidad" name="nacionalidadOj" type="text" required>
+            <input oninput="nacionalidadValidationO()" id="nacionalidadOj" placeholder="Nacionalidad" maxlength="100" name="nacionalidadOj" type="text" required>
             </div>
             <div><label for="salarioOj">Salario actual:<em></em></label>
-            <input oninput="salarioValidationO()" id="salarioOj" placeholder="Salario" name="salarioOj" type="text" required>
+            <input oninput="salarioValidationO()" id="salarioOj" placeholder="Salario" name="salarioOj" maxlength="10" type="text" maxlength="10" required>
             </div>
             <div><label for="numExperienciaOj">Años de experiencia:<em></em></label>
-            <input oninput="experValidationO()" id="numExperienciaOj" placeholder="Nº Años de Experiencia" name="numExperienciaOj" type="text" required>
+            <input oninput="experValidationO()" id="numExperienciaOj" placeholder="Nº Años de Experiencia" maxlength="38" name="numExperienciaOj" type="text" required>
             </div>
             <!--Videojuego (oid_v y el nombre) -->
             <div><label for="videojuego">Videojuego:<em></em></label>

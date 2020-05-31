@@ -137,7 +137,7 @@
 			Mostrando 
 			<input id="PAG_TAM" name="PAG_TAM" type="number" 
 				min="1" max="<?php echo $total_registros;?>" 
-				value="<?php echo $pag_tam?>" autofocus="autofocus" /> 
+				value="<?php echo $pag_tam?>" /> 
 			entradas de <?php echo $total_registros?>
 			<input type="submit" value="Cambiar">
 		</form>
@@ -182,8 +182,7 @@
 						where fechainicio between '".$newDate1."' and sysdate)";
 		
 	}
-						
-						
+									
 		$total_registross = total_consulta($conexion,$query2);
 		
 		$total_paginass = (int) ($total_registross / $pag_tams);
@@ -221,7 +220,7 @@
 			Mostrando 
 			<input id="PAG_TAMS" name="PAG_TAMS" type="number" 
 				min="1" max="<?php echo $total_registross;?>" 
-				value="<?php echo $pag_tams?>" autofocus="autofocus" /> 
+				value="<?php echo $pag_tams?>" /> 
 			entradas de <?php echo $total_registross?>
 			<input type="submit" value="Cambiar">
 		</form>
@@ -310,7 +309,7 @@
 			Mostrando 
 			<input id="PAG_TAMSS" name="PAG_TAMSS" type="number" 
 				min="1" max="<?php echo $total_registrosss;?>" 
-				value="<?php echo $pag_tamss?>" autofocus="autofocus" /> 
+				value="<?php echo $pag_tamss?>"/> 
 			entradas de <?php echo $total_registrosss?>
 			<input type="submit" value="Cambiar">
 		</form>

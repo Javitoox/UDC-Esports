@@ -7,7 +7,31 @@
 	float: left;
 	width: 14.2%;
 }
-
+.myTable{
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(255, 242, 215);
+    width: 100%;
+    text-align: center;
+    margin-top: 42px;
+    left: 0%;
+    margin-bottom: 45px;
+    position: relative;
+}
+.myTable2{
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(190, 204, 243);
+    width: 100%;
+    text-align: center;
+    margin-top: 42px;
+    position: relative;
+}
+.table{
+	padding:0px 0px 34px 31px;
+}
 @media only screen and (min-width: 600px) {
 	.col-tab-1 {width: 10%;}
 	.col-tab-mitad {width: 14.28%;}
@@ -20,6 +44,33 @@
 	.col-tab-8 {width: 80%;}
 	.col-tab-9 {width: 90%;}
 	.col-tab-10{width:100%;}	
+.myTable2{
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(190, 204, 243);
+    text-align: center;
+    left: 27%;
+    margin-top: 42px;
+    position: relative;
+}
+.myTable{
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    border: solid rgb(65, 63, 63) 2px;
+    background-color: rgb(255, 242, 215);
+    width: 100%;
+    text-align: center;
+    left: 0%;
+    margin-top: 42px;
+    margin-bottom: 45px;
+    position: relative;
+}
+
+.table{
+	padding:0px 0px 34px 31px;
+}
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -29,59 +80,52 @@
 	.col-2 {width: 20%;}
 	.col-3 {width: 30%;}
 	.col-4 {width: 40%;}
-	.col-5 {width: 50%;}
+	.col-5 {width: 40%;}
 	.col-6 {width: 60%;}
 	.col-7 {width: 70%;}
 	.col-8 {width: 80%;}
 	.col-9 {width: 90%;}
 	.col-10{width: 100%;}	
-}
-
-
-.myTable{
-    color: rgb(0, 0, 0);
-    display: inline-block;
-    border: solid rgb(65, 63, 63) 2px;
-    background-color: rgb(255, 242, 215);
-    width: 777px;
-    text-align: center;
-    margin-left: 45px;
-    margin-top: 42px;
-    margin-bottom: 120px;
-    position: relative;
-}
-h4{
-    font-size: 25px;
-    margin: 10px 0 13px 0px;    
-    	font-family: 'Indie Flower', cursive;
-
-}
-
-.myTable2{
+	.myTable2{
     color: rgb(0, 0, 0);
     display: inline-block;
     border: solid rgb(65, 63, 63) 2px;
     background-color: rgb(190, 204, 243);
-    width: 400px;
     text-align: center;
-    margin-left: 106px;
+    left: 30%;
     margin-top: 42px;
     position: relative;
+    }
+	.myTable{
+		color: rgb(0, 0, 0);
+		display: inline-block;
+		border: solid rgb(65, 63, 63) 2px;
+		background-color: rgb(255, 242, 215);
+		text-align: center;
+		left: 0%;
+		margin-top: 42px;
+		margin-bottom: 45px;
+		position: relative;
+	}
+	.table{
+		padding:0px 0px 34px 22px;
+	}
 }
+
+h4{
+    font-size: 25px;
+    margin: 10px 0 13px 0px;    
+    font-family: 'Indie Flower', cursive;
+}
+
 td{
 	margin: 10px 0 13px 0px;    
     font-family: 'Indie Flower', cursive;
-	
 }
-th{
-	margin: 10px 0 13px 0px;    
-    font-family: 'Indie Flower', cursive;
-	
-}
+
 tr{
 	margin: 10px 0 13px 0px;    
-    font-family: 'Indie Flower', cursive;
-	
+    font-family: 'Indie Flower', cursive;	
 }
 .patrocinadores p{
 	position: fixed;
@@ -93,6 +137,11 @@ tr{
 	padding: 0px;
 	font-size: 0;	
 }
-.table{
-	padding:0px 0px 34px 18px;
+#t{
+	padding:0px 73px 0 0px;
+
+}
+#t2{
+	padding:0 39px 0 0px;
+
 }
