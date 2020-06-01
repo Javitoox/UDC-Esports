@@ -124,6 +124,15 @@ BEGIN
     pruebas_jugadores.insertar('Insertar jugador', '87094578G','Sara Domínguez',500,'462760927',2,'saritalag@gmail.com','16/01/13','sweetlol',0,'Bolivia',4,true);  
     pruebas_jugadores.insertar('Insertar jugador', '80945781H','Felipe Robertone',400,'492760428',3,'felipxxx@gmail.com','17/01/13','csilol',0,'Uruguay',5,true);
 
+    pruebas_jugadores.insertar('Insertar jugador', '11111111A','Javi',200,'111111112',2,'javi@gmail.com','01/05/20','JaviCanijo',0,'México',13,true);
+    pruebas_jugadores.insertar('Insertar jugador', '11111111B','Daiba',200,'111111113',2,'daiba@gmail.com','01/04/19','DaibateTW',0,'Ecuador',13,true);
+    pruebas_jugadores.insertar('Insertar jugador', '11111111C','Lucho',200,'111111114',2,'luchi@gmail.com','01/03/18','LuchoYT',0,'Bolivia',8,true);
+    pruebas_jugadores.insertar('Insertar jugador', '11111111D','Simo',200,'111111115',2,'simo@gmail.com','01/02/17','Simosismo',0,'Marruecos',6,true);
+    
+    pruebas_jugadores.insertar('Insertar jugador', '11111111E','Sweet',200,'111111116',2,'sweet@gmail.com','01/10/16','Sweetera',0,'España',8,true);
+    pruebas_jugadores.insertar('Insertar jugador', '11111111F','Soniaazz',200,'111111171',2,'soniaaz@gmail.com','01/11/16','Soniazz',0,'España',8,true);
+    pruebas_jugadores.insertar('Insertar jugador', '11111111G','Amole',200,'111111118',2,'amole@gmail.com','01/12/17','Amoledwera',0,'España',13,true);
+    pruebas_jugadores.insertar('Insertar jugador', '11111111H','Raul',200,'111111119',2,'raul@gmail.com','01/06/15','FIFAraul',0,'Bolivia',13,true);
 
         /* ======================================================== */
         /*                  INSERCIÓN DE ENTRENADORES               */
@@ -169,7 +178,19 @@ BEGIN
     pruebas_entrenadores.insertar('Insertar entrenador', '12136234P','Manuel Talmos',400,'642880219',2,'manulel@gmail.com','España',14,true);
     pruebas_entrenadores.insertar('Insertar entrenador', '97912623Q','Elliot Trump',500,'612182219',1,'trump@gmail.com','España',10,true);
     pruebas_entrenadores.insertar('Insertar entrenador', '73218532R','Antonio Tejado',500,'658280219',2,'anteh@gmail.com','España',10,true);
+    
     pruebas_entrenadores.insertar('Insertar entrenador', '11234562S','Santiago Almeida',400,'620180210',2,'sanAlmeida@gmail.com','España',13,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222A','Masi',500,'222222222',5,'masi@gmail.com','Ecuador',1,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222B','Laura Arias',500,'222222223',5,'lau@gmail.com','Ecuador',1,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222C','Marina',500,'222222224',5,'mari@gmail.com','Ecuador',1,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222D','Patri',500,'222222225',5,'pattttt@gmail.com','Ecuador',1,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222E','Nia',500,'222222226',5,'nialakshi@gmail.com','Ecuador',1,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222F','Folagor',500,'222222227',5,'foladefo@gmail.com','Ecuador',1,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222G','Frigo',500,'222222228',5,'frigititi@gmail.com','Ecuador',1,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222H','Iniesta',500,'222222229',5,'kalise@gmail.com','Ecuador',1,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222I','Massi',500,'322222222',5,'chiqutito@gmail.com','Ecuador',1,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222J','Leo',500,'422222222',5,'duarte@gmail.com','Ecuador',1,true);
+    pruebas_entrenadores.insertar('Insertar entrenador', '22222222K','Duarte',500,'522222222',5,'domingos@gmail.com','Ecuador',1,true);
     
 
    
@@ -254,6 +275,43 @@ BEGIN
     pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
     
     pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
+    
+    pruebas_estadisticas.insertar('Insertar estadistica','1',100,3, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','0',60,0, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',70,4, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',74,1, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',87,3, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','0',335,5, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','0',80,3, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',90,2, true);
+
+    pruebas_estadisticas.insertar('Insertar estadistica','0',69,2, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',124,1, true);
+    
+    pruebas_estadisticas.insertar('Insertar estadistica','1',100,1, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',60,1, true);
+    
+    pruebas_estadisticas.insertar('Insertar estadistica','1',120,1, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',30,1, true);
+    
+    pruebas_estadisticas.insertar('Insertar estadistica','1',220,1, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',60,1, true);
+    
+    pruebas_estadisticas.insertar('Insertar estadistica','1',70,3, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
+
+    pruebas_estadisticas.insertar('Insertar estadistica','1',70,3, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
+    
+    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
+    
+    pruebas_estadisticas.insertar('Insertar estadistica','1',70,3, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
+    
+    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
+    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
+
 
     oid_e := SEC_OID_E.currval;
 
@@ -277,6 +335,15 @@ BEGIN
     pruebas_competiciones.insertar('Insertar competiciones','AoE World Tounrment',1100,'21/02/17',180,1,true);
     pruebas_competiciones.insertar('Insertar competiciones','Grefg Fortnite Cup',1000,'02/05/17',220,'1',true);
     pruebas_competiciones.insertar('Insertar competiciones','Fortnite Tour',1000,'02/06/17',220,1,true);
+    
+    pruebas_competiciones.insertar('Insertar competiciones','GOW RECUP',1000,'25/01/18',200,null,true);
+    pruebas_competiciones.insertar('Insertar competiciones', 'WOW World Tour',2000,'22/12/18',100,'1',true);
+    pruebas_competiciones.insertar('Insertar competiciones','Super Bros WC',1200,'20/04/16',90,null,true);
+    pruebas_competiciones.insertar('Insertar competiciones','Copa Residente',3000,'30/08/16',170,null,true);
+    pruebas_competiciones.insertar('Insertar competiciones', 'LOL World Cup',9000,'08/11/16',150,'1',true);
+    pruebas_competiciones.insertar('Insertar competiciones','Rainbow Cup',1400,'06/03/16',300,'1',true);
+    pruebas_competiciones.insertar('Insertar competiciones','AOE Tribunal Cup',3000,'24/04/16',150,null,true); 
+    pruebas_competiciones.insertar('Insertar competiciones', 'Clash Cup',2500,'11/05/17',160,'1',true);
  
     oid_com := SEC_OID_COM.currval;
 
@@ -305,6 +372,44 @@ BEGIN
     pruebas_partidos.insertar('Insertar partidos',3,2,19,'Plaza España','04/06/19 15:13:30,30','Televisado',true);
     pruebas_partidos.insertar('Insertar partidos',10,9,20,'Parque de los Principes','05/05/19 15:13:30,30','Televisado',true);
     pruebas_partidos.insertar('Insertar partidos',7,8,21,'El Retiro','12/08/19 15:13:30,30','Radio',true);
+    
+    
+    pruebas_partidos.insertar('Insertar partidos',4,13,22,'La Moraleja','25/12/18 12:13:30,30','Televisado',true);  
+    pruebas_partidos.insertar('Insertar partidos',4,13,23,'Hipódromo','28/12/18 22:13:30,30','Televisado',true);
+    pruebas_partidos.insertar('Insertar partidos',4,13,24,'Campo Celestial','25/12/18 22:13:20,30','Televisado',true);
+    
+    pruebas_partidos.insertar('Insertar partidos',14,14,25,'Polideportivo Constantina','23/02/14 11:13:30,30','Twitch',true); 
+    pruebas_partidos.insertar('Insertar partidos',14,14,26,'Parque Luisa','12/02/14 10:13:30,30','Radio',true);
+    pruebas_partidos.insertar('Insertar partidos',14,14,27,'Carpa Municipal','03/02/14 20:13:30,30','Twitch',true);
+    
+    pruebas_partidos.insertar('Insertar partidos',8,15,28,'Plaza España','14/05/16 21:13:30,30','Televisado',true); 
+    pruebas_partidos.insertar('Insertar partidos',8,15,29,'El Campanario','12/01/16 23:13:30,30','Televisado',true);
+    pruebas_partidos.insertar('Insertar partidos',8,15,30,'Parque Conil City','03/05/16 12:13:30,30','Twitch',true);
+    
+    pruebas_partidos.insertar('Insertar partidos',9,16,31,'Mingorrubio','15/05/19 13:13:30,30','Radio',true); 
+    pruebas_partidos.insertar('Insertar partidos',9,16,32,'LaCartuja','14/06/19 11:14:50,30','Twitch',true);
+    pruebas_partidos.insertar('Insertar partidos',9,16,33,'Micasa','18/02/19 14:13:40,30','Radio',true);
+
+    
+    
+    pruebas_partidos.insertar('Insertar partidos',12,17,34,'Campus Sevilla','03/05/14 18:13:30,30','Televisado',true); 
+    pruebas_partidos.insertar('Insertar partidos',12,17,35,'Parque Aleatorio','04/06/14 15:13:30,30','Televisado',true);
+    pruebas_partidos.insertar('Insertar partidos',12,17,36,'El Espacio','02/06/14 15:13:30,30','Televisado',true);
+    
+    
+    pruebas_partidos.insertar('Insertar partidos',13,18,37,'La Moraleja','04/06/15 15:13:30,30','Televisado',true); 
+    pruebas_partidos.insertar('Insertar partidos',13,18,38,'Esp Camp','03/05/15 18:13:30,30','Televisado',true);
+    pruebas_partidos.insertar('Insertar partidos',13,18,39,'Murcia','05/06/15 15:13:30,30','Televisado',true);
+    
+    
+    pruebas_partidos.insertar('Insertar partidos',10,19,40,'Campo Anarosa','02/06/17 15:13:30,30','Televisado',true); 
+    pruebas_partidos.insertar('Insertar partidos',10,19,41,'Galicia mola','03/05/17 18:13:30,30','Televisado',true); 
+    pruebas_partidos.insertar('Insertar partidos',10,19,42,'Parque Ruin','04/06/17 15:13:30,30','Televisado',true);
+    
+    
+    pruebas_partidos.insertar('Insertar partidos',11,20,43,'Estadio Molon','02/06/16 15:13:30,30','Televisado',true); 
+    pruebas_partidos.insertar('Insertar partidos',11,20,44,'Edificio en Arco','03/05/16 18:13:30,30','Televisado',true);
+    pruebas_partidos.insertar('Insertar partidos',11,20,45,'Conil de la Fra','04/06/16 15:13:30,30','Televisado',true);
     
 
 
@@ -410,7 +515,63 @@ BEGIN
     pruebas_redessociales.insertar('Insertar red social','illogalda', '21/12/17', 53290, 'QQ','60905000R',null,true);	
     pruebas_redessociales.insertar('Insertar red social','illogalda', '20/02/17', 5230, 'Facebook','60905000R',null,true);	
     pruebas_redessociales.insertar('Insertar red social','gago', '20/12/17', 50230, 'Twitter','40945781A',null,true);	
-    pruebas_redessociales.insertar('Insertar red social','gago5oficial', '24/02/17', 76230, 'Instagram','40945781A',null,true);	
+    pruebas_redessociales.insertar('Insertar red social','gago5oficial', '24/02/17', 76230, 'Instagram','40945781A',null,true);
+    
+    pruebas_redessociales.insertar('Insertar red social','JaviCanijo','03/09/2017',2300,'Reddit','11111111A',null,true);
+    pruebas_redessociales.insertar('Insertar red social','JaviCanijo','03/09/2017',2300,'Flickr','11111111A',null,true);
+    pruebas_redessociales.insertar('Insertar red social','DaibateTW','03/09/2017',2300,'QQ','11111111B',null,true);
+    pruebas_redessociales.insertar('Insertar red social','DaibateTW','03/09/2017',2300,'Twitter','11111111B',null,true);
+    pruebas_redessociales.insertar('Insertar red social','LuchoYT','03/09/2017',2300,'Facebook','11111111C',null,true);
+    pruebas_redessociales.insertar('Insertar red social','LuchoYT','03/09/2017',2300,'Instagram','11111111C',null,true);
+    pruebas_redessociales.insertar('Insertar red social','Simosismo','03/09/2017',2300,'Flickr','11111111D',null,true);
+    pruebas_redessociales.insertar('Insertar red social','Simosismo','03/09/2017',2300,'Reddit','11111111D',null,true);
+    pruebas_redessociales.insertar('Insertar red social','Sweetera','03/09/2017',2300,'Facebook','11111111E',null,true);
+    pruebas_redessociales.insertar('Insertar red social','Sweetera','03/09/2017',2300,'Instagram','11111111E',null,true);
+    pruebas_redessociales.insertar('Insertar red social','Soniazz','03/09/2017',2300,'QQ','11111111F',null,true);
+    pruebas_redessociales.insertar('Insertar red social','Soniazz','03/09/2017',2300,'Reddit','11111111F',null,true);
+    pruebas_redessociales.insertar('Insertar red social','Amoledwera','03/09/2017',2300,'Reddit','11111111G',null,true);
+    pruebas_redessociales.insertar('Insertar red social','Amoledwera','03/09/2017',2300,'Flickr','11111111G',null,true);
+    pruebas_redessociales.insertar('Insertar red social','FIFAraul','03/09/2017',2300,'Flickr','11111111H',null,true);
+    pruebas_redessociales.insertar('Insertar red social','FIFAraul','03/09/2017',2300,'YouTube','11111111H',null,true);
+    pruebas_redessociales.insertar('Insertar red social','FIFAraul','03/09/2017',2300,'WeChat','11111111H',null,true);
+    pruebas_redessociales.insertar('Insertar red social','FIFAraul','03/09/2017',2300,'Facebook','11111111H',null,true);
+    pruebas_redessociales.insertar('Insertar red social','FIFAraul','03/09/2017',2300,'Twitter','11111111H',null,true);
+    pruebas_redessociales.insertar('Insertar red social','FIFAraul','03/09/2017',2300,'Instagram','11111111H',null,true);
+    pruebas_redessociales.insertar('Insertar red social','masi','03/09/2017',2300,'QQ',null,'22222222A',true);
+    pruebas_redessociales.insertar('Insertar red social','masi1','03/09/2017',2300,'Reddit',null,'22222222A',true);
+    pruebas_redessociales.insertar('Insertar red social','lauarboc','03/09/2017',2300,'Facebook',null,'22222222B',true);
+    pruebas_redessociales.insertar('Insertar red social','lauarboc15','03/09/2017',2300,'Twitter',null,'22222222B',true);
+    pruebas_redessociales.insertar('Insertar red social','marina13','03/09/2017',2300,'Instagram',null,'22222222C',true);
+    pruebas_redessociales.insertar('Insertar red social','mariniri','03/09/2017',2300,'Twitter',null,'22222222C',true);
+    pruebas_redessociales.insertar('Insertar red social','patrifdez','03/09/2017',2300,'Reddit',null,'22222222D',true);
+    pruebas_redessociales.insertar('Insertar red social','patri15','03/09/2017',2300,'WeChat',null,'22222222D',true);
+    pruebas_redessociales.insertar('Insertar red social','niania','03/09/2017',2300,'4chan',null,'22222222E',true);
+    pruebas_redessociales.insertar('Insertar red social','niiia','03/09/2017',2300,'Reddit',null,'22222222E',true);
+    pruebas_redessociales.insertar('Insertar red social','foladef','03/09/2017',2300,'4chan',null,'22222222F',true);
+    pruebas_redessociales.insertar('Insertar red social','frigooo','03/09/2017',2300,'QQ',null,'22222222G',true);
+    pruebas_redessociales.insertar('Insertar red social','congelador','03/09/2017',2300,'Reddit',null,'22222222G',true);
+    pruebas_redessociales.insertar('Insertar red social','iniestita','03/09/2017',2300,'Twitter',null,'22222222H',true);
+    pruebas_redessociales.insertar('Insertar red social','kalise','03/09/2017',2300,'Facebook',null,'22222222H',true);
+    pruebas_redessociales.insertar('Insertar red social','masssssi','03/09/2017',2300,'Reddit',null,'22222222I',true);
+    pruebas_redessociales.insertar('Insertar red social','messi','03/09/2017',2300,'Instagram',null,'22222222I',true);
+    pruebas_redessociales.insertar('Insertar red social','leito','03/09/2017',2300,'QQ',null,'22222222J',true);
+    pruebas_redessociales.insertar('Insertar red social','leofer','03/09/2017',2300,'Reddit',null,'22222222J',true);
+    pruebas_redessociales.insertar('Insertar red social','dui','03/09/2017',2300,'QQ',null,'22222222K',true);
+    pruebas_redessociales.insertar('Insertar red social','duki','03/09/2017',2300,'Reddit',null,'22222222K',true);
+    
+    pruebas_redessociales.insertar('Insertar red social','albita','03/09/2017',2300,'Reddit',null,'75345325F',true);
+    pruebas_redessociales.insertar('Insertar red social','albii','03/09/2017',2300,'QQ',null,'75345325F',true);
+    pruebas_redessociales.insertar('Insertar red social','aton','03/09/2017',2300,'Reddit',null,'21534321B',true);
+    pruebas_redessociales.insertar('Insertar red social','anton','03/09/2017',2300,'QQ',null,'21534321B',true);
+    pruebas_redessociales.insertar('Insertar red social','galbis','03/09/2017',2300,'Reddit',null,'72136234S',true);
+    pruebas_redessociales.insertar('Insertar red social','galbi','03/09/2017',2300,'QQ',null,'72136234S',true);
+    pruebas_redessociales.insertar('Insertar red social','galeote','03/09/2017',2300,'Reddit',null,'02176392K',true);
+    pruebas_redessociales.insertar('Insertar red social','cardo','03/09/2017',2300,'QQ',null,'32345821E',true);
+    pruebas_redessociales.insertar('Insertar red social','cardope','03/09/2017',2300,'Reddit',null,'32345821E',true);
+    pruebas_redessociales.insertar('Insertar red social','vilalonga','03/09/2017',2300,'QQ',null,'29564321D',true);
+    pruebas_redessociales.insertar('Insertar red social','vila','03/09/2017',2300,'Reddit',null,'29564321D',true);
+    pruebas_redessociales.insertar('Insertar red social','trumper','03/09/2017',2300,'QQ',null,'97912623Q',true);
+    pruebas_redessociales.insertar('Insertar red social','trump','03/09/2017',2300,'Reddit',null,'97912623Q',true);
 
 
         /* ======================================================== */
@@ -439,6 +600,41 @@ BEGIN
     pruebas_encuestas.insertar('Insertar encuesta', '18/04/2019', '19/04/2019', 'Informativa','10ventet','Twitter',true);
     pruebas_encuestas.insertar('Insertar encuesta', '26/10/2019', '30/10/2019', 'Popular','gago', 'Twitter',true);
     
+    pruebas_encuestas.insertar('Insertar encuesta', '25/10/2019', '30/10/2019', 'Popular','masi', 'QQ',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '24/11/2018', '30/10/2019', 'Popular','masi1', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '23/12/2017', '30/10/2019', 'Popular','lauarboc', 'Facebook',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '22/01/2016', '30/10/2019', 'Popular','lauarboc15', 'Twitter',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '21/02/2015', '30/10/2019', 'Popular','marina13', 'Instagram',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '20/03/2014', '30/10/2019', 'Popular','mariniri', 'Twitter',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '10/04/2013', '30/10/2019', 'Popular','patrifdez', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '11/05/2019', '30/10/2019', 'Popular','patri15', 'WeChat',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '12/06/2018', '30/10/2019', 'Popular','niania', '4chan',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '13/07/2017', '30/10/2019', 'Popular','niiia', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '14/08/2020', '30/10/2019', 'Popular','foladef', '4chan',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '15/09/2020', '30/10/2019', 'Popular','frigooo', 'QQ',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '16/10/2020', '30/10/2019', 'Popular','congelador', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '17/11/2020', '30/10/2019', 'Popular','iniestita', 'Twitter',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '18/12/2019', '30/10/2019', 'Popular','kalise', 'Facebook',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '19/01/2019', '30/10/2019', 'Popular','masssssi', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '20/02/2019', '30/10/2019', 'Popular','messi', 'Instagram',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '01/03/2018', '30/10/2019', 'Popular','leito', 'QQ',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '02/04/2020', '30/10/2019', 'Popular','leofer', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '03/05/2019', '30/10/2019', 'Popular','dui', 'QQ',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '04/06/2019', '30/10/2019', 'Popular','duki', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '01/01/2019', '30/10/2019', 'Popular','albita', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '02/02/2018', '30/10/2019', 'Popular','albii', 'QQ',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '03/03/2017', '30/10/2019', 'Popular','aton', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '04/04/2016', '30/10/2019', 'Popular','anton', 'QQ',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '05/05/2015', '30/10/2019', 'Popular','galbis', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '06/06/2014', '30/10/2019', 'Popular','galbi', 'QQ',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '07/07/2019', '30/10/2019', 'Popular','galeote', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '08/08/2020', '30/10/2019', 'Popular','cardo', 'QQ',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '09/09/2020', '30/10/2019', 'Popular','cardope', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '10/10/2020', '30/10/2019', 'Popular','vilalonga', 'QQ',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '11/11/2018', '30/10/2019', 'Popular','vila', 'Reddit',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '12/12/2018', '30/10/2019', 'Popular','trumper', 'QQ',true);
+    pruebas_encuestas.insertar('Insertar encuesta', '24/12/2019', '30/10/2019', 'Popular','trump', 'Reddit',true);
+    
   
     oid_en := sec_oid_en.currval;
     
@@ -452,7 +648,7 @@ BEGIN
     pruebas_posiblesfichajes.insertar('Insertar posible fichaje','DaibateTW',100,'daib@gmail.com','EchoFox','Ecuador','62129212H',true);
     pruebas_posiblesfichajes.insertar('Insertar posible fichaje','LuchoYT',330,'lucho@gmail.com','OpTic Gaming','Bolivia','49121212M',true);
     pruebas_posiblesfichajes.insertar('Insertar posible fichaje','KibambabalaXD',450,'kimba@gmail.com','Fnatic','Camerún','52123212M',true);
-    pruebas_posiblesfichajes.insertar('Insertar posible fichaje','Simosismo',100,'simo@gmail.com','Inmortals','Marruecos','92127212K',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje','Simosismo',100,'simoss@gmail.com','Inmortals','Marruecos','92127212K',true);
     pruebas_posiblesfichajes.insertar('Insertar posible fichaje','Valenscott',0,'valen@gmail.com','100 Thieves','Italia','32321212M',true);
     pruebas_posiblesfichajes.insertar('Insertar posible fichaje','Caroexpens',240,'caro@gmail.com','G2 Esports','España','62129212H',true);
     pruebas_posiblesfichajes.insertar('Insertar posible fichaje','Lassocalss',120,'lasso@gmail.com','CLG','Argentina','49121212M',true);
@@ -488,6 +684,81 @@ BEGIN
     pruebas_posiblesfichajes.insertar('Insertar posible fichaje','DevilBlownw',0,'pilir@gmail.com',null,'España','62129212H',true);
     pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Sweetera',1,'rosaliav@gmail.com',null,'España','32321212M',true);
     pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Soniazz',0,'sonialv@gmail.com',null,'España','49121212M',true);
+    
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Enne',0,'enne@gmail.com',null,'España','49121212M',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Daga',0,'daga@gmail.com',null,'España','02321212J',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Konate',0,'konate@gmail.com',null,'España','02921212F',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Ammesia',0,'amme@gmail.com',null,'España','12111212F',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Kai',0,'kh7@gmail.com',null,'España','12121292K',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Gokam',0,'gokam@gmail.com',null,'España','12125212O',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Pepe Luis Difredo',0,'defreds@gmail.com',null,'España','12191212A',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Juan Guerra',0,'juansito@gmail.com',null,'España','18421212F',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Macareno',0,'macareno@gmail.com',null,'España','22121212H',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Trianero',0,'trianero@gmail.com',null,'España','22126212I',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Gitanero',0,'gitaneroo@gmail.com',null,'España','22127212Z',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Kounde',0,'gitanero@gmail.com',null,'España','22127212Z',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Diego Carlos',0,'gitaner@gmail.com',null,'España','22127212Z',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Vaclos',0,'gitane@gmail.com',null,'España','32121212F',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Pons',0,'gitan@gmail.com',null,'España','32121219I',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Lola Indigo',0,'gita@gmail.com',null,'España','32121219I',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Mimi',0,'git@gmail.com',null,'España','32321212G',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Andresito',0,'gi@gmail.com',null,'España','32321212G',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Guitarrica',0,'g@gmail.com',null,'España','32321212M',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Facebook',0,'git1anero@gmail.com',null,'España','32321212M',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Tyrion',0,'gitan2ero@gmail.com',null,'España','32421212K',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Lannister',0,'git3anero@gmail.com',null,'España','32421212K',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Luffy',0,'gitaner4o@gmail.com',null,'España','42171212Z',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Tenkiachi',0,'git5anero@gmail.com',null,'España','42171212Z',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Terrasa',0,'gitan6ero@gmail.com',null,'España','42921213A',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Miki',0,'gitaner7o@gmail.com',null,'España','42921213A',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Carlos R',0,'git8anero@gmail.com',null,'España','48121212A',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Right',0,'gitaner9o@gmail.com',null,'España','48121212A',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Carole',0,'gitane10ro@gmail.com',null,'España','49121212M',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'America',0,'gitaner11o@gmail.com',null,'España','49121212M',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Australia',0,'gitane12ro@gmail.com',null,'España','52121212H',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Pepito',0,'gitan13ero@gmail.com',null,'España','52121212H',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Pepillo',0,'gitane14ro@gmail.com',null,'España','52123212M',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Geis',0,'gitaner15o@gmail.com',null,'España','52123212M',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Carrso',0,'gitane16ro@gmail.com',null,'España','52191212G',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Nyu',0,'gitaner17o@gmail.com',null,'España','52191212G',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Wuolah',0,'gitan18ero@gmail.com',null,'España','62111212G',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Pai',0,'gitaner19o@gmail.com',null,'España','62111212G',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Eleinor',0,'gitan20ero@gmail.com',null,'España','62121912G',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Gaynor',0,'gitaner21o@gmail.com',null,'España','62121912G',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Belena',0,'gitane22ro@gmail.com',null,'España','62126212J',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Flavio',0,'gitane32ro@gmail.com',null,'España','62126212J',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Sammy',0,'gitane24ro@gmail.com',null,'España','62129212H',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Nia',0,'gitaner25o@gmail.com',null,'España','62129212H',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Estefi',0,'gitane26ro@gmail.com',null,'España','62131212I',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Estefania',0,'gitan27ero@gmail.com',null,'España','62131212I',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'HugoCobos',0,'gitane28ro@gmail.com',null,'España','62221212Z',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Envid',0,'gitaner29o@gmail.com',null,'España','62221212Z',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Cobos',0,'gita30nero@gmail.com',null,'España','72124212J',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Anaju',0,'gita31nero@gmail.com',null,'España','72124212J',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Ana Julieta',0,'gi33tanero@gmail.com',null,'España','72126212M',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Calavia',0,'gitane34ro@gmail.com',null,'España','72126212M',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Papadopoulos',0,'git35anero@gmail.com',null,'España','72171212I',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Heras',0,'gitaner36o@gmail.com',null,'España','72171212I',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Hellas',0,'gitane37ro@gmail.com',null,'España','82121212K',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Bened',0,'gitane38ro@gmail.com',null,'España','82121212K',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Octavio',0,'gitan39ero@gmail.com',null,'España','82126212C',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Layton',0,'gitane40ro@gmail.com',null,'España','82126212C',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Luke',0,'gitaner41o@gmail.com',null,'España','82129212Z',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Emma',0,'gitaner42o@gmail.com',null,'España','82129212Z',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Hershel',0,'gitane43ro@gmail.com',null,'España','82321212O',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Shakira',0,'gitane44ro@gmail.com',null,'España','82321212O',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Ramos',0,'gitane45ro@gmail.com',null,'España','82921212O',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Upamecano',0,'gita46nero@gmail.com',null,'España','82921212O',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Kaiser',0,'gitaner47o@gmail.com',null,'España','92121092A',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Adolfin',0,'gitane48ro@gmail.com',null,'España','92121092A',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Manu',0,'gitanero50@gmail.com',null,'España','92127212K',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Telure',0,'gitanero49@gmail.com',null,'España','92127212K',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Terelu',0,'gitaner51o@gmail.com',null,'España','92131212O',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Esteban',0,'gitaner52o@gmail.com',null,'España','92131212O',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Matamoros',0,'gitane53ro@gmail.com',null,'España','92321212H',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Sandoval',0,'gitanero54@gmail.com',null,'España','92321212H',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Mohedano',0,'gitaner55o@gmail.com',null,'España','92321212H',true);
+    pruebas_posiblesfichajes.insertar('Insertar posible fichaje', 'Juradola',0,'gitaner56o@gmail.com',null,'España','22126212I',true);
 
   
         /* ======================================================== */
