@@ -275,43 +275,7 @@ BEGIN
     pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
     
     pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
-    
-    pruebas_estadisticas.insertar('Insertar estadistica','1',100,3, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','0',60,0, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',70,4, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',74,1, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',87,3, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','0',335,5, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','0',80,3, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',90,2, true);
-
-    pruebas_estadisticas.insertar('Insertar estadistica','0',69,2, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',124,1, true);
-    
-    pruebas_estadisticas.insertar('Insertar estadistica','1',100,1, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',60,1, true);
-    
-    pruebas_estadisticas.insertar('Insertar estadistica','1',120,1, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',30,1, true);
-    
-    pruebas_estadisticas.insertar('Insertar estadistica','1',220,1, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',60,1, true);
-    
-    pruebas_estadisticas.insertar('Insertar estadistica','1',70,3, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
-
-    pruebas_estadisticas.insertar('Insertar estadistica','1',70,3, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
-    
-    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
-    
-    pruebas_estadisticas.insertar('Insertar estadistica','1',70,3, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
-    
-    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
-    pruebas_estadisticas.insertar('Insertar estadistica','1',80,4, true);
-
+        
 
     oid_e := SEC_OID_E.currval;
 
@@ -336,15 +300,6 @@ BEGIN
     pruebas_competiciones.insertar('Insertar competiciones','Grefg Fortnite Cup',1000,'02/05/17',220,'1',true);
     pruebas_competiciones.insertar('Insertar competiciones','Fortnite Tour',1000,'02/06/17',220,1,true);
     
-    pruebas_competiciones.insertar('Insertar competiciones','GOW RECUP',1000,'25/01/18',200,null,true);
-    pruebas_competiciones.insertar('Insertar competiciones', 'WOW World Tour',2000,'22/12/18',100,'1',true);
-    pruebas_competiciones.insertar('Insertar competiciones','Super Bros WC',1200,'20/04/16',90,null,true);
-    pruebas_competiciones.insertar('Insertar competiciones','Copa Residente',3000,'30/08/16',170,null,true);
-    pruebas_competiciones.insertar('Insertar competiciones', 'LOL World Cup',9000,'08/11/16',150,'1',true);
-    pruebas_competiciones.insertar('Insertar competiciones','Rainbow Cup',1400,'06/03/16',300,'1',true);
-    pruebas_competiciones.insertar('Insertar competiciones','AOE Tribunal Cup',3000,'24/04/16',150,null,true); 
-    pruebas_competiciones.insertar('Insertar competiciones', 'Clash Cup',2500,'11/05/17',160,'1',true);
- 
     oid_com := SEC_OID_COM.currval;
 
         /* ======================================================== */
@@ -372,46 +327,6 @@ BEGIN
     pruebas_partidos.insertar('Insertar partidos',3,2,19,'Plaza España','04/06/19 15:13:30,30','Televisado',true);
     pruebas_partidos.insertar('Insertar partidos',10,9,20,'Parque de los Principes','05/05/19 15:13:30,30','Televisado',true);
     pruebas_partidos.insertar('Insertar partidos',7,8,21,'El Retiro','12/08/19 15:13:30,30','Radio',true);
-    
-    
-    pruebas_partidos.insertar('Insertar partidos',4,13,22,'La Moraleja','25/12/18 12:13:30,30','Televisado',true);  
-    pruebas_partidos.insertar('Insertar partidos',4,13,23,'Hipódromo','28/12/18 22:13:30,30','Televisado',true);
-    pruebas_partidos.insertar('Insertar partidos',4,13,24,'Campo Celestial','25/12/18 22:13:20,30','Televisado',true);
-    
-    pruebas_partidos.insertar('Insertar partidos',14,14,25,'Polideportivo Constantina','23/02/14 11:13:30,30','Twitch',true); 
-    pruebas_partidos.insertar('Insertar partidos',14,14,26,'Parque Luisa','12/02/14 10:13:30,30','Radio',true);
-    pruebas_partidos.insertar('Insertar partidos',14,14,27,'Carpa Municipal','03/02/14 20:13:30,30','Twitch',true);
-    
-    pruebas_partidos.insertar('Insertar partidos',8,15,28,'Plaza España','14/05/16 21:13:30,30','Televisado',true); 
-    pruebas_partidos.insertar('Insertar partidos',8,15,29,'El Campanario','12/01/16 23:13:30,30','Televisado',true);
-    pruebas_partidos.insertar('Insertar partidos',8,15,30,'Parque Conil City','03/05/16 12:13:30,30','Twitch',true);
-    
-    pruebas_partidos.insertar('Insertar partidos',9,16,31,'Mingorrubio','15/05/19 13:13:30,30','Radio',true); 
-    pruebas_partidos.insertar('Insertar partidos',9,16,32,'LaCartuja','14/06/19 11:14:50,30','Twitch',true);
-    pruebas_partidos.insertar('Insertar partidos',9,16,33,'Micasa','18/02/19 14:13:40,30','Radio',true);
-
-    
-    
-    pruebas_partidos.insertar('Insertar partidos',12,17,34,'Campus Sevilla','03/05/14 18:13:30,30','Televisado',true); 
-    pruebas_partidos.insertar('Insertar partidos',12,17,35,'Parque Aleatorio','04/06/14 15:13:30,30','Televisado',true);
-    pruebas_partidos.insertar('Insertar partidos',12,17,36,'El Espacio','02/06/14 15:13:30,30','Televisado',true);
-    
-    
-    pruebas_partidos.insertar('Insertar partidos',13,18,37,'La Moraleja','04/06/15 15:13:30,30','Televisado',true); 
-    pruebas_partidos.insertar('Insertar partidos',13,18,38,'Esp Camp','03/05/15 18:13:30,30','Televisado',true);
-    pruebas_partidos.insertar('Insertar partidos',13,18,39,'Murcia','05/06/15 15:13:30,30','Televisado',true);
-    
-    
-    pruebas_partidos.insertar('Insertar partidos',10,19,40,'Campo Anarosa','02/06/17 15:13:30,30','Televisado',true); 
-    pruebas_partidos.insertar('Insertar partidos',10,19,41,'Galicia mola','03/05/17 18:13:30,30','Televisado',true); 
-    pruebas_partidos.insertar('Insertar partidos',10,19,42,'Parque Ruin','04/06/17 15:13:30,30','Televisado',true);
-    
-    
-    pruebas_partidos.insertar('Insertar partidos',11,20,43,'Estadio Molon','02/06/16 15:13:30,30','Televisado',true); 
-    pruebas_partidos.insertar('Insertar partidos',11,20,44,'Edificio en Arco','03/05/16 18:13:30,30','Televisado',true);
-    pruebas_partidos.insertar('Insertar partidos',11,20,45,'Conil de la Fra','04/06/16 15:13:30,30','Televisado',true);
-    
-
 
 
         /* ======================================================== */
